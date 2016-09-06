@@ -1,6 +1,0 @@
-Credentials cache: API:16039
-        Principal: fklein@42.FR
-
-  Issued                Expires               Principal
-Oct 15 09:38:38 2015  Oct 15 19:38:38 2015  krbtgt/42.FR@42.FR
-Oct 15 09:45:13 2015  Oct 15 19:38:38 2015  host/vogsphere-frontend-normal-1.42.fr@42.FR
