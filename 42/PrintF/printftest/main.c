@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 19:14:57 by fklein            #+#    #+#             */
-/*   Updated: 2016/11/14 21:01:56 by nthibaud         ###   ########.fr       */
+/*   Updated: 2016/11/14 21:18:37 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,21 @@
 
 int		main(void)
 {
+	char			*s;
+	S;
+	p;
+	int				d;
+	D;
+	int				i;
+	unsigned int	o;
+	O;
+	unsigned int	u;
+	U;
+	unsigned int	x;
+	unsigned int	X;
+	char			c;
+	C;
+
 	printf("s = %s\n", s);
 	ft_printf("s = %s\n", s);
 //	printf("S = %s\n", S);
