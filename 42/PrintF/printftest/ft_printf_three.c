@@ -6,13 +6,13 @@
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:03:51 by fklein            #+#    #+#             */
-/*   Updated: 2016/07/25 16:20:38 by fklein           ###   ########.fr       */
+/*   Updated: 2016/11/14 19:13:06 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static int		ft_putnbrui(unsigned int i)
+int		ft_putnbrui(unsigned int i)
 {
 	int		nb;
 	long	m;
@@ -35,7 +35,7 @@ static int		ft_putnbrui(unsigned int i)
 	return (nb);
 }
 
-static int		ft_putnbroi(unsigned int i)
+int		ft_putnbroi(unsigned int i)
 {
 	int		nb;
 	long	m;
@@ -58,7 +58,7 @@ static int		ft_putnbroi(unsigned int i)
 	return (nb);
 }
 
-static int		ft_putnbrxi(unsigned int i)
+int		ft_putnbrxi(unsigned int i)
 {
 	int		nb;
 	long	m;
@@ -84,7 +84,7 @@ static int		ft_putnbrxi(unsigned int i)
 	return (nb);
 }
 
-static int		ft_putnbrmxi(unsigned int i)
+int		ft_putnbrmxi(unsigned int i)
 {
 	int		nb;
 	long	m;
@@ -110,7 +110,7 @@ static int		ft_putnbrmxi(unsigned int i)
 	return (nb);
 }
 
-static int		ft_putpti(long unsigned int i)
+int		ft_putpti(long unsigned int i)
 {
 	int				nb;
 	unsigned long	m;
