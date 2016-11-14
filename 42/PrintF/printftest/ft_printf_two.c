@@ -6,20 +6,20 @@
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:04:03 by fklein            #+#    #+#             */
-/*   Updated: 2016/07/25 16:19:45 by fklein           ###   ########.fr       */
+/*   Updated: 2016/11/14 19:14:21 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 #include <unistd.h>
 
-static int		ft_putchari(char c)
+int		ft_putchari(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-static int		ft_putstri(char *str)
+int		ft_putstri(char *str)
 {
 	int		i;
 
@@ -36,7 +36,7 @@ static int		ft_putstri(char *str)
 	return (i);
 }
 
-static int		ft_putnbri(int i)
+int		ft_putnbri(int i)
 {
 	int		nb;
 	long	m;

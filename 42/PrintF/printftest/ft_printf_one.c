@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/21 14:03:46 by fklein            #+#    #+#             */
-/*   Updated: 2016/07/25 16:21:39 by fklein           ###   ########.fr       */
+/*   Created: 2016/11/14 18:47:09 by fklein            #+#    #+#             */
+/*   Updated: 2016/11/14 19:16:48 by nthibaud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static void		ft_check_ident(int *nb, const char *format, int i, va_list ap)
+void		ft_check_ident(int *nb, const char *format, int i, va_list ap)
 {
 	if (format[i] == 's')
 		*nb += ft_putstri(va_arg(ap, char *));
@@ -34,7 +34,7 @@ static void		ft_check_ident(int *nb, const char *format, int i, va_list ap)
 		*nb += ft_putchari('%');
 }
 
-static int		ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	int			i;
