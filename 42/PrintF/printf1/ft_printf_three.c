@@ -6,11 +6,11 @@
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:03:51 by fklein            #+#    #+#             */
-/*   Updated: 2016/11/14 19:13:06 by nthibaud         ###   ########.fr       */
+/*   Updated: 2016/11/17 18:05:01 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 int		ft_putnbrui(unsigned int i)
 {

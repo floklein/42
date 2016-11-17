@@ -6,11 +6,11 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 19:14:57 by fklein            #+#    #+#             */
-/*   Updated: 2016/11/14 21:18:37 by nthibaud         ###   ########.fr       */
+/*   Updated: 2016/11/17 18:05:26 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 int		main(void)
 {
