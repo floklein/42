@@ -6,11 +6,11 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 18:47:09 by fklein            #+#    #+#             */
-/*   Updated: 2016/11/14 21:02:33 by nthibaud         ###   ########.fr       */
+/*   Updated: 2016/11/17 18:04:51 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 void		ft_check_ident(int *nb, const char *format, int i, va_list ap)
 {
