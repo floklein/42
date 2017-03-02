@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstadd_lastpos.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/04 18:12:43 by fklein            #+#    #+#             */
-/*   Updated: 2016/09/05 18:36:50 by fklein           ###   ########.fr       */
+/*   Created: 2016/07/27 18:47:18 by fklein            #+#    #+#             */
+/*   Updated: 2016/07/27 18:47:51 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
+#include <stdlib.h>
 
-# define BUFF_SIZE 8
-
-typedef struct		stockage
+void	ft_lstadd_lastpos(t_list **lst, t_list *newnode)
 {
-	int	*tries;
-	char	***files;
-}			stockage;
+	t_list *begin;
 
-int	get_next_line(const int fd, char **line);
-char	*ft_strjoin(const char *str1, const char *str2);
-char	**ft_strsplit(const char *s, char c);
-void	ft_strclr(char *str);
-
-#endif
+	begin = *lst;
+	while ((*lst)->next != NULL)
+		*lst = (*lst)->next;
+	(*lst)->next = newnode;
+	*lst = (*lst)->next;
+	(*lst)->next = NULL;
+	*lst = begin;
+}
