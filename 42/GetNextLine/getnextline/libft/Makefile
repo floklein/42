@@ -6,7 +6,7 @@
 #    By: fklein <fklein@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/07/25 16:48:17 by fklein            #+#    #+#              #
-#    Updated: 2016/07/27 18:45:15 by fklein           ###   ########.fr        #
+#*   Updated: 2017/03/05 21:49:46 by fklein           ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ SRC =	ft_atoi.c \
 		ft_memchr.c \
 		ft_strcpy.c \
 		ft_strsplit.c \
+		ft_strsplit_mod.c \
 		ft_memcmp.c \
 		ft_strdel.c \
 		ft_strstr.c \

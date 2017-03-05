@@ -1,17 +1,17 @@
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/05 17:28:23 by fklein            #+#    #+#             */
+/*   Updated: 2017/03/05 22:45:49 by fklein           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "get_next_line.h"
+
 #include <stddef.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -28,40 +28,39 @@ int	get_next_line(int fd, char **line)
 	char		*ch;
 	char		*tmp_str;
 
+	if (fd < 0)
+		return (-1);
 	if (!stock)
 	{
-		if (!(stock = (stockage *)malloc(sizeof(stockage))))
+		if (!(stock = (stockage *)malloc(sizeof(stockage)))
+		|| !(stock->tries = (int *)malloc(sizeof(int) * 1000))
+		|| !(stock->files = (char ***)malloc(sizeof(char **) * 1000)))
 			return (-1);
-		if (!(stock->tries = (int *)malloc(sizeof(int) * 1000)))
-			return (-1);
-		if (!(stock->files = (char ***)malloc(sizeof(char **) * 1000)))
-			return (-1);
-		printf("\033[31mMémoire allouée !\n");
+		printf("\033[31m---- Mémoire allouée !\n");
 	}
 	if (stock->tries[fd] == 0)
 	{
-		if (!(ch = (char *)malloc(sizeof(char) * BUFF_SIZE)))
+		if (!(ch = (char *)malloc(sizeof(char) * BUFF_SIZE))
+		|| !(tmp_str = (char *)malloc(sizeof(char) * BUFF_SIZE)))
 			return (-1);
-		if (!(tmp_str = (char *)malloc(sizeof(char) * BUFF_SIZE)))
-			return (-1);
-		printf("\033[31m---- Premier try pour fd%d\n", fd);
+		printf("\033[31m---- Premier try pour fd=%d\n", fd);
 		while ((err = read(fd, ch, BUFF_SIZE)) > 0)
 		{	
-			printf("\033[32m-------- Buffer lu :\033[0m =%s=\n", ch);
+			printf("\033[32m-------- Buffer lu :\033[0m\n=%s=\n", ch);
 			tmp_str = ft_strjoin(tmp_str, ch);
 			printf("\033[32m-------- Etat du tmp :\033[0m\n=%s=\n", tmp_str);
 			ft_strclr(ch);
 		}
-		stock->files[fd] = ft_strsplit(tmp_str, '\n');
+		stock->files[fd] = ft_strsplit_mod(tmp_str, '\n');
 		printf("\033[31m---- Tableau ajouté pour fd%d !\n", fd);
 	}
-	printf("\033[36mLigne à venir : -%s-\n", stock->files[fd][stock->tries[fd]]);
 	printf("\033[36mPrécédente valeur de *line : #%s#\n", *line);
 	*line = stock->files[fd][stock->tries[fd]];
 	printf("\033[31mLigne stockée !\n");
-	stock->tries[fd]++;
-	if (stock->files[fd][stock->tries[fd]] == NULL)
+	printf("\033[33m ==> Ligne fd=%d : --%s--\n", fd, *line);
+	if (stock->files[fd][stock->tries[fd] + 1] == NULL)
 		return (0);
+	stock->tries[fd]++;
 	return (1);
 }
 
@@ -69,25 +68,36 @@ int	main(void)
 {
 	int	fd1;
 	int	fd2;
-	char	**line1;
-	char	**line2;
+	int	fd3;
+	char	*line1 = NULL;
+	char	*line2 = NULL;
+	char	*line3 = NULL;
+	int	res1 = 42;
+	int	res2 = 42;
+	int	res3 = 42;
 
-	line1 = (char **)malloc(sizeof(char *));
-	line2 = (char **)malloc(sizeof(char *));
-	*line1 = (char *)malloc(sizeof(char));
-	*line2 = (char *)malloc(sizeof(char));
-
-	fd1 = open("test", O_RDONLY, S_IREAD);
+	fd1 = open("test1", O_RDONLY, S_IREAD);
 	fd2 = open("test2", O_RDONLY, S_IREAD);
+	fd3 = open("test3", O_RDONLY, S_IREAD);
 
-	while ((get_next_line(fd1, line1)) != 0)
-		printf("\033[33mXXXXXXXXXXXX Ligne fd1=%d : --%s-- XXXXXXXXXXXX\n", fd1, *line1);
-	printf("\033[33mXXXXXXXXXXXX Last fd1=%d : --%s-- XXXXXXXXXXXX\n", fd1, *line1);
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd1, &line1));
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd1, &line1));
 
-	while ((get_next_line(fd2, line2)) != 0)
-		printf("\033[33mXXXXXXXXXXXX Ligne fd2=%d : --%s-- XXXXXXXXXXXX\n", fd2, *line2);
-	printf("\033[33mXXXXXXXXXXXX Last fd1=%d : --%s-- XXXXXXXXXXXX\n", fd2, *line2);
+	printf("\033[35m======================================================\n");
+
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd2, &line2));
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd2, &line2));
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd2, &line2));
 	
+	printf("\033[35m======================================================\n");
+
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd3, &line3));
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd3, &line3));
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd3, &line3));
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd3, &line3));
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd3, &line3));
+
 	close (fd1);
 	close (fd2);
+	close (fd3);
 }
