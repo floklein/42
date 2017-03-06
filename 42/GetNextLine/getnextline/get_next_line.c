@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 17:28:23 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/05 22:45:49 by fklein           ###   ########.fr       */
+/*   Updated: 2017/03/05 23:19:58 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <errno.h>
 
 #include <stdio.h>
 
@@ -51,6 +52,8 @@ int	get_next_line(int fd, char **line)
 			printf("\033[32m-------- Etat du tmp :\033[0m\n=%s=\n", tmp_str);
 			ft_strclr(ch);
 		}
+		if (err == -1 && errno == EBADF)
+			return (-1);
 		stock->files[fd] = ft_strsplit_mod(tmp_str, '\n');
 		printf("\033[31m---- Tableau ajouté pour fd%d !\n", fd);
 	}
@@ -66,19 +69,24 @@ int	get_next_line(int fd, char **line)
 
 int	main(void)
 {
+	int	fd0;
 	int	fd1;
 	int	fd2;
 	int	fd3;
+	char	*line0 = NULL;
 	char	*line1 = NULL;
 	char	*line2 = NULL;
 	char	*line3 = NULL;
-	int	res1 = 42;
-	int	res2 = 42;
-	int	res3 = 42;
 
+	fd0 = 0;
 	fd1 = open("test1", O_RDONLY, S_IREAD);
 	fd2 = open("test2", O_RDONLY, S_IREAD);
 	fd3 = open("test3", O_RDONLY, S_IREAD);
+
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd0, &line0));
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd0, &line0));
+	
+	printf("\033[35m======================================================\n");
 
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd1, &line1));
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd1, &line1));
