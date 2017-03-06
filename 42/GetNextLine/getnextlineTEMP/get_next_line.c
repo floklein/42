@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 17:28:23 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/05 22:26:17 by fklein           ###   ########.fr       */
+/*   Updated: 2017/03/05 23:29:49 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <errno.h>
 
 #include <stdio.h>
 
@@ -47,6 +48,8 @@ int	get_next_line(int fd, char **line)
 			tmp_str = ft_strjoin(tmp_str, ch);
 			ft_strclr(ch);
 		}
+		if (err == -1 && errno == EBADF)
+			return (-1);
 		stock->files[fd] = ft_strsplit_mod(tmp_str, '\n');
 	}
 	*line = stock->files[fd][stock->tries[fd]];

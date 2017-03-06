@@ -6,7 +6,7 @@
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 14:09:39 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/05 22:23:30 by fklein           ###   ########.fr       */
+/*   Updated: 2017/03/05 22:49:45 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_len_db_tab(const char *s, char c)
 			len++;
 		i++;
 	}
-	return ((len == 0) ? 1 : len);
+	return ((s[i - 1] == c) ? len : len + 1);
 }
 
 static char	**ft_solve_split(char **tab, int len_tab, const char *s, char c)
