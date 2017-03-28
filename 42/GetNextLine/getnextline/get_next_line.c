@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 17:28:23 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/05 23:19:58 by fklein           ###   ########.fr       */
+/*   Updated: 2017/03/06 14:55:36 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	get_next_line(int fd, char **line)
 			return (-1);
 		printf("\033[31m---- Premier try pour fd=%d\n", fd);
 		while ((err = read(fd, ch, BUFF_SIZE)) > 0)
-		{	
+		{
 			printf("\033[32m-------- Buffer lu :\033[0m\n=%s=\n", ch);
 			tmp_str = ft_strjoin(tmp_str, ch);
 			printf("\033[32m-------- Etat du tmp :\033[0m\n=%s=\n", tmp_str);
@@ -79,24 +79,26 @@ int	main(void)
 	char	*line3 = NULL;
 
 	fd0 = 0;
-	fd1 = open("test1", O_RDONLY, S_IREAD);
-	fd2 = open("test2", O_RDONLY, S_IREAD);
-	fd3 = open("test3", O_RDONLY, S_IREAD);
+	fd1 = open("test2", O_RDONLY, S_IREAD);
+//	fd2 = open("test2", O_RDONLY, S_IREAD);
+//	fd3 = open("test3", O_RDONLY, S_IREAD);
 
+/*	printf("\033[33m ==> Output : %d\n", get_next_line(fd0, &line0));
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd0, &line0));
-	printf("\033[33m ==> Output : %d\n", get_next_line(fd0, &line0));
-	
+
 	printf("\033[35m======================================================\n");
-
+*/
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd1, &line1));
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd1, &line1));
-
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd1, &line1));
+	printf("\033[33m ==> Output : %d\n", get_next_line(fd1, &line1));
+/*
 	printf("\033[35m======================================================\n");
 
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd2, &line2));
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd2, &line2));
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd2, &line2));
-	
+
 	printf("\033[35m======================================================\n");
 
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd3, &line3));
@@ -104,7 +106,7 @@ int	main(void)
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd3, &line3));
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd3, &line3));
 	printf("\033[33m ==> Output : %d\n", get_next_line(fd3, &line3));
-
+*/
 	close (fd1);
 	close (fd2);
 	close (fd3);

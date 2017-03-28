@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 17:28:23 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/05 23:29:49 by fklein           ###   ########.fr       */
+/*   Updated: 2017/03/06 15:14:34 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,36 +22,40 @@
 
 #include <stdio.h>
 
-int	get_next_line(int fd, char **line)
+int	first_time(int fd, stockage *stock)
 {
-	static stockage	*stock = NULL;
 	int		err;
 	char		*ch;
 	char		*tmp_str;
 
+	if (!(ch = (char *)malloc(sizeof(char) * BUFF_SIZE))
+	|| !(tmp_str = (char *)malloc(sizeof(char) * BUFF_SIZE)))
+		return (0);
+	while ((err = read(fd, ch, BUFF_SIZE)) > 0)
+	{
+		tmp_str = ft_strjoin(tmp_str, ch);
+		ft_strclr(ch);
+	}
+	if (err == -1 && errno == EBADF)
+		return (0);
+	stock->files[fd] = ft_strsplit_mod(tmp_str, '\n');
+	return (1);
+}
+
+int	get_next_line(int fd, char **line)
+{
+	static stockage	*stock = NULL;
+
 	if (fd < 0)
 		return (-1);
 	if (!stock)
-	{
 		if (!(stock = (stockage *)malloc(sizeof(stockage)))
 		|| !(stock->tries = (int *)malloc(sizeof(int) * 1000))
 		|| !(stock->files = (char ***)malloc(sizeof(char **) * 1000)))
 			return (-1);
-	}
 	if (stock->tries[fd] == 0)
-	{
-		if (!(ch = (char *)malloc(sizeof(char) * BUFF_SIZE))
-		|| !(tmp_str = (char *)malloc(sizeof(char) * BUFF_SIZE)))
+		if (!first_time(fd, stock))
 			return (-1);
-		while ((err = read(fd, ch, BUFF_SIZE)) > 0)
-		{	
-			tmp_str = ft_strjoin(tmp_str, ch);
-			ft_strclr(ch);
-		}
-		if (err == -1 && errno == EBADF)
-			return (-1);
-		stock->files[fd] = ft_strsplit_mod(tmp_str, '\n');
-	}
 	*line = stock->files[fd][stock->tries[fd]];
 	if (stock->files[fd][stock->tries[fd] + 1] == NULL)
 		return (0);
