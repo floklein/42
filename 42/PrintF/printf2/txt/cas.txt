@@ -1,0 +1,4 @@
+
+%% affiche %
+
+les options ne fonctionnent qu’avec les nombres, pas une str

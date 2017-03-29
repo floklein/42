@@ -1,0 +1,11 @@
+
+afficher char par char
+avancer++
+si % :
+	parser la conversion
+		s’arrête quand on a rencontré la lettre de conversion
+	stocker dans une struct les options
+	lire cet struct et appliquer la fonction adéquate à l’arg nºx
+
+fonction adéquate :
+se passe dans le bon ordre le str à afficher
