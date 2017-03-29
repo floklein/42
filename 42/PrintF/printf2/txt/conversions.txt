@@ -1,0 +1,15 @@
+
+s	string
+S	string + l modifier
+p	hexadecimal
+d	signed decimal
+D
+i
+o
+O
+u
+U
+x
+X
+c
+C
