@@ -1,0 +1,12 @@
+
+BONUS
+
+e	double > (-)x.xxxe+-xx
+E	double > (-)x.xxxE+-xx
+f	double > (-)xxx.xxx
+F	double > (-)xxx.xxx
+g	~f
+G	~F
+a	double > [-]0xh.hhhp[+-]d
+A	double > [-]0Xh.hhhp[+-]d
+n	number of chars written stored into the int

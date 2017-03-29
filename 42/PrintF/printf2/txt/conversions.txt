@@ -1,15 +1,18 @@
 
+CONVERSIONS
+
 s	string
 S	string + l modifier
 p	hexadecimal
-d	signed decimal
-D
-i
-o
-O
-u
-U
-x
-X
-c
-C
+d	int > signed decimal
+D	long > signed decimal
+i	int > signed decimal
+o	int > unsigned octal
+O	long > unsigned octal
+u	int > unsigned decimal
+U	long > unsigned decimal
+x	int > unsigned hexadecimal
+X	int > unsigned hexadecimal
+c	int > char
+C	int > char + l modifier
+%	%
