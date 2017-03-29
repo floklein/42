@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:59:47 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/28 18:03:22 by fklein           ###   ########.fr       */
+/*   Updated: 2017/03/29 07:55:43 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	ft_printf("salut %d", 3);
+	ft_printf("salut %     hhs", 3);
 }
