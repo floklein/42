@@ -6,16 +6,18 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 17:59:47 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/29 07:55:43 by fklein           ###   ########.fr       */
+/*   Updated: 2017/03/29 11:18:09 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_printf(const char *format, ...)
 {
-	
+	return (0);
 }
+
+#include <stdio.h>
 
 int	main(void)
 {
-	ft_printf("salut %     hhs", 3);
+	printf("%       d", 3);
 }

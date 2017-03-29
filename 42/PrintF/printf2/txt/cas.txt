@@ -1,4 +1,6 @@
 
-%% affiche %
+CAS
 
 les options ne fonctionnent qu’avec les nombres, pas une str
+
+printf return le nombre de chars écrits
