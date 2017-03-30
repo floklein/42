@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   move.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 17:47:22 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/29 18:38:38 by fklein           ###   ########.fr       */
+/*   Created: 2017/03/30 16:38:37 by fklein            #+#    #+#             */
+/*   Updated: 2017/03/30 17:57:49 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#ifndef MOVE_H
+# define MOVE_H
 
-int	main()
+typedef struct	s_data
 {
-	void *mlx;
-	void *win;
+	void	*mlx;
+	void	*win;
+	int	x;
+	int	y;
+	int	x2;
+	int	y2;
+	int	x_size;
+	int	y_size;
+}		t_data;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 400, 400, "mlx 42");
-	mlx_loop(mlx);
-}
+#endif
