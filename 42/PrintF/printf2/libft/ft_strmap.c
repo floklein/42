@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 13:35:11 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/30 12:14:49 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 14:08:22 by fklein            #+#    #+#             */
+/*   Updated: 2016/07/27 17:45:25 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-typedef struct	s_conv
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char		spec;
-	void		*data;
-	int			opt_hash;
-	int			opt_zero;
-	int			opt_minus;
-	int			opt_plus;
-	int			opt_space;
-	int			width_min;
-	int			precision;
-	int			mod_hh;
-	int			mod_h;
-	int			mod_l;
-	int			mod_ll;
-	int			mod_j;
-	int			mod_z;
-}				t_conv;
+	char	*t;
+	int		i;
 
-int		ft_printf(const char *format, ...);
-
-#endif
+	i = 0;
+	if (s && f)
+	{
+		if ((t = ft_strnew(ft_strlen(s))) == NULL)
+			return (NULL);
+		while (s[i] != 0)
+		{
+			t[i] = f(s[i]);
+			i++;
+		}
+		return (t);
+	}
+	return (NULL);
+}

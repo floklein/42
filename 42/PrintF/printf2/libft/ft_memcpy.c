@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 13:35:11 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/30 12:14:49 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 14:03:19 by fklein            #+#    #+#             */
+/*   Updated: 2016/03/21 14:03:22 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-typedef struct	s_conv
+void	*ft_memcpy(void *str1, const void *str2, size_t n)
 {
-	char		spec;
-	void		*data;
-	int			opt_hash;
-	int			opt_zero;
-	int			opt_minus;
-	int			opt_plus;
-	int			opt_space;
-	int			width_min;
-	int			precision;
-	int			mod_hh;
-	int			mod_h;
-	int			mod_l;
-	int			mod_ll;
-	int			mod_j;
-	int			mod_z;
-}				t_conv;
+	unsigned long	i;
+	char			*temp1;
+	const char		*temp2;
 
-int		ft_printf(const char *format, ...);
-
-#endif
+	i = 0;
+	temp1 = str1;
+	temp2 = str2;
+	while (i < n)
+	{
+		temp1[i] = temp2[i];
+		i++;
+	}
+	return (str1);
+}

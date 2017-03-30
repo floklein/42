@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_inv_sort_string_tab.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 13:35:11 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/30 12:14:49 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 13:58:08 by fklein            #+#    #+#             */
+/*   Updated: 2016/03/21 13:59:36 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-typedef struct	s_conv
+char	**ft_inv_sort_string_tab(char **tab, int len)
 {
-	char		spec;
-	void		*data;
-	int			opt_hash;
-	int			opt_zero;
-	int			opt_minus;
-	int			opt_plus;
-	int			opt_space;
-	int			width_min;
-	int			precision;
-	int			mod_hh;
-	int			mod_h;
-	int			mod_l;
-	int			mod_ll;
-	int			mod_j;
-	int			mod_z;
-}				t_conv;
+	int		n;
+	char	*temp;
+	int		i;
 
-int		ft_printf(const char *format, ...);
-
-#endif
+	n = 1;
+	while (n != 0)
+	{
+		n = 0;
+		i = 0;
+		while (i < len - 1)
+		{
+			if (ft_strcmp(tab[i], tab[i + 1]) < 0)
+			{
+				temp = ft_strdup(tab[i]);
+				tab[i] = ft_strdup(tab[i + 1]);
+				tab[i + 1] = ft_strdup(temp);
+				n++;
+			}
+			i++;
+		}
+	}
+	return (tab);
+}

@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 13:35:11 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/30 12:14:49 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 14:08:36 by fklein            #+#    #+#             */
+/*   Updated: 2016/03/21 14:08:38 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
+#include <stdlib.h>
 
-typedef struct	s_conv
+char	*ft_strncat(char *str1, const char *str2, size_t n)
 {
-	char		spec;
-	void		*data;
-	int			opt_hash;
-	int			opt_zero;
-	int			opt_minus;
-	int			opt_plus;
-	int			opt_space;
-	int			width_min;
-	int			precision;
-	int			mod_hh;
-	int			mod_h;
-	int			mod_l;
-	int			mod_ll;
-	int			mod_j;
-	int			mod_z;
-}				t_conv;
+	size_t	a;
+	size_t	b;
 
-int		ft_printf(const char *format, ...);
-
-#endif
+	a = 0;
+	b = 0;
+	while (str1[a] != 0)
+		a++;
+	while (b < n && str2[b] != 0)
+	{
+		str1[a] = str2[b];
+		a++;
+		b++;
+	}
+	str1[a] = 0;
+	return (str1);
+}

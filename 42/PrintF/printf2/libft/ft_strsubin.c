@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strsubin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 13:35:11 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/30 12:14:49 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 14:10:03 by fklein            #+#    #+#             */
+/*   Updated: 2016/03/21 14:10:08 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
+#include <stdlib.h>
 
-typedef struct	s_conv
+char	*ft_strsubin(char *str, int i, int j)
 {
-	char		spec;
-	void		*data;
-	int			opt_hash;
-	int			opt_zero;
-	int			opt_minus;
-	int			opt_plus;
-	int			opt_space;
-	int			width_min;
-	int			precision;
-	int			mod_hh;
-	int			mod_h;
-	int			mod_l;
-	int			mod_ll;
-	int			mod_j;
-	int			mod_z;
-}				t_conv;
+	char	*new;
+	char	*tmp;
+	int		len;
 
-int		ft_printf(const char *format, ...);
-
-#endif
+	len = ft_strlen(str) - j + i;
+	new = malloc(sizeof(char) * (len + 1));
+	new = ft_strncpy(new, str, i);
+	tmp = new + i;
+	tmp = ft_strcpy(tmp, str + j);
+	new[len] = 0;
+	return (new);
+}
