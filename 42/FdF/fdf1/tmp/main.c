@@ -3,11 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/30 13:01:27 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/30 13:01:31 by fklein           ###   ########.fr       */
+/*   Created: 2017/03/29 17:47:22 by fklein            #+#    #+#             */
+/*   Updated: 2017/03/29 18:38:38 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
 
+int	main()
+{
+	void *mlx;
+	void *win;
+
+	mlx = mlx_init();
+	win = mlx_new_window(mlx, 400, 400, "mlx 42");
+	mlx_loop(mlx);
+}
