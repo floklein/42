@@ -9,9 +9,14 @@ si % :
 	stocker dans une struct les options
 	lire cet struct et appliquer la fonction adéquate à l’arg nºx
 
-
 fonction adéquate :
 se passe dans le bon ordre le str à afficher
 
-
 en premier faire la conversion, et ensuite appliquer les flags
+
+
+PARSER
+
+parcourt la conv en remplissant la struct
+envoie la struct a printer
+return la taille de la conversion

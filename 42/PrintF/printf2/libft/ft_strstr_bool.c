@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strstr_bool.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 13:35:11 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/30 12:14:49 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 14:09:47 by fklein            #+#    #+#             */
+/*   Updated: 2016/03/21 14:09:49 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-typedef struct	s_conv
+static int	ft_solvestr(const char *str, const char *seek)
 {
-	char		spec;
-	void		*data;
-	int			opt_hash;
-	int			opt_zero;
-	int			opt_minus;
-	int			opt_plus;
-	int			opt_space;
-	int			width_min;
-	int			precision;
-	int			mod_hh;
-	int			mod_h;
-	int			mod_l;
-	int			mod_ll;
-	int			mod_j;
-	int			mod_z;
-}				t_conv;
+	int		i1;
+	int		i2;
 
-int		ft_printf(const char *format, ...);
+	i1 = 0;
+	i2 = 0;
+	while (str[i1] != 0)
+	{
+		while (str[i1] == seek[i2])
+		{
+			i1++;
+			i2++;
+			if (seek[i2] == 0)
+				return (1);
+		}
+		i2 = 0;
+		i1++;
+	}
+	return (0);
+}
 
-#endif
+int			ft_strstr_bool(const char *str, const char *seek)
+{
+	if (!(*seek))
+		return (0);
+	else
+		return (ft_solvestr(str, seek));
+}

@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/29 13:35:11 by fklein            #+#    #+#             */
-/*   Updated: 2017/03/30 12:14:49 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 14:04:56 by fklein            #+#    #+#             */
+/*   Updated: 2016/07/27 16:47:14 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-typedef struct	s_conv
+void	ft_putnbr(int n)
 {
-	char		spec;
-	void		*data;
-	int			opt_hash;
-	int			opt_zero;
-	int			opt_minus;
-	int			opt_plus;
-	int			opt_space;
-	int			width_min;
-	int			precision;
-	int			mod_hh;
-	int			mod_h;
-	int			mod_l;
-	int			mod_ll;
-	int			mod_j;
-	int			mod_z;
-}				t_conv;
-
-int		ft_printf(const char *format, ...);
-
-#endif
+	if (n < 0)
+	{
+		if (n <= -10)
+		{
+			ft_putchar('-');
+			ft_putnbr(-1 * (n / 10));
+			ft_putchar('0' + -1 * (n % 10));
+		}
+		if (n > -10)
+		{
+			ft_putchar('-');
+			ft_putchar('0' - n);
+		}
+	}
+	else
+	{
+		if (n >= 10)
+		{
+			ft_putnbr(n / 10);
+			ft_putchar('0' + n % 10);
+		}
+		else
+			ft_putchar('0' + n);
+	}
+}
