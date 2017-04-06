@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/04/05 18:03:59 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 14:07:12 by fklein            #+#    #+#             */
+/*   Updated: 2016/03/21 14:07:14 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <fcntl.h>
+char	*ft_strcpy(char *str1, const char *str2)
+{
+	int		i;
 
-void	ft_putstr_fd(char *str, int fd);
-int	get_next_line(int fd, char **line);
-char	**ft_strsplit(char const *line, char c);
-int	ft_atoi(char const *str);
-
-#endif
+	i = 0;
+	while (str2[i] != 0)
+	{
+		str1[i] = str2[i];
+		i++;
+	}
+	str1[i] = 0;
+	return (str1);
+}

@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/04/05 18:03:59 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 14:04:49 by fklein            #+#    #+#             */
+/*   Updated: 2016/03/21 14:04:52 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-#include <stdlib.h>
-#include <fcntl.h>
-
-void	ft_putstr_fd(char *str, int fd);
-int	get_next_line(int fd, char **line);
-char	**ft_strsplit(char const *line, char c);
-int	ft_atoi(char const *str);
-
-#endif
+void	ft_putendl_fd(const char *str, int fd)
+{
+	ft_putstr_fd(str, fd);
+	ft_putchar_fd('\n', fd);
+}

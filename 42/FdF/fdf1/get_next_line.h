@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/04/05 18:03:59 by fklein           ###   ########.fr       */
+/*   Created: 2016/09/04 18:12:43 by fklein            #+#    #+#             */
+/*   Updated: 2017/04/05 17:13:58 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-#include <stdlib.h>
-#include <fcntl.h>
+# define BUFF_SIZE 10
 
-void	ft_putstr_fd(char *str, int fd);
-int	get_next_line(int fd, char **line);
-char	**ft_strsplit(char const *line, char c);
-int	ft_atoi(char const *str);
+typedef struct		s_stockage
+{
+	int				*tries;
+	char			***files;
+}					t_stockage;
+
+int					get_next_line(const int fd, char **line);
+char				*ft_strjoin(const char *str1, const char *str2);
+char				**ft_strsplit_mod(const char *s, char c);
+void				ft_strclr(char *str);
 
 #endif
