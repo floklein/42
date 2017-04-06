@@ -6,4 +6,3 @@ Found wrong line length. Exiting.
 
 fichier vide ou plein d’espaces
 No data found.
-
