@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 15:46:10 by fklein            #+#    #+#             */
-/*   Updated: 2017/04/06 12:36:45 by fklein           ###   ########.fr       */
+/*   Updated: 2017/04/06 18:58:44 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,18 @@ int	str_to_map(int ***map, char ***map_str, int map_width, int map_height)
 	return (1);
 }
 
-int	file_to_str_to_map(int ***map, int fd, int map_width, int map_height)
+int	file_to_str_to_map(int ***map, char *file, int map_width, int map_height)
 {
 	char	***map_str;
 	int	i;
+	int	fd;
 	char	*line;
 
 	if (!(map_str = (char ***)malloc(sizeof(char **) * map_height)))
 		return (0);
 	i = 0;
+	if ((fd = open(file, O_RDONLY)) == -1)
+		return (no_file(file));
 	while (i < map_height)
 	{
 		if(!(map_str[i] = (char **)malloc(sizeof(char*) * map_width)))
@@ -54,6 +57,7 @@ int	file_to_str_to_map(int ***map, int fd, int map_width, int map_height)
 		map_str[i] = ft_strsplit(line, ' ');
 		i++;
 	}
+	close(fd);
 	str_to_map(map, map_str, map_width, map_height);
 	return (1);
 }
@@ -61,19 +65,17 @@ int	file_to_str_to_map(int ***map, int fd, int map_width, int map_height)
 int	main(int argc, char **argv)
 {
 	int	**map;
-	int	map_width;
-	int	map_height;
+	int	map_width = -1;
+	int	map_height = 0;
 	int	fd;
 	int	i;
 	int	j;
 
-	map_width = -1;
-	map_height = 0;
 	if (argc != 2)
 		ft_putstr_fd("Usage: ./fdf <filename> [ case_size z_size ]\n", 2);
 	else if (!check_file(&fd, argv[1], &map_width, &map_height))
 		return (0);
-	else if (!file_to_str_to_map(&map, fd, map_width, map_height))
+	else if (!file_to_str_to_map(&map, argv[1], map_width, map_height))
 		ft_putstr_fd("map error\n", 2);
 	else
 	{

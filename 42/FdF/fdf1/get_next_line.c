@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/05 17:28:23 by fklein            #+#    #+#             */
-/*   Updated: 2017/04/05 18:42:49 by fklein           ###   ########.fr       */
+/*   Updated: 2017/04/06 16:40:33 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	get_next_line(int fd, char **line)
 		return (-1);
 	if (!stock)
 		if (!(stock = (t_stockage *)malloc(sizeof(t_stockage)))
-		|| !(stock->tries = (int *)malloc(sizeof(int) * 1))
-		|| !(stock->files = (char ***)malloc(sizeof(char **) * 1)))
+		|| !(stock->tries = (int *)malloc(sizeof(int) * 100))
+		|| !(stock->files = (char ***)malloc(sizeof(char **) * 100)))
 			return (-1);
 	if (stock->tries[fd] == 0)
 		if (!first_time(fd, stock))
