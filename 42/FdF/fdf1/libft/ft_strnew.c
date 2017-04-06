@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/04/05 18:03:59 by fklein           ###   ########.fr       */
+/*   Created: 2016/03/21 14:09:19 by fklein            #+#    #+#             */
+/*   Updated: 2016/07/27 16:36:56 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
-
+#include "libft.h"
 #include <stdlib.h>
-#include <fcntl.h>
 
-void	ft_putstr_fd(char *str, int fd);
-int	get_next_line(int fd, char **line);
-char	**ft_strsplit(char const *line, char c);
-int	ft_atoi(char const *str);
+char	*ft_strnew(size_t size)
+{
+	char	*ptr;
 
-#endif
+	if ((ptr = (char *)malloc(sizeof(*ptr) * (size + 1))) == NULL)
+		return (NULL);
+	if (ptr)
+	{
+		while (size)
+		{
+			ptr[size] = 0;
+			size--;
+		}
+		ptr[0] = 0;
+	}
+	return (ptr);
+}
