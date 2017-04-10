@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/04/06 17:05:38 by fklein           ###   ########.fr       */
+/*   Updated: 2017/04/07 15:36:43 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,16 @@
 #include <sys/uio.h>
 #include <unistd.h>
 
-int	check_file(int *fd, char *file, int *map_width, int *map_height);
+typedef struct	s_data
+{
+	int	**tab;
+	int	width;
+	int	height;
+}		t_data;
+
+int	check_file(int *fd, char *file, t_data *data);
 int	no_file(char *file);
+int	errors(int number);
 
 void	ft_putstr_fd(char *str, int fd);
 int	get_next_line(int fd, char **line);

@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 09:31:17 by fklein            #+#    #+#             */
-/*   Updated: 2017/04/06 18:58:49 by fklein           ###   ########.fr       */
+/*   Updated: 2017/04/07 15:36:08 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	errors(int number)
 		ft_putstr_fd("No data found.\n", 2);
 	else if (number == 2)
 		ft_putstr_fd("Found wrong line length. Exiting.\n", 2);
+	else if (number == 3)
+		ft_putstr_fd("Usage: ./fdf <filename> [ case_size z_size ]\n", 2);
 	return (0);
 }
 
@@ -55,7 +57,7 @@ int	starter(int *fd, char *file, char **ch, int *only_spaces, int *spc_cnt)
 	return (1);
 }
 
-int	check_file(int *fd, char *file, int *map_width, int *map_height)
+int	check_file(int *fd, char *file, t_data *data)
 {
 	int	err;
 	char	*ch;
@@ -69,11 +71,11 @@ int	check_file(int *fd, char *file, int *map_width, int *map_height)
 		tests(fd, ch, &err, &spc_cnt, &only_spaces);
 		if (ch[0] == '\n')
 		{
-			(*map_height)++;
-			if (*map_width != -1 && spc_cnt != *map_width)
+			data->height++;
+			if (data->width != -1 && spc_cnt != data->width)
 				return (errors(2));
 			else
-				*map_width = spc_cnt;
+				data->width = spc_cnt;
 			spc_cnt = 1;
 		}
 	}
