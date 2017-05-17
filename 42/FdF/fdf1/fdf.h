@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/04/12 07:51:42 by fklein           ###   ########.fr       */
+/*   Updated: 2017/05/09 10:40:14 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
+#include <mlx.h>
 
 typedef struct	s_data
 {
@@ -32,6 +33,8 @@ typedef	struct	s_mlx
 	void	*win;
 	int	x_size;
 	int	y_size;
+	void	*img_ptr;
+	char	*img_str;
 }		t_mlx;
 
 int	check_file(int *fd, char *file, t_data *data);
