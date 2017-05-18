@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 15:46:10 by fklein            #+#    #+#             */
-/*   Updated: 2017/05/17 12:36:56 by fklein           ###   ########.fr       */
+/*   Updated: 2017/05/18 15:18:48 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(int argc, char **argv)
 		return (0);
 	else
 	{
-		printf("PRINTED:\n");
+/*		printf("PRINTED:\n");
 		i = 0;
 		while (i < data->height)
 		{
@@ -95,7 +95,7 @@ int	main(int argc, char **argv)
 			}
 			printf("\n");
 			i++;
-		}
+		}*/
 		fdf(data);
 	}
 	return (0);
