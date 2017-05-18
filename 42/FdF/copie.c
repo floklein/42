@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 07:37:38 by fklein            #+#    #+#             */
-/*   Updated: 2017/05/17 13:38:59 by fklein           ###   ########.fr       */
+/*   Updated: 2017/05/17 12:45:03 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,31 @@ int	key_funct(int keycode, t_mlx *mlx)
 	return (0);
 }
 
+int	hex_to_int(int color, int *r, int *g, int *b)
+{
+	int	hex;
+
+	hex = color;
+	*r = hex / 65536;
+	hex = hex - (*r * 65536);
+	*g = hex / 256;
+	hex = hex - (*g * 256);
+	*b = hex;
+	return (0);
+}
+
 int	fill_pixel(t_mlx *mlx, int x, int y, int color)
 {
-	mlx->img_str[(x * 4) + (4 * mlx->x_size * y)] = color / 65536; //b
-	color -= (mlx->img_str[(x * 4) + (4 * mlx->x_size * y)]) * 65536;
-	mlx->img_str[(x * 4) + (4 * mlx->x_size * y) + 1] = color / 256; //g
-	color -= (mlx->img_str[(x * 4) + (4 * mlx->x_size * y) + 1]) * 256;
-	mlx->img_str[(x * 4) + (4 * mlx->x_size * y) + 2] = color; //r
+	int	r;
+	int	g;
+	int	b;
+
+	hex_to_int(color, &r, &g, &b);
+	mlx->img_str[(x * 4) + (4 * mlx->x_size * y)] = b; //b
+	mlx->img_str[(x * 4) + (4 * mlx->x_size * y) + 1] = g; //g
+	mlx->img_str[(x * 4) + (4 * mlx->x_size * y) + 2] = r; //r
 	mlx->img_str[(x * 4) + (4 * mlx->x_size * y) + 3] = '1';
-//	printf("r: %d, g: %d, b: %d\n", r, g, b);
+	printf("r: %d, g: %d, b: %d\n", r, g, b);
 	return (0);
 }
 
@@ -48,6 +64,8 @@ int	fdf(t_data *data)
 	int	bpp;
 	int	s_l;
 	int	endian;
+	int	i;
+	int	j;
 
 	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
 		return (0);
@@ -58,7 +76,20 @@ int	fdf(t_data *data)
 	mlx->win = mlx_new_window(mlx, mlx->x_size, mlx->y_size, "fdf");
 	mlx->img_ptr = mlx_new_image(mlx->ptr, mlx->x_size, mlx->y_size);
 	mlx->img_str = mlx_get_data_addr(mlx->img_ptr, &bpp, &s_l, &endian);
-	display(data, mlx);
+	i = 0;
+	printf("bpp: %d, s_l: %d, endian: %d\n", bpp, s_l, endian);
+	while (i < data->width)
+	{
+		j = 0;
+		while (j < data->height)
+		{
+			if (data->tab[j][i] != 0)
+				fill_pixel(mlx, i * 30, j * 30, 0xFFFFFF);
+			j++;
+		}
+		i++;
+	}
+//	printf("%s\n", mlx->img_str);
 	mlx_expose_hook(mlx->win, expose_funct, mlx);
 	mlx_key_hook(mlx->win, key_funct, mlx);
 	mlx_loop(mlx->ptr);
