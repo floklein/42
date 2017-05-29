@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 15:46:10 by fklein            #+#    #+#             */
-/*   Updated: 2017/05/18 15:18:48 by fklein           ###   ########.fr       */
+/*   Updated: 2017/05/19 15:50:56 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int	str_to_map(char ***map_str, t_data *data)
 	int	i;
 	int	j;
 
+	printf("strtomap\n");
 	if (!((data->tab) = (int **)malloc(sizeof(int *) * data->height)))
 		return (0);
 	i = 0;
+	printf("height: %d, width: %d\n", data->height, data->width);
 	while (i < data->height)
 	{
 		j = 0;
@@ -29,6 +31,7 @@ int	str_to_map(char ***map_str, t_data *data)
 			return (0);
 		while (j < data->width)
 		{
+			printf("str[%d][%d]: %s\n", i, j, map_str[i][j]);
 			data->tab[i][j] = ft_atoi(map_str[i][j]);
 			j++;
 		}
@@ -44,6 +47,7 @@ int	file_to_str_to_map(char *file, t_data *data)
 	int	fd;
 	char	*line;
 
+	printf("filetostrmap\n");
 	if (!(map_str = (char ***)malloc(sizeof(char **) * data->height)))
 		return (0);
 	i = 0;
@@ -81,7 +85,7 @@ int	main(int argc, char **argv)
 		return (0);
 	else
 	{
-/*		printf("PRINTED:\n");
+		printf("PRINTED:\n");
 		i = 0;
 		while (i < data->height)
 		{
@@ -95,7 +99,7 @@ int	main(int argc, char **argv)
 			}
 			printf("\n");
 			i++;
-		}*/
+		}
 		fdf(data);
 	}
 	return (0);

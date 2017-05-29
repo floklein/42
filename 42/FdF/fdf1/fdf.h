@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/05/18 15:02:41 by fklein           ###   ########.fr       */
+/*   Updated: 2017/05/19 14:49:44 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_data
 	int	**tab;
 	int	width;
 	int	height;
+	int	max;
 }		t_data;
 
 typedef	struct	s_mlx
@@ -41,7 +42,6 @@ int	check_file(int *fd, char *file, t_data *data);
 int	no_file(char *file);
 int	errors(int number);
 int	fdf(t_data *data);
-int	fill_pixel(t_mlx *mlx, int x, int y, int color);
 int	display(t_data *data, t_mlx *mlx);
 
 void	ft_putstr_fd(char *str, int fd);
