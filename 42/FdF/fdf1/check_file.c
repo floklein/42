@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 09:31:17 by fklein            #+#    #+#             */
-/*   Updated: 2017/05/17 12:36:51 by fklein           ###   ########.fr       */
+/*   Updated: 2017/05/22 15:28:33 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ int	tests(int *fd, char *ch, int *err, int *spc_cnt, int *only_spaces)
 {
 	if (ch[0] == ' ')
 	{
-		(*spc_cnt)++;
 		while (ch[0] == ' ' && *err > 0)
 			*err = read(*fd, ch, 1);
+		if (ch[0] != '\n')
+			(*spc_cnt)++;
 	}
 	if (ch[0] != ' ' && ch[0] != '\n')
 		*only_spaces = 0;
@@ -64,6 +65,7 @@ int	check_file(int *fd, char *file, t_data *data)
 	int	only_spaces;
 	int	spc_cnt;
 
+	printf("checkfile\n");
 	if (!starter(fd, file, &ch, &only_spaces, &spc_cnt))
 		return (0);
 	while ((err = read(*fd, ch, 1)) > 0)
