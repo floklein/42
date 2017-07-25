@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 07:37:38 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/23 20:22:49 by                  ###   ########.fr       */
+/*   Updated: 2017/07/25 16:59:26 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ int	fdf(t_data *data)
 	printf("width: %d, height: %d\n", data->width, data->height);
 	mlx->x_size = (data->width > data->height ? data->width : data->height) * 30;
 	mlx->y_size = (data->height > data->width ? data->height : data->width) * 15 + max_value(data) * 30;
-	mlx->x_size = (mlx->x_size < 1920 ? mlx->x_size : 1920);
-	mlx->y_size = (mlx->y_size < 1080 ? mlx->y_size : 1080);
+	mlx->x_size = (mlx->x_size < 1920 ? mlx->x_size : mlx->x_size);
+	mlx->y_size = (mlx->y_size < 1080 ? mlx->y_size : mlx->y_size);
 	printf("x_size: %d, y_size: %d\n", mlx->x_size, mlx->y_size);
 	mlx->win = mlx_new_window(mlx, mlx->x_size, mlx->y_size, "fdf");
 	mlx->img_ptr = mlx_new_image(mlx->ptr, mlx->x_size, mlx->y_size);
