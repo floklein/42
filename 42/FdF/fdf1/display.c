@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 13:37:00 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/23 20:22:48 by                  ###   ########.fr       */
+/*   Updated: 2017/07/26 12:46:33 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,6 @@ int	display(t_data *data, t_mlx *mlx)
 					(j - i) * 8 - data->tab[j][i] * 16 + data->max * 30,
 					(i - 1 + j) * 16 + data->width,
 					(j - i + 1) * 8 - data->tab[j][i - 1] * 16 + data->max * 30);
-//			fill_pixel(mlx,
-//				(i + j) * 10 + 50,
-//				(j - i) * 5 + mlx->y_size / 2 - data->tab[j][i] * 10,
-//				0xFFFFFF);
 			j++;
 		}
 		i++;
