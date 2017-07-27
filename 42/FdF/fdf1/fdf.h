@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/27 09:46:45 by                  ###   ########.fr       */
+/*   Updated: 2017/07/27 16:42:10 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,19 @@ typedef struct	s_data
 	int	width;
 	int	height;
 	int	max;
+	int	min;
 }		t_data;
 
 typedef	struct	s_mlx
 {
+	t_data	data;
 	void	*ptr;
 	void	*win;
-	t_data	data;
 	int	x_size;
 	int	y_size;
+	int	x_unit;
+	int	y_unit;
+	int	z_unit;
 	void	*img_ptr;
 	char	*img_str;
 }		t_mlx;

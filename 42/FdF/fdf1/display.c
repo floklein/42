@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 13:37:00 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/27 10:50:33 by                  ###   ########.fr       */
+/*   Updated: 2017/07/27 17:56:14 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,15 @@ int	display(t_data *data, t_mlx *mlx)
 		while (j < data->height - 1)
 		{
 			line(mlx,
-					(i + j) * 16 + data->width,
-					(j - i) * 8 - data->tab[j][i] * 16 + data->max * 30,
-					(i + j + 1) * 16 + data->width,
-					(j + 1 - i) * 8 - data->tab[j + 1][i] * 16 + data->max * 30);
+					(i + j) * mlx->x_unit,
+					(j - i) * mlx->y_unit + (data->max - data->tab[j][i]) * mlx->z_unit,
+					(i + j + 1) * mlx->x_unit,
+					(j + 1 - i) * mlx->y_unit + (data->max - data->tab[j + 1][i]) * mlx->z_unit);
 			line(mlx,
-					(i + j) * 16 + data->width,
-					(j - i) * 8 - data->tab[j][i] * 16 + data->max * 30,
-					(i - 1 + j) * 16 + data->width,
-					(j - i + 1) * 8 - data->tab[j][i - 1] * 16 + data->max * 30);
+					(i + j) * mlx->x_unit,
+					(j - i) * mlx->y_unit + (data->max - data->tab[j][i]) * mlx->z_unit,
+					(i - 1 + j) * mlx->x_unit,
+					(j - i + 1) * mlx->y_unit + (data->max - data->tab[j][i - 1]) * mlx->z_unit);
 			j++;
 		}
 		i++;
