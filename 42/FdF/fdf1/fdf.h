@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/23 20:23:15 by                  ###   ########.fr       */
+/*   Updated: 2017/07/27 09:46:45 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef	struct	s_mlx
 {
 	void	*ptr;
 	void	*win;
+	t_data	data;
 	int	x_size;
 	int	y_size;
 	void	*img_ptr;
