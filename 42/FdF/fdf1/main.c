@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 15:46:10 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/23 20:22:54 by                  ###   ########.fr       */
+/*   Updated: 2017/07/27 11:11:30 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	str_to_map(char ***map_str, t_data *data)
 			return (0);
 		while (j < data->width)
 		{
-			printf("str[%d][%d]: %s\n", i, j, map_str[i][j]);
+//			printf("str[%d][%d]: %s\n", i, j, map_str[i][j]);
 			data->tab[i][j] = ft_atoi(map_str[i][j]);
 			j++;
 		}
@@ -92,9 +92,7 @@ int	main(int argc, char **argv)
 			j = 0;
 			while (j < data->width)
 			{
-				printf("%d ", data->tab[i][j]);
-				if (data->tab[i][j] < 10)
-					printf(" ");
+				printf("% 4d", data->tab[i][j]);
 				j++;
 			}
 			printf("\n");
