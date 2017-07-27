@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 07:37:38 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/27 11:28:08 by                  ###   ########.fr       */
+/*   Updated: 2017/07/27 17:56:12 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,28 @@ int	key_funct(int keycode, t_mlx *mlx)
 	return (0);
 }
 
-int	max_value(t_data *data)
+int	window_size(t_mlx *mlx, t_data *data)
 {
-	int	i;
-	int	j;
-
-	data->max = 0;
-	j = 0;
-	while (j < data->height)
+	mlx->x_size = (data->width > data->height ? data->width : data->height) * 30;
+	mlx->y_size = (data->height > data->width ? data->height : data->width) * 15
+		+ data->max * 30
+		+ ft_abs(data->min) * 30;
+	if (mlx->x_size > 1920 || mlx->y_size > 1080)
 	{
-		i = 0;
-		while (i < data->width)
-		{
-			if (data->tab[j][i] > data->max)
-				data->max = data->tab[j][i];
-			i++;
-		}
-		j++;
+		mlx->y_unit = 8 / (mlx->y_size / 1080);
+		mlx->x_unit = mlx->y_unit * 2;
+		mlx->z_unit = mlx->x_unit;
+		mlx->x_size = 1920;
+		mlx->y_size = 1080;
 	}
-	return (data->max);
+	else
+	{
+		mlx->x_unit = 16;
+		mlx->y_unit = 8;
+		mlx->z_unit = 16;
+	}
+	printf("x_unit: %d, y_unit: %d, z_unit: %d\n", mlx->x_unit, mlx->y_unit, mlx->z_unit);
+	return (0);
 }
 
 int	fdf(t_data *data)
@@ -66,11 +69,7 @@ int	fdf(t_data *data)
 	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
 		return (0);
 	mlx->ptr = mlx_init();
-	printf("width: %d, height: %d\n", data->width, data->height);
-	mlx->x_size = (data->width > data->height ? data->width : data->height) * 30;
-	mlx->y_size = (data->height > data->width ? data->height : data->width) * 15 + max_value(data) * 30;
-	mlx->x_size = (mlx->x_size < 1920 ? 5000 : 5000);
-	mlx->y_size = (mlx->y_size < 1080 ? 5000 : 5000);
+	window_size(mlx, data);
 	printf("x_size: %d, y_size: %d\n", mlx->x_size, mlx->y_size);
 	mlx->win = mlx_new_window(mlx, mlx->x_size, mlx->y_size, "fdf");
 	mlx->data = *data;
