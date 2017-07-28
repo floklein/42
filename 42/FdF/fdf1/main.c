@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/05 15:46:10 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/27 16:33:41 by fklein           ###   ########.fr       */
+/*   Updated: 2017/07/28 11:45:23 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	file_to_str_to_map(char *file, t_data *data)
 	}
 	close(fd);
 	str_to_map(map_str, data);
+	free(map_str);
 	return (1);
 }
 

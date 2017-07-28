@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 07:37:38 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/27 18:13:49 by fklein           ###   ########.fr       */
+/*   Updated: 2017/07/28 11:40:07 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ int	key_funct(int keycode, t_mlx *mlx)
 {
 	printf("keycode: %d\n", keycode);
 	if (keycode == 53)
+	{
+		free(mlx);
 		exit(0);
+	}
 	if (keycode == 49)
 		expose_funct(mlx);
 	return (0);
