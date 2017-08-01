@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/27 16:42:10 by fklein           ###   ########.fr       */
+/*   Updated: 2017/07/29 12:42:45 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <unistd.h>
-#include <mlx.h>
+
+#include "mlx.h"
 
 typedef struct	s_data
 {

@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 07:37:38 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/28 11:40:07 by                  ###   ########.fr       */
+/*   Updated: 2017/07/29 13:08:24 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,14 @@ int	window_size(t_mlx *mlx, t_data *data)
 	mlx->y_size = (data->height > data->width ? data->height : data->width) * 15
 		+ data->max * 30
 		+ ft_abs(data->min) * 30;
+	printf("x_size: %d, y_size: %d\n", mlx->x_size, mlx->y_size);
 	if (mlx->x_size > 1920 || mlx->y_size > 1080)
 	{
-		mlx->y_unit = 8 / (mlx->y_size / 1080);
-		mlx->x_unit = mlx->y_unit * 2;
-		mlx->z_unit = mlx->x_unit;
+		mlx->y_unit = ((8 / ((double)mlx->y_size / 1080)) > 1 ? (8 / ((double)mlx->y_size / 1080)) : 1);
+		mlx->y_unit = (mlx->y_unit < 8 ? mlx->y_unit : 8);
+		mlx->x_unit = ((16 / ((double)mlx->x_size / 1920)) > 2 ? (16 / ((double)mlx->x_size / 1920)) : 2);
+		mlx->x_unit = (mlx->x_unit < 16 ? mlx->x_unit : 16);
+		mlx->z_unit = (mlx->x_unit > mlx->y_unit * 2 ? mlx->y_unit * 2 : mlx->x_unit);
 		mlx->x_size = 1920;
 		mlx->y_size = 1080;
 	}
