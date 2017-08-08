@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 09:31:17 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/23 20:22:46 by                  ###   ########.fr       */
+/*   Updated: 2017/08/03 23:54:10 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	errors(int number)
 	else if (number == 2)
 		ft_putstr_fd("Found wrong line length. Exiting.\n", 2);
 	else if (number == 3)
-		ft_putstr_fd("Usage: ./fdf <filename> [ case_size z_size ]\n", 2);
+		ft_putstr_fd("Usage: ./fdf <filename>\n", 2);
 	return (0);
 }
 

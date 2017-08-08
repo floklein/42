@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 13:37:00 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/27 18:16:05 by fklein           ###   ########.fr       */
+/*   Updated: 2017/08/03 23:47:28 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 int	fill_pixel(t_mlx *mlx, int x, int y, int color)
 {
+	if (x < 0 || y < 0 || x > mlx->x_size - 1 || y > mlx->y_size - 1)
+		return (0);
 	mlx->img_str[(x * 4) + (4 * mlx->x_size * y)] = color / 65536;
 	color -= (mlx->img_str[(x * 4) + (4 * mlx->x_size * y)]) * 65536;
 	mlx->img_str[(x * 4) + (4 * mlx->x_size * y) + 1] = color / 256;
@@ -53,7 +55,7 @@ int	line(t_mlx *mlx, double x1, double y1, double x2, double y2)
 	return (0);
 }
 
-int	display(t_data *data, t_mlx *mlx)
+int	data_to_img(t_data *data, t_mlx *mlx)
 {
 	int	i;
 	int	j;

@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 07:37:38 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/29 13:08:24 by fklein           ###   ########.fr       */
+/*   Updated: 2017/08/04 00:20:08 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	expose_funct(t_mlx *mlx)
 
 	mlx->img_ptr = mlx_new_image(mlx->ptr, mlx->x_size, mlx->y_size);
 	mlx->img_str = mlx_get_data_addr(mlx->img_ptr, &bpp, &s_l, &endian);
-	display(&mlx->data, mlx);
-	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img_ptr, 0, 0);
+	data_to_img(&mlx->data, mlx);
+	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img_ptr, mlx->x_pos, mlx->y_pos);
 	mlx_destroy_image(mlx->ptr, mlx->img_ptr);
 	return (0);
 }
@@ -32,12 +32,19 @@ int	key_funct(int keycode, t_mlx *mlx)
 {
 	printf("keycode: %d\n", keycode);
 	if (keycode == 53)
-	{
-		free(mlx);
 		exit(0);
-	}
-	if (keycode == 49)
+	else
+	{	
+		if (keycode == 126)
+			mlx->y_pos -= 50;
+		if (keycode == 125)
+			mlx->y_pos += 50;
+		if (keycode == 123)
+			mlx->x_pos -= 50;
+		if (keycode == 124)
+			mlx->x_pos += 50;
 		expose_funct(mlx);
+	}
 	return (0);
 }
 
@@ -79,9 +86,11 @@ int	fdf(t_data *data)
 	printf("x_size: %d, y_size: %d\n", mlx->x_size, mlx->y_size);
 	mlx->win = mlx_new_window(mlx, mlx->x_size, mlx->y_size, "fdf");
 	mlx->data = *data;
+	mlx->x_pos = 0;
+	mlx->y_pos = 0;
 	expose_funct(mlx);
-	mlx_expose_hook(mlx->win, expose_funct, mlx);
 	mlx_key_hook(mlx->win, key_funct, mlx);
+	mlx_expose_hook(mlx->win, expose_funct, mlx);
 	mlx_loop(mlx->ptr);
 	return (0);
 }
