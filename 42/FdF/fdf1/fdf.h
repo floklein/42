@@ -6,7 +6,7 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/03 16:56:46 by fklein            #+#    #+#             */
-/*   Updated: 2017/07/29 12:42:45 by fklein           ###   ########.fr       */
+/*   Updated: 2017/08/03 23:47:44 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef	struct	s_mlx
 	int	x_unit;
 	int	y_unit;
 	int	z_unit;
+	int	x_pos;
+	int	y_pos;
 	void	*img_ptr;
 	char	*img_str;
 }		t_mlx;
@@ -48,7 +50,7 @@ int	check_file(int *fd, char *file, t_data *data);
 int	no_file(char *file);
 int	errors(int number);
 int	fdf(t_data *data);
-int	display(t_data *data, t_mlx *mlx);
+int	data_to_img(t_data *data, t_mlx *mlx);
 
 void	ft_putstr_fd(char *str, int fd);
 int	get_next_line(int fd, char **line);
