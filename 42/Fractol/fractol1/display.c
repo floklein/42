@@ -6,11 +6,11 @@
 /*   By: fklein <fklein@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 13:37:00 by fklein            #+#    #+#             */
-/*   Updated: 2017/12/19 11:29:10 by                  ###   ########.fr       */
+/*   Updated: 2017/12/19 11:28:25 by                  ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "fractol.h"
 
 #include <stdio.h>
 
@@ -55,30 +55,24 @@ int	line(t_mlx *mlx, double x1, double y1, double x2, double y2)
 	return (0);
 }
 
-int	data_to_img(t_data *data, t_mlx *mlx)
+int	data_to_img(int fractal, t_mlx *mlx)
 {
-	int	i;
-	int	j;
+	int	x;
+	int	y;
+	int	iter;
 
-	i = 1;
-	while (i < data->width)
+	y = 0;
+	while (y < y_size)
 	{
-		j = 0;
-		while (j < data->height - 1)
+		x = 0;
+		while (x < x_size)
 		{
-			line(mlx,
-					(i + j) * mlx->x_unit,
-					(j - i) * mlx->y_unit + (data->max + data->width / 2 - data->tab[j][i]) * mlx->z_unit,
-					(i + j + 1) * mlx->x_unit,
-					(j + 1 - i) * mlx->y_unit + (data->max + data->width / 2 - data->tab[j + 1][i]) * mlx->z_unit);
-			line(mlx,
-					(i + j) * mlx->x_unit,
-					(j - i) * mlx->y_unit + (data->max + data->width / 2 - data->tab[j][i]) * mlx->z_unit,
-					(i - 1 + j) * mlx->x_unit,
-					(j - i + 1) * mlx->y_unit + (data->max + data->width / 2 - data->tab[j][i - 1]) * mlx->z_unit);
-			j++;
+			iter = 0;
+			while (iter < 100)
+				{
+					
+				}
 		}
-		i++;
 	}
 	return (0);
 }
