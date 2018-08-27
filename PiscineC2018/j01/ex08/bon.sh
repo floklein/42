@@ -1,1 +1,1 @@
-ldapsearch -Q -LLL "(cn=*BON*)" cn | grep cn | wc -l | cut -c 6-
+ldapsearch -Q -LLL "(sn=*BON*)" cn | grep cn | wc -l | cut -c 6-
