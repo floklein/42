@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/27 20:35:08 by flklein           #+#    #+#             */
-/*   Updated: 2018/08/27 22:25:14 by flklein          ###   ########.fr       */
+/*   Created: 2018/08/27 23:41:37 by flklein           #+#    #+#             */
+/*   Updated: 2018/08/28 12:34:28 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,31 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_print_alphabet(void)
+void	ft_print_comb2(void)
 {
-	char	c;
+	int		a;
+	int		b;
 
-	c = 'a';
-	while (c <= 'z')
+	a = 0;
+	while (a <= 98)
 	{
-		ft_putchar(c);
-		c++;
+		b = a + 1;
+		while (b <= 99)
+		{
+			ft_putchar(a / 10 + 48);
+			ft_putchar(a % 10 + 48);
+			ft_putchar(' ');
+			ft_putchar(b / 10 + 48);
+			ft_putchar(b % 10 + 48);
+			ft_putchar(a == 98 && b == 99 ? '\0' : ',');
+			ft_putchar(a == 98 && b == 99 ? '\0' : ' ');
+			b++;
+		}
+		a++;
 	}
 }
 
 int		main()
 {
-	ft_print_alphabet();
+	ft_print_comb2();
 }
