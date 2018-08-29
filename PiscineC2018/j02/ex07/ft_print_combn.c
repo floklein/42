@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 01:27:29 by flklein           #+#    #+#             */
-/*   Updated: 2018/08/28 11:46:36 by flklein          ###   ########.fr       */
+/*   Updated: 2018/08/28 18:30:44 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_putnbr(int nb)
 
 int		puissance(int n, int p)
 {
-	if (p)
+	if (p > 0)
 		return (n * puissance(n, p - 1));
 	else
 		return (1);
@@ -59,14 +59,19 @@ void	ft_print_combn(int n)
 {
 	int		i;
 	int		s;
+	int		p;
 
-	i = 1;
-	while (i < puissance(10, n) && i <= 123456789)
+	i = puissance(10, n - 2) - 1;
+	p = puissance(10, n);
+	while (i++ < p && i <= 123456789 && n)
 	{
 		if (is_croissant(i))
 		{
-			ft_putchar(i - 1 ? ',' : '\0');
-			ft_putchar(i - 1 ? ' ' : '\0');
+			if (s)
+			{
+				ft_putchar(',');
+				ft_putchar(' ');
+			}
 			s = i;
 			while (s < puissance(10, n - 1))
 			{
@@ -75,14 +80,16 @@ void	ft_print_combn(int n)
 			}
 			ft_putnbr(i);
 		}
-		i++;
 	}
 }
 
 int		main()
 {
-//	printf("%d\n", is_croissant(1));
-//	printf("%d\n", is_croissant(10));
-//	printf("%d\n", is_croissant(123));
-	ft_print_combn(9);
+	//	printf("%d\n", is_croissant(1));
+	//	printf("%d\n", is_croissant(10));
+	//	printf("%d\n", is_croissant(123));
+	ft_print_combn(0);
+	ft_print_combn(1);
+	ft_print_combn(2);
+	ft_print_combn(3);
 }
