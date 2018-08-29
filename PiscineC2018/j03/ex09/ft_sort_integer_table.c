@@ -1,48 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/27 23:41:37 by flklein           #+#    #+#             */
-/*   Updated: 2018/08/28 14:45:17 by flklein          ###   ########.fr       */
+/*   Created: 2018/08/29 00:06:41 by flklein           #+#    #+#             */
+/*   Updated: 2018/08/29 00:48:03 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c)
+void	ft_swap(int *a, int *b)
 {
-	write(1, &c, 1);
+	int		c;
+
+	c = *a;
+	*a = *b;
+	*b = c;
 }
 
-void	ft_print_comb2(void)
+void	ft_sort_integer_table(int *tab, int size)
 {
-	int		a;
-	int		b;
+	int		i;
+	int		j;
+	int		sorted;
 
-	a = 0;
-	while (a <= 98)
+	i = size - 1;
+	while (i > 0)
 	{
-		b = a + 1;
-		while (b <= 99)
+		sorted = 1;
+		j = 0;
+		while (j < i)
 		{
-			ft_putchar(a / 10 + 48);
-			ft_putchar(a % 10 + 48);
-			ft_putchar(' ');
-			ft_putchar(b / 10 + 48);
-			ft_putchar(b % 10 + 48);
-			if (!(a == 98 && b == 99))
+			if (tab[j + 1] < tab[j])
 			{
-				ft_putchar(',');
-				ft_putchar(' ');
+				ft_swap(&tab[j + 1], &tab[j]);
+				sorted = 0;
 			}
-			b++;
+			j++;
 		}
-		a++;
+		if (sorted)
+			break ;
+		i--;
 	}
-}
-
-int		main()
-{
-	ft_print_comb2();
 }
