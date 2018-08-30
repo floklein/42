@@ -6,7 +6,7 @@
 /*   By: fklein <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/18 17:05:39 by fklein            #+#    #+#             */
-/*   Updated: 2015/10/19 14:10:02 by fklein           ###   ########.fr       */
+/*   Updated: 2018/08/30 11:33:06 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,9 @@ void	ft_sastantua(int size)
 	}
 }
 
-int		main(void)
+#include <stdlib.h>
+
+int		main(int argc, char **argv)
 {
-	ft_sastantua(7);
+	ft_sastantua(atoi(argv[1]));
 }
