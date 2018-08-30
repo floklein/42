@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 15:21:57 by flklein           #+#    #+#             */
-/*   Updated: 2018/08/29 23:46:43 by flklein          ###   ########.fr       */
+/*   Updated: 2018/08/30 02:46:22 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,18 @@ int		ft_eight_queens_puzzle(void)
 	int		tab[8];
 	int		ind;
 	int		res;
+	int		*p_res;
 
 	res = 0;
+	p_res = &res;
 	ind = -1;
 	while (ind++ <= 7)
 		tab[ind] = -1;
-	add_queen(tab, &res, 0, 0);
+	add_queen(tab, p_res, 0, 0);
 	return (res);
 }
 
 int		main()
 {
-	printf("TADA : %d\n", ft_eight_queens_puzzle());
+	printf("%d\n", ft_eight_queens_puzzle());
 }
