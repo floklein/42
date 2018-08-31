@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 01:21:54 by flklein           #+#    #+#             */
-/*   Updated: 2018/08/31 03:08:36 by flklein          ###   ########.fr       */
+/*   Updated: 2018/08/31 03:14:25 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,6 @@ void	ft_sort_char_table(char **tab, int size)
 	}
 }
 
-void	ft_putstr(char *str)
-{
-	while (*(str++))
-		ft_putchar(*(str - 1));
-}
-
 int		main(int ac, char **av)
 {
 	int		i;
@@ -78,13 +72,12 @@ int		main(int ac, char **av)
 	i = 0;
 	while (i++ < ac - 1)
 	{
-		ft_putstr(av[i]);
-		//		j = 0;
-		//		while (av[i][j])
-		//		{
-		//			ft_putchar(av[i][j]);
-		//			j++;
-		//		}
+		j = 0;
+		while (av[i][j])
+		{
+			ft_putchar(av[i][j]);
+			j++;
+		}
 		ft_putchar('\n');
 	}
 	return (0);
