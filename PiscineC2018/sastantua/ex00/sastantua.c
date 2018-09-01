@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 13:17:16 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/01 19:09:20 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/01 19:17:26 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,20 @@ void	ft_putchar(char c)
 
 int		find_max(int size)
 {
-	int		floor;
-	int		line;
+	int		floor_add;
 	int		max_width;
+	int		floor;
 
-	floor = 1;
-	max_width = 3;
+	max_width = 7;
+	floor_add = 2;
+	floor = 2;
 	while (floor <= size)
 	{
-		if (floor == 1)
-			;
-		else if (floor == 2 || floor == 3)
-			max_width += 6;
-		else if (floor % 2 == 1)
-			max_width += 2 * (floor);
-		else
-			max_width += 2 * (floor - 1);
-		line = 1;
-		while (line < floor + 2)
-		{
-			max_width += 2;
-			line++;
-		}
+		max_width += 2 * (floor + 2);
+		if (floor % 2 == 0)
+			floor_add += 2;
 		floor++;
+		max_width += floor_add;
 	}
 	return (max_width);
 }
