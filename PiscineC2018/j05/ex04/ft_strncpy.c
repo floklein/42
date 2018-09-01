@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/31 00:09:18 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/01 22:05:37 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/01 23:17:40 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/01 23:18:14 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
-
-int		main(void)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	rush(-5, 3);
-	return (0);
+	int		i;
+
+	i = 0;
+	while (i < n && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = 0;
+	return (dest);
 }

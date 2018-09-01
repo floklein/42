@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/31 00:09:18 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/01 22:05:37 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/01 23:20:41 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/01 23:42:08 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
-
-int		main(void)
+char	*ft_strstr(char *str, char *to_find)
 {
-	rush(-5, 3);
-	return (0);
+	int		i;
+	int		j;
+
+	i = 0;
+	if (!to_find)
+		return (str);
+	while (str[i])
+	{
+		j = 0;
+		while (str[i + j] && to_find[j] && str[i + j] == to_find[j])
+			j++;
+		if (!to_find[j])
+			return (str + i);
+		i++;
+	}
+	return (NULL);
 }

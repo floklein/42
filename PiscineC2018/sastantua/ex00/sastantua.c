@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 13:17:16 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/01 19:17:26 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/01 19:28:17 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,13 @@ void	sastantua(int size)
 	int		floor;
 
 	floor = 1;
-	while (floor <= size)
+	if (size > 0)
 	{
-		display_floor(size, floor);
-		floor++;
+		while (floor <= size)
+		{
+			display_floor(size, floor);
+			floor++;
+		}
 	}
 }
 
