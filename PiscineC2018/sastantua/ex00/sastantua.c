@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 13:17:16 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/01 18:19:57 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/01 19:09:20 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int		find_max(int size)
 		else if (floor == 2 || floor == 3)
 			max_width += 6;
 		else if (floor % 2 == 1)
-			max_width += 2 * floor - 1;
+			max_width += 2 * (floor);
 		else
-			max_width += 2 * floor;
+			max_width += 2 * (floor - 1);
 		line = 1;
 		while (line < floor + 2)
 		{
@@ -103,5 +103,6 @@ void	sastantua(int size)
 int		main(int ac, char **av)
 {
 	sastantua(atoi(av[1]));
+	printf("%d\n", find_max(atoi(av[1])));
 	return (ac);
 }
