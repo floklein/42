@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 01:27:29 by flklein           #+#    #+#             */
-/*   Updated: 2018/08/28 18:30:44 by flklein          ###   ########.fr       */
+/*   Updated: 2018/08/31 12:24:11 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,5 @@ int		main()
 	//	printf("%d\n", is_croissant(1));
 	//	printf("%d\n", is_croissant(10));
 	//	printf("%d\n", is_croissant(123));
-	ft_print_combn(0);
-	ft_print_combn(1);
-	ft_print_combn(2);
-	ft_print_combn(3);
+	ft_print_combn(9);
 }
