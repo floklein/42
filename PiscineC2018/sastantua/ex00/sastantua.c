@@ -5,71 +5,82 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/30 11:49:59 by flklein           #+#    #+#             */
-/*   Updated: 2018/08/30 20:08:10 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/01 13:17:16 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/01 18:19:57 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-int		find_width(int size)
+int		find_max(int size)
 {
-	int		floor_add_m;
-	int		max_char;
-	int		floor_m;
-
-	max_char = 7;
-	floor_add_m = 2;
-	floor_m = 2;
-	while (floor_m <= size)
-	{
-		max_char += ((floor_m + 2) * 2);
-		if (floor_m % 2 == 0)
-			floor_add_m += 2;
-		floor_m++;
-		max_char += floor_add_m;
-	}
-	return (max_char);
-}
-
-void	display_line(int size, int floor, int line, int *max_pos)
-{
-	int		pos;
-	int		ind;
+	int		floor;
+	int		line;
 	int		max_width;
 
-	pos = 1;
-	ind = 0;
-	max_width = find_width(size);
-	while (ind++ < (max_width / 2) - (*max_pos / 2) - floor - 1)
-		ft_putchar(' ');
-	ft_putchar('/');
-	while (pos <= *max_pos + (floor - 2) * 2)
+	floor = 1;
+	max_width = 3;
+	while (floor <= size)
 	{
-		//		if (floor == size && (floor % 2 ? line > 2 : line > 3)
-		//				&& pos > (*max_pos + (*max_pos % 2)) / 2
-		//				&& pos < (*max_pos + (*max_pos % 2)) / 2 + floor)
-		//			ft_putchar('|');
-		//		else
-		ft_putchar('*');
-		pos++;
+		if (floor == 1)
+			;
+		else if (floor == 2 || floor == 3)
+			max_width += 6;
+		else if (floor % 2 == 1)
+			max_width += 2 * floor - 1;
+		else
+			max_width += 2 * floor;
+		line = 1;
+		while (line < floor + 2)
+		{
+			max_width += 2;
+			line++;
+		}
+		floor++;
 	}
-	ft_putchar('\\');
-	*max_pos += 2;
+	return (max_width);
 }
 
-void	display_floor(int size, int floor, int *max_pos)
+void	display_line(int s, int f, int l)
+{
+	int		pos;
+	int		wd_f;
+
+	wd_f = find_max(f);
+	pos = 0;
+	while (pos++ < (find_max(s) - (wd_f - (f + 2 - l) * 2)) / 2)
+		ft_putchar(' ');
+	pos = 0;
+	while (pos++ < wd_f - (f + 2 - l) * 2)
+	{
+		if (pos == 1)
+			ft_putchar('/');
+		else if (pos == wd_f - (f + 2 - l) * 2)
+			ft_putchar('\\');
+		else if (f == s && l > 3 - f % 2
+		&& (pos >= (wd_f + 1 - (f + 2 - l) * 2) / 2 - (s - 1) / 2
+		&& pos <= (wd_f + 1 - (f + 2 - l) * 2) / 2 + (s - 1) / 2))
+			ft_putchar(s > 4 && l == 4 - f % 2 + (f - 1) / 2
+	&& pos == (wd_f + 1 - (f + 2 - l) * 2) / 2 + (s - 1) / 2 - 1 ? '$' : '|');
+		else
+			ft_putchar('*');
+	}
+	ft_putchar('\n');
+}
+
+void	display_floor(int size, int floor)
 {
 	int		line;
 
 	line = 1;
 	while (line <= floor + 2)
 	{
-		display_line(size, floor, line, max_pos);
-		ft_putchar('\n');
+		display_line(size, floor, line);
 		line++;
 	}
 }
@@ -77,23 +88,20 @@ void	display_floor(int size, int floor, int *max_pos)
 void	sastantua(int size)
 {
 	int		floor;
-	int		max_pos;
-	int		*p_max_pos;
 
 	floor = 1;
-	max_pos = 3;
-	p_max_pos = &max_pos;
 	while (floor <= size)
 	{
-		display_floor(size, floor, p_max_pos);
-			max_pos += 2;
+		display_floor(size, floor);
 		floor++;
 	}
 }
 
+#include <stdio.h>
 #include <stdlib.h>
 
 int		main(int ac, char **av)
 {
 	sastantua(atoi(av[1]));
+	return (ac);
 }
