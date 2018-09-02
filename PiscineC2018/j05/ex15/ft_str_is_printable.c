@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 23:44:31 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/01 23:59:29 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/02 01:13:51 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/02 01:15:24 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+int		ft_str_is_printable(char *str)
 {
 	int		i;
 
 	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
+	while (str[i])
+	{
+		if (!(str[i] >= 33 && str[i] <= 126))
+			return (0);
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	return (1);
 }

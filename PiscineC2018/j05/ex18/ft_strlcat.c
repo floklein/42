@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 23:44:31 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/01 23:59:29 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/02 02:11:00 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/02 02:12:07 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	int		i;
+	int		j;
 
 	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
+	while (dest[i])
 		i++;
-	return (s1[i] - s2[i]);
+	j = 0;
+	while (j < nb && src[j])
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = 0;
+	return (dest);
 }
