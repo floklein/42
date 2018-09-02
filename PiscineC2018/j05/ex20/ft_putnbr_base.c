@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 02:56:14 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/02 03:52:02 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/02 03:58:58 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_strlen(char *str)
 
 	len = 0;
 	while (str[len])
-	{
+	{//faire un while -- pour verifier avant
 		if (str[len] == '+' || str[len] == '-')
 			return (0);
 		len++;
