@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 23:44:31 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/01 23:59:29 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/02 01:01:32 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/02 01:01:49 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+int		ft_str_is_uppercase(char *str)
 {
 	int		i;
 
 	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
+	while (str[i])
+	{
+		if (!(str[i] >= 'A' && str[i] <= 'Z'))
+			return (0);
 		i++;
-	return (s1[i] - s2[i]);
+	}
+	return (1);
 }
