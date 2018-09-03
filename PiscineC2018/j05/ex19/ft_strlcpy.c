@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 01:13:51 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/03 14:46:13 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/01 23:17:40 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/03 19:37:17 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_str_is_printable(char *str)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	int		i;
+	int		j;
 
 	i = 0;
-	while (str[i])
+	while (i < size && src[i])
 	{
-		if (!(str[i] >= 32 && str[i] <= 126))
-			return (0);
+		dest[i] = src[i];
 		i++;
 	}
-	return (1);
+	dest[i] = '\0';
+	j = 0;
+	while (src[i + j])
+		j++;
+	return (i + j);
 }

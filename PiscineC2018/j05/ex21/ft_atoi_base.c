@@ -1,34 +1,73 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/28 23:26:50 by flklein           #+#    #+#             */
-/*   Updated: 2018/08/29 00:03:15 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/02 16:22:19 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/03 14:52:17 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(char *str)
+int		check_base(char *str)
 {
+	int		len;
+	int		i;
+
+	len = 0;
+	while (str[len])
+	{
+		if (str[len] == '+' || str[len] == '-')
+			return (0);
+		i = len;
+		while (i-- >= 0)
+			if (str[i] == str[len])
+				return (0);
+		len++;
+	}
+	return (len);
+}
+
+int		in_base(char *str, char c)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+		{
+			return (i);
+		}
+		i++;
+	}
+	return (-1);
+}
+
+int		ft_atoi_base(char *str, char *base)
+{
+	int		base_n;
 	int		nb;
 	int		sign;
+	int		i;
 
+	base_n = check_base(base);
+	if (base_n < 2)
+		return (0);
 	nb = 0;
 	sign = 1;
-	while ((*str >= 9 && *str <= 13) || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		sign *= (str[i++] == '-' ? -1 : 1);
+	while (in_base(base, str[i]) != -1)
 	{
-		sign *= (*str == '-' ? -1 : 1);
-		str++;
+		nb = nb * base_n + in_base(base, str[i]);
+		i++;
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		nb *= 10;
-		nb += *str - '0';
-		str++;
-	}
+	if (str[i])
+		return (0);
 	return (sign * nb);
 }
