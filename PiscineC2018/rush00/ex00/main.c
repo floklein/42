@@ -6,14 +6,14 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 00:09:18 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/02 14:33:53 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/04 14:11:27 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	rush(int x, int y);
 
-int		main(void)
+int		main(int ac, char **av)
 {
-	rush(1000, 1000);
+	rush(atoi(av[1]), atoi(av[2]));
 	return (0);
 }
