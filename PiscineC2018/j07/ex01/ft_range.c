@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 23:17:40 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/04 19:58:50 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/04 17:01:50 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/04 18:41:49 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+#include <stdlib.h>
+
+int		*ft_range(int min, int max)
 {
 	int		i;
-	int		j;
 
-	i = 0;
-	while (i < size && src[i])
+	if (!(tab = (int*)malloc((max - min) * sizeof(int))))
+		return (NULL);
+	i = min;
+	while (i < max)
 	{
-		dest[i] = src[i];
-		i++;
+		
 	}
-	if (size > 0)
-		dest[i] = '\0';
-	j = 0;
-	while (src[i + j])
-		j++;
-	return (i + j);
 }
