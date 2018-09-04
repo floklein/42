@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 23:17:40 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/01 23:18:14 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/04 19:40:31 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = 0;
+	while (i < size)
+	{
+		dest[i] = 0;
+		i++;
+	}
 	return (dest);
 }

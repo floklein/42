@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 20:15:59 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/04 16:38:01 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/04 19:05:50 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 
 	char_addr = (char *)addr;
 	cur_add = 0;
-	while (cur_add <= size && char_addr[cur_add])
+	while (cur_add <= size)
 	{
 		print_0(cur_add);
 		ft_putnbr_16(cur_add);

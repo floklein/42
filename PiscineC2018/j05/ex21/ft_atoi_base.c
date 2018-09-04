@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 16:22:19 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/03 14:52:17 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/04 19:09:47 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,5 @@ int		ft_atoi_base(char *str, char *base)
 		nb = nb * base_n + in_base(base, str[i]);
 		i++;
 	}
-	if (str[i])
-		return (0);
 	return (sign * nb);
 }

@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/02 02:11:00 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/03 19:57:49 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/04 19:58:06 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		dest[i + j] = src[j];
 		j++;
 	}
-	dest[i + j] = '\0';
+	if (j < size - i)
+		dest[i + j] = '\0';
 	k = 0;
 	while (src[k])
 		k++;

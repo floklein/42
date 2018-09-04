@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 23:17:40 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/04 19:58:50 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/04 16:54:54 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/04 17:00:43 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	int		i;
-	int		j;
+#include <stdlib.h>
 
+int		ft_strlen(char *str)
+{
+	int		len;
+
+	len = 0;
+	while (str[len++]);
+	return (len - 1);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*dest;
+	int		i;
+
+	if (!(dest = (char *)malloc(ft_strlen(src) * sizeof(char))))
+		return (NULL);
 	i = 0;
-	while (i < size && src[i])
+	while (src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	if (size > 0)
-		dest[i] = '\0';
-	j = 0;
-	while (src[i + j])
-		j++;
-	return (i + j);
+	return (dest);
 }
