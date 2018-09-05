@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 23:59:10 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/05 14:43:19 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/05 14:46:39 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,4 @@ char	**ft_split_whitespaces(char *str)
 	}
 	tab[pos] = NULL;
 	return (tab);
-}
-
-#include <stdio.h>
-
-int		main(int ac, char **av)
-{
-	char	**tab;
-	int		p;
-
-	printf("words:%d\n", count_words(av[1]));
-	tab = ft_split_whitespaces(av[1]);
-	p = 0;
-	while (tab[p++])
-		printf("tab[%d]:%s\n", p - 1, tab[p - 1]);
-	return (ac);
 }
