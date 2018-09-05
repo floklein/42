@@ -5,40 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/05 17:31:26 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/05 19:44:31 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/05 16:16:10 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/05 16:51:40 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int		ft_strlen(char *str)
+{
+	int		len;
+
+	len = 0;
+	while (*(str + len++));
+	return (len - 1);
+}
+
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	unsigned int	len_d;
-	unsigned int	len_s;
-	unsigned int	i;
+	int		n;
+	int		len;
+	int		i;
 
-	len_d = 0;
-	while (dest[len_d])
-		len_d++;
-	len_s = 0;
-	while (src[len_s])
-		len_s++;
-	if (size < len_d)
-		return (size + len_s);
+	n = size;
+	while (n-- && *(dest + len))
+		len++;
+	n = size - len;
+	if (n == 0)
+		return (len + ft_strlen(src));
 	i = 0;
-	while (len_d + i < size - 1)
+	while (src[i])
 	{
-		dest[len_d + i] = src[i];
+		if (n != 1)
+		{
+			dest[len + i] = src[i];
+			n--;
+		}
 		i++;
 	}
-	dest[len_d + i] = '\0';
-	return (len_d + len_s);
+	*(dest + len + i) = '\0';
+	return (len + i);
 }
-/*
+
 int		main(int ac, char **av)
 {
-	char	*cpy1;
+	char	*cpy = av[1];
+	char	*cpy2 = av[1];
 
-	cpy1 = av[1];
-	printf("%d\n", ft_strlcat(cpy1, av[2], atoi(av[3])));
-	printf("%s\n", cpy1);
-}*/
+	ft_strlcat(cpy, av[2], atoi(av[3]));
+	printf("%s\n", cpy);
+	strlcat(cpy2, av[2], atoi(av[3]));
+	printf("%s\n", cpy2);
+}

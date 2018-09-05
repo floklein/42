@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 20:15:59 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/04 21:50:10 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/05 16:01:32 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 		i = cur_add;
 		while (i < cur_add + 16)
 			print_ascii(char_addr, cur_add, size, i++);
-		ft_putnstr_np("  ", -1);
+		ft_putnstr_np(" ", -1);
 		i = cur_add;
 		ft_putnstr_np(char_addr + i,
 				cur_add + 16 > (int)size ? size - cur_add : 16);
