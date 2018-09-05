@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/03 20:15:59 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/04 19:05:50 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/04 21:50:10 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 
 	char_addr = (char *)addr;
 	cur_add = 0;
-	while (cur_add <= size)
+	while (cur_add <= (int)size)
 	{
 		print_0(cur_add);
 		ft_putnbr_16(cur_add);
@@ -101,7 +101,8 @@ void	*ft_print_memory(void *addr, unsigned int size)
 			print_ascii(char_addr, cur_add, size, i++);
 		ft_putnstr_np("  ", -1);
 		i = cur_add;
-		ft_putnstr_np(char_addr + i, cur_add + 16 > size ? size - cur_add : 16);
+		ft_putnstr_np(char_addr + i,
+				cur_add + 16 > (int)size ? size - cur_add : 16);
 		ft_putchar('\n');
 		cur_add += 16;
 	}
