@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/04 23:14:07 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/04 23:46:54 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/06 18:10:04 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*ft_concat_params(int argc, char **argv)
 	}
 	printf("len:%d\n", len);
 	if (!(tab = (char*)malloc((len + argc - 2) * sizeof(char))))
-		return (NULL);
+		return ("");
 	i = 1;
 	c = 0;
 	while (i < argc)
