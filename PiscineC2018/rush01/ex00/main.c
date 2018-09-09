@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 19:17:17 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/09 20:13:42 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/09 21:57:42 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,15 @@ int		main(int ac, char **av)
 	int		res;
 
 	if (ac != 10 || !(tab = create_tab(av))
-			|| !(tab_cpy = create_tab(av)) || 0)
+			|| !(tab_cpy = create_tab(av)) || !(is_valid(tab)))
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	print_tab(tab);
-	ft_putchar('\n');
-	printf("valid? %d\n", is_valid(tab));
-/*	solve_sudoku(tab, tab_cpy, &res, 0);
-	printf("res:%d\n", res);
+	solve_sudoku(tab, tab_cpy, &res, 0);
 	if (res == 1)
 		print_tab(tab_cpy);
 	else
 		write(1, "Error\n", 6);
-	return (0);*/
+	return (0);
 }
