@@ -6,15 +6,11 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 19:17:17 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/09 19:30:04 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/09 20:13:42 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sudoku.h"
-
-/*
-** My only friend
-*/
 
 int		this_is_the_end(int **tab, int **tab_cpy, int *res)
 {
