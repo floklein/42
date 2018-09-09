@@ -6,51 +6,73 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 19:17:17 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/09 02:00:01 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/09 19:30:04 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sudoku.h"
 
-int		solve_sudoku(int **tab, int pos)
+/*
+** My only friend
+*/
+
+int		this_is_the_end(int **tab, int **tab_cpy, int *res)
+{
+	if (*res == 0)
+		copy_tab(tab_cpy, tab);
+	(*res)++;
+	if (*res == 2)
+		return (1);
+	return (0);
+}
+
+int		solve_sudoku(int **tab, int **tab_cpy, int *res, int pos)
 {
 	int		l;
 	int		c;
 	int		nb;
 
 	if (pos == 81)
-		return (1);
+		return (this_is_the_end(tab, tab_cpy, res));
 	l = pos / 9;
 	c = pos % 9;
 	if (tab[l][c] != 0)
-		return (solve_sudoku(tab, pos + 1));
+		return (solve_sudoku(tab, tab_cpy, res, pos + 1));
 	nb = 1;
 	while (nb <= 9)
 	{
-		if (test(tab, pos, nb))
+		if (test(tab, l, c, nb))
 		{
 			tab[l][c] = nb;
-			if (solve_sudoku(tab, pos + 1))
+			if (solve_sudoku(tab, tab_cpy, res, pos + 1))
 				return (1);
-			tab[l][c] = 0;
 		}
 		nb++;
 	}
+	tab[l][c] = 0;
 	return (0);
 }
 
 int		main(int ac, char **av)
 {
 	int		**tab;
+	int		**tab_cpy;
+	int		res;
 
-	if (ac != 10 || !(tab = create_tab(av)))
+	if (ac != 10 || !(tab = create_tab(av))
+			|| !(tab_cpy = create_tab(av)) || 0)
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
 	print_tab(tab);
 	ft_putchar('\n');
-	solve_sudoku(tab, 0);
-	print_tab(tab);
-	return (0);
+	printf("valid? %d\n", is_valid(tab));
+/*	solve_sudoku(tab, tab_cpy, &res, 0);
+	printf("res:%d\n", res);
+	if (res == 1)
+		print_tab(tab_cpy);
+	else
+		write(1, "Error\n", 6);
+	return (0);*/
 }
