@@ -6,13 +6,13 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 22:38:54 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/09 02:02:50 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/09 02:36:02 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sudoku.h"
 
-int		test_c_l(int **tab, int pos, int nb)
+int		test_c_l(char **tab, int pos, char nb)
 {
 	int		i;
 	int		j;
@@ -34,7 +34,7 @@ int		test_c_l(int **tab, int pos, int nb)
 	return (1);
 }
 
-int		test_case(int **tab, int pos, int nb)
+int		test_case(char **tab, int pos, char nb)
 {
 	int		l;
 	int		c;
@@ -59,7 +59,7 @@ int		test_case(int **tab, int pos, int nb)
 	return (1);
 }
 
-int		test(int **tab, int pos, int nb)
+int		test(char **tab, int pos, char nb)
 {
 	return (test_c_l(tab, pos, nb) && test_case(tab, pos, nb));
 }

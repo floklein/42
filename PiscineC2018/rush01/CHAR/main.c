@@ -6,17 +6,17 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 19:17:17 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/09 02:00:01 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/09 02:36:20 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sudoku.h"
 
-int		solve_sudoku(int **tab, int pos)
+int		solve_sudoku(char **tab, int pos)
 {
 	int		l;
 	int		c;
-	int		nb;
+	char	nb;
 
 	if (pos == 81)
 		return (1);
@@ -41,7 +41,7 @@ int		solve_sudoku(int **tab, int pos)
 
 int		main(int ac, char **av)
 {
-	int		**tab;
+	char	**tab;
 
 	if (ac != 10 || !(tab = create_tab(av)))
 	{
