@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 20:19:39 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/08 21:27:11 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/09 18:16:38 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ int		**create_tab(char **av)
 
 	if (!(tab = (int **)malloc(sizeof(int *) * 9)))
 		return (NULL);
-	i = 0;
-	while (i < 9)
+	i = -1;
+	while (i++ < 8)
 	{
-		if (!(tab[i] = (int *)malloc(sizeof(int) * 9)))
+		if (ft_strlen(av[i + 1]) != 9
+				|| !(tab[i] = (int *)malloc(sizeof(int) * 9)))
 			return (NULL);
-		j = 0;
-		while (j < 9)
+		j = -1;
+		while (j++ < 8)
 		{
 			if (av[i + 1][j] == '.')
 				tab[i][j] = 0;
@@ -34,26 +35,19 @@ int		**create_tab(char **av)
 				tab[i][j] = av[i + 1][j] - '0';
 			else
 				return (NULL);
-			j++;
 		}
-		i++;
 	}
 	return (tab);
 }
 
-int		**copy_tab(int **old)
+void	copy_tab(int **tab, int **old)
 {
-	int		**tab;
 	int		i;
 	int		j;
 
-	if (!(tab = (int **)malloc(sizeof(int *) * 9)))
-		return (NULL);
 	i = 0;
 	while (i < 9)
 	{
-		if (!(tab[i] = (int *)malloc(sizeof(int) * 9)))
-			return (NULL);
 		j = 0;
 		while (j < 9)
 		{
@@ -62,7 +56,6 @@ int		**copy_tab(int **old)
 		}
 		i++;
 	}
-	return (tab);
 }
 
 void	print_tab(int **tab)
@@ -81,7 +74,7 @@ void	print_tab(int **tab)
 				ft_putchar(' ');
 			j++;
 		}
-		ft_putchar('\n');
+	ft_putchar('\n');
 		i++;
 	}
 }
