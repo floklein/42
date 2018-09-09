@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 22:38:54 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/09 21:03:39 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/09 21:55:56 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int		test_case(int **tab, int l, int c, int nb)
 		j = 0;
 		while (j < 3)
 		{
-			printf("case:%d) = %d\n", nb, tab[i][j]);
-			if (i != l && j != c
+			if (l - (l % 3) + i != l && c - (c % 3) + j != c
 					&& tab[l - (l % 3) + i][c - (c % 3) + j] == nb)
 				return (0);
 			j++;
@@ -42,7 +41,6 @@ int		test(int **tab, int l, int c, int nb)
 	i = 0;
 	while (i < 9)
 	{
-		printf("col:%d) = %d\n", nb, tab[i][c]);
 		if (i != l && tab[i][c] == nb)
 			return (0);
 		i++;
@@ -50,7 +48,6 @@ int		test(int **tab, int l, int c, int nb)
 	j = 0;
 	while (j < 9)
 	{
-		printf("line:%d) = %d\n", nb, tab[l][j]);
 		if (j != c && tab[l][j] == nb)
 			return (0);
 		j++;
@@ -69,7 +66,6 @@ int		is_valid(int **tab)
 		j = 0;
 		while (j < 9)
 		{
-			printf("=====TEST: [%d][%d] val:%d\n", i, j, tab[i][j]);
 			if (tab[i][j] != 0 && !test(tab, i, j, tab[i][j]))
 				return (0);
 			j++;
