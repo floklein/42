@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 22:38:54 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/09 21:55:56 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/11 00:27:23 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		test_case(int **tab, int l, int c, int nb)
 	{
 		j = 0;
 		while (j < 3)
-		{
+		{ //Teste le box de la case
 			if (l - (l % 3) + i != l && c - (c % 3) + j != c
 					&& tab[l - (l % 3) + i][c - (c % 3) + j] == nb)
 				return (0);
@@ -40,14 +40,14 @@ int		test(int **tab, int l, int c, int nb)
 
 	i = 0;
 	while (i < 9)
-	{
+	{ //Teste toutes les lignes pour cette colonne
 		if (i != l && tab[i][c] == nb)
 			return (0);
 		i++;
 	}
 	j = 0;
 	while (j < 9)
-	{
+	{ //Teste toutes les colonnes pour cette ligne
 		if (j != c && tab[l][j] == nb)
 			return (0);
 		j++;
@@ -65,7 +65,7 @@ int		is_valid(int **tab)
 	{
 		j = 0;
 		while (j < 9)
-		{
+		{ //Teste si grille valide
 			if (tab[i][j] != 0 && !test(tab, i, j, tab[i][j]))
 				return (0);
 			j++;

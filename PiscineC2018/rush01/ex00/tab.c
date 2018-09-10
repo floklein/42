@@ -6,14 +6,14 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 20:19:39 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/09 21:59:57 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/11 00:29:26 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sudoku.h"
 
 int		**create_tab(char **av)
-{
+{ //Cree le tableau de tableaux d'entiers a partir des arguments
 	int		**tab;
 	int		i;
 	int		j;
@@ -29,11 +29,11 @@ int		**create_tab(char **av)
 		j = -1;
 		while (j++ < 8)
 		{
-			if (av[i + 1][j] == '.')
+			if (av[i + 1][j] == '.') //Si . -> 0
 				tab[i][j] = 0;
-			else if (av[i + 1][j] >= '1' && av[i + 1][j] <= '9')
+			else if (av[i + 1][j] >= '1' && av[i + 1][j] <= '9') //Si nb -> ok
 				tab[i][j] = av[i + 1][j] - '0';
-			else
+			else //Sinon (alpha, symbole, etc) -> erreur
 				return (NULL);
 		}
 	}
@@ -41,7 +41,7 @@ int		**create_tab(char **av)
 }
 
 void	copy_tab(int **tab, int **old)
-{
+{ //Simple copie d'un tableau dans un nouveau
 	int		i;
 	int		j;
 
@@ -59,7 +59,7 @@ void	copy_tab(int **tab, int **old)
 }
 
 void	print_tab(int **tab)
-{
+{ //Affichage du tableau final
 	int		i;
 	int		j;
 
