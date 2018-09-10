@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/08 19:17:17 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/11 00:25:23 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/11 00:31:56 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		solve_sudoku(int **tab, int **tab_cpy, int *res, int pos)
 }
 
 int		main(int ac, char **av)
-{
+{ // === DEBUT ===
 	int		**tab;
 	int		**tab_cpy;
 	int		res;
@@ -61,7 +61,7 @@ int		main(int ac, char **av)
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	solve_sudoku(tab, tab_cpy, &res, 0); //Appel du solver
+	solve_sudoku(tab, tab_cpy, &res, 0); //Appel du solver (backtracking)
 	if (res == 1)
 		print_tab(tab_cpy); //Affiche le resultat unique
 	else
