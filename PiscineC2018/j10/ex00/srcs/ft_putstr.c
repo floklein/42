@@ -6,11 +6,11 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/28 19:41:48 by flklein           #+#    #+#             */
-/*   Updated: 2018/08/28 22:38:29 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/11 02:06:58 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
+#include "libft.h"
 
 void	ft_putstr(char *str)
 {

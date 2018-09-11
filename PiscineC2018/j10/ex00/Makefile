@@ -6,29 +6,34 @@
 #    By: flklein <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 15:05:02 by flklein           #+#    #+#              #
-#    Updated: 2018/09/10 15:17:04 by flklein          ###   ########.fr        #
+#    Updated: 2018/09/11 02:22:53 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-FLAGS = -Wall -Wextra -Werror -I $(PATH_HEADER) -c
+IDIR = includes
+_INC = libft.h
+INC = $(patsubst %,$(IDIR)/%,$(_INC))
 
-PATH_SRC = ./srcs/
+SDIR = srcs
+_SRC = ft_putchar.c ft_putstr.c ft_strcmp.c ft_strlen.c ft_swap.c
+SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 
-PATH_HEADER = ./includes/
+OBJ = $(_SRC:.c=.o)
 
-SRC = $(PATH_SRC)ft_putchar.c $(PATH_SRC)ft_putstr.c $(PATH_SRC)ft_strcmp.c\
-	  $(PATH_SRC)ft_strlen.c $(PATH_SRC)ft_swap.c
-
-OBJ = ft_putchar.o ft_swap.o ft_strlen.o ft_strcmp.o ft_putstr.o
+FLAGS = -Wall -Wextra -Werror
+OPTS = -I$(IDIR) -c
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(FLAGS) $(SRC)
+$(NAME): $(OBJ)
+	gcc $(FLAGS) $(OPTS) $(SRC)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
+
+$(OBJ): $(SRC)
+	gcc $(FLAGS) $(OPTS) $(SRC)
 
 clean:
 	/bin/rm -f $(OBJ)
