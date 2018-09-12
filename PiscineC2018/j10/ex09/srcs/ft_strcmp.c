@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 23:10:27 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/10 20:36:51 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/01 23:44:31 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/12 11:47:25 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "do_op.h"
 
-char	*ft_strcpy(char *dest, char *src)
+int		ft_strcmp(char *s1, char *s2)
 {
 	int		i;
 
 	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
-	}
-	dest[i] = 0;
-	return (dest);
+	return (s1[i] - s2[i]);
 }

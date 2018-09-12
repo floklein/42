@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_opp.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 23:20:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/04 15:49:04 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/11 14:28:58 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/12 13:22:19 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef FT_OPP_H
+# define FT_OPP_H
 
-char	*ft_strstr(char *str, char *to_find)
+t_opp g_opptab[] =
 {
-	int		i;
-	int		j;
+	{"+", &ft_add},
+	{"-", &ft_sub},
+	{"*", &ft_mul},
+	{"/", &ft_div},
+	{"%", &ft_mod},
+	{"", &ft_usage}
+};
 
-	i = 0;
-	if (!to_find)
-		return (str);
-	while (str[i])
-	{
-		j = 0;
-		while (str[i + j] && to_find[j] && str[i + j] == to_find[j])
-			j++;
-		if (!to_find[j])
-			return (str + i);
-		i++;
-	}
-	return (NULL);
-}
+#endif
