@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_if.c                                      :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 17:04:31 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/12 17:16:59 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/12 14:48:47 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/12 16:17:18 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_count_if(char **tab, int (*f)(char *))
-{
-	int		count;
-	int		i;
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-	count = 0;
-	i = 0;
-	while (tab[i])
-	{
-		if ((*f)(tab[i]))
-			count++;
-		i++;
-	}
-	return (count);
-}
+# include <stdlib.h>
+
+typedef struct	s_list
+{
+	struct s_list	*next;
+	void			*data;
+}				t_list;
+
+t_list			*ft_create_elem(void *data);
+
+#endif
