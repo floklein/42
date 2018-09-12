@@ -6,30 +6,18 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 13:54:55 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/11 14:17:48 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/12 21:08:44 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2)
+int    ft_strcmp(char *s1, char *s2)
 {
-	int				c;
-	int				n1;
-	int				n2;
+	int i;
 
-	c = 0;
-	while (s1[c] != '\0' || s2[c] != '\0')
-	{
-		if (s1[c] != s2[c])
-		{
-			n1 = s1[c];
-			n2 = s2[c];
-			if (n1 > n2 || n1 < n2)
-				return (n1 - n2);
-		}
-		if (s1[c] == s2[c])
-			c++;
-	}
-	return (0);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] && s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
 
 void	ft_swap(char **a, char **b)
