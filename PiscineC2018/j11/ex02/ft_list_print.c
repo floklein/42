@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_back.c                                :+:      :+:    :+:   */
+/*   ft_list_print.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 01:58:13 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/13 03:45:34 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/12 16:08:46 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/13 03:46:46 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_list_push_back(t_list **begin_list, void *data)
+t_list	*ft_create_elem(void *data);
+void	ft_list_push_back(t_list **begin_list, void *data);
+
+#include <stdio.h>
+
+void	ft_list_print(t_list *node)
 {
-	if (*begin_list)
-	{
-		if ((*begin_list)->next)
-			ft_list_push_back(&((*begin_list)->next), data);
-		else
-			(*begin_list)->next = ft_create_elem(data);
-	}
-	else
-		(*begin_list) = ft_create_elem(data);
+	if (node)
+		printf("%d\n", node->data);
+	if (node->next)
+		ft_list_print(node->next);
+}
+
+int		main(void)
+{
+	t_list	*list;
+
+	list = NULL;
+	list = ft_create_elem(32);
+	ft_list_push_front(&list, 64);
+	ft_list_print(list);
+	return (0);
 }
