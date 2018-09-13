@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
+/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 11:33:02 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/13 19:15:53 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/13 14:42:13 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/13 14:46:52 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_list_reverse(t_list **begin_list)
+void	ft_list_remove_if(t_list **begin_list, void *data_ref,
+		int (*cmp)())
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
-	t_list	*tmp3;
+	t_list	*i_want_to_break_free;
 
-	if (!(*begin_list) || !((*begin_list)->next))
-		return ;
-	tmp1 = *begin_list;
-	tmp2 = tmp1->next;
-	tmp3 = tmp2->next;
-	tmp1->next = NULL;
-	tmp2->next = tmp1;
-	while (tmp3)
+	if (*begin_list)
 	{
-		tmp1 = tmp2;
-		tmp2 = tmp3;
-		tmp3 = tmp3->next;
-		tmp2->next = tmp1;
+		if ((*cmp)((*begin_list)->data, data_ref) == 0)
+		{
+			i_want_to_break_free = *begin_list;
+			*begin_list = (*begin_list)->next;
+			free(i_want_to_break_free);
+			ft_list_remove_if(begin_list, data_ref, cmp);
+		}
+		else
+			ft_list_remove_if(&(*begin_list)->next, data_ref, cmp);
 	}
-	*begin_list = tmp2;
 }
