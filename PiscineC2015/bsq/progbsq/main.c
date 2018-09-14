@@ -6,7 +6,7 @@
 /*   By: cchaumar <cchaumar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/03 15:00:52 by cchaumar          #+#    #+#             */
-/*   Updated: 2015/11/06 18:07:52 by fklein           ###   ########.fr       */
+/*   Updated: 2015/11/06 23:17:30 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ char	*ft_getline(int fd, t_map *map_info)
 	char	*s;
 	int		n;
 
-	n = map_info->height + 1;
-	if ((s = (char *)malloc(sizeof(char) * n)) == NULL)
+	n = map_info->width + 1;
+	if ((s = (char *)malloc(sizeof(char) * (n + 1))) == NULL)
 		return (NULL);
 	read(fd, s, n);
 	return ((*(s + n - 1) == '\n') ? s : NULL);
@@ -84,15 +84,17 @@ t_map	*ft_read(char *s, char ***map, int flag)
 		return (NULL);
 	if (((*map)[0] = ft_get_first_line(fd, map_info)) == NULL)
 		return (NULL);
-	map_info->width = ft_strlen((*map)[0]);
+	map_info->width = ft_strlen((*map)[0]) - 1;
 	line = 0;
 	while (++line < map_info->height)
+	{
 		if (((*map)[line] = ft_getline(fd, map_info)) == NULL)
 			return (NULL);
+		(*map)[line][map_info->width + 1] = '\0';
+	}
 	(*map)[line] = NULL;
-	if (flag)
-		if (close(fd) == -1)
-			return (NULL);
+	if (flag && close(fd) == -1)
+		return (NULL);
 	return (map_info);
 }
 

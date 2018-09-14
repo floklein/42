@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sorted_list_insert.c                            :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/13 22:50:47 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/13 23:18:07 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/12 14:48:47 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/13 11:05:08 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-void	ft_sorted_list_insert(t_list **begin_list, void *data, int (*cmp)())
+# include <stdlib.h>
+
+typedef struct	s_list
 {
-	t_list	*tmp;
+	struct s_list	*next;
+	void			*data;
+}				t_list;
 
-	if (!(*begin_list))
-		*begin_list = ft_create_elem(data);
-	else if ((*cmp)((*begin_list)->data, data) < 0)
-		ft_sorted_list_insert(&((*begin_list)->next), data, cmp);
-	else
-	{
-		tmp = (*begin_list)->next;
-		(*begin_list)->next = ft_create_elem(data);
-		(*begin_list)->next->next = tmp;
-	}
-}
+#endif
