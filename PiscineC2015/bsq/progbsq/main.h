@@ -6,7 +6,7 @@
 /*   By: cchaumar <cchaumar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/03 15:06:35 by cchaumar          #+#    #+#             */
-/*   Updated: 2015/11/06 18:15:13 by fklein           ###   ########.fr       */
+/*   Updated: 2015/11/06 23:14:39 by fklein           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <fcntl.h>
-# define PRINT_SPACES 1
+# define PRINT_SPACES 0
 
 typedef struct	s_map
 {
