@@ -6,37 +6,53 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 23:22:35 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/14 01:37:45 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/14 14:23:39 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_sorted_list_insert(t_list **begin_list, t_list *node, int (*cmp)())
+void	my_ft_list_merge(t_list **begin_list1, t_list *begin_list2)
 {
-	t_list	*tmp;
-
-	if (!(*begin_list))
-	{
-		*begin_list = node;
-		node->next = NULL;
-	}
-	else if ((*cmp)((*begin_list)->data, node->data) < 0)
-		ft_sorted_list_insert(&((*begin_list)->next), node, cmp);
+	if (!(*begin_list1))
+		*begin_list1 = begin_list2;
+	else if (!((*begin_list1)->next))
+		(*begin_list1)->next = begin_list2;
 	else
+		my_ft_list_merge(&((*begin_list1)->next), begin_list2);
+}
+
+void	my_ft_list_sort(t_list **begin_list, int (*cmp)())
+{
+	t_list	*tmp1;
+	t_list	*tmp2;
+	t_list	*tmp3;
+	void	*min;
+
+	tmp1 = *begin_list;
+	while (tmp1)
 	{
-		tmp = (*begin_list)->next;
-		(*begin_list)->next = node;
-		(*begin_list)->next->next = tmp;
+		tmp3 = tmp1;
+		min = tmp1->data;
+		tmp2 = tmp1->next;
+		while (tmp2)
+		{
+			if ((*cmp)(min, tmp2->data) > 0)
+			{
+				tmp3 = tmp2;
+				min = tmp3->data;
+			}
+			tmp2 = tmp2->next;
+		}
+		tmp3->data = tmp1->data;
+		tmp1->data = min;
+		tmp1 = tmp1->next;
 	}
 }
 
 void	ft_sorted_list_merge(t_list **begin_list1, t_list *begin_list2,
 		int (*cmp)())
 {
-	while (begin_list2)
-	{
-		ft_sorted_list_insert(begin_list1, begin_list2, cmp);
-		begin_list2 = begin_list2->next;
-	}
+	my_ft_list_merge(begin_list1, begin_list2);
+	my_ft_list_sort(begin_list1, cmp);
 }
