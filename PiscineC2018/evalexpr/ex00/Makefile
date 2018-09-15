@@ -6,7 +6,7 @@
 #    By: flklein <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 17:41:26 by flklein           #+#    #+#              #
-#    Updated: 2018/09/15 19:21:33 by flklein          ###   ########.fr        #
+#    Updated: 2018/09/15 20:07:48 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,10 @@ $(NAME): $(OBJ)
 $(OBJ): $(SRC)
 		@gcc -c -I$(IDIR) $(SRC)
 
-clean: fclean
+clean:
 		@/bin/rm -f $(OBJ)
 
-fclean:
+fclean: clean
 		@/bin/rm -f $(NAME)
 
 re: clean all
