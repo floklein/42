@@ -6,84 +6,83 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 15:03:22 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 20:45:36 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/16 22:04:05 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eval_expr.h"
 
-int		is_operator(char *elem)
+void	destack_prio(char ***polish, char ***stack, int *k)
 {
-	return (ft_strlen(elem) == 1
-			&& (*elem == '+' || *elem == '-' || *elem == '*' || *elem == '/'
-				|| *elem == '%' || *elem == '(' || *elem == ')'));
+	if (!(ft_strcmp(t_s(*stack), "(") == 0
+				|| ft_strcmp(t_s(*stack), ")") == 0))
+		(*polish)[(*k)++] = ft_strdup(de_stack(stack));
+	else
+		de_stack(stack);
 }
 
-int		find_priority(char *elem)
+void	init_polish(char ***polish, char ***stack, char **infix)
 {
-	if (elem == NULL)
-		return (-1);
-	else if (ft_strcmp(elem, "*") == 0 || ft_strcmp(elem, "/") == 0
-			|| ft_strcmp(elem, "%") == 0)
-		return (2);
-	else if (ft_strcmp(elem, "+") == 0 || ft_strcmp(elem, "-") == 0)
-		return (1);
-	else if (ft_strcmp(elem, "(") == 0)
-		return (0);
-	return (-1);
+	int		size;
+	int		i;
+
+	size = find_size(infix);
+	if (!((*stack) = (char **)malloc(sizeof(char *) * (size + 1))))
+		return ;
+	i = 0;
+	while (i < size)
+		(*stack)[i++] = NULL;
+	if (!((*polish) = (char **)malloc(sizeof(char *) * (size + 1))))
+		return ;
+	i = 0;
+	while (i < size)
+		(*polish)[i++] = NULL;
+}
+
+void	destack_par(char ***polish, char ***stack, int *k)
+{
+	while (ft_strcmp(t_s(*stack), "(") != 0)
+		(*polish)[(*k)++] = de_stack(stack);
+	de_stack(stack);
+}
+
+int		helper_polish(char ***polish, char ***s, char **in)
+{
+	int		i;
+	int		k;
+
+	i = 0;
+	k = 0;
+	while (in[i])
+	{
+		if (ft_strcmp(in[i], ")") == 0)
+			destack_par(polish, s, &k);
+		else if (is_operator(in[i]))
+		{
+			if (ft_strcmp(in[i], "(") == 0 || f_prio(in[i]) > f_prio(t_s(*s)))
+				add_stack(s, in[i]);
+			else
+			{
+				while (f_prio(in[i]) <= f_prio(t_s(*s)))
+					destack_prio(polish, s, &k);
+				add_stack(s, in[i]);
+			}
+		}
+		else
+			(*polish)[k++] = ft_strdup(in[i]);
+		i++;
+	}
+	return (k);
 }
 
 char	**parse_polish(char **infix)
 {
-	int		size;
 	char	**polish;
 	char	**stack;
-	int		i;
 	int		k;
 
-	size = find_size(infix);
-	if (!(stack = (char **)malloc(sizeof(char *) * (size + 1))))
-		return (NULL);
-	k = 0;
-	while (k < size)
-		stack[k++] = NULL;
-	if (!(polish = (char **)malloc(sizeof(char *) * (size + 1))))
-		return (NULL);
-	i = 0;
-	while (i < size)
-		polish[i++] = NULL;
-	k = 0;
-	i = 0;
-	while (infix[i])
-	{
-		if (ft_strcmp(infix[i], ")") == 0)
-		{
-			while (ft_strcmp(top_stack(stack), "(") != 0)
-				polish[k++] = de_stack(&stack);
-			de_stack(&stack);
-		}
-		else if (is_operator(infix[i]))
-		{
-			if (ft_strcmp(infix[i], "(") == 0
-					|| find_priority(infix[i]) > find_priority(top_stack(stack)))
-				add_stack(&stack, infix[i]);
-			else
-			{
-				while (find_priority(infix[i]) <= find_priority(top_stack(stack)))
-				{
-					if (!(ft_strcmp(top_stack(stack), "(") == 0
-								|| ft_strcmp(top_stack(stack), ")") == 0))
-						polish[k++] = ft_strdup(de_stack(&stack));
-					else
-						de_stack(&stack);
-				}
-				add_stack(&stack, infix[i]);
-			}
-		}
-		else
-			polish[k++] = ft_strdup(infix[i]);
-		i++;
-	}
+	init_polish(&polish, &stack, infix);
+	k = helper_polish(&polish, &stack, infix);
 	while ((polish[k] = de_stack(&stack)))
 		k++;
 	return (polish);
