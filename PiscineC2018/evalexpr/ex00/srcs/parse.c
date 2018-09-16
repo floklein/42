@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/15 17:11:04 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 21:15:37 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/16 22:23:12 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ char	*kill_spaces(char *src)
 	int		i;
 	int		j;
 
-	if (!(dest = (char *)malloc((ft_strlen(src) + 1) * sizeof(char))))
+	if (!(dest = (char *)malloc((ft_strlen(src) + 2) * sizeof(char))))
 		return (NULL);
 	i = 0;
 	j = 0;
+	dest[j] = '(';
+	j++;
 	while (src[i])
 	{
 		if (src[i] != ' ')
@@ -30,7 +32,7 @@ char	*kill_spaces(char *src)
 			i++;
 	}
 	dest[j] = '\0';
-	return (dest);
+	return (dest + 1);
 }
 
 int		is_op(char ope)

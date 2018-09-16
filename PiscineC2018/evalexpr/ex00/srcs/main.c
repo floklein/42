@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/15 14:58:30 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 20:42:33 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/16 22:24:45 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,16 @@ int		eval_expr(char *str)
 	char	**polish;
 	int		res;
 
+	if (!str[0])
+		return (0);
 	infix = parse_str(str);
-	polish = parse_polish(infix);
-	res = calc_polish(polish);
+	if (find_size(infix) <= 1)
+		return (ft_atoi(infix[0]));
+	else
+	{
+		polish = parse_polish(infix);
+		res = calc_polish(polish);
+	}
 	return (res);
 }
 
