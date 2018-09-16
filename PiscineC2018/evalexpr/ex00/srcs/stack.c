@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 15:34:58 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 18:19:36 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/16 22:00:28 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		find_size(char **stack)
 	return (size);
 }
 
-char	*top_stack(char **stack)
+char	*t_s(char **stack)
 {
 	int		i;
 	char	*cpy;

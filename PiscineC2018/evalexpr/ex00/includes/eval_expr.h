@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/15 15:00:14 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 21:02:56 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/16 22:04:22 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ char			**parse_str(char *str);
 char			**parse_polish(char **infix);
 int				find_size(char **stack);
 int				is_operator(char *op);
-char			*top_stack(char **stack);
+int				f_prio(char *elem);
+char			*t_s(char **stack);
 char			*de_stack(char ***stack);
 void			add_stack(char ***stack, char *elem);
 int				ft_atoi(char *str);
