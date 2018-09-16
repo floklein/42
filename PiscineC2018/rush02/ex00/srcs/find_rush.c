@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 01:08:19 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 01:40:12 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/16 03:23:23 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,9 @@ void	rush_comp(char *input)
 		display_rush("colle-03", x, y, &first);
 	if (ft_strcmp(input, rush_04(x, y)) == 0)
 		display_rush("colle-04", x, y, &first);
-	if (first == 0)
-		ft_putstr("\n");
-	else
-		ft_putstr("aucune\n");
+	if (is_square(input, x, y))
+		display_rush("carre", x, y, &first);
+	if (is_rectangle(input, x, y))
+		display_rush("rectangle", x, y, &first);
+	ft_putstr(first ? "aucune\n" : "\n");
 }

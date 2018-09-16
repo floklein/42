@@ -6,14 +6,14 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/15 22:36:10 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 01:45:20 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/16 03:19:59 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef COLLE2_H
 # define COLLE2_H
 
-# define BUF_SIZE 10
+# define BUF_SIZE 4096
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -30,5 +30,7 @@ char	*rush_01(int x, int y);
 char	*rush_02(int x, int y);
 char	*rush_03(int x, int y);
 char	*rush_04(int x, int y);
+int		is_square(char *str, int x, int y);
+int		is_rectangle(char *str, int x, int y);
 
 #endif
