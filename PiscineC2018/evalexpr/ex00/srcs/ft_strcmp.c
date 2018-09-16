@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/15 14:58:30 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 20:42:33 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/01 23:44:31 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/16 16:17:16 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eval_expr.h"
 
-int		eval_expr(char *str)
+int		ft_strcmp(char *s1, char *s2)
 {
-	char	**infix;
-	char	**polish;
-	int		res;
+	int		i;
 
-	infix = parse_str(str);
-	polish = parse_polish(infix);
-	res = calc_polish(polish);
-	return (res);
-}
-
-int		main(int ac, char **av)
-{
-	if (ac > 1)
-	{
-		ft_putnbr(eval_expr(av[1]));
-		ft_putchar('\n');
-	}
-	return (0);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }

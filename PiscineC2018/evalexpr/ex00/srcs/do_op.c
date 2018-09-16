@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/15 15:11:22 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/15 19:25:44 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/16 19:37:16 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,17 @@ int		do_op(int nb1, int nb2, char oper)
 	int		res;
 	int		op;
 
-/*	g_opptab[0] = {'+', &ft_add};
-	g_opptab[1] = {'-', &ft_sub};
-	g_opptab[2] = {'*', &ft_mul};
-	g_opptab[3] = {'/', &ft_div};
-	g_opptab[4] = {'%', &ft_mod};*/
+	g_opptab[0].operand = '+';
+	g_opptab[0].operation = ft_add;
+	g_opptab[1].operand = '-';
+	g_opptab[1].operation = ft_sub;
+	g_opptab[2].operand = '*';
+	g_opptab[2].operation = ft_mul;
+	g_opptab[3].operand = '/';
+	g_opptab[3].operation = ft_div;
+	g_opptab[4].operand = '%';
+	g_opptab[4].operation = ft_mod;
 	op = define_op(oper, g_opptab);
 	res = (g_opptab[op].operation)(nb1, nb2);
-	return (0);
+	return (res);
 }

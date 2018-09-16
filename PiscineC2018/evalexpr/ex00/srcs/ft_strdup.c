@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/15 14:58:30 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 20:42:33 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/04 16:54:54 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/16 15:26:59 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eval_expr.h"
 
-int		eval_expr(char *str)
+char	*ft_strdup(char *src)
 {
-	char	**infix;
-	char	**polish;
-	int		res;
+	char	*dest;
+	int		i;
 
-	infix = parse_str(str);
-	polish = parse_polish(infix);
-	res = calc_polish(polish);
-	return (res);
-}
-
-int		main(int ac, char **av)
-{
-	if (ac > 1)
+	if (!src)
+		return (NULL);
+	if (!(dest = (char *)malloc((ft_strlen(src) + 1) * sizeof(char))))
+		return (NULL);
+	i = 0;
+	while (src[i])
 	{
-		ft_putnbr(eval_expr(av[1]));
-		ft_putchar('\n');
+		dest[i] = src[i];
+		i++;
 	}
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }

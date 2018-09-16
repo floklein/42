@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   calcul.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/15 14:58:30 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/16 20:42:33 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/16 19:34:15 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/16 20:41:40 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eval_expr.h"
 
-int		eval_expr(char *str)
+int		calc_polish(char **polish)
 {
-	char	**infix;
-	char	**polish;
-	int		res;
+	int		size;
+	int		*stack;
+	int		i;
+	int		k;
 
-	infix = parse_str(str);
-	polish = parse_polish(infix);
-	res = calc_polish(polish);
-	return (res);
-}
-
-int		main(int ac, char **av)
-{
-	if (ac > 1)
+	size = find_size(polish);
+	if (!(stack = (int*)malloc(sizeof(int) * (size + 1))))
+		return (0);
+	k = 0;
+	while (k < size)
+		stack[k++] = 0;
+	k = 0;
+	i = 0;
+	while (polish[i])
 	{
-		ft_putnbr(eval_expr(av[1]));
-		ft_putchar('\n');
+		if (!is_operator(polish[i]))
+			stack[k++] = ft_atoi(polish[i++]);
+		else
+		{
+			stack[k - 2] = do_op(stack[k - 2], stack[k - 1], *(polish[i]));
+			k--;
+			i++;
+		}
 	}
-	return (0);
+	return (stack[0]);
 }
