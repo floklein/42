@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/15 17:11:04 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/15 19:59:14 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/16 20:43:17 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int		is_operand(char ope)
 	return (ope == '+' || ope == '-' || ope == '*' || ope == '/' || ope == '%');
 }
 
-#include <stdio.h>
-
 char	**parse_str(char *src)
 {
 	char	*str;
@@ -49,14 +47,12 @@ char	**parse_str(char *src)
 	int		j;
 
 	str = kill_spaces(src);
-	printf("nosp:%s\n", str);
 	if (!(tab = (char **)malloc(sizeof(char *) * (ft_strlen(str) + 1))))
 		return (NULL);
 	i = 0;
 	k = 0;
 	while (str[i])
 	{
-//		printf("char:%c\n", str[i]);
 		if (!(tab[k] = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1))))
 			return (NULL);
 		j = 0;
@@ -75,8 +71,5 @@ char	**parse_str(char *src)
 		}
 	}
 	tab[k] = NULL;
-	i = 0;
-	while (tab[i])
-		printf("tab:%s\n", tab[i++]);
 	return (tab);
 }
