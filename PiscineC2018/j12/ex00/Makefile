@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: flklein <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/09/10 17:41:26 by flklein           #+#    #+#              #
-#    Updated: 2018/09/16 22:29:26 by flklein          ###   ########.fr        #
+#    Created: 2018/09/17 13:33:33 by flklein           #+#    #+#              #
+#    Updated: 2018/09/17 16:15:18 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = eval_expr
+NAME = ft_display_file
 
 IDIR = includes
-_INC = eval_expr.h
+_INC = ft_display_file.h
 INC = $(patsubst %,$(IDIR)/%,$(_INC))
 
 SDIR = srcs
-_SRC = *.c
+_SRC = ft_putchar.c ft_putchar_err.c ft_putstr.c ft_putstr_err.c main.c
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 
 OBJ = $(_SRC:.c=.o)
