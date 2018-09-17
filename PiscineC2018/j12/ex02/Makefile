@@ -6,7 +6,7 @@
 #    By: flklein <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/17 15:01:32 by flklein           #+#    #+#              #
-#    Updated: 2018/09/17 17:14:04 by flklein          ###   ########.fr        #
+#    Updated: 2018/09/18 00:54:58 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ _INC = ft_cat.h
 INC = $(patsubst %,$(IDIR)/%,$(_INC))
 
 SDIR = srcs
-_SRC = *.c
+_SRC = error.c ft_abs.c ft_atoi.c ft_putchar.c ft_putchar_err.c ft_putstr.c \
+	ft_putstr_err.c ft_strcmp.c ft_strjoin.c ft_strlen.c is_numeric.c main.c
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 
 OBJ = $(_SRC:.c=.o)

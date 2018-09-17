@@ -6,28 +6,27 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:34:36 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/17 19:59:57 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/18 01:04:27 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-void	ft_file_error(char *file)
+void	ft_display_tail(char *str, int bytes, int plus)
 {
-	ft_putstr_err("tail: ");
-	ft_putstr_err(file);
-	if (errno == EACCES)
-		ft_putstr_err(": Permission denied\n");
-	else
-		ft_putstr_err(": No such file or directory\n");
+	int		len;
+
+	len = ft_strlen(str);
+	if (plus)
+	{
+		len = 0;
+		bytes = -bytes;
+	}
+	bytes = (bytes > len ? len : bytes);
+	ft_putstr(str + len - bytes);
 }
 
-void	ft_display_tail(char *str)
-{
-	ft_putstr(str);
-}
-
-void	ft_read_file(char *file)
+void	ft_read_file(char *file, int bytes, int plus)
 {
 	int		fd;
 	char	buf[BUF_SIZE + 1];
@@ -47,13 +46,13 @@ void	ft_read_file(char *file)
 			buf[r] = '\0';
 			str = ft_strjoin(str, buf);
 		}
-		ft_display_tail(str);
+		ft_display_tail(str, bytes, plus);
 	}
 	if ((r = close(fd)) == -1)
 		return ;
 }
 
-void	ft_tail(int ac, char **av, int bytes)
+void	ft_tail(int ac, char **av, int bytes, int plus)
 {
 	int		i;
 
@@ -66,27 +65,31 @@ void	ft_tail(int ac, char **av, int bytes)
 			ft_putstr(av[i]);
 			ft_putstr(" <==\n");
 		}
-		ft_read_file(av[i]);
+		ft_read_file(av[i], bytes, plus);
+		if (ac > 4 && i < ac - 1)
+			ft_putstr("\n");
 		i++;
 	}
-	bytes = 0;
-}
-
-void	ft_offset_error(char *offset)
-{
-	ft_putstr("tail: illegal offset -- ");
-	ft_putstr(offset);
-	ft_putstr("\n");
 }
 
 int		main(int ac, char **av)
 {
-	if (ac > 3 && ft_strcmp(av[1], "-c") == 0)
+	if (ac > 1)
 	{
-		if (is_numeric(av[2]))
-			ft_tail(ac, av, ft_atoi(av[2]));
-		else
-			ft_offset_error(av[2]);
+		if (ac == 2 && ft_strcmp(av[1], "-c") == 0)
+			ft_usage_error();
+		else if (ft_strcmp(av[1], "-c") == 0)
+		{
+			if (is_numeric(av[2]))
+			{
+				if (av[2][0] == '-' || (av[2][0] >= '0' && av[2][0] <= '9'))
+					ft_tail(ac, av, ft_abs(ft_atoi(av[2])), 0);
+				else
+					ft_tail(ac, av, ft_abs(ft_atoi(av[2])), 1);
+			}
+			else
+				ft_offset_error(av[2]);
+		}
 	}
 	return (0);
 }

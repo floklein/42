@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 17:16:54 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/17 19:41:27 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/18 00:47:28 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int		ft_strlen(char *str);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strjoin(char *s1, char *s2);
 int		ft_atoi(char *str);
+int		ft_abs(int nb);
 int		is_numeric(char *str);
+void	ft_file_error(char *file);
+void	ft_offset_error(char *offset);
+void	ft_usage_error(void);
 
 #endif
