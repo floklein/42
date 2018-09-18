@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:34:36 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/18 19:16:39 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/18 22:10:21 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_read_file(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		ft_display_error();
+		return (NULL);
 	else
 	{
 		if (!(str = (char *)malloc(sizeof(char))))
@@ -62,7 +62,8 @@ int		start_bsq(char *file_name)
 	char		*map;
 	t_params	*par;
 
-	map = ft_read_file(file_name);
+	if (!(map = ft_read_file(file_name)))
+		return (ft_display_error());
 	if (!(par = (t_params *)malloc(sizeof(t_params))))
 		return (0);
 	if (!is_valid(par, map))
