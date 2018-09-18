@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 11:50:59 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/18 14:37:37 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/18 16:11:12 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,22 @@ typedef struct	s_params
 {
 	char	*map;
 	int		lines;
+	int		columns;
 	char	p;
 	char	o;
 	char	x;
 }				t_params;
 
-void		ft_putchar(char c);
-void		ft_putstr(char *str);
-void		ft_putchar_err(char c);
-void		ft_putstr_err(char *str);
-int			ft_strlen(char *str);
-int			ft_strcmp(char *s1, char *s2);
-char		*ft_strjoin(char *s1, char *s2);
-int			ft_atoi(char *str);
-int			parse_map(t_params *par, char *map);
+void			ft_putchar(char c);
+void			ft_putstr(char *str);
+void			ft_putchar_err(char c);
+void			ft_putstr_err(char *str);
+int				ft_strlen(char *str);
+int				ft_strlen_nl(char *str);
+int				ft_strcmp(char *s1, char *s2);
+char			*ft_strjoin(char *s1, char *s2);
+int				is_numeric(char *str);
+int				ft_atoi(char *str);
+int				parse_map(t_params *par, char *map);
 
 #endif
