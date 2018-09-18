@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:34:36 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/18 14:38:06 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/18 19:16:39 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,31 @@ char	*ft_read_file(char *file)
 	return (str);
 }
 
+int		start_bsq(char *file_name)
+{
+	char		*map;
+	t_params	*par;
+
+	map = ft_read_file(file_name);
+	if (!(par = (t_params *)malloc(sizeof(t_params))))
+		return (0);
+	if (!is_valid(par, map))
+		return (ft_display_error());
+	else
+	{
+		par->max = 0;
+		par->max_i = 0;
+		par->max_j = 0;
+		if (!parse_map(par))
+			return (0);
+		display_bsq(par);
+	}
+	return (1);
+}
+
 int		main(int ac, char **av)
 {
 	int			i;
-	char		*map;
-	t_params	*par;
 
 	if (ac == 1)
 		ft_display_standard();
@@ -69,14 +89,7 @@ int		main(int ac, char **av)
 	{
 		i = 1;
 		while (i < ac)
-		{
-			map = ft_read_file(av[i]);
-			if (!(par = (t_params *)malloc(sizeof(t_params))))
-				return (0);
-			if (!parse_map(par, map))
-				return (ft_display_error());
-			i++;
-		}
+			start_bsq(av[i++]);
 	}
 	return (0);
 }
