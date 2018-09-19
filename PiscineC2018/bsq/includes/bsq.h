@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 11:50:59 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/18 19:37:49 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/19 10:38:16 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ typedef struct	s_params
 	int		**tab;
 }				t_params;
 
-void			ft_putchar(char c);
 void			ft_putstr(char *str);
-void			ft_putchar_err(char c);
 void			ft_putstr_err(char *str);
 int				ft_strlen(char *str);
 int				ft_strlen_nl(char *str);

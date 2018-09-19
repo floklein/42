@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 11:56:08 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/18 11:57:15 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/19 10:36:53 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_putstr(char *str)
 {
-	int		i;
-
-	i = 0;
-	while (str[i])
-		ft_putchar(str[i++]);
+	write(1, str, ft_strlen(str));
 }

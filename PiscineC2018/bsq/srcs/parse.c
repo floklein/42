@@ -6,13 +6,11 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 14:03:32 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/18 19:58:41 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/19 11:49:27 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
-
-#include <stdio.h>
 
 int		get_params(t_params *par, char *map)
 {
@@ -37,8 +35,6 @@ int		get_params(t_params *par, char *map)
 	par->lines = ft_atoi(map);
 	if (par->lines < 1)
 		return (0);
-	printf("lines:%d - emp:%c - obs:%c - full:%c\n",
-			par->lines, par->p, par->o, par->x);
 	return (i);
 }
 
@@ -68,8 +64,6 @@ int		is_valid(t_params *par, char *map)
 		}
 		i++;
 	}
-//	ft_putstr(par->map);
-	printf("width:%d\n", par->columns);
 	return (length == par->lines);
 }
 
@@ -88,15 +82,11 @@ void	fill_tab(t_params *par, int i, int j, int k)
 	}
 }
 
-int		parse_map(t_params *par)
+int		ft_bzero(t_params *par)
 {
 	int		i;
 	int		j;
-	int		k;
 
-	if (!(par->tab = (int **)malloc(sizeof(int *) * (par->lines + 1))))
-		return (0);
-	k = 0;
 	i = 0;
 	while (i < par->lines + 1)
 	{
@@ -107,10 +97,24 @@ int		parse_map(t_params *par)
 			par->tab[i][j++] = 0;
 		i++;
 	}
+	return (1);
+}
+
+int		parse_map(t_params *par)
+{
+	int		i;
+	int		j;
+	int		k;
+
+	if (!(par->tab = (int **)malloc(sizeof(int *) * (par->lines + 1))))
+		return (0);
+	if (!ft_bzero(par))
+		return (0);
+	k = 0;
 	i = 1;
 	while (i < par->lines + 1)
 	{
-		j =  1;
+		j = 1;
 		while (j < par->columns + 1)
 		{
 			if (par->map[k] == '\n')
@@ -119,14 +123,5 @@ int		parse_map(t_params *par)
 		}
 		i++;
 	}
-//	i = 0;
-//	while (i < par->lines + 1)
-//	{
-//		j = 0;
-//		while (j < par->columns + 1)
-//			printf("%d ", par->tab[i][j++]);
-//		printf("\n");
-//		i++;
-//	}
 	return (1);
 }
