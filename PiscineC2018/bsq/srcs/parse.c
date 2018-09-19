@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 14:03:32 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/19 11:49:27 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/19 12:26:04 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int		ft_bzero(t_params *par)
 		if (!(par->tab[i] = (int *)malloc(sizeof(int) * (par->columns + 1))))
 			return (0);
 		j = 0;
-		while (j < par->lines + 1)
+		while (j < par->columns + 1)
 			par->tab[i][j++] = 0;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 11:50:59 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/19 10:38:16 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/19 12:43:42 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# define BUF_SIZE 4096
+# define BUF_SIZE 1024 * 16
 
 typedef struct	s_params
 {
