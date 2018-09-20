@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:34:36 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/20 14:55:42 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/20 17:40:46 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,27 @@ void	ft_read_file(char *file, int bytes, int plus)
 void	ft_tail(int ac, char **av, int bytes, int plus)
 {
 	int		i;
+	int		fd;
 
 	i = 3;
 	while (i < ac)
 	{
-		if (ac > 4)
+		if ((fd = open(av[i], O_RDONLY)) > 0)
 		{
-			ft_putstr("==> ");
-			ft_putstr(av[i]);
-			ft_putstr(" <==\n");
+			if (ac > 4)
+			{
+				ft_putstr("==> ");
+				ft_putstr(av[i]);
+				ft_putstr(" <==\n");
+			}
+			ft_read_file(av[i], bytes, plus);
+			if (ac > 4 && i < ac && open(av[i + 1], O_RDONLY) != -1)
+				ft_putstr("\n");
 		}
-		ft_read_file(av[i], bytes, plus);
-		if (ac > 4 && i < ac - 1)
-			ft_putstr("\n");
+		else
+			ft_file_error(av[i]);
 		i++;
+		close(fd);
 	}
 }
 
