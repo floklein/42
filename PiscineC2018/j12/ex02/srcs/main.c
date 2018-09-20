@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:34:36 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/18 01:04:27 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/20 14:55:42 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	ft_display_tail(char *str, int bytes, int plus)
 	if (plus)
 	{
 		len = 0;
-		bytes = -bytes;
+		bytes = -bytes + 1;
+		if (bytes < -ft_strlen(str))
+			return ;
 	}
 	bytes = (bytes > len ? len : bytes);
 	ft_putstr(str + len - bytes);

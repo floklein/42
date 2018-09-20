@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:34:36 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/19 11:50:30 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/19 14:20:13 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ char	*ft_read_file(char *file)
 	int		r;
 	char	*str;
 
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
+	if ((fd = open(file, O_RDONLY)) == -1)
 		return (NULL);
 	else
 	{

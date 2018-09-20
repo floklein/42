@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 13:34:36 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/17 18:26:40 by flklein          ###   ########.fr       */
+/*   Updated: 2018/09/20 15:27:33 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ void	ft_display_standard(void)
 	char	buf[BUF_SIZE + 1];
 	int		r;
 
-	while (1)
+	while ((r = read(0, buf, BUF_SIZE)))
 	{
-		r = read(0, buf, BUF_SIZE);
 		buf[r] = '\0';
 		ft_putstr(buf);
 	}

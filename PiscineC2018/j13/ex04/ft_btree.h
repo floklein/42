@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bsq.c                                              :+:      :+:    :+:   */
+/*   ft_btree.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/18 19:05:16 by flklein           #+#    #+#             */
-/*   Updated: 2018/09/19 22:14:10 by flklein          ###   ########.fr       */
+/*   Created: 2018/09/19 15:38:58 by flklein           #+#    #+#             */
+/*   Updated: 2018/09/19 15:39:00 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsq.h"
+#ifndef FT_BTREE_H
+# define FT_BTREE_H
 
-void	display_bsq(t_params *par)
+typedef struct	s_btree
 {
-	int		a;
-	int		b;
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*item;
+}				t_btree;
 
-	a = par->max_i - par->max;
-	while (a < par->max_i)
-	{
-		b = par->max_j - par->max;
-		while (b < par->max_j)
-		{
-			par->map[a * (par->columns + 1) + b] = par->x;
-			b++;
-		}
-		a++;
-	}
-	if (par->lines > 0 && par->columns > 0)
-		ft_putstr(par->map);
-	else
-		ft_putstr_err("map error\n");
-}
+t_btree			*btree_create_node(void *item);
+
+#endif
