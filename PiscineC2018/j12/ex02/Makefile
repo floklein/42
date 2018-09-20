@@ -6,7 +6,7 @@
 #    By: flklein <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/17 15:01:32 by flklein           #+#    #+#              #
-#    Updated: 2018/09/18 00:54:58 by flklein          ###   ########.fr        #
+#    Updated: 2018/09/20 14:54:33 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 
 OBJ = $(_SRC:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -fsanitize=address
 OPTS = -o $(NAME) -I$(IDIR)
 
 .PHONY: all clean fclean re
