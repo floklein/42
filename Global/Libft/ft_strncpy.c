@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 16:22:08 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/05 17:29:45 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/05 19:16:22 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/05 19:17:55 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int	i;
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-
-#endif
+	i = 0;
+	while (i < n && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+		dest[i++] = 0;
+	return (dest);
+}
