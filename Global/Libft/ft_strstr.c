@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 17:45:10 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 13:47:41 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/08 14:21:59 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/08 14:35:29 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+char	*ft_strstr(const char *str, const char *to_find)
 {
-	size_t	i;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (i < n)
+	if (!to_find[i])
+		return ((char *)str);
+	while (str[i])
 	{
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-		if (((unsigned char *)src)[i] == (unsigned char)c)
-			return ((void *)(dst + i + 1));
+		j = 0;
+		while (str[i + j] && to_find[j] && str[i + j] == to_find[j])
+			j++;
+		if (!to_find[j])
+			return ((char *)str + i);
 		i++;
 	}
 	return (NULL);

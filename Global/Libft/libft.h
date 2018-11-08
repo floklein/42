@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 16:22:08 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 12:45:49 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/08 16:23:09 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,17 @@ int				ft_strlen(char *str);
 char			*ft_strncat(char *dest, const char *src, size_t nb);
 char			*ft_strncpy(char *dest, char *src, unsigned int n);
 char			*ft_strchr(const char *s, int c);
+char			*ft_strstr(const char *str, const char *to_find);
+char			*ft_strnstr(const char *str, const char *to_find, size_t len);
+int				ft_strcmp(const char *s1, const char *s2);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
+int				ft_atoi(const char *str);
+int				ft_isalpha(int c);
+int				ft_isdigit(int c);
+int				ft_isalnum(int c);
+int				ft_isascii(int c);
+int				ft_isprint(int c);
+int				ft_toupper(int c);
+int				ft_tolower(int c);
 
 #endif

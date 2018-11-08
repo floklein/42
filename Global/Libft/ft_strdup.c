@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 19:01:36 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 12:39:33 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/08 14:02:14 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strdup(char *src)
 	char	*dest;
 	int		i;
 
-	if (!src)
-		return (NULL);
 	if (!(dest = (char *)malloc((ft_strlen(src) + 1) * sizeof(char))))
 		return (NULL);
 	i = 0;
