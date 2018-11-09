@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 19:16:22 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 17:51:57 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/08 17:33:43 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/09 18:14:44 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	i;
+	char			*map;
+	unsigned int	i;
 
+	if (!(s && f) || !(map = ft_strnew(ft_strlen(s))))
+		return (NULL);
 	i = 0;
-	while (i < n && src[i])
+	while (s[i])
 	{
-		dest[i] = src[i];
+		map[i] = (*f)(i, s[i]);
 		i++;
 	}
-	while (i < n)
-		dest[i++] = 0;
-	return (dest);
+	return (map);
 }

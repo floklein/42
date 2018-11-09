@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 19:16:22 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 17:51:57 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/09 16:26:38 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/09 16:27:33 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int		ft_nbrlen(int nbr)
 {
-	size_t	i;
+	int		len;
 
-	i = 0;
-	while (i < n && src[i])
+	len = 0;
+	if (nbr <= 0)
+		len++;
+	while (nbr != 0)
 	{
-		dest[i] = src[i];
-		i++;
+		nbr = nbr / 10;
+		len++;
 	}
-	while (i < n)
-		dest[i++] = 0;
-	return (dest);
+	return (len);
 }
