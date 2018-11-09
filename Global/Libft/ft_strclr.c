@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 19:16:22 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 17:51:57 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/08 17:04:20 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/09 18:10:34 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_strclr(char *s)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n && src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-		dest[i++] = 0;
-	return (dest);
+	if (s)
+		while (*s)
+			*(s++) = '\0';
 }

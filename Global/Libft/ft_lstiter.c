@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 19:16:22 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 17:51:57 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/09 19:51:42 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/09 19:54:20 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n && src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	while (i < n)
-		dest[i++] = 0;
-	return (dest);
+	if (!lst)
+		return ;
+	(*f)(lst);
+	if (lst->next)
+		ft_lstiter(lst->next, f);
 }

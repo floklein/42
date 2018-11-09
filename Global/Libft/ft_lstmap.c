@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 19:16:22 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 17:51:57 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/09 19:54:36 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/09 20:13:19 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t	i;
+	t_list	*new;
+	t_list	*tmp;
+	t_list	*begin;
 
-	i = 0;
-	while (i < n && src[i])
+	tmp = f(lst);
+	if (!(new = ft_lstnew(tmp->content, tmp->content_size)))
+		return (NULL);
+	begin = new;
+	lst = lst->next;
+	while (lst)
 	{
-		dest[i] = src[i];
-		i++;
+		tmp = f(lst);
+		if (!(new->next = ft_lstnew(tmp->content, tmp->content_size)))
+			return (NULL);
+		new = new->next;
+		lst = lst->next;
 	}
-	while (i < n)
-		dest[i++] = 0;
-	return (dest);
+	return (begin);
 }

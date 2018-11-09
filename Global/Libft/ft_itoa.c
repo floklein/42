@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 19:16:22 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 17:51:57 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/09 16:25:23 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/09 18:30:23 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char	*ft_itoa(int n)
 {
-	size_t	i;
+	char		*str;
+	long		nb;
+	int			i;
 
+	nb = (long)n;
+	if (!(str = ft_strnew(ft_nbrlen(n))))
+		return (NULL);
+	if (nb < 0)
+		nb *= -1;
 	i = 0;
-	while (i < n && src[i])
+	while (nb != 0 || i == 0)
 	{
-		dest[i] = src[i];
-		i++;
+		str[i++] = (nb % 10) + '0';
+		nb /= 10;
 	}
-	while (i < n)
-		dest[i++] = 0;
-	return (dest);
+	if (n < 0)
+		str[i++] = '-';
+	str[i] = '\0';
+	return (ft_strrev(str));
 }
