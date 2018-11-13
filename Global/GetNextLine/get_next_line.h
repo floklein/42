@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:49:28 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/12 15:19:33 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/13 18:27:33 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@
 
 # define BUFF_SIZE 32
 
-int		get_next_line(const int fd, char **line);
+typedef struct	s_file
+{
+	int				fd;
+	char			*buf;
+	struct s_file	*next;
+}				t_file;
+
+int				get_next_line(const int fd, char **line);
 
 #endif
