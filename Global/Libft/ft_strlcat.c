@@ -6,13 +6,13 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 11:57:17 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/08 17:57:58 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/10 13:22:21 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	len_d;
 	size_t	len_s;
