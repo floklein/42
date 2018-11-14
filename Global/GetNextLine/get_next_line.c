@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:54:03 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/13 19:57:29 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/14 20:12:22 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,20 @@ char	ft_treatbuffer(char **line, char **buf)
 	{
 		*line = ft_strjoin(*line, ft_strsub(*buf, 0, i));
 		*buf += i + 1;
+		printf("\\n\n");
 		return ('\n');
 	}
-	if ((*buf)[i] == '\0' && ft_strlen(*buf) < BUFF_SIZE)
+	else if ((*buf)[i] == '\0' && ft_strlen(*buf) < BUFF_SIZE)
 	{
 		*line = ft_strjoin(*line, *buf);
-		return ('F');
+		printf("REST\n");
+		return ('R');
 	}
 	else
 	{
 		*line = ft_strjoin(*line, *buf);
+		*buf = ft_strnew(BUFF_SIZE);
+		printf("AGAIN\n");
 		return (0);
 	}
 }
@@ -99,14 +103,19 @@ int		get_next_line(const int fd, char **line)
 }
 
 #include <fcntl.h>
+#include <stdio.h>
 
 int		main(int ac, char **av)
 {
 	char	*line;
 	int		fd;
+	int		ret;
 
-//	fd = open(av[1], O_RDONLY);
-	while (get_next_line(0, &line))
-		ft_putendl(line);
+	fd = open(av[1], O_RDONLY);
+	while (ac++ < 15)
+	{
+		ret = get_next_line(fd, &line);
+		printf("%s\n	->%d\n", line, ret);
+	}
 	return (ac);
 }
