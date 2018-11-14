@@ -6,19 +6,19 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:49:28 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/13 18:27:33 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/14 16:19:33 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include "libft/libft.h"
+# include "libft/includes/libft.h"
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
 
-# define BUFF_SIZE 32
+# define BUFF_SIZE 10
 
 typedef struct	s_file
 {
