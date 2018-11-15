@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:54:03 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/15 13:47:26 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/15 16:44:35 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,37 @@ char	**ft_getfile(t_file **file, int fd)
 char	ft_treatbuffer(char **line, char **buf)
 {
 	int		i;
+	int		rest;
 
+	rest = 0;
+	if (**buf == -1)
+	{
+		rest = 1;
+		(*buf)++;
+	}
 	i = 0;
 	while ((*buf)[i] && (*buf)[i] != '\n')
 		i++;
 	if ((*buf)[i] == '\n')
 	{
 		*line = ft_strjoin(*line, ft_strsub(*buf, 0, i));
-		*buf += i + 1;
+		*buf += i;
+		**buf = -1;
 		printf("\\n\n");
 		return ('\n');
 	}
-	else if ((*buf)[i] == '\0' && ft_strlen(*buf) < BUFF_SIZE)
+	else if ((*buf)[i] == '\0' && ft_strlen(*buf) <= BUFF_SIZE && rest == 1)
 	{
 		*line = ft_strjoin(*line, *buf);
 		printf("REST\n");
 		return ('R');
+	}
+	else if ((*buf)[i] == '\0' && ft_strlen(*buf) < BUFF_SIZE && rest == 0)
+	{
+		*line = ft_strjoin(*line, *buf);
+		ft_strclr(*buf);
+		printf("EOF\n");
+		return ('E');
 	}
 	else
 	{
@@ -79,6 +94,7 @@ int		get_next_line(const int fd, char **line)
 	int				r;
 	static t_file	*file = NULL;
 	char			**buf;
+	int				output;
 
 	if (fd < 0 || !line || !(*line = ft_strnew(BUFF_SIZE)))
 		return (-1);
@@ -87,8 +103,13 @@ int		get_next_line(const int fd, char **line)
 			return (-1);
 	buf = ft_getfile(&file, fd);
 	if (*buf)
-		if (ft_treatbuffer(line, buf) == '\n')
+	{
+		output = ft_treatbuffer(line, buf);
+		if (output == '\n')
 			return (1);
+		else if (output == 'E')
+			return (0);
+	}
 	if (!(*buf = ft_strnew(BUFF_SIZE)))
 		return (-1);
 	while ((r = read(fd, *buf, BUFF_SIZE)))
@@ -99,8 +120,7 @@ int		get_next_line(const int fd, char **line)
 		if (ft_treatbuffer(line, buf) > 0)
 			return (1);
 	}
-	ft_strclr(*line);
-	return (0);
+	return (*line != NULL);
 }
 
 #include <fcntl.h>
