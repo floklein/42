@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:54:03 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/14 20:12:22 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/15 13:47:26 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	ft_treatbuffer(char **line, char **buf)
 	{
 		*line = ft_strjoin(*line, *buf);
 		*buf = ft_strnew(BUFF_SIZE);
-		printf("AGAIN\n");
+		printf("READ\n");
 		return (0);
 	}
 }
@@ -99,6 +99,7 @@ int		get_next_line(const int fd, char **line)
 		if (ft_treatbuffer(line, buf) > 0)
 			return (1);
 	}
+	ft_strclr(*line);
 	return (0);
 }
 
