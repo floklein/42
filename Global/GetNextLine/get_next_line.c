@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:54:03 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/19 15:37:01 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/19 15:57:55 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,20 @@ int				ft_delelem(t_file **file, int fd, int ret)
 int				ft_treat(char **data, char **line)
 {
 	char	*tmp;
-	int		l_line;
+	int		len_l;
 
-	l_line = 0;
-	while ((*data)[l_line] && (*data)[l_line] != '\n')
-		l_line++;
-	if (((*data)[l_line]) == '\n')
+	len_l = 0;
+	while ((*data)[len_l] && (*data)[len_l] != '\n')
+		len_l++;
+	if (((*data)[len_l]) == '\n')
 	{
-		*line = ft_strsub(*data, 0, l_line);
+		*line = ft_strsub(*data, 0, len_l);
 		tmp = *data;
-		*data = ft_strdup(&(*data)[l_line + 1]);
+		*data = ft_strdup(&(*data)[len_l + 1]);
 		free(tmp);
 		!(*data)[0] ? ft_strdel(data) : 0;
 	}
-	else if (!((*data)[l_line]))
+	else if (!((*data)[len_l]))
 	{
 		*line = ft_strdup(*data);
 		ft_strdel(data);
@@ -94,7 +94,7 @@ int				get_next_line(const int fd, char **line)
 	if (fd < 0 || !line || (!file && !(file = ft_newfile(fd))))
 		return (-1);
 	cur = ft_srchfile(file, fd);
-	if ((!(cur->data) && !(cur->data = ft_strnew(0))) ||
+	if (!cur || (!(cur->data) && !(cur->data = ft_strnew(0))) ||
 			!(buf = ft_strnew(BUFF_SIZE)))
 		return (-1);
 	while (!(r = 0) && !ft_strchr(cur->data, '\n') && !ft_strchr(buf, '\n')
