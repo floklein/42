@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:54:03 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/19 15:57:55 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/19 16:13:21 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ t_file			*ft_newfile(int fd)
 
 	if (!(file = (t_file*)malloc(sizeof(t_file))))
 		return (NULL);
-	file->next = NULL;
 	file->fd = fd;
 	file->data = NULL;
+	file->next = NULL;
 	return (file);
 }
 
@@ -35,8 +35,6 @@ t_file			*ft_srchfile(t_file *file, int fd)
 		file->next = ft_newfile(fd);
 		return (file->next);
 	}
-	if (!(file = (t_file*)malloc(sizeof(t_file))))
-		return (NULL);
 	file = ft_newfile(fd);
 	return (file);
 }
