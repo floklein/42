@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:49:28 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/14 16:19:33 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/19 15:27:38 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 typedef struct	s_file
 {
 	int				fd;
-	char			*buf;
+	char			*data;
 	struct s_file	*next;
 }				t_file;
 
