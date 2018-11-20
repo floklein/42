@@ -5,51 +5,48 @@
 #                                                     +:+ +:+         +:+      #
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/11/20 16:52:06 by flklein           #+#    #+#              #
-#    Updated: 2018/11/20 16:52:06 by flklein          ###   ########.fr        #
+#    Created: 2018/11/20 17:52:37 by flklein           #+#    #+#              #
+#    Updated: 2018/11/20 19:18:49 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-################################################################################
-#####                              FILES VARS                              #####
-################################################################################
-
 NAME = fillit
 
-INC = includes
+IDIR = includes -Ilibft/includes
+_INC = fillit.h
+INC = $(patsubst %,$(IDIR)/%,$(_INC))
 
 SDIR = srcs
-_SRC = 
+_SRC = main.c \
+ft_create_elem.c \
+ft_list_at.c \
+ft_list_push_back.c \
+ft_list_size.c \
+ft_list_foreach.c
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(_SRC:.c=.o)
 
-################################################################################
-#####                           COMPILER OPTIONS                           #####
-################################################################################
-
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-OPTS = -o $(NAME) -I$(INC)
-
-################################################################################
-#####                            MAKEFILE RULES                            #####
-################################################################################
+FLAGS = -Wall -Wextra -Werror
+OPTS = -o $(NAME) -I$(IDIR) -fsanitize=address -g3
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME):	$(OBJ)
-		@$(CC) $(OBJ) $(OPTS)
-		@echo "Compilation done!"
+$(NAME): $(OBJ)
+		@make -C libft/ re
+		@gcc $(FLAGS) $(OPTS) $(SRC) libft/libft.a
+
+$(OBJ): $(SRC)
+		@gcc -c -I$(IDIR) $(SRC)
 
 clean:
+		@make -C libft/ clean
 		@/bin/rm -f $(OBJ)
-		@echo "*.o cleaned!"
 
 fclean: clean
+		@make -C libft/ fclean
 		@/bin/rm -f $(NAME)
-		@echo "Cleaning done!"
 
 re: clean all
