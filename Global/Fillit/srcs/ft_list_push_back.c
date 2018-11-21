@@ -6,11 +6,13 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/13 01:58:13 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/20 18:42:01 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/21 15:41:30 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+#include <stdio.h>
 
 void	ft_list_push_back(t_tetri **begin_list, char *data)
 {
