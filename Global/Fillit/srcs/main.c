@@ -28,7 +28,7 @@ void	ft_fill_map(t_tetri *cur, t_map *map, int pos, int mode)
 		if (ft_isalpha((cur->piece)[i]))
 			(map->box)[pos] = (mode ? (cur->piece)[i] : '.');
 		i++;
-		pos += 1 + (i % 4) * (map->size - 4);
+		pos += 1 + !(i % 4) * (map->size - 4);
 	}
 }
 
