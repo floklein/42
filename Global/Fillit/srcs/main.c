@@ -5,98 +5,87 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 17:03:58 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/21 20:54:16 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/22 15:14:54 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/22 17:16:45 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-#include <stdio.h>
+int		ft_resting_pieces(t_tetri *tetri)
+{
+	return (!(tetri->placed)
+			+ (tetri->next ? ft_resting_pieces(tetri->next) : 0));
+}
 
-int		ft_valid_piece(char *str)
+void	ft_fill_map(t_tetri *cur, t_map *map, int pos, int mode)
 {
 	int		i;
-	int		links;
-	int		hashes;
 
-	links = 0;
-	hashes = 0;
 	i = 0;
-	while (str[i])
+	while ((cur->piece)[i])
 	{
-		if ((i + 1) % 5 == 0 && str[i] != '\n')
-			return (0);
-		if ((i + 1) % 5 != 0 && str[i] != '#' && str[i] != '.')
-			return (0);
-		if (str[i] == '#')
+		(map->box)[pos] = (mode ? (cur->piece)[i] : '.');
+		i++;
+		pos += 1 + !(i % 4) * (map->size - 4);
+	}
+}
+
+int		ft_test(t_tetri *cur, t_map *map, int pos)
+{
+	(void)cur;
+	(void)map;
+	(void)pos;
+	return (pos >= 0 && pos + 15 < map->size * map->size);
+}
+
+int		ft_backtracking(t_tetri *tetri, t_map *map, int pos)
+{
+	t_tetri	*cur;
+
+	if (ft_resting_pieces(tetri) == 0)
+		return (1);
+	cur = tetri;
+	while (pos <= map->size * map->size)
+	{
+		while (cur && cur->placed)
+			cur = cur->next;
+		if (ft_test(cur, map, pos))
 		{
-			hashes++;
-			links += (i + 1 <= 20 ? str[i + 1] == '#' : 0)
-				+ (i - 1 >= 0 ? str[i - 1] == '#' : 0)
-				+ (i + 5 <= 20 ? str[i + 5] == '#' : 0)
-				+ (i - 5 >= 0 ? str[i - 5] == '#' : 0);
+			ft_fill_map(cur, map, pos, 1);
+			cur->placed = 1;
+			if (ft_backtracking(tetri, map, -15))
+				return (1);
+			ft_fill_map(cur, map, pos, 0);
+			cur->placed = 0;
 		}
-		i++;
+		pos++;
 	}
-	return (hashes == 4 && links >= 6);
+	return (0);
 }
 
-char	*ft_convert(char *src, char c)
+t_map	*ft_solve(t_tetri *tetri)
 {
-	char	*dst;
-	int		i;
-	int		j;
+	t_map	*map;
 
-	if (!(dst = ft_strnew(16)))
+	if (!(map = (t_map *)malloc(sizeof(t_map))))
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (src[i])
+	map->size = 2;
+	while (map->size <= 104)
 	{
-		if (src[i] == '.')
-			dst[j++] = src[i];
-		else if (src[i] == '#')
-			dst[j++] = c;
-		i++;
+		map->box = ft_strnew(map->size * map->size);
+		if (ft_backtracking(tetri, map, -15))
+			return (map);
+		(map->size)++;
 	}
-	dst[j] = '\0';
-	return (dst);
-}
-
-t_tetri	*ft_parse(int fd)
-{
-	t_tetri	*tetri;
-	int		r;
-	char	*buf;
-	char	*tmp;
-	char	pieces;
-
-	if (!(buf = ft_strnew(20)))
-		return (NULL);
-	pieces = 'A' - 1;
-	r = 1;
-	while (r && ++pieces <= 'Z')
-	{
-		if ((r = read(fd, buf, 20)) < 0)
-			return (NULL);
-		buf[r] = '\0';
-		if (r != 20 || !ft_valid_piece(buf) || !(tmp = ft_convert(buf, pieces)))
-			return (NULL);
-		ft_list_push_back(&tetri, tmp);
-		if ((r = read(fd, buf, 1)) < 0)
-			return (NULL);
-		buf[r] = '\0';
-		if (r == 1 && !ft_strequ(buf, "\n"))
-			return (NULL);
-	}
-	return (pieces <= 'Z' ? tetri : NULL);
+	return (NULL);
 }
 
 int		main(int ac, char **av)
 {
 	int		fd;
 	t_tetri	*tetri;
+	t_map	*map;
 
 	if (ac != 2)
 		return (ft_putstr_int("usage\n", 0));
@@ -106,6 +95,9 @@ int		main(int ac, char **av)
 		return (ft_putstr_int("error\n", 0));
 	ft_putendl("TETRI:");
 	ft_list_foreach(tetri, &ft_putendl);
+	map = ft_solve(tetri);
+	ft_putendl("MAP:");
+	ft_putendl(map->box);
 	close(fd);
 	return (0);
 }
