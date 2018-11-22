@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 15:14:54 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/22 17:16:45 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/22 19:33:02 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,27 @@ void	ft_fill_map(t_tetri *cur, t_map *map, int pos, int mode)
 	i = 0;
 	while ((cur->piece)[i])
 	{
-		(map->box)[pos] = (mode ? (cur->piece)[i] : '.');
+		if (ft_isalpha((cur->piece)[i]))
+			(map->box)[pos] = (mode ? (cur->piece)[i] : '.');
 		i++;
-		pos += 1 + !(i % 4) * (map->size - 4);
+		pos += 1 + (i % 4) * (map->size - 4);
 	}
 }
 
 int		ft_test(t_tetri *cur, t_map *map, int pos)
 {
-	(void)cur;
-	(void)map;
-	(void)pos;
-	return (pos >= 0 && pos + 15 < map->size * map->size);
+	int		i;
+
+	i = 0;
+	while ((cur->piece)[i])
+	{
+		if (pos >= 0 && pos <= map->size * map->size
+		&& ft_isalpha((cur->piece)[i]) && ft_isalpha((map->box)[pos]))
+			return (0);
+		i++;
+		pos += 1 + !(i % 4) * (map->size - 4);
+	}
+	return (1);
 }
 
 int		ft_backtracking(t_tetri *tetri, t_map *map, int pos)
@@ -81,6 +90,20 @@ t_map	*ft_solve(t_tetri *tetri)
 	return (NULL);
 }
 
+void	ft_display(t_map *map)
+{
+	int		i;
+
+	i = 0;
+	while ((map->box)[i])
+	{
+		ft_putchar((map->box[i]));
+		if ((i + 1) % map->size == 0)
+			ft_putchar('\n');
+		i++;
+	}
+}
+
 int		main(int ac, char **av)
 {
 	int		fd;
@@ -97,7 +120,7 @@ int		main(int ac, char **av)
 	ft_list_foreach(tetri, &ft_putendl);
 	map = ft_solve(tetri);
 	ft_putendl("MAP:");
-	ft_putendl(map->box);
+	ft_display(map);
 	close(fd);
 	return (0);
 }
