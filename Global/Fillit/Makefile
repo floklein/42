@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 17:52:37 by flklein           #+#    #+#              #
-#    Updated: 2018/11/20 19:18:49 by flklein          ###   ########.fr        #
+#    Updated: 2018/11/22 15:17:25 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,13 @@ _INC = fillit.h
 INC = $(patsubst %,$(IDIR)/%,$(_INC))
 
 SDIR = srcs
-_SRC = main.c \
+_SRC = parse.c \
 ft_create_elem.c \
 ft_list_at.c \
 ft_list_push_back.c \
 ft_list_size.c \
-ft_list_foreach.c
+ft_list_foreach.c \
+main.c
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 
 OBJ = $(_SRC:.c=.o)
