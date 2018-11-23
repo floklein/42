@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 15:14:54 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/23 17:54:28 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/23 18:09:22 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,14 +119,10 @@ int		main(int ac, char **av)
 		return (ft_putstr_int("usage\n", 0));
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		return (ft_putstr_int("error\n", 0));
-	ft_putstr("START\n");
 	if (!(tetri = ft_parse(fd)))
 		return (ft_putstr_int("error\n", 0));
-	ft_putstr("PARSED\n");
 	map = ft_solve(tetri);
-	ft_putstr("SOLVED\n");
 	ft_putstr(map->box);
-	ft_putstr("DISPLAYED\n");
 	close(fd);
 	return (0);
 }
