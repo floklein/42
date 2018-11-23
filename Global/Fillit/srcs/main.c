@@ -5,109 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/22 15:14:54 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/23 18:09:22 by flklein          ###   ########.fr       */
+/*   Created: 2018/11/23 18:23:17 by flklein           #+#    #+#             */
+/*   Updated: 2018/11/23 18:23:26 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-#include <stdio.h>
-
-int		ft_resting_pieces(t_tetri *tetri)
-{
-	return (!(tetri->placed)
-			+ (tetri->next ? ft_resting_pieces(tetri->next) : 0));
-}
-
-void	ft_fill_map(t_tetri *cur, t_map *map, int pos, int mode)
-{
-	int		i;
-
-	i = 0;
-	while ((cur->piece)[i])
-	{
-		if (ft_isalpha((cur->piece)[i]))
-			(map->box)[pos] = (mode ? (cur->piece)[i] : '.');
-		pos += 1 + ((cur->piece)[i] == '\n') * (map->size - 4);
-		i++;
-	}
-}
-
-int		ft_test(t_tetri *cur, t_map *map, int pos)
-{
-	int		i;
-
-	i = 0;
-	while ((cur->piece)[i])
-	{
-		if (ft_isalpha((cur->piece)[i]))
-			if ((pos < 0 || pos >= map->area) || (pos >= 0 && pos < map->area
-			&& ft_isalpha((map->box)[pos])) || (pos >= 0 && pos < map->area
-				&& (map->box)[pos] == '\n'))
-				return (0);
-		if (pos >= 0 && pos < map->area && (map->box)[pos] == '\n'
-		&& ft_isalpha((cur->piece)[i]))
-			return (0);
-		pos += 1 + ((cur->piece)[i] == '\n') * (map->size - 4);
-		i++;
-	}
-	return (1);
-}
-
-int		ft_backtracking(t_tetri *tetri, t_map *map, int pos)
-{
-	t_tetri	*cur;
-
-	if (ft_resting_pieces(tetri) == 0)
-		return (1);
-	cur = tetri;
-	while (pos < map->area)
-	{
-		while (cur && cur->placed)
-			cur = cur->next;
-		if (ft_test(cur, map, pos))
-		{
-			ft_fill_map(cur, map, pos, 1);
-			cur->placed = 1;
-			if (ft_backtracking(tetri, map, -1 * map->area))
-				return (1);
-			ft_fill_map(cur, map, pos, 0);
-			cur->placed = 0;
-		}
-		pos++;
-	}
-	return (0);
-}
-
-t_map	*ft_solve(t_tetri *tetri)
-{
-	t_map	*map;
-	int		i;
-
-	if (!(map = (t_map *)malloc(sizeof(t_map))))
-		return (NULL);
-	map->size = 2;
-	while (map->size <= 104)
-	{
-		map->area = map->size * (map->size + 1);
-		map->box = ft_strnew(map->area);
-		i = 0;
-		while (i < map->area)
-		{
-			if (((i - map->size) % (map->size + 1)) == 0)
-				(map->box)[i] = '\n';
-			else
-				(map->box)[i] = '.';
-			i++;
-		}
-		(map->box)[i] = '\0';
-		if (ft_backtracking(tetri, map, -1 * map->area))
-			return (map);
-		(map->size)++;
-	}
-	return (NULL);
-}
 
 int		main(int ac, char **av)
 {

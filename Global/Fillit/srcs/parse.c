@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:03:58 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/23 18:08:30 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/23 18:20:37 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,17 @@ int		ft_valid_piece(char *str)
 	return (hashes == 4 && links >= 6);
 }
 
-char	*ft_convert(char *src, char c)
+int		ft_convert(char **src, char c)
 {
-	char	*dst;
 	int		i;
-	int		j;
 
-	if (!(dst = ft_strnew(20)))
-		return (NULL);
 	i = 0;
-	j = 0;
-	while (src[i])
+	while ((*src)[i])
 	{
-		dst[j++] = (src[i] == '#' ? c : src[i]);
+		(*src)[i] = ((*src)[i] == '#' ? c : (*src)[i]);
 		i++;
 	}
-	dst[j] = '\0';
-	return (dst);
+	return (1);
 }
 
 t_tetri	*ft_parse(int fd)
@@ -64,7 +58,6 @@ t_tetri	*ft_parse(int fd)
 	t_tetri	*tetri;
 	int		r;
 	char	*buf;
-	char	*tmp;
 	char	pieces;
 
 	if (!(buf = ft_strnew(20)))
@@ -77,9 +70,9 @@ t_tetri	*ft_parse(int fd)
 		if ((r = read(fd, buf, 20)) < 0)
 			return (NULL);
 		buf[r] = '\0';
-		if (r != 20 || !ft_valid_piece(buf) || !(tmp = ft_convert(buf, pieces)))
+		if (r != 20 || !ft_valid_piece(buf) || !ft_convert(&buf, pieces))
 			return (NULL);
-		ft_list_push_back(&tetri, tmp);
+		ft_list_push_back(&tetri, buf);
 		if ((r = read(fd, buf, 1)) < 0)
 			return (NULL);
 		buf[r] = '\0';
