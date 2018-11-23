@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 18:23:30 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/23 18:23:42 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/23 19:43:18 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ t_map	*ft_solve(t_tetri *tetri)
 	if (!(map = (t_map *)malloc(sizeof(t_map))))
 		return (NULL);
 	map->size = 2;
+	map->box = NULL;
 	while (map->size <= 104)
 	{
 		map->area = map->size * (map->size + 1);
