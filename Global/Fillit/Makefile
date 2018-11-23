@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 17:52:37 by flklein           #+#    #+#              #
-#    Updated: 2018/11/23 18:55:25 by flklein          ###   ########.fr        #
+#    Updated: 2018/11/23 19:44:11 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ ft_create_elem.c \
 ft_list_at.c \
 ft_list_push_back.c \
 ft_list_size.c \
-ft_list_foreach.c \
 main.c
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 

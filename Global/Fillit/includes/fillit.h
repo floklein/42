@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 16:55:46 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/23 18:21:46 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/23 19:28:38 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ t_tetri			*ft_create_elem(char *data);
 t_tetri			*ft_list_at(t_tetri *begin_list, unsigned int nbr);
 t_tetri			*ft_parse(int fd);
 void			ft_fill_map(t_tetri *cur, t_map *map, int pos, int mode);
-void			ft_list_foreach(t_tetri *begin_list, void (*f)(const char *));
 void			ft_list_push_back(t_tetri **begin_list, char *data);
 
 #endif
