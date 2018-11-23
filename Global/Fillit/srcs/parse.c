@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:03:58 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/22 15:15:59 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/23 15:47:27 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,13 @@ char	*ft_convert(char *src, char c)
 	int		i;
 	int		j;
 
-	if (!(dst = ft_strnew(16)))
+	if (!(dst = ft_strnew(20)))
 		return (NULL);
 	i = 0;
 	j = 0;
 	while (src[i])
 	{
-		if (src[i] == '.')
-			dst[j++] = src[i];
-		else if (src[i] == '#')
-			dst[j++] = c;
+		dst[j++] = (src[i] == '#' ? c : src[i]);
 		i++;
 	}
 	dst[j] = '\0';
