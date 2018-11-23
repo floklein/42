@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 17:03:58 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/23 15:47:27 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/23 18:08:30 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_tetri	*ft_parse(int fd)
 		return (NULL);
 	pieces = 'A' - 1;
 	r = 1;
+	tetri = NULL;
 	while (r && ++pieces <= 'Z')
 	{
 		if ((r = read(fd, buf, 20)) < 0)
