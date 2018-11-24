@@ -1,5 +1,0 @@
-Credentials cache: API:6C09F435-DC0B-4520-B30F-6A5803CCF541
-        Principal: flklein@42.FR
-
-  Issued                Expires               Principal
-Aug 27 10:49:38 2018  Sep  3 10:49:33 2018  krbtgt/42.FR@42.FR

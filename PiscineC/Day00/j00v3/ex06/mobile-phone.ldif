@@ -1,4 +1,0 @@
-dn:uid=flklein,ou=2018_paris,ou=2018,ou=paris,ou=people,dc=42,dc=fr
-changetype: modify
-add: mobile
-mobile: 0672920751
