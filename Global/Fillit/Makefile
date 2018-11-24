@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/20 17:52:37 by flklein           #+#    #+#              #
-#    Updated: 2018/11/23 19:44:11 by flklein          ###   ########.fr        #
+#    Updated: 2018/11/24 12:09:09 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,5 +57,5 @@ fclean: clean
 		@rm -f $(NAME)
 		@echo "Everything cleaned."
 
-re: clean all
+re: fclean all
 	@make -C libft re
