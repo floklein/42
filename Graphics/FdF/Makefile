@@ -6,13 +6,16 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 12:19:09 by flklein           #+#    #+#              #
-#    Updated: 2018/11/24 16:23:26 by flklein          ###   ########.fr        #
+#    Updated: 2018/11/27 00:14:40 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= fdf
 
 # src / obj files
-SRC		= main.c
+SRC		= main.c \
+		  events.c \
+		  draw.c \
+		  setup.c
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
