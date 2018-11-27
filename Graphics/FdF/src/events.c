@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/27 00:07:44 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/27 18:47:44 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@ int		ft_key(int key, void *mlx)
 	ft_putnbr(key);
 	ft_putchar('\n');
 	(void)mlx;
+	if (key == 53)
+		exit(0);
 	return (0);
 }
