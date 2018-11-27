@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:49 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/27 00:33:28 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/27 18:46:02 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,23 @@ void	ft_fill_pixel(t_mlx *mlx, int x, int y, int color)
 	mlx->data[x + mlx->width * y] = color;
 }
 
-void	ft_line(t_mlx *mlx, int x0, int y0, int x1, int y1)
+void	ft_line(t_mlx *mlx, t_coord *coord, int color)
 {
 	int		dx;
 	int		dy;
-	int		p;
-	int		x;
-	int		y;
+	int		e;
 
-	dx = x1 - x0;
-	dy = y1 - y0;
-	x = x0;
-	y = y0;
-	p = 2 * dy - dx;
-	while (x < x1)
+	e = coord->x2 - coord->x1;
+	dx = e * 2;
+	dy = (coord->y2 - coord->y1) * 2;
+	while (coord->x1 <= coord->x2)
 	{
-		if (p >= 0)
+		ft_fill_pixel(mlx, coord->x1, coord->y1, color);
+		coord->x1++;
+		if ((e -= dy) <= 0)
 		{
-			ft_fill_pixel(mlx, x, y, 0xFFFFFF);
-			y = y + 1;
-			p = p + 2 * dy - 2 * dx;
+			coord->y1++;
+			e += dx;
 		}
-		else
-		{
-			ft_fill_pixel(mlx, x, y, 0xFFFFFF);
-			p = p + 2 * dy;
-		}
-		x = x + 1;
 	}
 }
