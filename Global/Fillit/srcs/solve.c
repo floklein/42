@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 18:23:30 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/24 12:05:45 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/27 14:28:51 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ int		ft_backtracking(t_tetri *tetri, t_map *map, int pos)
 		{
 			ft_fill_map(cur, map, pos, 1);
 			cur->placed = 1;
-			if (ft_backtracking(tetri, map, -1 * map->area))
+			if (ft_backtracking(tetri, map, map->area > 16 ? -1
+						* map->area : -16))
 				return (1);
 			ft_fill_map(cur, map, pos, 0);
 			cur->placed = 0;
@@ -98,7 +99,7 @@ t_map	*ft_solve(t_tetri *tetri)
 			i++;
 		}
 		(map->box)[i] = '\0';
-		if (ft_backtracking(tetri, map, -1 * map->area))
+		if (ft_backtracking(tetri, map, map->area > 16 ? -1 * map->area : -16))
 			return (map);
 		(map->size)++;
 	}
