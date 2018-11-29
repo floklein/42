@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/29 21:05:23 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/29 21:42:30 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_usage(void)
 {
-	ft_putendl("./fdf <map_file>");
+	ft_putendl("usage: ./fdf <map_file>");
 	return (0);
 }
 
