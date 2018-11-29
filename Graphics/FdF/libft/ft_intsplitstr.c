@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 17:23:31 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/29 18:11:54 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/29 21:02:32 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			*ft_intsplitstr(char const *str, char const *set)
 			i++;
 		if (str[i])
 		{
-			tab[pos] = ft_atoi(str + i);
+			tab[pos++] = ft_atoi(str + i);
 			while (str[i] && !in_set(set, str[i]))
 				i++;
 		}

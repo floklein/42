@@ -6,11 +6,30 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 17:30:38 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/29 18:28:14 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/29 21:06:35 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	ft_display_map(t_map *map)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (map->tab[i])
+	{
+		j = 0;
+		while (j < map->columns)
+		{
+			ft_putnbr(map->tab[i][j++]);
+			j < map->columns ? ft_putchar('\t') : 0;
+		}
+		ft_putchar('\n');
+		i++;
+	}
+}
 
 int		ft_count_values(char *str)
 {
