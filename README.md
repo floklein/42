@@ -3,9 +3,9 @@ I am a student at 42. This is my repository dedicated to my projects.
 
 ## Projects
 ### PiscineC
-* 13 days: 100/100 each (except Day12 and Day13).
-* 3 weekend rushes: 100/100 each.
-* 3 weekend projects: 100/100 each.
+* 13 days: graded 100/100 each (except Day12 and Day13).
+* 3 weekend rushes: graded 100/100 or more each.
+* 3 weekend projects: graded 100/100 each.
 ### Main projects
 You can find the first projects of the school under *Global*.
 More advanced projetcs are divided by branch (e.g. *Graphics*).
