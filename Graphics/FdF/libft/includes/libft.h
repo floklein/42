@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 16:22:08 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/24 11:59:50 by flklein          ###   ########.fr       */
+/*   Updated: 2018/11/29 17:29:54 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
 char			**ft_strsplitstr(char const *s, char const *set);
+int				*ft_intsplitstr(char const *s, char const *set);
 int				ft_nbrlen(int n);
 char			*ft_itoa(int nbr);
 void			ft_putchar(char c);

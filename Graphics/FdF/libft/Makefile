@@ -6,7 +6,7 @@
 #    By: flklein <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 16:18:33 by flklein           #+#    #+#              #
-#    Updated: 2018/11/24 12:00:10 by flklein          ###   ########.fr        #
+#    Updated: 2018/11/29 17:30:16 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,7 @@ ft_strrchr.c \
 ft_strrev.c \
 ft_strsplit.c \
 ft_strsplitstr.c \
+ft_intsplitstr.c \
 ft_strstr.c \
 ft_strsub.c \
 ft_strtrim.c \
