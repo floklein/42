@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 12:19:09 by flklein           #+#    #+#              #
-#    Updated: 2018/11/29 18:05:12 by flklein          ###   ########.fr        #
+#    Updated: 2018/12/02 13:35:26 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= fdf
@@ -16,7 +16,8 @@ SRC		= main.c \
 		  events.c \
 		  draw.c \
 		  setup.c \
-		  parse.c
+		  parse.c \
+		  display.c
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
