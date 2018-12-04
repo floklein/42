@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/29 22:17:19 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/04 15:51:20 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(int ac, char **av)
 	if (!(map = ft_parse(av[1])))
 		return (0);
 	ft_display_map(map);
-	if (!(mlx = ft_mlx_setup(1200, 800)))
+	if (!(mlx = ft_mlx_setup(map)))
 		return (0);
 	ft_img_setup(mlx);
 	ft_put_map_to_img(mlx, map);

@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:20:46 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/02 13:35:01 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/04 15:52:08 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 typedef struct	s_coord
 {
-	int		x;
-	int		y;
+	double	x;
+	double	y;
 	int		color;
 }				t_coord;
 
@@ -40,7 +40,12 @@ typedef struct	s_mlx
 	int		width;
 	int		height;
 	void	*img;
-	int		*data;
+	int		*str;
+	int		x_unit;
+	int		y_unit;
+	int		z_unit;
+	int		top_shift;
+	int		left_shift;
 }				t_mlx;
 
 int				ft_count_values(char *str);
@@ -48,7 +53,7 @@ int				ft_key(int key, void *mlx);
 int				ft_usage(void);
 int				main(int ac, char **av);
 t_map			*ft_parse(char *file);
-t_mlx			*ft_mlx_setup(int width, int height);
+t_mlx			*ft_mlx_setup(t_map *map);
 void			ft_display_map(t_map *map);
 void			ft_fill_pixel(t_mlx *mlx, int x, int y, int color);
 void			ft_img_setup(t_mlx *mlx);
