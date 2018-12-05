@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:20:46 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 21:10:13 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/05 23:48:06 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void			ft_panel_setup(t_mlx *mlx);
 void			ft_line(t_mlx *mlx, t_coord *coord1, t_coord *coord2);
 void			ft_put_map_to_img(t_mlx *mlx, t_map *map);
 void			ft_clear_img(t_mlx *mlx);
+void			ft_tutorial(t_stock *stock);
 
 #endif
