@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:20:46 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 16:05:17 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/05 17:12:19 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,14 @@ typedef struct	s_mlx
 	int		left_shift;
 }				t_mlx;
 
+typedef struct	s_stock
+{
+	t_mlx	*mlx;
+	t_map	*map;
+}				t_stock;
+
 int				ft_count_values(char *str);
-int				ft_key(int key, void *mlx);
+int				ft_key(int key, t_stock *stock);
 int				ft_usage(void);
 int				main(int ac, char **av);
 t_map			*ft_parse(char *file);

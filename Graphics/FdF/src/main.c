@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/04 15:51:20 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/05 17:11:03 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		main(int ac, char **av)
 {
 	t_map	*map;
 	t_mlx	*mlx;
+	t_stock	*stock;
 
 	if (ac != 2)
 		return (ft_usage());
@@ -33,7 +34,11 @@ int		main(int ac, char **av)
 	ft_img_setup(mlx);
 	ft_put_map_to_img(mlx, map);
 	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img, 0, 0);
-	mlx_key_hook(mlx->win, &ft_key, mlx);
+	if (!(stock = (t_stock *)malloc(sizeof(t_stock))))
+		return (0);
+	stock->map = map;
+	stock->mlx = mlx;
+	mlx_hook(mlx->win, 2, (1L << 0), &ft_key, stock);
 	mlx_loop(mlx->ptr);
 	return (0);
 }
