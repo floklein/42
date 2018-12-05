@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 12:19:09 by flklein           #+#    #+#              #
-#    Updated: 2018/12/05 19:49:21 by flklein          ###   ########.fr        #
+#    Updated: 2018/12/05 22:59:54 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= fdf
@@ -24,7 +24,7 @@ OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 # compiler
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror -g
+CFLAGS	= -Wall -Wextra -Werror
 
 # mlx library
 MLX		= ./minilibx/
