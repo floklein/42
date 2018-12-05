@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:20:46 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 17:12:19 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/05 19:47:58 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct	s_mlx
 	int		z_unit;
 	int		top_shift;
 	int		left_shift;
+	int		panel[1][5];
 }				t_mlx;
 
 typedef struct	s_stock
@@ -63,6 +64,7 @@ t_mlx			*ft_mlx_setup(t_map *map);
 void			ft_display_map(t_map *map);
 void			ft_fill_pixel(t_mlx *mlx, int x, int y, int color);
 void			ft_img_setup(t_mlx *mlx);
+void			ft_panel_setup(t_mlx *mlx);
 void			ft_line(t_mlx *mlx, t_coord *coord1, t_coord *coord2);
 void			ft_put_map_to_img(t_mlx *mlx, t_map *map);
 void			ft_clear_img(t_mlx *mlx);
