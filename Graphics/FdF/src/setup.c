@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 19:36:04 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/05 21:03:37 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ t_mlx	*ft_mlx_setup(t_map *map)
 	mlx->z_unit = 8 - 1 * red_u;
 	mlx->top_shift = mlx->y_unit + mlx->z_unit * ft_max_z(map);
 	mlx->left_shift = mlx->x_unit * map->lines;
+	mlx->panel_choice = 0;
 	mlx->win = mlx_new_window(mlx->ptr, mlx->width, mlx->height, "fdf");
 	return (mlx);
 }

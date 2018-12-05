@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 22:17:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 19:50:58 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/05 21:02:26 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ void	ft_clear_img(t_mlx *mlx)
 int		ft_choose_color(int alt, t_mlx *mlx)
 {
 	if (alt <= 0)
-		return (mlx->panel[0][0]);
+		return (mlx->panel[mlx->panel_choice][0]);
 	else if (alt <= 10)
-		return (mlx->panel[0][1]);
+		return (mlx->panel[mlx->panel_choice][1]);
 	else if (alt <= 20)
-		return (mlx->panel[0][2]);
+		return (mlx->panel[mlx->panel_choice][2]);
 	else if (alt <= 30)
-		return (mlx->panel[0][3]);
+		return (mlx->panel[mlx->panel_choice][3]);
 	else
-		return (mlx->panel[0][4]);
+		return (mlx->panel[mlx->panel_choice][4]);
 }
 
 void	ft_put_map_to_img(t_mlx *mlx, t_map *map)

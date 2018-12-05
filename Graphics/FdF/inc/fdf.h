@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:20:46 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 19:47:58 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/05 21:10:13 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ typedef struct	s_mlx
 	int		z_unit;
 	int		top_shift;
 	int		left_shift;
-	int		panel[1][5];
+	int		panel_choice;
+	int		panel[5][5];
 }				t_mlx;
 
 typedef struct	s_stock
