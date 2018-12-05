@@ -6,11 +6,29 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 22:17:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/04 15:57:04 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/05 16:07:03 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	ft_clear_img(t_mlx *mlx)
+{
+	int		x;
+	int		y;
+
+	x = 0;
+	while (x < mlx->width)
+	{
+		y = 0;
+		while (y < mlx->height)
+		{
+			ft_fill_pixel(mlx, x, y, 0x000000);
+			y++;
+		}
+		x++;
+	}
+}
 
 void	ft_put_map_to_img(t_mlx *mlx, t_map *map)
 {
@@ -32,12 +50,13 @@ void	ft_put_map_to_img(t_mlx *mlx, t_map *map)
 			c1->x = (j - i) * mlx->x_unit + mlx->left_shift;
 			c1->y = (j + i) * mlx->y_unit + mlx->top_shift
 				- mlx->z_unit * map->tab[i][j];
-			c1->color = 0xFFFFFF;
+			c1->color = 0xFF0000;
 			if (i < map->lines - 1)
 			{
 				c2->x = (j - i - 1) * mlx->x_unit + mlx->left_shift;
 				c2->y = (j + i + 1) * mlx->y_unit + mlx->top_shift
 					- mlx->z_unit * map->tab[i + 1][j];
+				c2->color = 0x00FF00;
 				ft_line(mlx, c1, c2);
 			}
 			if (j < map->columns - 1)
@@ -45,6 +64,7 @@ void	ft_put_map_to_img(t_mlx *mlx, t_map *map)
 				c2->x = (j + 1 - i) * mlx->x_unit + mlx->left_shift;
 				c2->y = (j + 1 + i) * mlx->y_unit + mlx->top_shift
 					- mlx->z_unit * map->tab[i][j + 1];
+				c2->color = 0x0000FF;
 				ft_line(mlx, c1, c2);
 			}
 			j++;
