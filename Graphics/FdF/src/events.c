@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 21:28:12 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 00:01:05 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,17 @@ void	ft_move(int key, t_stock *stock)
 void	ft_tutorial(t_stock *stock)
 {
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			50, stock->mlx->width - 200, 0xFFFFFF, "How to?");
+			stock->mlx->width - 200, 50, 0xFFFFFF, "How to?");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			100, stock->mlx->width - 200, 0xFFFFFF, "ESC to quit");
+			stock->mlx->width - 200, 75, 0xFFFFFF, "ESC to quit");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			150, stock->mlx->width - 200, 0xFFFFFF, "ARROWS to move");
+			stock->mlx->width - 200, 100, 0xFFFFFF, "ARROWS to move");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			200, stock->mlx->width - 200, 0xFFFFFF, "HOME / END to zoom");
+			stock->mlx->width - 200, 125, 0xFFFFFF, "HOME / END to zoom");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			250, stock->mlx->width - 200, 0xFFFFFF, "PAGE UP / DOWN for height");
+			stock->mlx->width - 200, 150, 0xFFFFFF, "PAGE UP / DOWN for height");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			300, stock->mlx->width - 200, 0xFFFFFF, "for colors");
+			stock->mlx->width - 200, 175, 0xFFFFFF, "for colors");
 }
 
 int		ft_key(int key, t_stock *stock)
@@ -83,5 +83,6 @@ int		ft_key(int key, t_stock *stock)
 	ft_put_map_to_img(stock->mlx, stock->map);
 	mlx_put_image_to_window(stock->mlx->ptr, stock->mlx->win,
 			stock->mlx->img, 0, 0);
+	ft_tutorial(stock);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 19:37:07 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/05 23:48:54 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		main(int ac, char **av)
 	stock->map = map;
 	stock->mlx = mlx;
 	mlx_hook(mlx->win, 2, (1L << 0), &ft_key, stock);
+	ft_tutorial(stock);
 	mlx_loop(mlx->ptr);
 	return (0);
 }
