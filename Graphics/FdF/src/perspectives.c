@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 22:17:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 16:16:33 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 21:24:32 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	ft_para(t_mlx *mlx, t_map *map)
 	int		i;
 	int		j;
 
-	mlx->y_unit *= 2;
 	if (!(mlx->c1 = (t_coord *)malloc(sizeof(t_coord))))
 		return ;
 	if (!(mlx->c2 = (t_coord *)malloc(sizeof(t_coord))))
 		return ;
+	mlx->y_unit *= 2;
 	i = 0;
 	while (i < map->lines)
 	{
@@ -58,6 +58,8 @@ void	ft_para(t_mlx *mlx, t_map *map)
 		i++;
 	}
 	mlx->y_unit /= 2;
+	free(mlx->c1);
+	free(mlx->c2);
 }
 
 void	ft_iso_helper(t_mlx *mlx, t_map *map, int i, int j)
@@ -104,6 +106,8 @@ void	ft_iso(t_mlx *mlx, t_map *map)
 		}
 		i++;
 	}
+	free(mlx->c1);
+	free(mlx->c2);
 }
 
 void	ft_put_map_to_img(t_mlx *mlx, t_map *map)

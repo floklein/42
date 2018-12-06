@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:20:46 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 19:54:03 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 21:26:01 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ void			ft_put_map_to_img(t_mlx *mlx, t_map *map);
 void			ft_reset(t_stock *stock);
 void			ft_tutorial(t_stock *stock);
 void			ft_zoom_n_height(int key, t_stock *stock);
-void    		ft_panel_setup(t_mlx *mlx);
+void			ft_panel_setup(t_mlx *mlx);
 
 #endif

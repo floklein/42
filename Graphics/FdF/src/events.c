@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 19:54:32 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 20:54:57 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	ft_zoom_n_height(int key, t_stock *stock)
 	if (key == 115 && stock->mlx->x_unit < 10000 && stock->mlx->y_unit < 5000
 			&& stock->mlx->z_unit < 2500)
 	{
-		stock->mlx->x_unit += 4;
-		stock->mlx->y_unit += 2;
-		stock->mlx->z_unit += 1;
+		stock->mlx->x_unit += 2;
+		stock->mlx->y_unit += 1;
+		stock->mlx->z_unit += 0.5;
 	}
 	else if (key == 119 && stock->mlx->x_unit > 1 && stock->mlx->y_unit > 1
 			&& stock->mlx->z_unit > -100)
 	{
-		stock->mlx->x_unit -= 4;
-		stock->mlx->y_unit -= 2;
-		stock->mlx->z_unit -= 1;
+		stock->mlx->x_unit -= 2;
+		stock->mlx->y_unit -= 1;
+		stock->mlx->z_unit -= 0.5;
 	}
 	else if (key == 116 && stock->mlx->z_unit < 2500)
 		stock->mlx->z_unit += 0.1;
