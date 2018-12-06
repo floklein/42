@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 01:30:18 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 02:33:36 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 int		ft_usage(void)
 {
 	ft_putendl("usage: ./fdf <map_file>");
+	return (0);
+}
+
+int		ft_close(void)
+{
+	exit(0);
 	return (0);
 }
 
@@ -40,6 +46,7 @@ int		main(int ac, char **av)
 	stock->map = map;
 	stock->mlx = mlx;
 	mlx_hook(mlx->win, 2, (1L << 0), &ft_key, stock);
+	mlx_hook(mlx->win, 17, (1L<<17), &ft_close, NULL);
 	ft_tutorial(stock);
 	mlx_loop(mlx->ptr);
 	return (0);
