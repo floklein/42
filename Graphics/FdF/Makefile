@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 12:19:09 by flklein           #+#    #+#              #
-#    Updated: 2018/12/06 17:27:54 by flklein          ###   ########.fr        #
+#    Updated: 2018/12/06 17:55:51 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME	= fdf
@@ -55,9 +55,11 @@ $(OBJDIR)%.o:$(SRCDIR)%.c
 
 $(FT_LIB):
 	@make -C $(FT)
+	@echo "Libft ok."
 
 $(MLX_LIB):
 	@make -C $(MLX)
+	@echo "MiniLibX ok."
 
 $(NAME): $(OBJ)
 	@$(CC) $(OBJ) $(MLX_LNK) $(FT_LNK) -lm -o $(NAME)
