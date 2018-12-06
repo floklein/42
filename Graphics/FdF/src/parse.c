@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 17:30:38 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/29 21:06:35 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 16:51:51 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_map	*ft_parse(char *file)
 		map->lines++;
 		map->columns = ft_count_values(line);
 	}
-	if ((fd2 = open(file, O_RDONLY)) < 0)
+	if ((fd2 = open(file, O_RDONLY)) < 0 && !close(fd))
 		return (NULL);
 	if (!(map->tab = (int **)malloc(sizeof(int *) * (map->lines + 1))))
 		return (NULL);
@@ -75,7 +75,6 @@ t_map	*ft_parse(char *file)
 	while (get_next_line(fd2, &line) > 0)
 		map->tab[i++] = ft_intsplitstr(line, " \t\n");
 	map->tab[i] = NULL;
-	close(fd);
 	close(fd2);
 	return (map);
 }
