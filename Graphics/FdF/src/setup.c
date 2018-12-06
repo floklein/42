@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 01:54:01 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 17:00:22 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ t_mlx	*ft_mlx_setup(t_map *map, char *title)
 	t_mlx	*mlx;
 	int		red_w;
 	int		red_u;
-	int		i;
 
 	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
 		return (NULL);
@@ -85,12 +84,8 @@ t_mlx	*ft_mlx_setup(t_map *map, char *title)
 	mlx->z_unit = 8 - 1 * red_u;
 	mlx->top_shift = mlx->y_unit + mlx->z_unit * ft_max_z(map);
 	mlx->left_shift = mlx->x_unit * map->lines;
+	mlx->pers_choice = 1;
 	mlx->panel_choice = 0;
-	while (ft_strchr(title, '/'))
-		title = ft_strchr(title, '/') + 1;
-	i = ft_strlen(title);
-	while (i && title[i] == '.' ? title[i] = '\0' : 1)
-		i--;
 	mlx->win = mlx_new_window(mlx->ptr, mlx->width, mlx->height, title);
 	return (mlx);
 }
