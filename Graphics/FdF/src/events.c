@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 19:10:07 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 19:54:32 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ void	ft_zoom_n_height(int key, t_stock *stock)
 		stock->mlx->z_unit -= 1;
 	}
 	else if (key == 116 && stock->mlx->z_unit < 2500)
-		stock->mlx->z_unit += 1;
+		stock->mlx->z_unit += 0.1;
 	else if (key == 121 && stock->mlx->z_unit > -100)
-		stock->mlx->z_unit -= 1;
+		stock->mlx->z_unit -= 0.1;
 }
 
 void	ft_move(int key, t_stock *stock)
