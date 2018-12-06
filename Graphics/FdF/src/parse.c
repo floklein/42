@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 17:30:38 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 16:51:51 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 17:44:54 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_map	*ft_parse(char *file)
 	char	*line;
 	int		i;
 
-	if (!(map = (t_map *)malloc(sizeof(t_map))))
+	if (!(map = (t_map *)ft_memalloc(sizeof(t_map))))
 		return (NULL);
 	if ((fd = open(file, O_RDONLY)) < 0)
 		return (NULL);
