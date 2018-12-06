@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 21:03:37 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 01:54:01 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,12 @@ void	ft_img_setup(t_mlx *mlx)
 	mlx->str = (int *)mlx_get_data_addr(mlx->img, &bpp, &s_l, &endian);
 }
 
-t_mlx	*ft_mlx_setup(t_map *map)
+t_mlx	*ft_mlx_setup(t_map *map, char *title)
 {
 	t_mlx	*mlx;
 	int		red_w;
 	int		red_u;
+	int		i;
 
 	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
 		return (NULL);
@@ -85,6 +86,11 @@ t_mlx	*ft_mlx_setup(t_map *map)
 	mlx->top_shift = mlx->y_unit + mlx->z_unit * ft_max_z(map);
 	mlx->left_shift = mlx->x_unit * map->lines;
 	mlx->panel_choice = 0;
-	mlx->win = mlx_new_window(mlx->ptr, mlx->width, mlx->height, "fdf");
+	while (ft_strchr(title, '/'))
+		title = ft_strchr(title, '/') + 1;
+	i = ft_strlen(title);
+	while (i && title[i] == '.' ? title[i] = '\0' : 1)
+		i--;
+	mlx->win = mlx_new_window(mlx->ptr, mlx->width, mlx->height, title);
 	return (mlx);
 }

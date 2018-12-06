@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 00:01:05 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 01:27:48 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,30 +40,34 @@ void	ft_height(int key, t_stock *stock)
 
 void	ft_move(int key, t_stock *stock)
 {
-	if (key == 126)
+	if (key == 126 && stock->mlx->top_shift > -10000)
 		stock->mlx->top_shift -= 10;
-	if (key == 125)
+	else if (key == 125 && stock->mlx->top_shift < 10000)
 		stock->mlx->top_shift += 10;
-	if (key == 123)
+	else if (key == 123 && stock->mlx->left_shift > -10000)
 		stock->mlx->left_shift -= 10;
-	if (key == 124)
+	else if (key == 124 && stock->mlx->left_shift < 10000)
 		stock->mlx->left_shift += 10;
 }
 
 void	ft_tutorial(t_stock *stock)
 {
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 200, 50, 0xFFFFFF, "How to?");
+		stock->mlx->width - 300, 25, 0xFFFFFF, "        How to?");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 200, 75, 0xFFFFFF, "ESC to quit");
+		stock->mlx->width - 300, 50, 0xFFFFFF, "ESC              quit");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 200, 100, 0xFFFFFF, "ARROWS to move");
+		stock->mlx->width - 300, 75, 0xFFFFFF, "R                reset");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 200, 125, 0xFFFFFF, "HOME / END to zoom");
+		stock->mlx->width - 300, 100, 0xFFFFFF, "TAB              perspective");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 200, 150, 0xFFFFFF, "PAGE UP / DOWN for height");
+		stock->mlx->width - 300, 125, 0xFFFFFF, "PAGE UP / DOWN   height");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 200, 175, 0xFFFFFF, "for colors");
+		stock->mlx->width - 300, 150, 0xFFFFFF, "ARROWS           move");
+	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
+		stock->mlx->width - 300, 175, 0xFFFFFF, "HOME / END       zoom");
+	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
+		stock->mlx->width - 300, 200, 0xFFFFFF, "NUMBERS          colors");
 }
 
 int		ft_key(int key, t_stock *stock)
@@ -75,9 +79,12 @@ int		ft_key(int key, t_stock *stock)
 		exit(0);
 	else if ((key >= 18 && key <= 21) || key == 23)
 		stock->mlx->panel_choice = key == 23 ? 4 : key - 18;
-	ft_zoom(key, stock);
-	ft_height(key, stock);
-	ft_move(key, stock);
+	else if (key == 115 || key == 119)
+		ft_zoom(key, stock);
+	else if (key == 116 || key == 121)
+		ft_height(key, stock);
+	else if (key >= 123 && key <= 126)
+		ft_move(key, stock);
 	ft_bzero(stock->mlx->str,
 			stock->mlx->width * stock->mlx->height * sizeof(int));
 	ft_put_map_to_img(stock->mlx, stock->map);
