@@ -6,13 +6,13 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:42:49 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 17:02:16 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 21:16:31 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void    ft_panel_setup(t_mlx *mlx)
+void	ft_panel_setup(t_mlx *mlx)
 {
 	mlx->panel[0][0] = 0xFFFFFF;
 	mlx->panel[0][1] = 0xFFFFFF;
