@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:20:46 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 17:11:35 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 19:54:03 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct	s_mlx
 	int		*str;
 	int		x_unit;
 	int		y_unit;
-	int		z_unit;
+	double	z_unit;
 	int		top_shift;
 	int		left_shift;
 	int		pers_choice;
