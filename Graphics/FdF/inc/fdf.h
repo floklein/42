@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:20:46 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/05 23:48:06 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 01:30:38 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int				ft_key(int key, t_stock *stock);
 int				ft_usage(void);
 int				main(int ac, char **av);
 t_map			*ft_parse(char *file);
-t_mlx			*ft_mlx_setup(t_map *map);
+t_mlx			*ft_mlx_setup(t_map *map, char *title);
 void			ft_display_map(t_map *map);
 void			ft_fill_pixel(t_mlx *mlx, int x, int y, int color);
 void			ft_img_setup(t_mlx *mlx);
