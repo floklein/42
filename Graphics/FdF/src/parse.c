@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 17:30:38 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/06 17:44:54 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/06 18:43:45 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ t_map	*ft_parse(char *file)
 	{
 		map->lines++;
 		map->columns = ft_count_values(line);
+		free(line);
 	}
 	if ((fd2 = open(file, O_RDONLY)) < 0 && !close(fd))
 		return (NULL);
