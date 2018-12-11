@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:55:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/10 18:49:45 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/11 16:22:57 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct	s_stock
 char			*ft_title(char *title);
 double			ft_cmod(t_complex a);
 int				ft_close(void);
-int				ft_hsv_to_rgb(double h, double s, double v);
+int				ft_hsv_to_rgb(double h, double s, double v, int panel);
 int				ft_key(int key, t_stock *stock);
 int				ft_parse(char *file);
 int				ft_usage(void);
