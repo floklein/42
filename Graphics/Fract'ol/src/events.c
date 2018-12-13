@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/11 16:22:38 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/11 20:51:19 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_zoom_n_iter(int key, t_stock *stock)
 {
-	if (key == 115)
+	if (key == 115 || key == 27)
 		stock->mlx->zoom *= 2;
 	else if (key == 119)
 		stock->mlx->zoom /= 2;
-	else if (key == 116)
+	else if (key == 116 || key == 33)
 		stock->mlx->iter += 100;
 	else if (key == 121 && stock->mlx->iter > 100)
 		stock->mlx->iter -= 100;
@@ -64,13 +64,16 @@ void	ft_reset(t_stock *stock)
 	stock->mlx->iter = 100;
 }
 
+#include <stdio.h>
+
 int		ft_key(int key, t_stock *stock)
 {
+	printf("%d\n", key);
 	if (key == 53)
 		exit(0);
 	else if (key >= 18 && key <= 20)
 		stock->mlx->panel_choice = key - 18;
-	else if (key == 115 || key == 116 || key == 119 || key == 121)
+	else if (key == 115 || key == 116 || key == 119 || key == 121 || key == 33 || key == 27)
 		ft_zoom_n_iter(key, stock);
 	else if (key >= 123 && key <= 126)
 		ft_move(key, stock);
