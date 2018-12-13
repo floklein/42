@@ -1,0 +1,2 @@
+Graphique: sudo adduser user_name, puis login via GUI
+SSH: ssh new_user@127.0.0.1
