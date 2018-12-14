@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:55:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/11 16:22:57 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/14 22:00:26 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,18 @@ typedef struct	s_complex
 	double	y;
 }				t_complex;
 
+typedef struct	s_c
+{
+	double	r;
+	double	g;
+	double	b;
+	double	f;
+	double	p;
+	double	q;
+	double	t;
+	int		i;
+}				t_c;
+
 typedef struct	s_mlx
 {
 	void	*ptr;
@@ -56,15 +68,11 @@ typedef struct	s_stock
 	t_mlx	*mlx;
 }				t_stock;
 
-char			*ft_title(char *title);
-double			ft_cmod(t_complex a);
 int				ft_close(void);
 int				ft_hsv_to_rgb(double h, double s, double v, int panel);
 int				ft_key(int key, t_stock *stock);
 int				ft_parse(char *file);
 int				ft_usage(void);
-t_complex		ft_cadd(t_complex a, t_complex b);
-t_complex		ft_csqr(t_complex a);
 t_mlx			*ft_mlx_setup(char *title);
 void			ft_fill_pixel(t_mlx *mlx, int x, int y, int color);
 void			ft_julia(t_mlx *mlx);
