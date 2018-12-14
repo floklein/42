@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 14:54:46 by flklein           #+#    #+#              #
-#    Updated: 2018/12/14 16:30:46 by flklein          ###   ########.fr        #
+#    Updated: 2018/12/14 21:57:34 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,7 @@ SRC		= main.c \
 		  events.c \
 		  draw.c \
 		  setup.c \
-		  fractals.c \
-		  complex.c
+		  fractals.c
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
