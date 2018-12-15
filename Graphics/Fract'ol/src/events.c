@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/14 22:38:53 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/15 15:31:14 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,19 @@ void	ft_move(int key, t_stock *stock)
 void	ft_tutorial(t_stock *stock)
 {
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-	stock->mlx->width - 300, 25, 0xFFFFFF, "        How to?");
+			stock->mlx->width - 300, 25, 0xFFFFFF, "        How to?");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-	stock->mlx->width - 300, 50, 0xFFFFFF, "ESC              quit");
+			stock->mlx->width - 300, 50, 0xFFFFFF, "ESC              quit");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-	stock->mlx->width - 300, 75, 0xFFFFFF, "R                reset");
+			stock->mlx->width - 300, 75, 0xFFFFFF, "R                reset");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-	stock->mlx->width - 300, 100, 0xFFFFFF, "TAB              next fractal");
+			stock->mlx->width - 300, 100, 0xFFFFFF, "TAB              next fractal");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-	stock->mlx->width - 300, 125, 0xFFFFFF, "PAGE UP / DOWN   iterations");
+			stock->mlx->width - 300, 125, 0xFFFFFF, "PAGE UP / DOWN   iterations");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-	stock->mlx->width - 300, 150, 0xFFFFFF, "ARROWS           move");
+			stock->mlx->width - 300, 150, 0xFFFFFF, "ARROWS           move");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-	stock->mlx->width - 300, 175, 0xFFFFFF, "HOME / END       zoom");
+			stock->mlx->width - 300, 175, 0xFFFFFF, "HOME / END       zoom");
 }
 
 void	ft_reset(t_stock *stock)
@@ -68,17 +68,14 @@ int		ft_key(int key, t_stock *stock)
 	ft_putchar('\n');
 	if (key == 53)
 		exit(0);
-	else if (key >= 18 && key <= 20)
-		stock->mlx->panel_choice = key - 18;
-	else if (key == 115 || key == 116 || key == 119 || key == 121 || key == 33
-			|| key == 27)
-		ft_zoom_n_iter(key, stock);
-	else if (key >= 123 && key <= 126)
-		ft_move(key, stock);
 	else if (key == 15)
 		ft_reset(stock);
+	else if (key >= 18 && key <= 20)
+		stock->mlx->panel_choice = key - 18;
 	else if (key == 48)
 		stock->mlx->fractal = (stock->mlx->fractal + 1) % 3;
+	ft_zoom_n_iter(key, stock);
+	ft_move(key, stock);
 	ft_bzero(stock->mlx->str,
 			stock->mlx->width * stock->mlx->height * sizeof(int));
 	ft_put_fractal_to_img(stock->mlx);
