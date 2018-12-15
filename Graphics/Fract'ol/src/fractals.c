@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 18:58:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/11 16:23:35 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/15 19:08:17 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	ft_julia(t_mlx *mlx)
 	t_complex	old;
 	int			i;
 
-	cst.x = -0.7;
-	cst.y = 0.27015;
+	cst.x = mlx->julia.x;
+	cst.y = mlx->julia.y;
 	c.y = 0;
 	while (c.y < mlx->height)
 	{
