@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/11 16:16:23 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/15 19:06:55 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_mlx	*ft_mlx_setup(char *title)
 	mlx->move_y = 0;
 	mlx->iter = 100;
 	mlx->panel_choice = 0;
+	mlx->julia.x = -0.7;
+	mlx->julia.y = 0.27015;
 	mlx->win = mlx_new_window(mlx->ptr, mlx->width, mlx->height, title);
 	return (mlx);
 }
