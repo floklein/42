@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/14 21:59:55 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/15 14:26:48 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		main(int ac, char **av)
 		return (0);
 	stock->mlx = mlx;
 	mlx_hook(mlx->win, 2, (1L << 0), &ft_key, stock);
+	mlx_hook(mlx->win, 4, (1L << 2), &ft_mouse_zoom, stock);
 	mlx_hook(mlx->win, 17, (1L << 17), &ft_close, NULL);
 	ft_tutorial(stock);
 	mlx_loop(mlx->ptr);
