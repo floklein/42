@@ -6,7 +6,7 @@
 #    By: flklein <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/05 16:18:33 by flklein           #+#    #+#              #
-#    Updated: 2018/11/29 17:30:16 by flklein          ###   ########.fr        #
+#    Updated: 2018/12/15 20:24:33 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,8 @@ ft_toupper.c \
 get_next_line.c \
 ft_putstr_int.c \
 ft_abs.c \
-ft_sqrt_app.c
+ft_sqrt_app.c \
+ft_putdbl.c
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
 
 OBJ = $(_SRC:.c=.o)

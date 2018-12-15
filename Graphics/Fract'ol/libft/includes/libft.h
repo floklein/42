@@ -6,7 +6,7 @@
 /*   By: flklein <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 16:22:08 by flklein           #+#    #+#             */
-/*   Updated: 2018/11/29 17:29:54 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/15 20:24:20 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,6 @@ int				get_next_line(int fd, char **line);
 int				ft_putstr_int(char const *str, int ret);
 int				ft_abs(int a);
 int				ft_sqrt_app(int nb);
+void			ft_putdbl(double n, int p);
 
 #endif

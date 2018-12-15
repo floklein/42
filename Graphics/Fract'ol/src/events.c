@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/15 15:31:14 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/15 20:14:05 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	ft_reset(t_stock *stock)
 	stock->mlx->move_x = -0.5;
 	stock->mlx->move_y = 0;
 	stock->mlx->iter = 100;
+	stock->mlx->julia.x = -0.7;
+	stock->mlx->julia.y = 0.27015;
 }
 
 int		ft_key(int key, t_stock *stock)
