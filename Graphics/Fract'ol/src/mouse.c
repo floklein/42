@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/15 14:21:14 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/15 20:56:37 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/16 18:04:18 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_mouse_zoom(int key, int x, int y, t_stock *stock)
 	}
 	ft_bzero(stock->mlx->str,
 			stock->mlx->width * stock->mlx->height * sizeof(int));
-	ft_put_fractal_to_img(stock->mlx);
+	ft_put_fractal_to_img(stock);
 	mlx_put_image_to_window(stock->mlx->ptr, stock->mlx->win, stock->mlx->img,
 			0, 0);
 	ft_tutorial(stock);
@@ -52,7 +52,7 @@ int		ft_mouse_event(int x, int y, t_stock *stock)
 	}
 	ft_bzero(stock->mlx->str,
 			stock->mlx->width * stock->mlx->height * sizeof(int));
-	ft_put_fractal_to_img(stock->mlx);
+	ft_put_fractal_to_img(stock);
 	mlx_put_image_to_window(stock->mlx->ptr, stock->mlx->win, stock->mlx->img,
 			0, 0);
 	ft_tutorial(stock);

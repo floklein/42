@@ -6,22 +6,24 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 18:58:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/15 22:46:35 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/16 20:38:36 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_mandelbrot(t_mlx *mlx)
+void	*ft_mandelbrot(void *mlxv)
 {
 	t_coord		c;
 	t_complex	p;
 	t_complex	new;
 	t_complex	old;
 	int			i;
+	t_mlx		*mlx;
 
-	c.y = 0;
-	while (c.y < mlx->height)
+	mlx = (t_mlx *)mlxv;
+	c.y = mlx->cur_thd * mlx->height / 8;
+	while (c.y < (mlx->cur_thd + 1) * mlx->height / 8)
 	{
 		c.x = 0;
 		while (c.x < mlx->width)
@@ -49,6 +51,8 @@ void	ft_mandelbrot(t_mlx *mlx)
 		}
 		c.y++;
 	}
+	pthread_exit(NULL);
+	return (NULL);
 }
 
 void	ft_julia(t_mlx *mlx)
@@ -90,99 +94,26 @@ void	ft_julia(t_mlx *mlx)
 	}
 }
 
-typedef struct	s_line
+void	ft_put_fractal_to_img(t_stock *stock)
 {
-	int		lenght;
-	double	dx;
-	double	dy;
-	double	x;
-	double	y;
-	int		i;
-	double	mix;
-}				t_line;
-
-void	ft_line(t_mlx *mlx, t_coord *c1, t_coord *c2)
-{
-	t_line	*line;
-
-	if (!(line = (t_line *)malloc(sizeof(t_line))))
-		return ;
-	if (ft_abs(c2->x - c1->x) >= ft_abs(c2->y - c1->y))
-		line->lenght = ft_abs(c2->x - c1->x);
-	else
-		line->lenght = ft_abs(c2->y - c1->y);
-	line->dx = (c2->x - c1->x) / line->lenght;
-	line->dy = (c2->y - c1->y) / line->lenght;
-	line->x = c1->x + 0.5;
-	line->y = c1->y + 0.5;
-	line->i = 1;
-	while (line->i <= line->lenght && line->x < mlx->width
-			&& line->y < mlx->height)
+	stock->mlx->cur_thd = 0;
+	if (stock->mlx->fractal == 0)
 	{
-		line->mix = line->i / (double)line->lenght;
-		ft_fill_pixel(mlx, (int)line->x, (int)line->y,
-				c1->color * (1 - line->mix) + c2->color * line->mix);
-		line->x += line->dx;
-		line->y += line->dy;
-		line->i++;
+		while (stock->mlx->cur_thd < 8)
+		{
+			pthread_create(&stock->thread->id[stock->mlx->cur_thd++], NULL,
+					ft_mandelbrot, (void *)stock->mlx);
+	//		pthread_join(stock->thread->id[stock->mlx->cur_thd++], NULL);
+		}
 	}
-	free(line);
-}
-
-#include <math.h>
-
-void	ft_koch(t_mlx *mlx, int x1, int y1, int x2, int y2, int it)
-{
-	float angle = 60*M_PI/180;
-	int x3 = (2*x1+x2)/3;
-	int y3 = (2*y1+y2)/3;
-
-	int x4 = (x1+2*x2)/3;
-	int y4 = (y1+2*y2)/3;
-
-	int x = x3 + (x4-x3)*cos(angle)+(y4-y3)*sin(angle);
-	int y = y3 - (x4-x3)*sin(angle)+(y4-y3)*cos(angle);
-	t_coord	c1;
-	t_coord	c2;
-
-	if(it > 0)
-	{
-		ft_koch(mlx, x1, y1, x3, y3, it-1);
-		ft_koch(mlx, x3, y3, x, y, it-1);
-		ft_koch(mlx, x, y, x4, y4, it-1);
-		ft_koch(mlx, x4, y4, x2, y2, it-1);
-	}
-	else
-	{
-		c1.x = x1;
-		c1.y = y1;
-		c2.x = x3;
-		c2.y = y3;
-		ft_line(mlx, &c1, &c2);
-		c1.x = x3;
-		c1.y = y3;
-		c2.x = x;
-		c2.y = y;
-		ft_line(mlx, &c1, &c2);
-		c1.x = x;
-		c1.y = y;
-		c2.x = x4;
-		c2.y = y4;
-		ft_line(mlx, &c1, &c2);
-		c1.x = x4;
-		c1.y = y4;
-		c2.x = x2;
-		c2.y = y2;
-		ft_line(mlx, &c1, &c2);
-	}
-}
-
-void	ft_put_fractal_to_img(t_mlx *mlx)
-{
-	if (mlx->fractal == 0)
-		ft_mandelbrot(mlx);
-	else if (mlx->fractal == 1)
-		ft_julia(mlx);
-	else if (mlx->fractal == 2)
-		ft_koch(mlx, 0, 0, 1280, 720, 4);
+	else if (stock->mlx->fractal == 1)
+		ft_julia(stock->mlx);
+	pthread_join(stock->thread->id[0], NULL);
+	pthread_join(stock->thread->id[1], NULL);
+	pthread_join(stock->thread->id[2], NULL);
+	pthread_join(stock->thread->id[3], NULL);
+	pthread_join(stock->thread->id[4], NULL);
+	pthread_join(stock->thread->id[5], NULL);
+	pthread_join(stock->thread->id[6], NULL);
+	pthread_join(stock->thread->id[7], NULL);
 }
