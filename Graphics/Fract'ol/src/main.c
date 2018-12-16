@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/15 19:27:34 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/16 18:24:36 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ int		ft_close(void)
 
 int		main(int ac, char **av)
 {
-	t_mlx	*mlx;
 	t_stock	*stock;
 
 	if (ac != 2)
 		return (ft_usage());
-	if (!(mlx = ft_mlx_setup(av[1])))
-		return (0);
-	ft_put_fractal_to_img(mlx);
-	mlx_put_image_to_window(mlx->ptr, mlx->win, mlx->img, 0, 0);
 	if (!(stock = (t_stock *)malloc(sizeof(t_stock))))
 		return (0);
-	stock->mlx = mlx;
-	mlx_hook(mlx->win, 2, (1L << 0), &ft_key, stock);
-	mlx_hook(mlx->win, 6, (1L << 6), &ft_mouse_event, stock);
-	mlx_hook(mlx->win, 4, (1L << 2), &ft_mouse_zoom, stock);
-	mlx_hook(mlx->win, 17, (1L << 17), &ft_close, NULL);
+	if (!(stock->mlx = ft_mlx_setup(av[1])))
+		return (0);
+	if (!(stock->thread = (t_thread *)malloc(sizeof(t_thread))))
+		return (0);
+	ft_put_fractal_to_img(stock);
+	mlx_put_image_to_window(stock->mlx->ptr, stock->mlx->win, stock->mlx->img, 0, 0);
+	mlx_hook(stock->mlx->win, 2, (1L << 0), &ft_key, stock);
+	mlx_hook(stock->mlx->win, 6, (1L << 6), &ft_mouse_event, stock);
+	mlx_hook(stock->mlx->win, 4, (1L << 2), &ft_mouse_zoom, stock);
+	mlx_hook(stock->mlx->win, 17, (1L << 17), &ft_close, NULL);
 	ft_tutorial(stock);
-	mlx_loop(mlx->ptr);
+	mlx_loop(stock->mlx->ptr);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/15 20:14:05 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/16 18:03:54 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int		ft_key(int key, t_stock *stock)
 	ft_move(key, stock);
 	ft_bzero(stock->mlx->str,
 			stock->mlx->width * stock->mlx->height * sizeof(int));
-	ft_put_fractal_to_img(stock->mlx);
+	ft_put_fractal_to_img(stock);
 	mlx_put_image_to_window(stock->mlx->ptr, stock->mlx->win,
 			stock->mlx->img, 0, 0);
 	ft_tutorial(stock);
