@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 18:58:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/17 18:46:47 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/17 20:14:10 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	*ft_mandelbrot(void *threadv)
 	t_thread	*t;
 
 	t = (t_thread *)threadv;
-	c.y = t->n * t->mlx->height / 8;
-	t->max = (t->n + 1) * t->mlx->height / 8;
+	c.y = t->n * t->mlx->height / THREADS;
+	t->max = (t->n + 1) * t->mlx->height / THREADS;
 	while (c.y < t->max)
 	{
 		c.x = 0;
@@ -67,8 +67,8 @@ void	*ft_julia(void *threadv)
 	t = (t_thread *)threadv;
 	cst.x = t->mlx->julia.x;
 	cst.y = t->mlx->julia.y;
-	c.y = t->n * t->mlx->height / 8;;
-	t->max = (t->n + 1) * t->mlx->height / 8;
+	c.y = t->n * t->mlx->height / THREADS;
+	t->max = (t->n + 1) * t->mlx->height / THREADS;
 	while (c.y < t->max)
 	{
 		c.x = 0;
@@ -100,31 +100,61 @@ void	*ft_julia(void *threadv)
 	return (NULL);
 }
 
+void	*ft_burningship(void *threadv)
+{
+	t_coord		c;
+	t_complex	z;
+	t_complex	s;
+	t_complex	tmp;
+
+	t = (t_thread *)threadv;
+	c.y = t->n * t->mlx->height / THREADS;
+	t->max = (t->n + 1) * t->mlx->height / THREADS;
+	while (c.y < max)
+	{
+		c.x = 0;
+		while (c.x < t->mlx->width)
+		{
+			s.x = c.x / t->mlx->width;
+			s.y = c.y / t->mlx->height;
+			z.x = s.x;
+			z.y = s.y;
+			t->i = 0;
+			while (z.x * z.x + z.y * z.y < 4 && t->i < t->mlx->iter)
+			{
+				tmp.x = z.x * z.x - z.y * z.y + s.x;
+				z.y = fabs(2 * z.x * x.y) + s.y;
+				z.x = fabs(tmp.x);
+				t->i++;
+			}
+		}
+		c.y++;
+	}
+	pthread_exit(NULL);
+	return (NULL);
+}
+
 void	ft_put_fractal_to_img(t_stock *stock)
 {
-	t_thread	th_tab[8];
+	t_thread	th_tab[THREADS];
+	void		*f;
 	int			i;
 
-	i = 0;
 	if (stock->mlx->fractal == 0)
-		while (i < 8)
-		{
-			th_tab[i].n = i;
-			th_tab[i].mlx = stock->mlx;
-			pthread_create(&(th_tab[i].id), NULL, ft_mandelbrot,
-					(void *)&(th_tab[i]));
-			i++;
-		}
+		f = ft_mandelbrot;
 	else if (stock->mlx->fractal == 1)
-		while (i < 8)
-		{
-			th_tab[i].n = i;
-			th_tab[i].mlx = stock->mlx;
-			pthread_create(&(th_tab[i].id), NULL, ft_julia,
-					(void *)&(th_tab[i]));
-			i++;
-		}
+		f = ft_julia;
+	else if (stock->mlx->fractal == 2)
+		f = ft_burningship;
 	i = 0;
-	while (i < 8)
+	while (i < THREADS)
+	{
+		th_tab[i].n = i;
+		th_tab[i].mlx = stock->mlx;
+		pthread_create(&(th_tab[i].id), NULL, f, (void *)&(th_tab[i]));
+		i++;
+	}
+	i = 0;
+	while (i < THREADS)
 		pthread_join(th_tab[i++].id, NULL);
 }
