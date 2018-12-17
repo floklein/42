@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 18:58:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/17 20:14:10 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:23:27 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	*ft_julia(void *threadv)
 		while (c.x < t->mlx->width)
 		{
 			new.x = 1.5 * (c.x - t->mlx->width / 2)
-				/ (0.5 * t->mlx->zoom * t->mlx->width) + t->mlx->move_x;
+				/ (0.5 * t->mlx->zoom * t->mlx->width) + t->mlx->move_x + 0.5;
 			new.y = (c.y - t->mlx->height / 2)
 				/ (0.5 * t->mlx->zoom * t->mlx->height) + t->mlx->move_y;
 			t->i = 0;
@@ -106,27 +106,34 @@ void	*ft_burningship(void *threadv)
 	t_complex	z;
 	t_complex	s;
 	t_complex	tmp;
+	t_thread	*t;
 
 	t = (t_thread *)threadv;
 	c.y = t->n * t->mlx->height / THREADS;
 	t->max = (t->n + 1) * t->mlx->height / THREADS;
-	while (c.y < max)
+	while (c.y < t->max)
 	{
 		c.x = 0;
 		while (c.x < t->mlx->width)
 		{
-			s.x = c.x / t->mlx->width;
-			s.y = c.y / t->mlx->height;
+			s.x = 3.5 * (c.x - t->mlx->width / 2)
+				/ (t->mlx->width * t->mlx->zoom) + t->mlx->move_x;
+			s.y = 2 * (c.y - t->mlx->height / 2)
+				/ (t->mlx->height * t->mlx->zoom) - 0.5 + t->mlx->move_y;
 			z.x = s.x;
 			z.y = s.y;
 			t->i = 0;
 			while (z.x * z.x + z.y * z.y < 4 && t->i < t->mlx->iter)
 			{
 				tmp.x = z.x * z.x - z.y * z.y + s.x;
-				z.y = fabs(2 * z.x * x.y) + s.y;
+				z.y = fabs(2 * z.x * z.y) + s.y;
 				z.x = fabs(tmp.x);
 				t->i++;
 			}
+			c.color = ft_hsv_to_rgb(t->i / 255.0, 1, t->i < t->mlx->iter,
+					t->mlx->panel_choice);
+			ft_fill_pixel(t->mlx, c.x, c.y, c.color);
+			c.x++;
 		}
 		c.y++;
 	}

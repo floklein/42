@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:42:49 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/14 22:37:56 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:43:47 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			ft_hsv_to_rgb(double h, double s, double v, int panel)
 		return (c.g * 0xFF0000 + c.b * 0x00FF00 + c.r * 0x0000FF);
 }
 
-void	ft_fill_pixel(t_mlx *mlx, int x, int y, int color)
+void		ft_fill_pixel(t_mlx *mlx, int x, int y, int color)
 {
 	if (x >= 0 && y >= 0 && x < mlx->width && y < mlx->height)
 		mlx->str[x + mlx->width * y] = color;

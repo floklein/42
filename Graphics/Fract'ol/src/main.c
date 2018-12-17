@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/17 18:02:06 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:45:52 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ int		main(int ac, char **av)
 		return (0);
 	if (!(stock->mlx = ft_mlx_setup(av[1])))
 		return (0);
-//	if (!(stock->thread = (t_thread *)malloc(sizeof(t_thread))))
-//		return (0);
 	ft_put_fractal_to_img(stock);
-	mlx_put_image_to_window(stock->mlx->ptr, stock->mlx->win, stock->mlx->img, 0, 0);
+	mlx_put_image_to_window(stock->mlx->ptr, stock->mlx->win, stock->mlx->img,
+			0, 0);
 	mlx_hook(stock->mlx->win, 2, (1L << 0), &ft_key, stock);
 	mlx_hook(stock->mlx->win, 6, (1L << 6), &ft_mouse_event, stock);
 	mlx_hook(stock->mlx->win, 4, (1L << 2), &ft_mouse_zoom, stock);

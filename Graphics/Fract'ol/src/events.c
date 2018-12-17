@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/16 18:03:54 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:45:03 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,19 @@ void	ft_move(int key, t_stock *stock)
 void	ft_tutorial(t_stock *stock)
 {
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 300, 25, 0xFFFFFF, "        How to?");
+	stock->mlx->width - 300, 25, 0xFFFFFF, "        How to?");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 300, 50, 0xFFFFFF, "ESC              quit");
+	stock->mlx->width - 300, 50, 0xFFFFFF, "ESC              quit");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 300, 75, 0xFFFFFF, "R                reset");
+	stock->mlx->width - 300, 75, 0xFFFFFF, "R                reset");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 300, 100, 0xFFFFFF, "TAB              next fractal");
+	stock->mlx->width - 300, 100, 0xFFFFFF, "TAB              next fractal");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 300, 125, 0xFFFFFF, "PAGE UP / DOWN   iterations");
+	stock->mlx->width - 300, 125, 0xFFFFFF, "PAGE UP / DOWN   iterations");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 300, 150, 0xFFFFFF, "ARROWS           move");
+	stock->mlx->width - 300, 150, 0xFFFFFF, "ARROWS           move");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
-			stock->mlx->width - 300, 175, 0xFFFFFF, "HOME / END       zoom");
+	stock->mlx->width - 300, 175, 0xFFFFFF, "HOME / END       zoom");
 }
 
 void	ft_reset(t_stock *stock)
