@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/15 19:06:55 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/17 21:03:27 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		ft_parse(char *file)
 		return (0);
 	if (ft_strequ(file, "julia"))
 		return (1);
+	if (ft_strequ(file, "burningship"))
+		return (2);
 	return (-1);
 }
 
