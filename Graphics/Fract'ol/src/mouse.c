@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/15 14:21:14 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/17 21:43:08 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/18 18:43:43 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		ft_mouse_zoom(int key, int x, int y, t_stock *stock)
 
 int		ft_mouse_event(int x, int y, t_stock *stock)
 {
-	if (stock->mlx->fractal != 1)
+	if (stock->mlx->fractal != 1 && stock->mlx->fractal != 8)
 		return (0);
 	if (x > 0 && x < stock->mlx->width && y > 0 && y < stock->mlx->height)
 	{

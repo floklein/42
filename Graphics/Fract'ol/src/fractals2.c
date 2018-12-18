@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractals.c                                         :+:      :+:    :+:   */
+/*   fractals2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 18:58:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/18 16:35:03 by flklein          ###   ########.fr       */
+/*   Created: 2018/12/18 16:38:43 by flklein           #+#    #+#             */
+/*   Updated: 2018/12/18 18:10:12 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	*ft_mandelbrot(void *threadv)
+void	*ft_tricorn(void *threadv)
 {
 	t_coord		c;
 	t_complex	p;
@@ -40,7 +40,7 @@ void	*ft_mandelbrot(void *threadv)
 				old.x = new.x;
 				old.y = new.y;
 				new.x = old.x * old.x - old.y * old.y + p.x;
-				new.y = 2 * old.x * old.y + p.y;
+				new.y = -2 * old.x * old.y + p.y;
 				if (new.x * new.x + new.y * new.y > 4)
 					break ;
 				t->i++;
@@ -56,7 +56,7 @@ void	*ft_mandelbrot(void *threadv)
 	return (NULL);
 }
 
-void	*ft_julia(void *threadv)
+void	*ft_thunder(void *threadv)
 {
 	t_coord		c;
 	t_complex	cst;
@@ -65,8 +65,8 @@ void	*ft_julia(void *threadv)
 	t_thread	*t;
 
 	t = (t_thread *)threadv;
-	cst.x = t->mlx->julia.x;
-	cst.y = t->mlx->julia.y;
+	cst.x = 0.0;
+	cst.y = 1.0;
 	c.y = t->n * t->mlx->height / THREADS;
 	t->max = (t->n + 1) * t->mlx->height / THREADS;
 	while (c.y < t->max)
@@ -100,15 +100,17 @@ void	*ft_julia(void *threadv)
 	return (NULL);
 }
 
-void	*ft_burningship(void *threadv)
+void	*ft_bubble(void *threadv)
 {
 	t_coord		c;
-	t_complex	z;
-	t_complex	s;
-	t_complex	tmp;
+	t_complex	cst;
+	t_complex	new;
+	t_complex	old;
 	t_thread	*t;
 
 	t = (t_thread *)threadv;
+	cst.x = -1.25;
+	cst.y = 0;
 	c.y = t->n * t->mlx->height / THREADS;
 	t->max = (t->n + 1) * t->mlx->height / THREADS;
 	while (c.y < t->max)
@@ -116,18 +118,19 @@ void	*ft_burningship(void *threadv)
 		c.x = 0;
 		while (c.x < t->mlx->width)
 		{
-			s.x = 3.5 * (c.x - t->mlx->width / 2)
-				/ (t->mlx->width * t->mlx->zoom) + t->mlx->move_x;
-			s.y = 2 * (c.y - t->mlx->height / 2)
-				/ (t->mlx->height * t->mlx->zoom) - 0.5 + t->mlx->move_y;
-			z.x = s.x;
-			z.y = s.y;
+			new.x = 1.5 * (c.x - t->mlx->width / 2)
+				/ (0.5 * t->mlx->zoom * t->mlx->width) + t->mlx->move_x + 0.5;
+			new.y = (c.y - t->mlx->height / 2)
+				/ (0.5 * t->mlx->zoom * t->mlx->height) + t->mlx->move_y;
 			t->i = 0;
-			while (z.x * z.x + z.y * z.y < 4 && t->i < t->mlx->iter)
+			while (t->i < t->mlx->iter)
 			{
-				tmp.x = z.x * z.x - z.y * z.y + s.x;
-				z.y = fabs(2 * z.x * z.y) + s.y;
-				z.x = fabs(tmp.x);
+				old.x = new.x;
+				old.y = new.y;
+				new.x = old.x * old.x - old.y * old.y + cst.x;
+				new.y = 2 * old.x * old.y + cst.y;
+				if (new.x * new.x + new.y * new.y > 4)
+					break ;
 				t->i++;
 			}
 			c.color = ft_hsv_to_rgb(t->i / 255.0, 1, t->i < t->mlx->iter,
