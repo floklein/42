@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:55:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/17 19:22:19 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/18 13:51:30 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ typedef struct	s_mlx
 	int			height;
 	void		*img;
 	int			*str;
+	int			fractal;
 	double		zoom;
 	double		move_x;
 	double		move_y;
 	int			iter;
-	int			fractal;
 	int			panel_choice;
 	int			panel[5][5];
 	t_coord		*c1;
