@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/17 21:45:03 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/18 18:47:58 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		ft_key(int key, t_stock *stock)
 	else if (key >= 18 && key <= 20)
 		stock->mlx->panel_choice = key - 18;
 	else if (key == 48)
-		stock->mlx->fractal = (stock->mlx->fractal + 1) % 3;
+		stock->mlx->fractal = (stock->mlx->fractal + 1) % 10;
 	ft_zoom_n_iter(key, stock);
 	ft_move(key, stock);
 	ft_bzero(stock->mlx->str,
