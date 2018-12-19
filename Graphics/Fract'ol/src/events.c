@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:07:41 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/19 15:17:15 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/19 18:03:00 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	ft_tutorial(t_stock *stock)
 	stock->mlx->width - 300, 150, 0xFFFFFF, "ARROWS           move");
 	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
 	stock->mlx->width - 300, 175, 0xFFFFFF, "HOME / END       zoom");
+	mlx_string_put(stock->mlx->ptr, stock->mlx->win,
+	stock->mlx->width - 300, 200, 0xFFFFFF, "1 - 3            colors");
 }
 
 void	ft_reset(t_stock *stock)
