@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:55:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/19 16:39:20 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/19 18:30:57 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct	s_mlx
 	double		move_y;
 	int			iter;
 	int			panel_choice;
-	int			panel[5][5];
 	t_coord		*c1;
 	t_coord		*c2;
 	t_complex	julia;
@@ -93,16 +92,16 @@ void			*ft_mandelbrot(void *threadv);
 void			*ft_julia(void *threadv);
 void			*ft_tricorn(void *threadv);
 void			*ft_thunder(void *threadv);
-void			*ft_bubble(void *threadv);
 void			*ft_feather(void *threadv);
 void			*ft_shell(void *threadv);
-void			*ft_cube(void *threadv);
 void			*ft_bubble(void *threadv);
 void			*ft_burningship(void *threadv);
+void			*ft_cube(void *threadv);
 int				ft_parse(char *file);
 t_mlx			*ft_mlx_setup(char *title);
 int				ft_usage(void);
 int				ft_close(void);
+int				main(int ac, char **av);
 int				ft_mouse_zoom(int key, int x, int y, t_stock *stock);
 int				ft_mouse_event(int x, int y, t_stock *stock);
 
