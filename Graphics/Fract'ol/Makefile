@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/10 14:54:46 by flklein           #+#    #+#              #
-#    Updated: 2018/12/18 17:49:52 by flklein          ###   ########.fr        #
+#    Updated: 2018/12/19 15:21:03 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,11 @@ NAME	= fractol
 SRC		= main.c \
 		  events.c \
 		  draw.c \
-		  fractals.c \
+		  fractals1.c \
 		  fractals2.c \
 		  fractals3.c \
+		  fractals4.c \
+		  fractals5.c \
 		  mouse.c
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))

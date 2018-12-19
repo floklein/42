@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/18 18:48:13 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/19 15:17:29 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int		ft_parse(char *file)
 		return (7);
 	else if (ft_strequ(file, "cube"))
 		return (8);
-	else if (ft_strequ(file, "test"))
-		return (9);
 	return (-1);
 }
 

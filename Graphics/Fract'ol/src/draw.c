@@ -6,13 +6,13 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:42:49 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/18 18:48:32 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/19 15:17:21 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	ft_htr_helper(t_c *c, double v1, double v2, double v3)
+static void	ft_htr_helper(t_color *c, double v1, double v2, double v3)
 {
 	c->r = v1;
 	c->g = v2;
@@ -21,7 +21,7 @@ static void	ft_htr_helper(t_c *c, double v1, double v2, double v3)
 
 int			ft_hsv_to_rgb(double h, double s, double v, int panel)
 {
-	t_c		c;
+	t_color		c;
 
 	c.i = (int)(h * 6);
 	c.f = h * 6 - c.i;
@@ -54,32 +54,21 @@ void		ft_fill_pixel(t_mlx *mlx, int x, int y, int color)
 		mlx->str[x + mlx->width * y] = color;
 }
 
-void	ft_put_fractal_to_img(t_stock *stock)
+void		ft_put_fractal_to_img(t_stock *stock)
 {
 	t_thread	th_tab[THREADS];
 	void		*f;
 	int			i;
 
-	if (stock->mlx->fractal == 0)
-		f = ft_mandelbrot;
-	else if (stock->mlx->fractal == 1)
-		f = ft_julia;
-	else if (stock->mlx->fractal == 2)
-		f = ft_burningship;
-	else if (stock->mlx->fractal == 3)
-		f = ft_tricorn;
-	else if (stock->mlx->fractal == 4)
-		f = ft_thunder;
-	else if (stock->mlx->fractal == 5)
-		f = ft_bubble;
-	else if (stock->mlx->fractal == 6)
-		f = ft_shell;
-	else if (stock->mlx->fractal == 7)
-		f = ft_feather;
-	else if (stock->mlx->fractal == 8)
-		f = ft_cube;
-	else if (stock->mlx->fractal == 9)
-		f = ft_test;
+	stock->mlx->fractal == 0 ? f = ft_mandelbrot : 0;
+	stock->mlx->fractal == 1 ? f = ft_julia : 0;
+	stock->mlx->fractal == 2 ? f = ft_burningship : 0;
+	stock->mlx->fractal == 3 ? f = ft_tricorn : 0;
+	stock->mlx->fractal == 4 ? f = ft_thunder : 0;
+	stock->mlx->fractal == 5 ? f = ft_bubble : 0;
+	stock->mlx->fractal == 6 ? f = ft_shell : 0;
+	stock->mlx->fractal == 7 ? f = ft_feather : 0;
+	stock->mlx->fractal == 8 ? f = ft_cube : 0;
 	i = 0;
 	while (i < THREADS)
 	{
