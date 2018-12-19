@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:55:45 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/19 15:16:43 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/19 16:39:20 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,5 @@ int				ft_usage(void);
 int				ft_close(void);
 int				ft_mouse_zoom(int key, int x, int y, t_stock *stock);
 int				ft_mouse_event(int x, int y, t_stock *stock);
-
 
 #endif

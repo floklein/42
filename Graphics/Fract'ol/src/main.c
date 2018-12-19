@@ -6,7 +6,7 @@
 /*   By: flklein <flklein@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 12:23:42 by flklein           #+#    #+#             */
-/*   Updated: 2018/12/19 15:17:29 by flklein          ###   ########.fr       */
+/*   Updated: 2018/12/19 16:52:26 by flklein          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_mlx	*ft_mlx_setup(char *title)
 	if (!(mlx = (t_mlx *)malloc(sizeof(t_mlx))))
 		return (NULL);
 	if ((mlx->fractal = ft_parse(title)) == -1)
-		return (NULL);
+		return (NULL + ft_usage());
 	mlx->ptr = mlx_init();
 	mlx->width = 1280;
 	mlx->height = 720;
@@ -66,8 +66,8 @@ int		ft_usage(void)
 {
 	ft_putendl("\
 usage: ./fractol <fractal name>\
-\nfractals: mandelbrot, julia, burningship, tricorn, thunder, bubble,\
-shell, feather");
+\nfractals: mandelbrot, julia, burningship, tricorn, thunder, bubble, \
+shell, feather, cube");
 	return (0);
 }
 
