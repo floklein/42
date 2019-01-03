@@ -6,9 +6,12 @@ apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache2
 
 ## 1. SSH
 
-```vim /etc/ssh/sshd_config```
+```bash
+vim /etc/ssh/sshd_config
+```
 
-```Port 2222
+```
+Port 2222
 PasswordAuthentification yes
 PermitRootLogin prohibit-password no
 PubkeyAuthentication yes
@@ -16,7 +19,9 @@ PubkeyAuthentication yes
 
 ### Création d'une interface réseau
 
-```vim /etc/network/interfaces```
+```bash
+vim /etc/network/interfaces
+```
 
 ```
 allow-hotplug enp0s8
@@ -27,37 +32,59 @@ netmask 255.255.255.252
 
 ### Clé publique SSH (root)
 
-```ssh-keygen``` 
+```bash
+ssh-keygen
+``` 
 
-```cat ~/.ssh/id_rsa.pub```
+```bash
+cat ~/.ssh/id_rsa.pub
+```
 
-```ssh flklein@debian -p 2222```
+```bash
+ssh flklein@debian -p 2222
+```
 
 ### (flklein)
 
-```mkdir .ssh```
+```bash
+mkdir .ssh
+```
 
-```.ssh/authorized_keys```
+```bash
+.ssh/authorized_keys
+```
 
 ### (root)
 
-```sudo vim /etc/ssh/sshd_config```
+```bash
+sudo vim /etc/ssh/sshd_config
+```
 
-```PasswordAuthentification no```
+```
+PasswordAuthentification no
+```
 
-```sudo service ssh restart```
+```bash
+sudo service ssh restart
+```
 
-```cat .ssh/known_hosts```
+```bash
+cat ~/.ssh/known_hosts
+```
 
 ## 2. Firewall
 
-```sudo iptables -L```
+```bash
+sudo iptables -L
+```
 
 ### Création de règles
 
-```sudo vim /etc/network/if-pre-up.d/iptables```
-
+```bash
+sudo vim /etc/network/if-pre-up.d/iptables
 ```
+
+```bash
 #!/bin/bash
 
 iptables-restore < /etc/iptables.test.rules
@@ -88,15 +115,21 @@ iptables -I INPUT -p tcp --dport 80 -m connlimit --connlimit-above 10 --connlimi
 exit 0
 ```
 
-```sudo chmod+x /etc/network/if-pre-up.d/iptables```
+```bash
+sudo chmod+x /etc/network/if-pre-up.d/iptables
+```
 
 ## 3. DOS
 
-```sudo touch /var/log/apache2/server.log```
+```bash
+sudo touch /var/log/apache2/server.log
+```
 
 ### Règles fail2ban
 
-```sudo vim /etc/fail2ban/jail.local```
+```bash
+sudo vim /etc/fail2ban/jail.local
+```
 
 ```
 [DEFAULT]
@@ -157,7 +190,9 @@ action = iptables[name=HTTP, port=http, protocol=tcp]
 
 ### Filtres fail2ban
 
-```sudo vim /etc/fail2ban/filter.d/http-get-dos.conf```
+```bash
+sudo vim /etc/fail2ban/filter.d/http-get-dos.conf
+```
 
 ```
 [Definition]
@@ -174,35 +209,47 @@ failregex = ^<HOST> -.*"(GET|POST).*
 ignoreregex =
 ```
 
-```sudo systemctl restart fail2ban.service```
+```bash
+sudo systemctl restart fail2ban.service
+```
 
-```iptables -L```
+```bash
+iptables -L
+```
 
 ## 4. Ports
 
-```sudo netstat -paunt```
+```bash
+sudo netstat -paunt
+```
 
 ## 5. Services
 
-```
+```bash
 systemctl list-unit-files
 systemctl disable <services inutiles>
 ```
 
 ## 6. Script update
 
-```vim /home/USER/update_script.sh```
-
+```bash
+vim /home/USER/update_script.sh
 ```
-#! /bin/bash
+
+```bash
+#!/bin/bash
 apt-get update && apt-get upgrade
 ```
 
-```chmod +x update_script.sh```
+```bash
+chmod +x update_script.sh
+```
 
 ### Ajout à crontab
 
-```sudo vim /etc/crontab```
+```bash
+sudo vim /etc/crontab
+```
 
 ```
 0 4	* * 1	root	/home/USER/update_script.sh  >> /var/log/update_script.log
@@ -211,13 +258,19 @@ apt-get update && apt-get upgrade
 
 ## 7. Script surveillance
 
-```cp /etc/crontab /home/USER/tmp```
-
-```vim /home/USER/email.txt```
-
-```vim /home/USER/watch_script.sh```
-
+```bash
+cp /etc/crontab /home/USER/tmp
 ```
+
+```bash
+vim /home/USER/email.txt
+```
+
+```bash
+vim /home/USER/watch_script.sh
+```
+
+```bash
 #!/bin/bash
 cat /etc/crontab > /home/USER/new
 DIFF=$(diff new tmp)
@@ -228,11 +281,15 @@ if [ "$DIFF" != "" ]; then
 fi
 ```
 
-```chmod +x watch_script.sh```
+```bash
+chmod +x watch_script.sh
+```
 
 ### Ajout à crontab
 
-```sudo vim /etc/crontab```
+```bash
+sudo vim /etc/crontab
+```
 
 ```
 0  0	* * *	root	/home/flklein/watch_script.sh
