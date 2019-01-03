@@ -1,5 +1,0 @@
-apt-get install sudo
-usermod -aG sudo flklein
-nano /etc/default/keyboard
-setupcon
-apt-get install vim
