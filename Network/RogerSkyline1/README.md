@@ -1,7 +1,7 @@
 # Roger-Skyline
 
-```bash
-$> apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache2
+```shell
+apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache2
 ```
 
 ## 1. SSH
