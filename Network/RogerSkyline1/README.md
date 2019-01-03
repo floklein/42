@@ -1,13 +1,13 @@
 # Roger-Skyline
 
-```shell
+```bash
 $ apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache2
 ```
 
 ## 1. SSH
 
 ```bash
-vim /etc/ssh/sshd_config
+$ vim /etc/ssh/sshd_config
 ```
 
 ```
@@ -20,7 +20,7 @@ PubkeyAuthentication yes
 ### Création d'une interface réseau
 
 ```bash
-vim /etc/network/interfaces
+$ vim /etc/network/interfaces
 ```
 
 ```
@@ -34,19 +34,21 @@ netmask 255.255.255.252
 (as root)
 
 ```bash
-ssh-keygen
-``` 
-```bash
-cat ~/.ssh/id_rsa.pub
+$ ssh-keygen
 ```
+
 ```bash
-ssh flklein@debian -p 2222
+$ cat ~/.ssh/id_rsa.pub
+```
+
+```bash
+$ ssh flklein@debian -p 2222
 ```
 
 (as flklein)
 
 ```bash
-mkdir .ssh
+$ mkdir .ssh
 ```
 
 ```bash
@@ -56,7 +58,7 @@ mkdir .ssh
 (as root)
 
 ```bash
-sudo vim /etc/ssh/sshd_config
+$ sudo vim /etc/ssh/sshd_config
 ```
 
 ```
@@ -64,23 +66,23 @@ PasswordAuthentification no
 ```
 
 ```bash
-sudo service ssh restart
+$ sudo service ssh restart
 ```
 
 ```bash
-cat ~/.ssh/known_hosts
+$ cat ~/.ssh/known_hosts
 ```
 
 ## 2. Firewall
 
 ```bash
-sudo iptables -L
+$ sudo iptables -L
 ```
 
 ### Création de règles
 
 ```bash
-sudo vim /etc/network/if-pre-up.d/iptables
+$ sudo vim /etc/network/if-pre-up.d/iptables
 ```
 
 ```bash
@@ -115,19 +117,19 @@ exit 0
 ```
 
 ```bash
-sudo chmod+x /etc/network/if-pre-up.d/iptables
+$ sudo chmod+x /etc/network/if-pre-up.d/iptables
 ```
 
 ## 3. DOS
 
 ```bash
-sudo touch /var/log/apache2/server.log
+$ sudo touch /var/log/apache2/server.log
 ```
 
 ### Règles fail2ban
 
 ```bash
-sudo vim /etc/fail2ban/jail.local
+$ sudo vim /etc/fail2ban/jail.local
 ```
 
 ```
@@ -190,7 +192,7 @@ action = iptables[name=HTTP, port=http, protocol=tcp]
 ### Filtres fail2ban
 
 ```bash
-sudo vim /etc/fail2ban/filter.d/http-get-dos.conf
+$ sudo vim /etc/fail2ban/filter.d/http-get-dos.conf
 ```
 
 ```
@@ -209,30 +211,30 @@ ignoreregex =
 ```
 
 ```bash
-sudo systemctl restart fail2ban.service
+$ sudo systemctl restart fail2ban.service
 ```
 
 ```bash
-iptables -L
+$ iptables -L
 ```
 
 ## 4. Ports
 
 ```bash
-sudo netstat -paunt
+$ sudo netstat -paunt
 ```
 
 ## 5. Services
 
 ```bash
-systemctl list-unit-files
-systemctl disable <services inutiles>
+$ systemctl list-unit-files
+$ systemctl disable <services inutiles>
 ```
 
 ## 6. Script update
 
 ```bash
-vim /home/USER/update_script.sh
+$ vim /home/USER/update_script.sh
 ```
 
 ```bash
@@ -241,13 +243,13 @@ apt-get update && apt-get upgrade
 ```
 
 ```bash
-chmod +x update_script.sh
+$ chmod +x update_script.sh
 ```
 
 ### Ajout à crontab
 
 ```bash
-sudo vim /etc/crontab
+$ sudo vim /etc/crontab
 ```
 
 ```
@@ -258,15 +260,15 @@ sudo vim /etc/crontab
 ## 7. Script surveillance
 
 ```bash
-cp /etc/crontab /home/USER/tmp
+$ cp /etc/crontab /home/USER/tmp
 ```
 
 ```bash
-vim /home/USER/email.txt
+$ vim /home/USER/email.txt
 ```
 
 ```bash
-vim /home/USER/watch_script.sh
+$ vim /home/USER/watch_script.sh
 ```
 
 ```bash
@@ -281,13 +283,13 @@ fi
 ```
 
 ```bash
-chmod +x watch_script.sh
+$ chmod +x watch_script.sh
 ```
 
 ### Ajout à crontab
 
 ```bash
-sudo vim /etc/crontab
+$ sudo vim /etc/crontab
 ```
 
 ```
