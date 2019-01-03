@@ -1,38 +1,60 @@
 # Roger-Skyline
 
 ```apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache2```
+
 ## 1. SSH
+
 ```vim /etc/ssh/sshd_config```
+
 ```Port 2222
 PasswordAuthentification yes
 PermitRootLogin prohibit-password no
 PubkeyAuthentication yes
 ```
+
 Création d'une interface réseau
+
 ```vim /etc/network/interfaces```
+
 ```
 allow-hotplug enp0s8
 iface enp0s8 inet static
 address 192.168.56.3
 netmask 255.255.255.252
 ```
+
 Clé publique SSH (root)
+
 ```ssh-keygen``` 
+
 ```cat ~/.ssh/id_rsa.pub```
+
 ```ssh flklein@debian -p 2222```
+
 (flklein)
+
 ```mkdir .ssh```
+
 ```.ssh/authorized_keys```
+
 (root)
+
 ```sudo vim /etc/ssh/sshd_config```
+
 ```PasswordAuthentification no```
+
 ```sudo service ssh restart```
+
 ```cat .ssh/known_hosts```
 
 ## 2. Firewall
+
 ```sudo iptables -L```
+
 Création de règles
+
 ```sudo vim /etc/network/if-pre-up.d/iptables```
+
 ```
 #!/bin/bash
 
@@ -71,12 +93,17 @@ iptables -I INPUT -p tcp --dport 80 -m connlimit --connlimit-above 10 --connlimi
 
 exit 0
 ```
+
 ```sudo chmod+x /etc/network/if-pre-up.d/iptables```
 
 ## 3. DOS
+
 ```sudo touch /var/log/apache2/server.log```
+
 Règles fail2ban
+
 ```sudo vim /etc/fail2ban/jail.local```
+
 ```
 [DEFAULT]
 destemail = USER@student.le-101.fr
@@ -149,36 +176,50 @@ failregex = ^<HOST> -.*"(GET|POST).*
 #
 ignoreregex =
 ```
+
 ```sudo systemctl restart fail2ban.service```
+
 ```iptables -L```
 
 ## 4. Ports
+
 ```sudo netstat -paunt```
 
 ## 5. Services
+
 ```
 systemctl list-unit-files
 systemctl disable <services inutiles>
 ```
 
 ## 6. Script update
+
 ```vim /home/USER/update_script.sh```
+
 ```
 #! /bin/bash
 apt-get update && apt-get upgrade
 ```
+
 ```chmod +x update_script.sh```
+
 Ajout à crontab
+
 ```sudo vim /etc/crontab```
+
 ```
 0 4	* * 1	root	/home/USER/update_script.sh  >> /var/log/update_script.log
 @reboot		root	/home/USER/update_script.sh  >> /var/log/update_script.log
 ```
 
 ## 7. Script surveillance
+
 ```cp /etc/crontab /home/USER/tmp```
+
 ```vim /home/USER/email.txt```
+
 ```vim /home/USER/watch_script.sh```
+
 ```
 #!/bin/bash
 cat /etc/crontab > /home/USER/new
@@ -189,9 +230,13 @@ if [ "$DIFF" != "" ]; then
 	cp /home/flklein/new /home/flklein/tmp
 fi
 ```
+
 ```chmod +x watch_script.sh```
+
 Ajout à crontab
+
 ```sudo vim /etc/crontab```
+
 ```
 0  0	* * *	root	/home/flklein/watch_script.sh
 ```
