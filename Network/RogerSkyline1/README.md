@@ -68,25 +68,17 @@ iptables -t mangle -F
 iptables -t mangle -X
 
 iptables -P INPUT DROP
-
 iptables -P OUTPUT DROP
-
 iptables -P FORWARD DROP
 
 iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-
 iptables -A INPUT -p tcp -i enp0s8 --dport 2222 -j ACCEPT
-
 iptables -A INPUT -p tcp -i enp0s8 --dport 80 -j ACCEPT
-
 iptables -A INPUT -p tcp -i enp0s8 --dport 443 -j ACCEPT
-
 iptables -A OUTPUT -m conntrack ! --ctstate INVALID -j ACCEPT
 
 iptables -I INPUT -i lo -j ACCEPT
-
 iptables -A INPUT -j LOG
-
 iptables -A FORWARD -j LOG
 
 iptables -I INPUT -p tcp --dport 80 -m connlimit --connlimit-above 10 --connlimit-mask 20 -j DROP
