@@ -13,7 +13,7 @@ vim /etc/ssh/sshd_config
 ```
 Port 2222
 PasswordAuthentification yes
-PermitRootLogin prohibit-password no
+PermitRootLogin no
 PubkeyAuthentication yes
 ```
 
@@ -36,11 +36,9 @@ netmask 255.255.255.252
 ```bash
 ssh-keygen
 ``` 
-
 ```bash
 cat ~/.ssh/id_rsa.pub
 ```
-
 ```bash
 ssh flklein@debian -p 2222
 ```
