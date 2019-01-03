@@ -30,7 +30,8 @@ address 192.168.56.3
 netmask 255.255.255.252
 ```
 
-### Clé publique SSH (root)
+### Clé publique SSH
+(as root)
 
 ```bash
 ssh-keygen
@@ -44,7 +45,7 @@ cat ~/.ssh/id_rsa.pub
 ssh flklein@debian -p 2222
 ```
 
-### (flklein)
+(as flklein)
 
 ```bash
 mkdir .ssh
@@ -54,7 +55,7 @@ mkdir .ssh
 .ssh/authorized_keys
 ```
 
-### (root)
+(as root)
 
 ```bash
 sudo vim /etc/ssh/sshd_config
