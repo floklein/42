@@ -17,7 +17,7 @@ PermitRootLogin no
 PubkeyAuthentication yes
 ```
 
-### Création d'une interface réseau
+#### Création d'une interface réseau
 
 ```bash
 $ vim /etc/network/interfaces
