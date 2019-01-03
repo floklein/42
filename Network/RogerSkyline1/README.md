@@ -162,23 +162,23 @@ enabled = true
 
 [apache-overflows]
 
-enabled  = true
-port     = http,https
-filter   = apache-overflows
-logpath  = /var/log/apache2*/*error.log
+enabled = true
+port = http, https
+filter = apache-overflows
+logpath = /var/log/apache2*/*error.log
 maxretry = 2
 
 [apache-badbots]
 
-enabled  = true
-port     = http,https
-filter   = apache-badbots
-logpath  = /var/log/apache2*/*error.log
+enabled = true
+port = http,https
+filter = apache-badbots
+logpath = /var/log/apache2*/*error.log
 maxretry = 2
 
 [http-get-dos]
 enabled = true
-port = http,https
+port = http, https
 filter = http-get-dos
 logpath = /var/log/apache2/server.log
 maxretry = 100
@@ -204,7 +204,7 @@ failregex = ^<HOST> -.*"(GET|POST).*
 # Option: ignoreregex
 # Notes.: Ignores specific regex
 # Values: TEXT
-#
+
 ignoreregex =
 ```
 
