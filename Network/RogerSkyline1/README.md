@@ -10,7 +10,8 @@ $ apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache
 $ vim /etc/ssh/sshd_config
 ```
 
-```Port 2222
+```
+Port 2222
 PasswordAuthentification yes
 PermitRootLogin no
 PubkeyAuthentication yes
