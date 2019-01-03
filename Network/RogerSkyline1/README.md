@@ -12,7 +12,7 @@ PermitRootLogin prohibit-password no
 PubkeyAuthentication yes
 ```
 
-Création d'une interface réseau
+### Création d'une interface réseau
 
 ```vim /etc/network/interfaces```
 
@@ -23,7 +23,7 @@ address 192.168.56.3
 netmask 255.255.255.252
 ```
 
-Clé publique SSH (root)
+### Clé publique SSH (root)
 
 ```ssh-keygen``` 
 
@@ -31,13 +31,13 @@ Clé publique SSH (root)
 
 ```ssh flklein@debian -p 2222```
 
-(flklein)
+### (flklein)
 
 ```mkdir .ssh```
 
 ```.ssh/authorized_keys```
 
-(root)
+### (root)
 
 ```sudo vim /etc/ssh/sshd_config```
 
@@ -51,7 +51,7 @@ Clé publique SSH (root)
 
 ```sudo iptables -L```
 
-Création de règles
+### Création de règles
 
 ```sudo vim /etc/network/if-pre-up.d/iptables```
 
@@ -100,7 +100,7 @@ exit 0
 
 ```sudo touch /var/log/apache2/server.log```
 
-Règles fail2ban
+### Règles fail2ban
 
 ```sudo vim /etc/fail2ban/jail.local```
 
@@ -160,8 +160,11 @@ findtime = 300
 bantime = 300
 action = iptables[name=HTTP, port=http, protocol=tcp]
 ```
-Filtres fail2ban
+
+### Filtres fail2ban
+
 ```sudo vim /etc/fail2ban/filter.d/http-get-dos.conf```
+
 ```
 [Definition]
 
@@ -203,7 +206,7 @@ apt-get update && apt-get upgrade
 
 ```chmod +x update_script.sh```
 
-Ajout à crontab
+### Ajout à crontab
 
 ```sudo vim /etc/crontab```
 
@@ -233,7 +236,7 @@ fi
 
 ```chmod +x watch_script.sh```
 
-Ajout à crontab
+### Ajout à crontab
 
 ```sudo vim /etc/crontab```
 
