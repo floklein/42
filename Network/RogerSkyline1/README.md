@@ -138,8 +138,8 @@ $ sudo vim /etc/fail2ban/jail.local
 Éditer :
 
 > [DEFAULT]  
-> destemail = USER@student.le-101.fr  
-> sender = root@roger-skyline.fr  
+> destemail = flklein@student.42.fr  
+> sender = root@debian  
 > 
 > [sshd]  
 > port = 2222  
@@ -314,7 +314,7 @@ $ sudo vim /etc/apache2/sites-available/default-ssl.conf
 Éditer :
 ```web
 <IfModule mod_ssl.c>  
-	     <VirtualHost _default_:443>  
+	<VirtualHost _default_:443>  
                 ServerAdmin webmaster@localhost  
                 DocumentRoot /var/www/html  
 
