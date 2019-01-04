@@ -25,9 +25,10 @@ $ vim /etc/network/interfaces
 
 Éditer :
 
-> allow-hotplug enp0s8  
-> iface enp0s8 inet static  
-> address 192.168.56.3  
+> allow-hotplug enp0s3  
+> iface enp0s3 inet static  
+> address 10.0.2.0
+> gateway 10.0.2.2
 > netmask 255.255.255.252  
 
 ### Clé publique SSH
