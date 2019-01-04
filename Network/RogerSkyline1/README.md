@@ -1,7 +1,7 @@
-# Roger-Skyline
+# Roger-Skyline-1
 
 ```bash
-$ apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache2
+$ apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail exim4 apache2
 ```
 
 ## 1. SSH
@@ -10,6 +10,7 @@ $ apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache
 $ vim /etc/ssh/sshd_config
 ```
 
+Éditer :
 ```
 Port 2222
 PasswordAuthentification yes
@@ -17,12 +18,13 @@ PermitRootLogin no
 PubkeyAuthentication yes
 ```
 
-#### Création d'une interface réseau
+### Création d'une interface réseau
 
 ```bash
 $ vim /etc/network/interfaces
 ```
 
+Éditer :
 ```
 allow-hotplug enp0s8
 iface enp0s8 inet static
@@ -30,13 +32,14 @@ address 192.168.56.3
 netmask 255.255.255.252
 ```
 
-#### Clé publique SSH
-(as root)
+### Clé publique SSH
+(as *root*)
 
 ```bash
 $ ssh-keygen
 ```
 
+Copier :
 ```bash
 $ cat ~/.ssh/id_rsa.pub
 ```
@@ -45,22 +48,24 @@ $ cat ~/.ssh/id_rsa.pub
 $ ssh flklein@debian -p 2222
 ```
 
-(as flklein)
+(as *flklein*)
 
 ```bash
 $ mkdir .ssh
 ```
 
+Coller dans :
 ```bash
-.ssh/authorized_keys
+$ vi ~/.ssh/authorized_keys
 ```
 
-(as root)
+(as *root*)
 
 ```bash
 $ sudo vim /etc/ssh/sshd_config
 ```
 
+Éditer :
 ```
 PasswordAuthentification no
 ```
@@ -69,6 +74,7 @@ PasswordAuthentification no
 $ sudo service ssh restart
 ```
 
+(as *flklein*)
 ```bash
 $ cat ~/.ssh/known_hosts
 ```
@@ -79,12 +85,13 @@ $ cat ~/.ssh/known_hosts
 $ sudo iptables -L
 ```
 
-#### Création de règles
+### Création de règles
 
 ```bash
 $ sudo vim /etc/network/if-pre-up.d/iptables
 ```
 
+Éditer :
 ```bash
 #!/bin/bash
 
@@ -126,12 +133,13 @@ $ sudo chmod+x /etc/network/if-pre-up.d/iptables
 $ sudo touch /var/log/apache2/server.log
 ```
 
-#### Règles fail2ban
+### Règles fail2ban
 
 ```bash
 $ sudo vim /etc/fail2ban/jail.local
 ```
 
+Éditer :
 ```
 [DEFAULT]
 destemail = USER@student.le-101.fr
@@ -189,12 +197,13 @@ bantime = 300
 action = iptables[name=HTTP, port=http, protocol=tcp]
 ```
 
-#### Filtres fail2ban
+### Filtres fail2ban
 
 ```bash
 $ sudo vim /etc/fail2ban/filter.d/http-get-dos.conf
 ```
 
+Éditer :
 ```
 [Definition]
 
@@ -234,9 +243,10 @@ $ systemctl disable <services inutiles>
 ## 6. Script update
 
 ```bash
-$ vim /home/USER/update_script.sh
+$ vim /home/flklein/update_script.sh
 ```
 
+Éditer :
 ```bash
 #!/bin/bash
 apt-get update && apt-get upgrade
@@ -246,34 +256,36 @@ apt-get update && apt-get upgrade
 $ chmod +x update_script.sh
 ```
 
-#### Ajout à crontab
+### Ajout à crontab
 
 ```bash
 $ sudo vim /etc/crontab
 ```
 
+Éditer :
 ```
-0 4	* * 1	root	/home/USER/update_script.sh  >> /var/log/update_script.log
-@reboot		root	/home/USER/update_script.sh  >> /var/log/update_script.log
+0 4	* * 1	root	/home/flklein/update_script.sh  >> /var/log/update_script.log
+@reboot		root	/home/flklein/update_script.sh  >> /var/log/update_script.log
 ```
 
 ## 7. Script surveillance
 
 ```bash
-$ cp /etc/crontab /home/USER/tmp
+$ cp /etc/crontab /home/flklein/tmp
 ```
 
 ```bash
-$ vim /home/USER/email.txt
+$ vim /home/flklein/email.txt
 ```
 
 ```bash
 $ vim /home/USER/watch_script.sh
 ```
 
+Éditer :
 ```bash
 #!/bin/bash
-cat /etc/crontab > /home/USER/new
+cat /etc/crontab > /home/flklein/new
 DIFF=$(diff new tmp)
 if [ "$DIFF" != "" ]; then
 	sudo sendmail root@debian < /home/flklein/email.txt
@@ -286,33 +298,33 @@ fi
 $ chmod +x watch_script.sh
 ```
 
-#### Ajout à crontab
+### Ajout à crontab
 
 ```bash
 $ sudo vim /etc/crontab
 ```
 
+Éditer :
 ```
 0  0	* * *	root	/home/flklein/watch_script.sh
 ```
 
-## PARTIE 9 : Partie web
+## 8. Web
 
-Générez une nouvelle clé SSL :
+### Clé SSL
 
-```sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/roger-skyline.com.key -out /etc/ssl/certs/roger-skyline.com.crt```
+```bash
+$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/debian.com.key -out /etc/ssl/certs/debian.com.crt
+```
 
-Rentrez les infos quand demandées.
+```bash
+$ sudo vim /etc/apache2/sites-available/default-ssl.conf
+```
 
-Puis : 
-
-```sudo vim /etc/apache2/sites-available/default-ssl.conf```
-
-Et modifiez uniquement les lignes SSL en renseignant le bon chemin des clés (les deux lignes sous SSLEngine on) :
-
+Éditer :
 ```
 <IfModule mod_ssl.c>
- <VirtualHost _default_:443>       
+	<VirtualHost _default_:443>       
                 ServerAdmin webmaster@localhost
                 DocumentRoot /var/www/html
 
@@ -324,53 +336,56 @@ Et modifiez uniquement les lignes SSL en renseignant le bon chemin des clés (le
                 #   SSL Engine Switch:
                 #   Enable/Disable SSL for this virtual host.
                 SSLEngine on
-                SSLCertificateFile      /etc/ssl/certs/roger-skyline.com.crt
-                SSLCertificateKeyFile /etc/ssl/private/roger-skyline.com.key
-                #
-                #SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
-                #SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+                SSLCertificateFile      /etc/ssl/certs/debian.com.crt
+                SSLCertificateKeyFile /etc/ssl/private/debian.com.key
+                # SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
+                # SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 
 ......................
-.......................
+......................
 
- </VirtualHost>
+	</VirtualHost>
 </IfModule>
 ```
 
-Puis testez les commandes suivantes :
-
-```
-sudo apachectl configtest
-sudo a2enmod ssl
-sudo a2ensite default-ssl
+```bash
+$ sudo apachectl configtest
+$ sudo a2enmod ssl
+$ sudo a2ensite default-ssl
 ```
 
-Si pas de message d'erreur, on peut redémarrer le service :
-
-```sudo systemctl restart apache2.service```
-
-Faites ensuite une copie de la configuration par défaut :
-
-```sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/001-default.conf```
-
-Et modifiez le fichier ```sudo vim /etc/apache2/sites-available/001-default.conf```
-
-Changez le ServerName par ce que vous voulez et le DocumentRoot par le chemin vers votre site web.
-
-Activez la nouvelle configuration :
-
-```
-# Désactive l'ancienne configuration
-a2dissite 000-default.conf
-# Active la nouvelle
-a2ensite 001-site.conf
-# La commande parle d'elle-même...
-systemctl reload apache2
+```bash
+$ sudo systemctl restart apache2.service
 ```
 
-Le site sera normalement accessible sur votre IP (https://192.168.56.3). 
-C'est un certificat auto signé donc le navigateur vous mettra un avertissement avant d'y accéder.
+### Configuration
 
-Vous pouvez mettre les fichiers de votre site dans le dossier /var/www/html si vous n'avez pas changé le DocumentRoot.
+```bash
+$ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/001-default.conf
+```
 
-Tips : un ```sudo chown -R /var/www/html``` peut s'avérer très pratique.
+```bash
+$ sudo vim /etc/apache2/sites-available/001-default.conf
+```
+
+Éditer :
+```
+ServerName debian
+DocumentRoot /var/www/html
+```
+
+```bash
+$ a2dissite 000-default.conf
+$ a2ensite 001-default.conf
+$ systemctl reload apache2
+```
+
+### Site
+
+```bash
+$ vi /var/www/html/site.html
+```
+
+Règle de port forwarding dans VirtualBox : `https	TCP		3443		443`
+
+Depuis navigateur : `https://127.0.0.1:3443/site.html`
