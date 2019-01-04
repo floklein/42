@@ -1,4 +1,4 @@
-# Roger-Skyline
+# Roger-Skyline-1
 
 ```bash
 $ apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache2
@@ -296,19 +296,17 @@ $ sudo vim /etc/crontab
 0  0	* * *	root	/home/flklein/watch_script.sh
 ```
 
-## PARTIE 9 : Partie web
+## 8. Web
 
-Générez une nouvelle clé SSL :
+#### Clé SSL
 
-```sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/roger-skyline.com.key -out /etc/ssl/certs/roger-skyline.com.crt```
+```bash
+$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/roger-skyline.com.key -out /etc/ssl/certs/roger-skyline.com.crt
+```
 
-Rentrez les infos quand demandées.
-
-Puis : 
-
-```sudo vim /etc/apache2/sites-available/default-ssl.conf```
-
-Et modifiez uniquement les lignes SSL en renseignant le bon chemin des clés (les deux lignes sous SSLEngine on) :
+```bash
+$ sudo vim /etc/apache2/sites-available/default-ssl.conf
+```
 
 ```
 <IfModule mod_ssl.c>
@@ -337,40 +335,33 @@ Et modifiez uniquement les lignes SSL en renseignant le bon chemin des clés (le
 </IfModule>
 ```
 
-Puis testez les commandes suivantes :
-
-```
-sudo apachectl configtest
-sudo a2enmod ssl
-sudo a2ensite default-ssl
+```bash
+$ sudo apachectl configtest
+$ sudo a2enmod ssl
+$ sudo a2ensite default-ssl
 ```
 
-Si pas de message d'erreur, on peut redémarrer le service :
-
-```sudo systemctl restart apache2.service```
-
-Faites ensuite une copie de la configuration par défaut :
-
-```sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/001-default.conf```
-
-Et modifiez le fichier ```sudo vim /etc/apache2/sites-available/001-default.conf```
-
-Changez le ServerName par ce que vous voulez et le DocumentRoot par le chemin vers votre site web.
-
-Activez la nouvelle configuration :
-
-```
-# Désactive l'ancienne configuration
-a2dissite 000-default.conf
-# Active la nouvelle
-a2ensite 001-site.conf
-# La commande parle d'elle-même...
-systemctl reload apache2
+```bash
+sudo systemctl restart apache2.service
 ```
 
-Le site sera normalement accessible sur votre IP (https://192.168.56.3). 
-C'est un certificat auto signé donc le navigateur vous mettra un avertissement avant d'y accéder.
+#### Configuration
 
-Vous pouvez mettre les fichiers de votre site dans le dossier /var/www/html si vous n'avez pas changé le DocumentRoot.
+```bash
+$ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/001-default.conf
+```
 
-Tips : un ```sudo chown -R /var/www/html``` peut s'avérer très pratique.
+```bash
+sudo vim /etc/apache2/sites-available/001-default.conf
+```
+
+```
+ServerName debian
+DocumentRoot /var/www/html
+```
+
+```bash
+$ a2dissite 000-default.conf
+$ a2ensite 001-site.conf
+$ systemctl reload apache2
+```
