@@ -336,7 +336,6 @@ $ sudo vim /etc/apache2/sites-available/default-ssl.conf
 > 
 >       \</VirtualHost\>  
 > \</IfModule\> 
-```
 
 ```bash
 $ sudo apachectl configtest
