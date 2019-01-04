@@ -33,7 +33,7 @@ netmask 255.255.255.252
 ```
 
 ### Clé publique SSH
-(as root)
+(as *root*)
 
 ```bash
 $ ssh-keygen
@@ -48,7 +48,7 @@ $ cat ~/.ssh/id_rsa.pub
 $ ssh flklein@debian -p 2222
 ```
 
-(as flklein)
+(as *flklein*)
 
 ```bash
 $ mkdir .ssh
@@ -56,10 +56,10 @@ $ mkdir .ssh
 
 Coller dans :
 ```bash
-$ vi .ssh/authorized_keys
+$ vi ~/.ssh/authorized_keys
 ```
 
-(as root)
+(as *root*)
 
 ```bash
 $ sudo vim /etc/ssh/sshd_config
@@ -74,6 +74,7 @@ PasswordAuthentification no
 $ sudo service ssh restart
 ```
 
+(as *flklein*)
 ```bash
 $ cat ~/.ssh/known_hosts
 ```
@@ -242,7 +243,7 @@ $ systemctl disable <services inutiles>
 ## 6. Script update
 
 ```bash
-$ vim /home/USER/update_script.sh
+$ vim /home/flklein/update_script.sh
 ```
 
 Éditer :
@@ -263,18 +264,18 @@ $ sudo vim /etc/crontab
 
 Éditer :
 ```
-0 4	* * 1	root	/home/USER/update_script.sh  >> /var/log/update_script.log
-@reboot		root	/home/USER/update_script.sh  >> /var/log/update_script.log
+0 4	* * 1	root	/home/flklein/update_script.sh  >> /var/log/update_script.log
+@reboot		root	/home/flklein/update_script.sh  >> /var/log/update_script.log
 ```
 
 ## 7. Script surveillance
 
 ```bash
-$ cp /etc/crontab /home/USER/tmp
+$ cp /etc/crontab /home/flklein/tmp
 ```
 
 ```bash
-$ vim /home/USER/email.txt
+$ vim /home/flklein/email.txt
 ```
 
 ```bash
@@ -284,7 +285,7 @@ $ vim /home/USER/watch_script.sh
 Éditer :
 ```bash
 #!/bin/bash
-cat /etc/crontab > /home/USER/new
+cat /etc/crontab > /home/flklein/new
 DIFF=$(diff new tmp)
 if [ "$DIFF" != "" ]; then
 	sudo sendmail root@debian < /home/flklein/email.txt
@@ -323,7 +324,7 @@ $ sudo vim /etc/apache2/sites-available/default-ssl.conf
 Éditer :
 ```
 <IfModule mod_ssl.c>
- <VirtualHost _default_:443>       
+	<VirtualHost _default_:443>       
                 ServerAdmin webmaster@localhost
                 DocumentRoot /var/www/html
 
@@ -341,9 +342,9 @@ $ sudo vim /etc/apache2/sites-available/default-ssl.conf
                 # SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 
 ......................
-.......................
+......................
 
- </VirtualHost>
+	</VirtualHost>
 </IfModule>
 ```
 
@@ -375,7 +376,7 @@ DocumentRoot /var/www/html
 
 ```bash
 $ a2dissite 000-default.conf
-$ a2ensite 001-site.conf
+$ a2ensite 001-default.conf
 $ systemctl reload apache2
 ```
 
