@@ -313,8 +313,8 @@ $ sudo vim /etc/apache2/sites-available/default-ssl.conf
 
 Éditer :
 
-> \<IfModule mod_ssl.c>  
-> 	\<VirtualHost _default_:443>  
+> \<IfModule mod_ssl.c\>  
+>         \<VirtualHost _default_:443\>  
 >                 ServerAdmin webmaster@localhost  
 >                 DocumentRoot /var/www/html  
 > 
@@ -334,8 +334,8 @@ $ sudo vim /etc/apache2/sites-available/default-ssl.conf
 > ......................  
 > ......................  
 > 
->       \</VirtualHost>  
-> \</IfModule> 
+>       \</VirtualHost\>  
+> \</IfModule\> 
 ```
 
 ```bash
