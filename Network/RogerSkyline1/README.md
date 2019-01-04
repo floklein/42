@@ -312,30 +312,30 @@ $ sudo vim /etc/apache2/sites-available/default-ssl.conf
 ```
 
 Éditer :
-```web
-<IfModule mod_ssl.c>  
-	<VirtualHost _default_:443>  
-                ServerAdmin webmaster@localhost  
-                DocumentRoot /var/www/html  
 
-                ErrorLog ${APACHE_LOG_DIR}/error.log  
-                CustomLog ${APACHE_LOG_DIR}/access.log combined  
-
-                #Include conf-available/serve-cgi-bin.conf  
-
-                #SSL Engine Switch:  
-                #Enable/Disable SSL for this virtual host.  
-                SSLEngine on  
-                SSLCertificateFile      /etc/ssl/certs/debian.com.crt  
-                SSLCertificateKeyFile /etc/ssl/private/debian.com.key  
-                #SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem  
-                #SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key  
-
-......................  
-......................  
-
-      </VirtualHost>  
-</IfModule> 
+> \<IfModule mod_ssl.c>  
+> 	\<VirtualHost _default_:443>  
+>                 ServerAdmin webmaster@localhost  
+>                 DocumentRoot /var/www/html  
+> 
+>                 ErrorLog ${APACHE_LOG_DIR}/error.log  
+>                 CustomLog ${APACHE_LOG_DIR}/access.log combined  
+> 
+>                 #Include conf-available/serve-cgi-bin.conf  
+> 
+>                 #SSL Engine Switch:  
+>                 #Enable/Disable SSL for this virtual host.  
+>                 SSLEngine on  
+>                 SSLCertificateFile      /etc/ssl/certs/debian.com.crt  
+>                 SSLCertificateKeyFile /etc/ssl/private/debian.com.key  
+>                 #SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem  
+>                 #SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key  
+> 
+> ......................  
+> ......................  
+> 
+>       \</VirtualHost>  
+> \</IfModule> 
 ```
 
 ```bash
