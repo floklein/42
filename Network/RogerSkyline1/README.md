@@ -10,6 +10,7 @@ $ apt install -y vim sudo net-tools iptables-persistent fail2ban sendmail apache
 $ vim /etc/ssh/sshd_config
 ```
 
+Éditer :
 ```
 Port 2222
 PasswordAuthentification yes
@@ -23,6 +24,7 @@ PubkeyAuthentication yes
 $ vim /etc/network/interfaces
 ```
 
+Éditer :
 ```
 allow-hotplug enp0s8
 iface enp0s8 inet static
@@ -37,6 +39,7 @@ netmask 255.255.255.252
 $ ssh-keygen
 ```
 
+Copier :
 ```bash
 $ cat ~/.ssh/id_rsa.pub
 ```
@@ -51,8 +54,9 @@ $ ssh flklein@debian -p 2222
 $ mkdir .ssh
 ```
 
+Coller dans :
 ```bash
-.ssh/authorized_keys
+$ vi .ssh/authorized_keys
 ```
 
 (as root)
@@ -61,6 +65,7 @@ $ mkdir .ssh
 $ sudo vim /etc/ssh/sshd_config
 ```
 
+Éditer :
 ```
 PasswordAuthentification no
 ```
@@ -85,6 +90,7 @@ $ sudo iptables -L
 $ sudo vim /etc/network/if-pre-up.d/iptables
 ```
 
+Éditer :
 ```bash
 #!/bin/bash
 
@@ -132,6 +138,7 @@ $ sudo touch /var/log/apache2/server.log
 $ sudo vim /etc/fail2ban/jail.local
 ```
 
+Éditer :
 ```
 [DEFAULT]
 destemail = USER@student.le-101.fr
@@ -195,6 +202,7 @@ action = iptables[name=HTTP, port=http, protocol=tcp]
 $ sudo vim /etc/fail2ban/filter.d/http-get-dos.conf
 ```
 
+Éditer :
 ```
 [Definition]
 
@@ -237,6 +245,7 @@ $ systemctl disable <services inutiles>
 $ vim /home/USER/update_script.sh
 ```
 
+Éditer :
 ```bash
 #!/bin/bash
 apt-get update && apt-get upgrade
@@ -252,6 +261,7 @@ $ chmod +x update_script.sh
 $ sudo vim /etc/crontab
 ```
 
+Éditer :
 ```
 0 4	* * 1	root	/home/USER/update_script.sh  >> /var/log/update_script.log
 @reboot		root	/home/USER/update_script.sh  >> /var/log/update_script.log
@@ -271,6 +281,7 @@ $ vim /home/USER/email.txt
 $ vim /home/USER/watch_script.sh
 ```
 
+Éditer :
 ```bash
 #!/bin/bash
 cat /etc/crontab > /home/USER/new
@@ -292,6 +303,7 @@ $ chmod +x watch_script.sh
 $ sudo vim /etc/crontab
 ```
 
+Éditer :
 ```
 0  0	* * *	root	/home/flklein/watch_script.sh
 ```
@@ -301,13 +313,14 @@ $ sudo vim /etc/crontab
 #### Clé SSL
 
 ```bash
-$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/roger-skyline.com.key -out /etc/ssl/certs/roger-skyline.com.crt
+$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/debian.com.key -out /etc/ssl/certs/debian.com.crt
 ```
 
 ```bash
 $ sudo vim /etc/apache2/sites-available/default-ssl.conf
 ```
 
+Éditer :
 ```
 <IfModule mod_ssl.c>
  <VirtualHost _default_:443>       
@@ -322,11 +335,10 @@ $ sudo vim /etc/apache2/sites-available/default-ssl.conf
                 #   SSL Engine Switch:
                 #   Enable/Disable SSL for this virtual host.
                 SSLEngine on
-                SSLCertificateFile      /etc/ssl/certs/roger-skyline.com.crt
-                SSLCertificateKeyFile /etc/ssl/private/roger-skyline.com.key
-                #
-                #SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
-                #SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+                SSLCertificateFile      /etc/ssl/certs/debian.com.crt
+                SSLCertificateKeyFile /etc/ssl/private/debian.com.key
+                # SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
+                # SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 
 ......................
 .......................
@@ -342,7 +354,7 @@ $ sudo a2ensite default-ssl
 ```
 
 ```bash
-sudo systemctl restart apache2.service
+$ sudo systemctl restart apache2.service
 ```
 
 #### Configuration
@@ -352,9 +364,10 @@ $ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-avail
 ```
 
 ```bash
-sudo vim /etc/apache2/sites-available/001-default.conf
+$ sudo vim /etc/apache2/sites-available/001-default.conf
 ```
 
+Éditer :
 ```
 ServerName debian
 DocumentRoot /var/www/html
