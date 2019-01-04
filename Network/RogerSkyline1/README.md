@@ -205,7 +205,7 @@ $ sudo vim /etc/fail2ban/filter.d/http-get-dos.conf
 > #Option: failregex  
 > #Note: Matches GET and POST  
 > 
-> failregex = ^<HOST> -.*"(GET|POST).*  
+> failregex = ^<HOST> -.\*"(GET|POST).\*  
 > 
 > #Option: ignoreregex  
 > #Notes.: Ignores specific regex  
