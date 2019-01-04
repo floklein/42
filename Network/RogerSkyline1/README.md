@@ -18,7 +18,7 @@ PermitRootLogin no
 PubkeyAuthentication yes
 ```
 
-#### Création d'une interface réseau
+### Création d'une interface réseau
 
 ```bash
 $ vim /etc/network/interfaces
@@ -32,7 +32,7 @@ address 192.168.56.3
 netmask 255.255.255.252
 ```
 
-#### Clé publique SSH
+### Clé publique SSH
 (as root)
 
 ```bash
@@ -84,7 +84,7 @@ $ cat ~/.ssh/known_hosts
 $ sudo iptables -L
 ```
 
-#### Création de règles
+### Création de règles
 
 ```bash
 $ sudo vim /etc/network/if-pre-up.d/iptables
@@ -132,7 +132,7 @@ $ sudo chmod+x /etc/network/if-pre-up.d/iptables
 $ sudo touch /var/log/apache2/server.log
 ```
 
-#### Règles fail2ban
+### Règles fail2ban
 
 ```bash
 $ sudo vim /etc/fail2ban/jail.local
@@ -196,7 +196,7 @@ bantime = 300
 action = iptables[name=HTTP, port=http, protocol=tcp]
 ```
 
-#### Filtres fail2ban
+### Filtres fail2ban
 
 ```bash
 $ sudo vim /etc/fail2ban/filter.d/http-get-dos.conf
@@ -255,7 +255,7 @@ apt-get update && apt-get upgrade
 $ chmod +x update_script.sh
 ```
 
-#### Ajout à crontab
+### Ajout à crontab
 
 ```bash
 $ sudo vim /etc/crontab
@@ -297,7 +297,7 @@ fi
 $ chmod +x watch_script.sh
 ```
 
-#### Ajout à crontab
+### Ajout à crontab
 
 ```bash
 $ sudo vim /etc/crontab
@@ -310,7 +310,7 @@ $ sudo vim /etc/crontab
 
 ## 8. Web
 
-#### Clé SSL
+### Clé SSL
 
 ```bash
 $ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/debian.com.key -out /etc/ssl/certs/debian.com.crt
@@ -357,7 +357,7 @@ $ sudo a2ensite default-ssl
 $ sudo systemctl restart apache2.service
 ```
 
-#### Configuration
+### Configuration
 
 ```bash
 $ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/001-default.conf
@@ -379,7 +379,7 @@ $ a2ensite 001-site.conf
 $ systemctl reload apache2
 ```
 
-#### Site
+### Site
 
 ```bash
 $ vi /var/www/html/site.html
