@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 19:04:43 by flklein           #+#    #+#              #
-#    Updated: 2019/01/04 21:01:20 by flklein          ###   ########.fr        #
+#    Updated: 2019/01/04 23:34:05 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 # ssh		3022		22
 # https		3443		443
 
-cp /sgoinfre/goinfre/Perso/flklein/VM\ roger-skyline.vdi /sgoinfre/goinfre/Perso/flklein/VM\ rs-deploy.vdi &
-ID=$(ps | grep -m1 cp | awk '{print $1}')
+VBoxManage clonevm VM\ roger-skyline --name VM\ rs-deploy &> /dev/null &
+ID=$(ps | grep -m1 clonevm | awk '{print $1}')
 RED='\033[1;31m'
 GRE='\033[1;32m'
 LCY='\033[1;36m'
@@ -40,11 +40,19 @@ do
 		fi
 		if [ $s -eq 1 ]
 		then
-			printf "${GRE}✓ Scripts\n"
+			printf "${GRE}✓ SSH\n"
 		fi
 		if [ $s -eq 2 ]
 		then
+			printf "${GRE}✓ Scripts\n"
+		fi
+		if [ $s -eq 3 ]
+		then
 			printf "${GRE}✓ Web\n"
+		fi
+		if [ $s -eq 4 ]
+		then
+			printf "${GRE}✓ VM\n"
 		fi
 		let "s = s + 1"
 		let "i = 0"
