@@ -365,3 +365,11 @@ $ a2dissite 000-default.conf
 $ a2ensite 001-site.conf
 $ systemctl reload apache2
 ```
+
+#### Site
+
+```bash
+$ vi /var/www/html/site.html
+```
+
+Depuis navigateur : `https://127.0.0.1:3443/site.html`
