@@ -31,7 +31,7 @@ $ vim /etc/network/interfaces
 > netmask 255.255.255.252  
 
 ### Clé publique SSH
-(as *root*)
+#### (as *root*)
 
 ```bash
 $ ssh-keygen
@@ -46,7 +46,7 @@ $ cat ~/.ssh/id_rsa.pub
 $ ssh flklein@debian -p 2222
 ```
 
-(as *flklein*)
+#### (as *flklein*)
 
 ```bash
 $ mkdir .ssh
@@ -57,7 +57,7 @@ Coller dans :
 $ vi ~/.ssh/authorized_keys
 ```
 
-(as *root*)
+#### (as *root*)
 
 ```bash
 $ sudo vim /etc/ssh/sshd_config
@@ -71,7 +71,7 @@ $ sudo vim /etc/ssh/sshd_config
 $ sudo service ssh restart
 ```
 
-(as *flklein*)
+#### (as *flklein*)
 ```bash
 $ cat ~/.ssh/known_hosts
 ```
@@ -280,9 +280,9 @@ $ vim /home/USER/watch_script.sh
 > cat /etc/crontab > /home/flklein/new  
 > DIFF=$(diff new tmp)  
 > if [ "$DIFF" != "" ]; then  
-> 	cat /home/flklein/email.txt | mail -s "WARNING CRONTAB" root@debian  
-> 	rm -rf /home/flklein/tmp  
-> 	cp /home/flklein/new /home/flklein/tmp  
+>     cat /home/flklein/email.txt | mail -s "WARNING CRONTAB" root@debian  
+>     rm -rf /home/flklein/tmp  
+>     cp /home/flklein/new /home/flklein/tmp  
 > fi  
 
 ```bash
