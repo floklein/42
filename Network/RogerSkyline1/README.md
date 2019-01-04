@@ -202,14 +202,14 @@ $ sudo vim /etc/fail2ban/filter.d/http-get-dos.conf
 
 > [Definition]  
 > 
-> # Option: failregex  
-> # Note: Matches GET and POST  
+> #Option: failregex  
+> #Note: Matches GET and POST  
 > 
 > failregex = ^<HOST> -.*"(GET|POST).*  
 > 
-> # Option: ignoreregex  
-> # Notes.: Ignores specific regex  
-> # Values: TEXT  
+> #Option: ignoreregex  
+> #Notes.: Ignores specific regex  
+> #Values: TEXT  
 > 
 > ignoreregex =  
 
@@ -275,16 +275,15 @@ $ vim /home/USER/watch_script.sh
 ```
 
 Éditer :
-```bash
-#!/bin/bash
-cat /etc/crontab > /home/flklein/new
-DIFF=$(diff new tmp)
-if [ "$DIFF" != "" ]; then
-	sudo sendmail root@debian < /home/flklein/email.txt
-	rm -rf /home/flklein/tmp
-	cp /home/flklein/new /home/flklein/tmp
-fi
-```
+
+> #!/bin/bash  
+> cat /etc/crontab > /home/flklein/new  
+> DIFF=$(diff new tmp)  
+> if [ "$DIFF" != "" ]; then  
+> 	sudo sendmail root@debian < /home/flklein/email.txt  
+> 	rm -rf /home/flklein/tmp  
+> 	cp /home/flklein/new /home/flklein/tmp  
+> fi  
 
 ```bash
 $ chmod +x watch_script.sh
@@ -297,9 +296,8 @@ $ sudo vim /etc/crontab
 ```
 
 Éditer :
-```
-0  0	* * *	root	/home/flklein/watch_script.sh
-```
+
+> 0  0	* * *	root	/home/flklein/watch_script.sh
 
 ## 8. Web
 
@@ -314,31 +312,30 @@ $ sudo vim /etc/apache2/sites-available/default-ssl.conf
 ```
 
 Éditer :
-```
-<IfModule mod_ssl.c>
-	<VirtualHost _default_:443>       
-                ServerAdmin webmaster@localhost
-                DocumentRoot /var/www/html
 
-                ErrorLog ${APACHE_LOG_DIR}/error.log
-                CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-                #Include conf-available/serve-cgi-bin.conf
-
-                #   SSL Engine Switch:
-                #   Enable/Disable SSL for this virtual host.
-                SSLEngine on
-                SSLCertificateFile      /etc/ssl/certs/debian.com.crt
-                SSLCertificateKeyFile /etc/ssl/private/debian.com.key
-                # SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
-                # SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
-
-......................
-......................
-
-	</VirtualHost>
-</IfModule>
-```
+> <IfModule mod_ssl.c>  
+> 	<VirtualHost _default_:443>  
+>                 ServerAdmin webmaster@localhost  
+>                 DocumentRoot /var/www/html  
+> 
+>                 ErrorLog ${APACHE_LOG_DIR}/error.log  
+>                 CustomLog ${APACHE_LOG_DIR}/access.log combined  
+> 
+>                 #Include conf-available/serve-cgi-bin.conf  
+> 
+>                 #SSL Engine Switch:  
+>                 #Enable/Disable SSL for this virtual host.  
+>                 SSLEngine on  
+>                 SSLCertificateFile      /etc/ssl/certs/debian.com.crt  
+>                 SSLCertificateKeyFile /etc/ssl/private/debian.com.key  
+>                 #SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem  
+>                 #SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key  
+> 
+> ......................  
+> ......................  
+> 
+> 	</VirtualHost>  
+> </IfModule>  
 
 ```bash
 $ sudo apachectl configtest
@@ -361,10 +358,9 @@ $ sudo vim /etc/apache2/sites-available/001-default.conf
 ```
 
 Éditer :
-```
-ServerName debian
-DocumentRoot /var/www/html
-```
+
+> ServerName debian  
+> DocumentRoot /var/www/html  
 
 ```bash
 $ a2dissite 000-default.conf
