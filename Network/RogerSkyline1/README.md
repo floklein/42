@@ -13,11 +13,11 @@ $ vim /etc/ssh/sshd_config
 Éditer :
 
 > Port 2222
-
+>
 > PasswordAuthentification yes
-
+> 
 > PermitRootLogin no
-
+> 
 > PubkeyAuthentication yes
 
 
