@@ -385,4 +385,5 @@ $ systemctl reload apache2
 $ vi /var/www/html/site.html
 ```
 
+Créer une règle de port forwarding dans VirtualBox : `https	TCP		3443		443`
 Depuis navigateur : `https://127.0.0.1:3443/site.html`
