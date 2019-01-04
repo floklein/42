@@ -280,7 +280,7 @@ $ vim /home/USER/watch_script.sh
 > cat /etc/crontab > /home/flklein/new  
 > DIFF=$(diff new tmp)  
 > if [ "$DIFF" != "" ]; then  
-> 	sudo sendmail root@debian < /home/flklein/email.txt  
+> 	cat /home/flklein/email.txt | mail -s "WARNING CRONTAB" root@debian  
 > 	rm -rf /home/flklein/tmp  
 > 	cp /home/flklein/new /home/flklein/tmp  
 > fi  
