@@ -6,7 +6,7 @@
 #    By: flklein <flklein@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/04 19:04:43 by flklein           #+#    #+#              #
-#    Updated: 2019/01/04 23:34:05 by flklein          ###   ########.fr        #
+#    Updated: 2019/01/05 16:18:07 by flklein          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,10 @@ do
 		if [ $s -eq 4 ]
 		then
 			printf "${GRE}✓ VM\n"
+		fi
+		if [ $s -eq 5 ]
+		then
+			printf "${GRE}✓ Making coffee...\n"
 		fi
 		let "s = s + 1"
 		let "i = 0"
