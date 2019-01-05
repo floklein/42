@@ -13,7 +13,7 @@ $ vim /etc/ssh/sshd_config
 Éditer :
 
 > Port 2222  
-> PasswordAuthentification yes   
+> PasswordAuthentication yes   
 > PermitRootLogin no  
 > PubkeyAuthentication yes   
 
@@ -66,7 +66,7 @@ $ sudo vim /etc/ssh/sshd_config
 
 Éditer :
 
-> PasswordAuthentification no
+> PasswordAuthentication no
 
 ```bash
 $ sudo service ssh restart
