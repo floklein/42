@@ -180,7 +180,7 @@ $ sudo vim /etc/fail2ban/jail.local
 > enabled = true  
 > port = http,https  
 > filter = apache-badbots  
-> logpath = /var/log/ap ache2*/*error.log  
+> logpath = /var/log/apache2*/*error.log  
 > maxretry = 2  
 > 
 > [http-get-dos]  
@@ -272,7 +272,7 @@ $ vim /home/flklein/email.txt
 ```
 
 ```bash
-$ vim /home/USER/watch_script.sh
+$ vim /home/flklein/watch_script.sh
 ```
 
 Éditer :
