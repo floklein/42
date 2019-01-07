@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 if ($argc > 1) {
     $arr = explode(" ", trim(preg_replace('/ +/', ' ', $argv[1])));
@@ -7,3 +8,4 @@ if ($argc > 1) {
     }
     echo $arr[0] . "\n";
 }
+?>

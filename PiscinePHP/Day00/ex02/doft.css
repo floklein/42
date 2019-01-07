@@ -1,13 +1,10 @@
 body {
     background-color: #505050;
-    background-image: url(/Users/flklein/Desktop/doft.png);
     background-repeat: no-repeat;
-    opacity: .5;
 }
 
 .box {
     background-color: #909090;
-    background-color: #00FF00;
     position: fixed;
     border-radius: 10px;
     box-shadow: 10px 10px 16px #000000;
@@ -42,6 +39,7 @@ body {
 }
 
 .box.overlay {
+    background-color: #8CFD8E;
     width: 520px;
     height: 170px;
     top: 680px;
@@ -120,50 +118,77 @@ body {
     left: 35px;
 }
 
-.img.brick1 {
-    width: 32px;
+.img.cluster {
+    width: 1000px;
+    top: 10px;
+    left: 10px;
+}
+
+.mur {
+    background-image: url("resources/brick.jpg");
+    position: absolute;
+    width: 120px;
+    height: 72px;
     top: 178px;
     left: 10px;
 }
 
-.img.brick2 {
-    width: 32px;
-    top: 178px;
-    left: 42px;
-}
-
-.img.brick3 {
-    width: 32px;
-    top: 178px;
-    left: 74px;
-}
-
-.img.brick4 {
-    width: 32px;
-    top: 178px;
-    left: 106px;
-}
-
-.img.brick5 {
-    width: 32px;
-    top: 210px;
+.overlay-txt {
+    position: absolute;
+    top: -10px;
     left: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
 }
 
-.img.brick6 {
-    width: 32px;
-    top: 210px;
-    left: 42px;
+.dordi {
+    position: absolute;
+    top: 28px;
+    left: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
 }
 
-.img.brick7 {
-    width: 32px;
-    top: 210px;
-    left: 74px;
+.ordis {
+    text-shadow: 5px 5px 7px red;
 }
 
-.img.brick8 {
-    width: 32px;
-    top: 210px;
-    left: 106px;
+.entrez {
+    font-size: 35px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.overlay-italic {
+    position: absolute;
+    top: 47px;
+    left: 9px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15.6px;
+    font-style: italic;
+}
+
+.formulaire {
+    position: absolute;
+    top: 85px;
+    left: 12px;
+}
+
+.form-txt {
+    width: 380px;
+    height: 21px;
+    border-style: inset;
+    border-width: 2.2px;
+}
+
+.form-button {
+    position:absolute;
+    top: 0px;
+    left: 391px;
+    width: 78px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    border-color: #9A9A9A;
+    background-color: #E6E6E6;
+    font-size: 13px;
 }
