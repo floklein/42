@@ -7,7 +7,7 @@ body {
 
 .box {
     background-color: #909090;
-    background-color: #FF0000;
+    background-color: #00FF00;
     position: fixed;
     border-radius: 10px;
     box-shadow: 10px 10px 16px #000000;
@@ -90,6 +90,80 @@ body {
 
 .img.oeil {
     width: 70px;
-    top: 175px;
+    top: 170px;
+    left: 27px;
+    border: 5px solid red;
+    border-radius: 4px;
+}
+
+.img.outil {
+    width: 70px;
+    top: 250px;
     left: 32px;
+}
+
+.img.chat {
+    width: 70px;
+    top: 330px;
+    left: 32px;
+}
+
+.img.book {
+    width: 70px;
+    top: 15px;
+    left: 35px;
+}
+
+.img.towel {
+    width: 70px;
+    top: 121px;
+    left: 35px;
+}
+
+.img.brick1 {
+    width: 32px;
+    top: 178px;
+    left: 10px;
+}
+
+.img.brick2 {
+    width: 32px;
+    top: 178px;
+    left: 42px;
+}
+
+.img.brick3 {
+    width: 32px;
+    top: 178px;
+    left: 74px;
+}
+
+.img.brick4 {
+    width: 32px;
+    top: 178px;
+    left: 106px;
+}
+
+.img.brick5 {
+    width: 32px;
+    top: 210px;
+    left: 10px;
+}
+
+.img.brick6 {
+    width: 32px;
+    top: 210px;
+    left: 42px;
+}
+
+.img.brick7 {
+    width: 32px;
+    top: 210px;
+    left: 74px;
+}
+
+.img.brick8 {
+    width: 32px;
+    top: 210px;
+    left: 106px;
 }
