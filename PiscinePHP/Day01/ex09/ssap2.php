@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 $arr = array();
 for ($i = 1; $i < $argc; $i++) {
@@ -16,3 +17,4 @@ foreach ($arr as $value) {
     if (!ctype_alpha($value) && !is_numeric($value))
         echo $value . "\n";
 }
+?>

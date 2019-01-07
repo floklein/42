@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 function ft_is_sort($arr) {
     $cpy = $arr;
@@ -9,3 +10,4 @@ function ft_is_sort($arr) {
     }
     return true;
 }
+?>

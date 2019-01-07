@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 while (true) {
     echo "Entrez un nombre : ";
@@ -15,3 +16,4 @@ while (true) {
         echo "'" . $input . "' n'est pas un chiffre\n";
     }
 }
+?>

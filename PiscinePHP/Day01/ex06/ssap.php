@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 $arr = array();
 for ($i = 1; $i < $argc; $i++) {
@@ -7,3 +8,4 @@ sort($arr);
 foreach ($arr as $value) {
     echo $value . "\n";
 }
+?>

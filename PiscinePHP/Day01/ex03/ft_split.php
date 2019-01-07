@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 function ft_split($str)
 {
@@ -5,3 +6,4 @@ function ft_split($str)
     sort($arr);
     return $arr;
 }
+?>
