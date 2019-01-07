@@ -7,6 +7,7 @@ body {
 
 .box {
     background-color: #909090;
+    background-color: #FF0000;
     position: fixed;
     border-radius: 10px;
     box-shadow: 10px 10px 16px #000000;
@@ -17,4 +18,25 @@ body {
     height: 137px;
     top: 17px;
     left: 234px;
+}
+
+.box.left {
+    width: 140px;
+    height: 425px;
+    top: 174px;
+    left: 264px;
+}
+
+.box.middle {
+    width: 1020px;
+    height: 582px;
+    top: 174px;
+    left: 434px;
+}
+
+.box.right {
+    width: 140px;
+    height: 425px;
+    top: 174px;
+    left: 1484px;
 }
