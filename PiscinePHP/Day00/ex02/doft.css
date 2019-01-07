@@ -1,8 +1,8 @@
 body {
     background-color: #505050;
-    background-image: url(/Users/flklein/Desktop/doft2.png);
+    background-image: url(/Users/flklein/Desktop/doft.png);
     background-repeat: no-repeat;
-    opacity: 1.5;
+    opacity: .5;
 }
 
 .box {
@@ -39,4 +39,57 @@ body {
     height: 425px;
     top: 174px;
     left: 1484px;
+}
+
+.box.overlay {
+    width: 520px;
+    height: 170px;
+    top: 680px;
+    left: 189px;
+}
+
+.img {
+    position: absolute;
+}
+
+.img.doft42 {
+    width: 422px;
+    top: 10px;
+    left: 12px;
+}
+
+.img.loupe {
+    width: 256px;
+    top: 10px;
+    left: 1134px;
+}
+
+.img.reload {
+    width: 20px;
+    top: 10px;
+    left: 1390px;
+}
+
+.img.close {
+    width: 20px;
+    top: 108px;
+    left: 1390px;
+}
+
+.img.arrow {
+    width: 70px;
+    top: 15px;
+    left: 32px;
+}
+
+.img.main {
+    width: 70px;
+    top: 95px;
+    left: 32px;
+}
+
+.img.oeil {
+    width: 70px;
+    top: 175px;
+    left: 32px;
 }
