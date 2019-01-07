@@ -120,6 +120,7 @@ body {
 
 .img.cluster {
     width: 1000px;
+    height: 95%;
     top: 10px;
     left: 10px;
 }
@@ -207,4 +208,15 @@ body {
     left: 1226px;
     width: 203px;
     height: 183px;
+}
+
+.active {
+    border: 5px solid greenyellow;
+    border-radius: 4px;
+}
+
+.img.chaiseprise {
+    width: 70px;
+    top: 300px;
+    left: 35px;
 }
