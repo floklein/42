@@ -1,0 +1,20 @@
+body {
+    background-color: #505050;
+    background-image: url(/Users/flklein/Desktop/doft2.png);
+    background-repeat: no-repeat;
+    opacity: 1.5;
+}
+
+.box {
+    background-color: #909090;
+    position: fixed;
+    border-radius: 10px;
+    box-shadow: 10px 10px 16px #000000;
+}
+
+.box.top {
+    width: 1421px;
+    height: 137px;
+    top: 17px;
+    left: 234px;
+}
