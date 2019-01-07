@@ -6,7 +6,7 @@ while (true) {
     }
     $input = trim($input);
     if (is_numeric($input)) {
-        if ($input % 2 == 0) {
+        if (substr($input, -1) % 2 == 0) {
             echo "Le chiffre " . $input . " est Pair\n";
         } else {
             echo "Le chiffre " . $input . " est Impair\n";
