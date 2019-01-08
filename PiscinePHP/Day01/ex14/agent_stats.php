@@ -7,6 +7,8 @@ while ($line = fgets(STDIN)) {
     $file[$i] = array("User" => $arr[0], "Note" => $arr[1], "Noteur" => $arr[2], "Feedback" => $arr[3]);
     $i++;
 }
+if ($file == null)
+    exit();
 sort($file);
 switch ($argv[1]) {
     case "moyenne":{
