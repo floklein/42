@@ -1,44 +1,43 @@
 #!/usr/bin/php
 <?php
-function multiexplode($delimiters, $string)
-{
-    $ready = str_replace($delimiters, $delimiters[0], $string);
-    $launch = explode($delimiters[0], $ready);
-    return $launch;
-}
-
 if ($argc != 2) {
     exit("Incorrect Parameters\n");
 }
-$str = trim(preg_replace('/[ \t]+/', '', $argv[1]));
-$n = multiexplode(array("+", "-", "*", "/", "%"), $str);
-if ($n[0] == null || $n[1] == null) {
+$str = trim($argv[1]);
+if (preg_match("/^[+-]{0,1}[0-9]+[ \t]*[-+*\/\%]{1}[ \t]*[+-]{0,1}[0-9]+/", $str) == null) {
     exit("Syntax Error\n");
 }
-$op = preg_replace('/[0123456789]+/', '', $str);
+preg_match_all("/[+-]{0,1}[0-9]+/", $str, $num);
+$op = trim(preg_replace("/[+-]{0,1}[0-9]+/", '', $str));
+$num1 = intval($num[0][0]);
+$num2 = intval($num[0][1]);
 switch ($op) {
     case "+":
-        echo $n[0] + $n[1] . "\n";
+        $res = $num1 + $num2;
         break;
     case "-":
-        echo $n[0] - $n[1] . "\n";
+        $res = $num1 - $num2;
         break;
     case "*":
-        echo $n[0] * $n[1] . "\n";
+        $res = $num1 * $num2;
         break;
     case "/":
-        if ($n[1] == "0") {
+        if ($num2 === 0) {
             exit("Incorrect Parameters\n");
         }
-        echo $n[0] / $n[1] . "\n";
+        $res = $num1 / $num2;
         break;
     case "%":
-    if ($n[1] == "0") {
-        exit("Incorrect Parameters\n");
-    }
-        echo $n[0] % $n[1] . "\n";
+        if ($num2 === 0) {
+            exit("Incorrect Parameters\n");
+        }
+        $res = $num1 % $num2;
         break;
-    default:
-        echo "Syntax Error\n";
+    default:{
+            $res = $num1 + $num2;
+            break;
+        }
+
 }
+echo $res . "\n";
 ?>
