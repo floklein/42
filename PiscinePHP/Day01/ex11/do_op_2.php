@@ -27,9 +27,15 @@ switch ($op) {
         echo $n[0] * $n[1] . "\n";
         break;
     case "/":
+        if ($n[1] == "0") {
+            exit("Incorrect Parameters\n");
+        }
         echo $n[0] / $n[1] . "\n";
         break;
     case "%":
+    if ($n[1] == "0") {
+        exit("Incorrect Parameters\n");
+    }
         echo $n[0] % $n[1] . "\n";
         break;
     default:
