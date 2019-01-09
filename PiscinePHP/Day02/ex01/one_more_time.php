@@ -27,5 +27,8 @@ $date = preg_replace("/[Oo]ctobre/", "October", $date);
 $date = preg_replace("/[Nn]ovembre/", "November", $date);
 $date = preg_replace("/[Dd]ecembre/", "December", $date);
 date_default_timezone_set("Europe/Paris");
-echo strtotime($date) . "\n";
+if (($output = strtotime($date)) == null) {
+    exit("Wrong Format\n");
+}
+echo $output . "\n";
 ?>
