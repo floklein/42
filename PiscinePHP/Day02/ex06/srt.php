@@ -14,7 +14,10 @@ while ($num = fgets($file)) {
     $tab[$time] = $subtitle;
 }
 ksort($tab);
-foreach ($tab as $time=>$subtitle) {
-    echo ++$i . "\n" . $time . "\n" . $subtitle . "\n\n";
+$size = count($tab);
+foreach ($tab as $time => $subtitle) {
+    if (preg_match("/^[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3} --> [0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}$/", $time)) {
+        echo ++$i . "\n" . $time . "\n" . $subtitle . "\n" . (++$j != $size ? "\n" : "");
+    }
 }
 ?>
