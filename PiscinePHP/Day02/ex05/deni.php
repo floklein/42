@@ -2,29 +2,39 @@
 <?php
 $csv_file = fopen($argv[1], "r");
 $wanted_key = $argv[2];
-$line = fgets($csv_file);
-$header_keys = explode(";", trim($line));
+$file_content = fgets($csv_file);
+$header_keys = explode(";", trim($file_content));
 if (array_search($wanted_key, $header_keys, true) === false) {
     exit();
 }
 while ($line = fgets($csv_file)) {
-    $arr = explode(";", $line);
+    $csv_line = explode(";", trim($line));
     $j = 0;
     foreach ($header_keys as $key) {
-        $tab[$i][$key] = $arr[$j];
+        $data[$i][$key] = $csv_line[$j];
         $j++;
     }
     $i++;
 }
-print_r($tab);
 while (true) {
     echo "Entrez votre commande : ";
     if (($input = fgets(STDIN)) == null) {
         exit("\n");
     }
-    echo $input."\n";
-    preg_match_all("/\$[^\]]+\[[^\[]+\]/", $input, $truc);
-    print_r($truc);
-    // eval($input . ";");
+    preg_match_all("/[\w]+\['[\w]+'\]/", $input, $matches_tab);
+    $matches = $matches_tab[0];
+    foreach ($matches as $match) {
+        preg_match("/^[\w]+/", $match, $what_tab);
+        $what = $what_tab[0];
+        preg_match("/'[\w]+'/", $match, $who_tab);
+        $who = trim($who_tab[0], "'");
+        foreach ($data as $box) {
+            if ($box[$wanted_key] == $who) {
+                $to_replace = $box[$what];
+            }
+        }
+        $input = str_replace("$" . $match, "\"" . $to_replace . "\"", $input);
+    }
+    eval($input);
 }
 ?>
