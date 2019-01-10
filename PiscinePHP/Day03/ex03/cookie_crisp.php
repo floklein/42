@@ -7,10 +7,13 @@ switch ($action) {
         setcookie($name, $value);
         break;
     case "get":
-        if ($_COOKIE[$name])
+        if (isset($_COOKIE[$name]) && !isset($_GET['value'])) {
             echo $_COOKIE[$name] . "\n";
+        }
         break;
     case "del":
-        setcookie($name, "", time() - 3600);
+        if (isset($_COOKIE[$name]) && !isset($_GET['value'])) {
+            setcookie($name, "", time() - 3600);
+        }
         break;
 }
