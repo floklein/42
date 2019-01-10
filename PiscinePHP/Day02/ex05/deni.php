@@ -22,7 +22,9 @@ while (true) {
     if (($input = fgets(STDIN)) == null) {
         exit("\n");
     }
-    preg_match_all("/\$[^\]]+\[[^\[]+\]/", $input, $matches);
-    eval($input . ";");
+    echo $input."\n";
+    preg_match_all("/\$[^\]]+\[[^\[]+\]/", $input, $truc);
+    print_r($truc);
+    // eval($input . ";");
 }
 ?>
