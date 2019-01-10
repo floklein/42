@@ -1,5 +1,8 @@
 #!/usr/bin/php
 <?php
+if ($argc != 3 || !file_exists($argv[1])) {
+    exit();
+}
 $csv_file = fopen($argv[1], "r");
 $wanted_key = $argv[2];
 $file_content = fgets($csv_file);
@@ -21,6 +24,7 @@ while (true) {
     if (($input = fgets(STDIN)) == null) {
         exit("\n");
     }
+    $to_replace = null;
     preg_match_all("/[\w]+\['[\w]+'\]/", $input, $matches_tab);
     $matches = $matches_tab[0];
     foreach ($matches as $match) {
