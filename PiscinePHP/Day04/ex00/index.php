@@ -10,6 +10,12 @@ if ($_GET['passwd'] != null) {
 
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Se connecter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 <body>
 <form action="index.php" method="GET">
 Identifiant: <input type="text" name="login" placeholder="login" value=<?php echo $_SESSION['login']; ?>><br>
