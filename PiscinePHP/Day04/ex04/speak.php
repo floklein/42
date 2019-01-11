@@ -17,7 +17,8 @@ if ($login && $msg) {
         }
         $tab = array();
     }
-    $chat_file = fopen("../private/chat", "r");
+    file_put_contents("../private/chat", "");
+    $chat_file = fopen("../private/chat", "rw");
     flock($chat_file, LOCK_EX | LOCK_SH);
     $size = count($tab);
     $tab[$size + 1]['login'] = $login;
