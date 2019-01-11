@@ -1,0 +1,105 @@
+@font-face {
+    font-family: myBebasNeue;
+    src: url(fonts/BebasNeue.woff);
+}
+
+@font-face {
+    font-family: myLeafy;
+    src: url(fonts/Leafy.woff);
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+ul {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    font-family: myBebasNeue;
+    letter-spacing: 2px;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: grey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: white;
+    color: black;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: grey;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.active {
+    background-color: white;
+    color: #9CC2AF;
+}
+
+.top-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 194px;
+    width: 100%;
+    background-color: white;
+    border-bottom-style: solid;
+    border-bottom-color: #C5DFC5;
+}
+
+.top-txt {
+    font-family: myLeafy;
+    color: #5f9285;
+    text-align: center;
+    font-size: 100px;
+    margin: 45px 0px;
+}
+
+.img-arrow {
+    width: 20px;
+}
+
+.img-bag {
+    width: 12px;
+}
