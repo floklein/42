@@ -136,7 +136,7 @@ li.dropdown {
     text-align: center;
     font-family: myBebasNeue;
     font-size: 25px;
-    letter-spacing: 0px;
+    letter-spacing: 5px;
 }
 
 .title-txt {
@@ -145,7 +145,7 @@ li.dropdown {
     border: solid 2px black;
     color: black;
     margin: 0px -100px;
-    padding: 0px 10px 0px 10px;
+    padding: 0px 5px 0px 10px;
     background-color: white;
 }
 
@@ -174,7 +174,7 @@ li.dropdown {
     height: 325px;
     width: 215px;
     margin: 10px 10px;
-    background-color: rgb(255, 174, 174);
+    background-color: #ffaeae;
 }
 
 .prod-pic {
@@ -189,5 +189,113 @@ li.dropdown {
     height: 80%;
     width: 1px;
     left: 235px;
-    border-left: solid 1px black;
+    border-right: solid 2px black;
+    margin: 0px 0px;
+}
+
+.prod-title {
+    position: relative;
+    top: -250px;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
+    text-align: center;
+    font-family: myBebasNeue;
+    font-size: 25px;
+    letter-spacing: 5px;
+}
+
+.prod-title-txt {
+    position: relative;
+    display: inline;
+    border: solid 2px black;
+    color: black;
+    margin: 0px 0px;
+    padding: 0px 5px 0px 10px;
+    background-color: white;
+}
+
+.prod-desc-txt {
+    position: absolute;
+    top: 75px;
+    left: 238px;
+    display: inline;
+    text-align: justify;
+    font-family: Helvetica;
+    font-size: 15px;
+    color: grey;
+    margin: 0px 20px;
+    padding: 0px 0px 0px 0px;
+}
+
+.prod-price {
+    position: relative;
+    bottom: 85px;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 22px;
+}
+
+.prod-price-txt {
+    position: relative;
+    display: inline;
+    color: #4a7066;
+    margin: 0px 0px;
+    padding: 0px 10px 0px 10px;
+    background-color: white;
+}
+
+.prod-hbar {
+    position: relative;
+    height: 1px;
+    width: 50px;
+    bottom: 72px;
+    left: 50%;
+    transform: translate(185%);
+    border-top: solid 2px black;
+    margin: 0px 0px;
+}
+
+.prod-size {
+    position: relative;
+    bottom: 55px;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%);
+    text-align: center;
+}
+
+.prod-size-form-select {
+    width: 130px;
+    height: 30px;
+    border: solid 1px lightgrey;
+    border-radius: 0;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 1px 7px 2px 7px;
+    font-size: 11px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.10);
+    background: white url(../img/arrow.png) no-repeat 95% / 15%;
+}
+
+.prod-size-form-select:hover {
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.15);
+}
+
+.prod-size-form-button {
+    width: 130px;
+    height: 30px;
+    border: solid 1px lightgrey;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.10);
+}
+
+.prod-size-form-button:hover {
+    box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.15);
+    background-color: #5f9285;
+    color: white;
 }
