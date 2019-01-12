@@ -10,6 +10,7 @@ session_start();
     <title>Mon compte</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/signin.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
 </head>
 <body>
 <div class="top-div">
@@ -17,7 +18,7 @@ session_start();
         <p class="top-sub">Fashion. Greener.<p>
     </div>
     <ul style="top: 150px">
-        <li><a class="active" href="index.php">Accueil</a></li>
+        <li><a href="index.php">Accueil</a></li>
         <li class="dropdown">
             <a href="products.php?cat=homme" class="dropbtn">Homme <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
@@ -46,7 +47,7 @@ session_start();
             <a href="cart.php" class="dropbtn"><img src="img/bag.png" class="img-bag"></a>
         </li>
         <li class="dropdown" style="float:right">
-            <a href="#" class="dropbtn">Mon compte <img src="img/arrow.png" class="img-arrow"></a>
+            <a href="#" class="dropbtn active">Mon compte <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
                 <?php if ($_SESSION['logged_on_user'] == null) {?>
                 <a href="register.php">S'inscrire</a>
@@ -66,11 +67,11 @@ session_start();
             <div class="title"><p class="title-txt">Mes preferences</p></div>
             <form action="modif.php" method="POST">
                 <?php if ($_GET['request'] == "error") {?>
-                <input class="form invalid" type="text" name="login" placeholder="Email invalide"><br>
+                <input class="form invalid" type="email" name="login" placeholder="Email invalide"><br>
                 <input class="form invalid" type="password" name="oldpw" placeholder="Mot de passe invalide"><br>
                 <input class="form invalid" type="password" name="newpw" placeholder="Mot de passe invalide"><br>
                 <?php } else {?>
-                <input class="form" type="text" name="login" placeholder="Votre adresse email"><br>
+                <input class="form" type="email" name="login" placeholder="Votre adresse email"><br>
                 <input class="form" type="password" name="oldpw" placeholder="Votre ancien mot de passe"><br>
                 <input class="form" type="password" name="newpw" placeholder="Choisissez un nouveau mot de passe"><br>
                 <?php }?>

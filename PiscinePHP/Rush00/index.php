@@ -11,7 +11,7 @@
     <title>LEAFY</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
-    <link rel="icon" href="../img/favicon.jpg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
 </head>
 
 <body>
@@ -65,7 +65,7 @@
         </li>
     </ul>
     <div class="main">
-        <img class="home-img" src="../img/home<?php echo (time() % 3);?>.png">
+        <img class="home-img" src="../img/home<?php echo (time() % 3);?>.png" alt="Leafy home background image">
         <div class="home-txt">
             <h1>Bienvenue.</h1>
             <div class="home-txt-par">
