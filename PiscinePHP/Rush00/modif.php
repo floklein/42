@@ -4,7 +4,8 @@ $oldpw = $_POST['oldpw'];
 $newpw = $_POST['newpw'];
 $submit = $_POST['submit'];
 if (!$login || !$oldpw || !$newpw || $submit != "OK") {
-    exit("ERROR\n");
+    header("Location: account.php?request=error");
+    exit();
 }
 if (!file_exists("private/passwd")) {
     exit();
@@ -18,7 +19,8 @@ foreach ($tab as $key => $user) {
             $out = serialize($tab);
             file_put_contents("private/passwd", $out);
         } else {
-            exit("ERROR\n");
+            header("Location: account.php?request=error");
+            exit();
         }
     }
     header("Location: index.html");

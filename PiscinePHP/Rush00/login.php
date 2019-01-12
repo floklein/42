@@ -9,7 +9,7 @@ if (auth($login, $passwd)) {
     header("Location: index.php");
 } else {
     $_SESSION['logged_on_user'] = "";
-    exit("ERROR\n");
+    header("Location: signin.php?request=error");
 }
 ?>
 
