@@ -1,5 +1,5 @@
 <?php
-$csv_file = fopen("database/products2.csv", "r");
+$csv_file = fopen("database/products.csv", "r");
 $file_content = fgets($csv_file);
 $header_keys = explode(";", trim($file_content));
 while ($line = fgets($csv_file)) {
@@ -11,8 +11,7 @@ while ($line = fgets($csv_file)) {
     }
     $i++;
 }
-print_r($products);
 $out = serialize($products);
 file_put_contents("database/products.db", $out);
-echo "OK\n"
+header("Location: index.php?database=installed");
 ?>

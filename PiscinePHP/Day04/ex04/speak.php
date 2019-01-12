@@ -2,10 +2,10 @@
 date_default_timezone_set("Europe/Paris");
 session_start();
 if ($_SESSION['logged_on_user'] == null) {
-    exit("Vous n'êtes pas connecté.");
+    exit("ERROR\n");
 }
 $login = $_SESSION['logged_on_user']['login'];
-$time = date("H:i:s");
+$time = date("H:i");
 $msg = $_POST['msg'];
 if ($login && $msg) {
     if (file_exists("../private/chat")) {
