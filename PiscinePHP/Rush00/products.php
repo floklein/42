@@ -16,7 +16,7 @@
         <p class="top-sub">Fashion. Greener.<p>
     </div>
     <ul style="top: 150px">
-        <li><a class="active" href="index.php">Accueil</a></li>
+        <li><a href="index.php">Accueil</a></li>
         <li class="dropdown">
             <a href="products.php?cat=homme" class="dropbtn">Homme <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
