@@ -66,13 +66,13 @@ session_start();
             <div class="title"><p class="title-txt">Mes preferences</p></div>
             <form action="modif.php" method="POST">
                 <?php if ($_GET['request'] == "error") {?>
-                <input class="form invalid" type="text" name="login" placeholder="Identifiant invalide"><br>
+                <input class="form invalid" type="text" name="login" placeholder="Email invalide"><br>
                 <input class="form invalid" type="password" name="oldpw" placeholder="Mot de passe invalide"><br>
                 <input class="form invalid" type="password" name="newpw" placeholder="Mot de passe invalide"><br>
                 <?php } else {?>
-                <input class="form" type="text" name="login" placeholder="Identifiant"><br>
-                <input class="form" type="password" name="oldpw" placeholder="Ancien mot de passe"><br>
-                <input class="form" type="password" name="newpw" placeholder="Nouveau mot de passe"><br>
+                <input class="form" type="text" name="login" placeholder="Votre adresse email"><br>
+                <input class="form" type="password" name="oldpw" placeholder="Votre ancien mot de passe"><br>
+                <input class="form" type="password" name="newpw" placeholder="Choisissez un nouveau mot de passe"><br>
                 <?php }?>
                 <button class="form-button" type="submit" name="submit" value="OK">Modifier</button>
             </form>

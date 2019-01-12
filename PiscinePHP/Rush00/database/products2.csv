@@ -1,0 +1,22 @@
+name;cat;subcat;price;img;desc
+robe a noeud;femme;robes;25,99;dress1.jpg;Robe avec col à revers, décolleté en V et manches longues. Nœud sur le devant. Zip dissimulé dans la couture sur le côté.
+robe a carreaux;femme;robes;39,99;dress2.jpg;Robe fluide avec décolleté en V et manches 3/4. Coupe évasée. Ceinture ton sur ton.
+robe imprimee de chaines;femme;robes;19,99;dress3.jpg;Robe ample à col rond avec décolleté en V et manches longues. Bas fendu sur les côtés.
+robe croisee a imprime floral;femme;robes;25,99;dress4.jpg;Robe fluide à décolleté cache-cœur en V et manches 3/4 terminées par un volant. Ceinture asymétrique avec boucle. Coupe évasée.
+haut imprime fleurs;homme;hauts;9,99;h_hauts1.jpg;T-shirt imprimé à coupe droite, col rond et manches courtes.
+t-shirt basique easy;homme;hauts;4,99;h_hauts2.jpg;T-shirt basique en coton avec col en V et manches courtes.
+chemise satin imprimee;homme;hauts;25,99;h_hauts3.jpg;Chemise à coupe décontractée, rayures et manches longues. Fermeture par boutons sur le devant.
+sac shopper cuir;femme;sacs;49,99;sacs1.jpg;Sac shopper en cuir de couleur noire. Anneaux effet écaille sur l'anse. Intérieur doublé. Fermeture aimantée.
+shopper filet avec boules;femme;sacs;39,99;sacs2.jpg;Sac forme shopper de couleur marron. Découpe en résille avec petites boules. Intérieur amovible. Poignées. 
+pantalon structure;homme;pantalons;29,99;h_pantalons1.jpg;Pantalon en mélange de laine avec mousqueton à la taille. Poches avant et poches passepoilées à l'arrière. Fermeture avant par zip et bouton-pression.
+pantalon de costume;homme;pantalons;25,99;h_pantalons2.jpg;Pantalon uni style chino coupe slim. Deux poches latérales et deux poches à double passepoil à l'arrière. Taille à passants. Fermeture avant par zip dissimulé sous une patte et bouton.
+bonnet en maille;homme;accessoires;7,99;accessoires1.jpg;Bonnet en maille côtelée avec revers.
+casquette matelassee;homme;accessoires;7,99;accessoires2.jpg;Casquette matelassée. Fermeture par bride réglable sur la partie arrière.
+top en velours;femme;hauts;25,99;f_hauts1.jpg;Top fluide à col rond et manches longues bouffantes. Dentelle sur la poitrine. Fermeture au dos avec fente et bouton.
+blouse a noeud;femme;hauts;29,99;f_hauts2.jpg;Blouse fluide avec col en V et nœud de même tissu. Manches longues bouffantes. Bas asymétrique avec fentes latérales. Fermeture par boutons sur le devant.
+pantalon de jogging;femme;pantalons;17,99;f_pantalons1.jpg;Pantalon avec taille élastique et poches avant plaquées. Bande latérale en contraste. Bas élastique.
+pantalon imprime;femme;pantalons;9,99;f_pantalons2.jpg;Pantalon large à taille élastique.
+t-shirt power;enfants;t-shirts;2,99;t-shirts1.jpg;Haut à col rond et manches longues. Inscription imprimée sur le devant.
+t-shirt floque;enfants;t-shirts;6,99;t-shirts2.jpg;Haut gaufré à col rond et manches longues. Appliqué floqué en contraste sur le devant.
+jean damage;enfants;jeans;9,99;jeans1.jpg;Jean basique avec taille réglable de l'intérieur et fermeture par bouton. Cinq poches.
+jean a zips;enfants;jeans;14,99;jeans2.jpg;Jean à taille élastique et bouton avant.

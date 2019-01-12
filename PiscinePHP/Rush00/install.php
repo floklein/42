@@ -1,5 +1,5 @@
 <?php
-$csv_file = fopen("database/products.csv", "r");
+$csv_file = fopen("database/products2.csv", "r");
 $file_content = fgets($csv_file);
 $header_keys = explode(";", trim($file_content));
 while ($line = fgets($csv_file)) {
