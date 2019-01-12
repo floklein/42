@@ -6,6 +6,6 @@ if (file_exists("../private/chat")) {
     exit();
 }
 foreach ($tab as $key => $content) {
-    echo $content['login'] . " (" . $content['time'] . "): " . $content['msg'] . "<br>";
+    echo "[" . $content['time'] . "] <b>" . $content['login'] . "</b>: " . $content['msg'] . "<br />\n";
 }
 ?>
