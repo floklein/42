@@ -52,8 +52,16 @@ $products = unserialize($products_file);
         <li class="dropdown" style="float:right">
             <a href="#" class="dropbtn">Mon compte <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
+                <?php if ($_SESSION['logged_on_user'] == null) {?>
+                <a href="register.php">S'inscrire</a>
+                <a href="signin.php">Se connecter</a>
+                <?php
+                } else {?>
                 <a href="account.php">Mes preferences</a>
                 <a href="logout.php">Se deconnecter</a>
+                <?php
+                }
+                ?>
             </div>
         </li>
     </ul>
