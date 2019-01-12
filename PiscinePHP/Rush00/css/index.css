@@ -1,11 +1,16 @@
 @font-face {
     font-family: myBebasNeue;
-    src: url(fonts/BebasNeue.woff);
+    src: url(../fonts/BebasNeue.woff);
 }
 
 @font-face {
     font-family: myLeafy;
-    src: url(fonts/Leafy.woff);
+    src: url(../fonts/Leafy.woff);
+}
+
+@font-face {
+    font-family: myChlakh;
+    src: url(../fonts/Chlakh.ttf);
 }
 
 body {
@@ -93,7 +98,16 @@ li.dropdown {
     color: #5f9285;
     text-align: center;
     font-size: 100px;
-    margin: 45px 0px;
+    margin: 30px 0px;
+}
+
+.top-sub {
+    font-family: myChlakh;
+    color: grey;
+    text-align: center;
+    font-size: 25px;
+    margin: -35px 0px;
+    letter-spacing: 5px;
 }
 
 .img-arrow {
