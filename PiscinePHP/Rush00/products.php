@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LEAFY</title>
+    <title>Products</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/products.css" />
     <link rel="icon" href="../img/favicon.jpg">
 </head>
 
@@ -52,6 +52,34 @@
             </div>
         </li>
     </ul>
+    <div class="main">
+        <div class="title">
+            <p class="title-txt">- R o b e s -</p>
+        </div>
+        <div class="product">
+            <div class="prod-img">
+                <img class="prod-pic" src="../resources/dress1.jpg" alt="pic">
+            </div>
+            <div class="prod-vbar">
+            </div>
+        </div>
+        <div class="product">
+            <div class="prod-img">
+                <img class="prod-pic" src="../resources/dress2.jpg" alt="pic">
+            </div>
+        </div>
+        <div class="product">
+            <div class="prod-img">
+                <img class="prod-pic" src="../resources/dress3.jpg" alt="pic">
+            </div>
+        </div>
+        <div class="product">
+            <div class="prod-img">
+                <img class="prod-pic" src="../resources/dress4.jpg" alt="pic">
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
