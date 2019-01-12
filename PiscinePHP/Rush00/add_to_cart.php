@@ -5,7 +5,10 @@ $cat = $_GET['cat'];
 $subcat = $_GET['subcat'];
 $price = $_GET['price'];
 $img = $_GET['img'];
-$size = $_POST['size'];
+$size = isset($_POST['size']) ? $_POST['size'] : $_GET['size'];
+if (!isset($action) || !isset($name) || !isset($cat) || !isset($subcat) || !isset($price) || !isset($img) || !isset($size)) {
+    header("Location: cart.php");
+}
 if (!isset($_COOKIE['cart'])) {
     $tab = array();
 } else {
@@ -33,5 +36,5 @@ switch ($action) {
         }
         break;
 }
-var_dump($_COOKIE['cart']);
+header("Location: cart.php");
 ?>
