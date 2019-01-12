@@ -1,10 +1,15 @@
+<?php
+$products_file = file_get_contents("database/products.db");
+$products = unserialize($products_file);
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Products</title>
+    <title>LEAFY - Produits</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/products.css" />
     <link rel="icon" href="../img/favicon.jpg">
@@ -20,25 +25,25 @@
         <li class="dropdown">
             <a href="products.php?cat=homme" class="dropbtn">Homme <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
-                <a href="products.php?cat=homme&prod=hauts">Hauts</a>
-                <a href="products.php?cat=homme&prod=pantalons">Pantalons</a>
-                <a href="products.php?cat=homme&prod=accessoires">Accessoires</a>
+                <a href="products.php?cat=homme&subcat=hauts">Hauts</a>
+                <a href="products.php?cat=homme&subcat=pantalons">Pantalons</a>
+                <a href="products.php?cat=homme&subcat=accessoires">Accessoires</a>
             </div>
         </li>
         <li class="dropdown">
             <a href="products.php?cat=femme" class="dropbtn">Femme <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
-                <a href="products.php?cat=femme&prod=robes">Robes</a>
-                <a href="products.php?cat=femme&prod=hauts">Hauts</a>
-                <a href="products.php?cat=femme&prod=pantalons">Pantalons</a>
-                <a href="products.php?cat=femme&prod=sacs">Sacs</a>
+                <a href="products.php?cat=femme&subcat=robes">Robes</a>
+                <a href="products.php?cat=femme&subcat=hauts">Hauts</a>
+                <a href="products.php?cat=femme&subcat=pantalons">Pantalons</a>
+                <a href="products.php?cat=femme&subcat=sacs">Sacs</a>
             </div>
         </li>
         <li class="dropdown">
             <a href="products.php?cat=enfants" class="dropbtn">Enfants <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
-                <a href="products.php?cat=enfants&prod=tshirts">T-shirts</a>
-                <a href="products.php?cat=enfants&prod=jeans">Jeans</a>
+                <a href="products.php?cat=enfants&subcat=t-shirts">T-shirts</a>
+                <a href="products.php?cat=enfants&subcat=jeans">Jeans</a>
             </div>
         </li>
         <li class="dropdown" style="float:right">
@@ -54,116 +59,43 @@
     </ul>
     <div class="main">
         <div class="title">
-            <p class="title-txt">• robes •</p>
+            <p class="title-txt">• <?php echo ($_GET['subcat'] == null ? $_GET['cat'] : $_GET['subcat']);?> •</p>
         </div>
-        <div class="product">
-            <div class="prod-img">
-                <img class="prod-pic" src="../resources/dress1.jpg" alt="pic">
+        <?php
+        foreach($products as $product) {
+            if ($product['cat'] == $_GET['cat'] && ($_GET['subcat'] == null || $product['subcat'] == $_GET['subcat'])) {
+        ?>
+                <div class="product">
+                <div class="prod-img">
+                    <img class="prod-pic" src="../resources/<? echo $product['img'];?>" alt="pic">
+                </div>
+                <div class="prod-vbar"></div>
+                <div class="prod-title">
+                    <p class="prod-title-txt">-<?php echo $product['name'];?>-</p>
+                </div>
+                <p class="prod-desc-txt"><?php echo $product['desc'];?></p>
+                <div class="prod-price">
+                    <p class="prod-price-txt"><?php echo $product['price'];?> EUR</p>
+                </div>
+                <div class="prod-hbar"></div>
+                <div class="prod-size">
+                    <form class="prod-size-form" action="add_to_cart.php" method=$_GET>
+                        <select class="prod-size-form-select" name="size">
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                        <button class="prod-size-form-button" type="submit">Ajouter</button>
+                    </form>
+                </div>
             </div>
-            <div class="prod-vbar"></div>
-            <div class="prod-title">
-                <p class="prod-title-txt">-robe a noeud-</p>
-            </div>
-            <p class="prod-desc-txt">Robe avec col à revers, décolleté en V et manches longues. Nœud sur le devant. Zip dissimulé dans la couture sur le côté.</p>
-            <div class="prod-price">
-                <p class="prod-price-txt">25,99 EUR</p>
-            </div>
-            <div class="prod-hbar"></div>
-            <div class="prod-size">
-                <form class="prod-size-form" action="add_to_cart.php" method=$_GET>
-                    <select class="prod-size-form-select" name="size">
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
-                    </select>
-                    <button class="prod-size-form-button" type="submit">Ajouter</button>
-                </form>
-            </div>
-        </div>
-        <div class="product">
-            <div class="prod-img">
-                <img class="prod-pic" src="../resources/dress2.jpg" alt="pic">
-            </div>
-            <div class="prod-vbar"></div>
-            <div class="prod-title">
-                <p class="prod-title-txt">-robe a carreaux-</p>
-            </div>
-            <p class="prod-desc-txt">Robe fluide avec décolleté en V et manches 3/4. Coupe évasée. Ceinture ton sur ton.</p>
-            <div class="prod-price">
-                <p class="prod-price-txt">39,99 EUR</p>
-            </div>
-            <div class="prod-hbar"></div>
-            <div class="prod-size">
-                <form class="prod-size-form" action="add_to_cart.php" method=$_GET>
-                    <select class="prod-size-form-select" name="size">
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
-                    </select>
-                    <button class="prod-size-form-button" type="submit">Ajouter</button>
-                </form>
-            </div>
-        </div>
-        <div class="product">
-            <div class="prod-img">
-                <img class="prod-pic" src="../resources/dress3.jpg" alt="pic">
-            </div>
-            <div class="prod-vbar"></div>
-            <div class="prod-title">
-                <p class="prod-title-txt">-robe imprimee de chaines-</p>
-            </div>
-            <p class="prod-desc-txt">Robe ample à col rond avec décolleté en V et manches longues. Bas fendu sur les côtés.</p>
-            <div class="prod-price">
-                <p class="prod-price-txt">19,99 EUR</p>
-            </div>
-            <div class="prod-hbar"></div>
-            <div class="prod-size">
-                <form class="prod-size-form" action="add_to_cart.php" method=$_GET>
-                    <select class="prod-size-form-select" name="size">
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
-                    </select>
-                    <button class="prod-size-form-button" type="submit">Ajouter</button>
-                </form>
-            </div>
-        </div>
-        <div class="product">
-            <div class="prod-img">
-                <img class="prod-pic" src="../resources/dress4.jpg" alt="pic">
-            </div>
-            <div class="prod-vbar"></div>
-            <div class="prod-title">
-                <p class="prod-title-txt">-robe croisee a imprime floral-</p>
-            </div>
-            <p class="prod-desc-txt">Robe fluide à décolleté cache-cœur en V et manches 3/4 terminées par un volant. Ceinture asymétrique avec boucle. Coupe évasée.</p>
-            <div class="prod-price">
-                <p class="prod-price-txt">25,99 EUR</p>
-            </div>
-            <div class="prod-hbar"></div>
-            <div class="prod-size">
-                <form class="prod-size-form" action="add_to_cart.php" method=$_GET>
-                    <select class="prod-size-form-select" name="size">
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
-                    </select>
-                    <button class="prod-size-form-button" type="submit">Ajouter</button>
-                </form>
-            </div>
-        </div>
+        <?php
+            }
+        }
+        ?>
     </div>
 
 </body>

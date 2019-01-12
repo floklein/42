@@ -20,25 +20,25 @@
         <li class="dropdown">
             <a href="products.php?cat=homme" class="dropbtn">Homme <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
-                <a href="products.php?cat=homme&prod=hauts">Hauts</a>
-                <a href="products.php?cat=homme&prod=pantalons">Pantalons</a>
-                <a href="products.php?cat=homme&prod=accessoires">Accessoires</a>
+                <a href="products.php?cat=homme&subcat=hauts">Hauts</a>
+                <a href="products.php?cat=homme&subcat=pantalons">Pantalons</a>
+                <a href="products.php?cat=homme&subcat=accessoires">Accessoires</a>
             </div>
         </li>
         <li class="dropdown">
             <a href="products.php?cat=femme" class="dropbtn">Femme <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
-                <a href="products.php?cat=femme&prod=robes">Robes</a>
-                <a href="products.php?cat=femme&prod=hauts">Hauts</a>
-                <a href="products.php?cat=femme&prod=pantalons">Pantalons</a>
-                <a href="products.php?cat=femme&prod=sacs">Sacs</a>
+                <a href="products.php?cat=femme&subcat=robes">Robes</a>
+                <a href="products.php?cat=femme&subcat=hauts">Hauts</a>
+                <a href="products.php?cat=femme&subcat=pantalons">Pantalons</a>
+                <a href="products.php?cat=femme&subcat=sacs">Sacs</a>
             </div>
         </li>
         <li class="dropdown">
             <a href="products.php?cat=enfants" class="dropbtn">Enfants <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
-                <a href="products.php?cat=enfants&prod=tshirts">T-shirts</a>
-                <a href="products.php?cat=enfants&prod=jeans">Jeans</a>
+                <a href="products.php?cat=enfants&subcat=t-shirts">T-shirts</a>
+                <a href="products.php?cat=enfants&subcat=jeans">Jeans</a>
             </div>
         </li>
         <li class="dropdown" style="float:right">
