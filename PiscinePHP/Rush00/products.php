@@ -54,27 +54,60 @@
     </ul>
     <div class="main">
         <div class="title">
-            <p class="title-txt">- R o b e s -</p>
+            <p class="title-txt">• robes •</p>
         </div>
         <div class="product">
             <div class="prod-img">
                 <img class="prod-pic" src="../resources/dress1.jpg" alt="pic">
             </div>
             <div class="prod-vbar"></div>
+            <div class="prod-title">
+                <p class="prod-title-txt">-robe a noeud-</p>
+            </div>
+            <p class="prod-desc-txt">Robe avec col à revers, décolleté en V et manches longues. Nœud sur le devant. Zip dissimulé dans la couture sur le côté.</p>
+            <div class="prod-price">
+                <p class="prod-price-txt">25,99 EUR</p>
+            </div>
+            <div class="prod-hbar"></div>
+            <div class="prod-size">
+                <form class="prod-size-form" action="add_to_cart.php" method=$_GET>
+                    <select class="prod-size-form-select" name="size">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                    <button class="prod-size-form-button" type="submit">Ajouter</button>
+                </form>
+            </div>
         </div>
         <div class="product">
             <div class="prod-img">
                 <img class="prod-pic" src="../resources/dress2.jpg" alt="pic">
+            </div>
+            <div class="prod-vbar"></div>
+            <div class="prod-title">
+                <p class="prod-title-txt">-robe a noeud-</p>
             </div>
         </div>
         <div class="product">
             <div class="prod-img">
                 <img class="prod-pic" src="../resources/dress3.jpg" alt="pic">
             </div>
+            <div class="prod-vbar"></div>
+            <div class="prod-title">
+                <p class="prod-title-txt">-robe a noeud-</p>
+            </div>
         </div>
         <div class="product">
             <div class="prod-img">
                 <img class="prod-pic" src="../resources/dress4.jpg" alt="pic">
+            </div>
+            <div class="prod-vbar"></div>
+            <div class="prod-title">
+                <p class="prod-title-txt">-robe a noeud-</p>
             </div>
         </div>
     </div>
