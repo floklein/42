@@ -54,6 +54,13 @@
     </ul>
     <div class="main">
         <img class="home-img" src="../img/home<?php echo (time() % 2);?>.png">
+        <div class="home-txt">
+            <h1>Bienvenue.</h1>
+            <div class="home-txt-par">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas fermentum velit a pellentesque. Suspendisse consectetur tristique leo, et lacinia odio gravida nec. Pellentesque scelerisque orci in ipsum efficitur pretium. Pellentesque metus leo, rutrum quis sapien sagittis, rutrum venenatis sapien. In hac habitasse platea dictumst. Curabitur cursus tincidunt nisl, non eleifend velit dictum nec. Praesent non vestibulum lacus.</p>
+                <h2>Alexandre Florent</h2>
+            </div>
+        </div>
     </div>
 </body>
 
