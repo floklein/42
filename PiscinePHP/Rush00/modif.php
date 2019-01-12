@@ -23,7 +23,7 @@ foreach ($tab as $key => $user) {
             exit();
         }
     }
-    header("Location: index.html");
+    header("Location: index.php");
 }
 ?>
 

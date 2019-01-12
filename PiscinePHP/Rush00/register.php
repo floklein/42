@@ -62,12 +62,12 @@
             <div class="title"><p class="title-txt">Inscrivez-vous</p></div>
                 <form action="create.php" method="POST">
                     <?php if ($_GET['request'] == "error") {?>
-                    <input class="form invalid" class="form"type="text" name="login" placeholder="Login invalide"><br>
+                    <input class="form invalid" class="form"type="text" name="login" placeholder="Email invalide"><br>
                     <input class="form invalid" type="password" name="passwd" placeholder="Mot de passe invalide"><br>
                     <input class="form invalid" type="password" name="confirm" placeholder="Mot de passe invalide"><br>
                     <?php } else {?>
-                    <input class="form" class="form"type="text" name="login" placeholder="Nouveau login"><br>
-                    <input class="form" type="password" name="passwd" placeholder="Nouveau mot de passe"><br>
+                    <input class="form" class="form"type="text" name="login" placeholder="Votre adresse email"><br>
+                    <input class="form" type="password" name="passwd" placeholder="Choisissez un mot de passe"><br>
                     <input class="form" type="password" name="confirm" placeholder="Confirmez votre mot de passe"><br>
                     <?php }?>
                     <button class="form-button" type="submit" name="submit" value="OK">S'inscrire</button>

@@ -62,10 +62,10 @@
             <div class="title"><p class="title-txt">Connectez-vous</p></div>
             <form action="login.php" method="POST">
                 <?php if ($_GET['request'] == "error") {?>
-                <input class="form invalid" type="text" name="login" placeholder="Identifiant invalide"><br>
+                <input class="form invalid" type="text" name="login" placeholder="Email invalide"><br>
                 <input class="form invalid" type="password" name="passwd" placeholder="Mot de passe invalide"><br>
                 <?php } else {?>
-                <input class="form" type="text" name="login" placeholder="Identifiant"><br>
+                <input class="form" type="text" name="login" placeholder="Adresse email"><br>
                 <input class="form" type="password" name="passwd" placeholder="Mot de passe"><br>
                 <?php }?>
                 <button class="form-button" type="submit" name="submit" value="OK">Se connecter</button>
