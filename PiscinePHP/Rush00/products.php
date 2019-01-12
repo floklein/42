@@ -12,7 +12,7 @@ $products = unserialize($products_file);
     <title>LEAFY - Produits</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/products.css" />
-    <link rel="icon" href="../img/favicon.jpg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
 </head>
 
 <body>
@@ -75,7 +75,7 @@ $products = unserialize($products_file);
         ?>
                 <div class="product">
                 <div class="prod-img">
-                    <img class="prod-pic" src="../resources/<? echo $product['img'];?>" alt="pic">
+                    <img class="prod-pic" src="../resources/<? echo $product['img'];?>" alt="product preview pic">
                 </div>
                 <div class="prod-vbar"></div>
                 <div class="prod-title">

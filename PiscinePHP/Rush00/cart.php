@@ -13,7 +13,7 @@ if (isset($_COOKIE['cart'])) {
     <title>LEAFY - Produits</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/products.css" />
-    <link rel="icon" href="../img/favicon.jpg">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
 </head>
 
 <body>
