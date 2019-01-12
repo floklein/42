@@ -87,7 +87,7 @@ $products = unserialize($products_file);
                 </div>
                 <div class="prod-hbar"></div>
                 <div class="prod-size">
-                    <form class="prod-size-form" action="add_to_cart.php" method=$_GET>
+                    <form class="prod-size-form" action="add_to_cart.php?<?= "action=add&name=" . $product['name'] . "&cat=" . $product['cat'] . "&subcat=" . $product['subcat'] . "&price=" . $product['price'] . "&img=" . $product['img'];?>" method="POST">
                         <select class="prod-size-form-select" name="size">
                             <option value="XS">XS</option>
                             <option value="S">S</option>
