@@ -1,9 +1,11 @@
 <?php
 $login = $_POST['login'];
 $passwd = $_POST['passwd'];
+$confirm = $_POST['confirm'];
 $submit = $_POST['submit'];
-if (!$login || !$passwd || $submit != "OK") {
-    exit("ERROR\n");
+if (!$login || !$passwd || !$confirm || $passwd != $confirm || $submit != "OK") {
+    header("Location: register.php?request=error");
+    exit();
 }
 if (file_exists("private/passwd")) {
     $pwd_file = file_get_contents("private/passwd");
@@ -16,7 +18,8 @@ if (file_exists("private/passwd")) {
 }
 foreach ($tab as $key=>$user) {
     if ($user['login'] == $login) {
-        exit("ERROR\n");
+        header("Location: register.php?request=error");
+        exit();
     }
 }
 $tab[$key + 1]['login'] = $login;
