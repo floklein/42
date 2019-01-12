@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Se connecter</title>
+    <title>LEAFY - Se connecter</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/signin.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
@@ -71,7 +71,7 @@
                 <?php }?>
                 <button class="form-button" type="submit" name="submit" value="OK">Se connecter</button>
             </form>
-        <button class="form-button" action="register.php">Créer un compte</a>
+        <a href="register.php"><button class="form-button">Créer un compte</button></a>
         </div>
     </div>
 </body>

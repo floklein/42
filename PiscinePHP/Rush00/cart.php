@@ -10,7 +10,7 @@ if (isset($_COOKIE['cart'])) {
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LEAFY - Produits</title>
+    <title>LEAFY - Mon panier</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/products.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
