@@ -60,8 +60,7 @@
             <div class="prod-img">
                 <img class="prod-pic" src="../resources/dress1.jpg" alt="pic">
             </div>
-            <div class="prod-vbar">
-            </div>
+            <div class="prod-vbar"></div>
         </div>
         <div class="product">
             <div class="prod-img">

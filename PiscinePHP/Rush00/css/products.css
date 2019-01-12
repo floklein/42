@@ -187,6 +187,7 @@ li.dropdown {
     position: relative;
     top: 10%;
     height: 80%;
+    width: 1px;
     left: 235px;
     border-left: solid 1px black;
 }
