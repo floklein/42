@@ -52,6 +52,9 @@
             </div>
         </li>
     </ul>
+    <div class="main">
+        <img class="home-img" src="../img/home<?php echo (time() % 2);?>.png">
+    </div>
 </body>
 
 </html>
