@@ -1,4 +1,5 @@
 <?php
+session_start();
 $products_file = file_get_contents("database/products.db");
 $products = unserialize($products_file);
 ?>
