@@ -149,6 +149,10 @@ li.dropdown {
     box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.20);
 }
 
+.bigger {
+    height: 470px;
+}
+
 .title {
     position: relative;
     top: 47px;
@@ -229,9 +233,6 @@ li.dropdown {
     height: 20px;
     border: none;
     background-color: white;
-}
-
-.search-button:hover {
 }
 
 .img-loupe {

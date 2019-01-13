@@ -21,5 +21,11 @@ while ($line = fgets($cat_file)) {
 }
 $out2 = serialize($categories);
 file_put_contents("database/categories.db", $out2);
+if (file_exists("private/passwd")) {
+    unlink("private/passwd");
+}
+if (file_exists("private/carts")) {
+    unlink("private/carts");
+}
 header("Location: index.php?database=installed");
 ?>

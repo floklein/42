@@ -70,3 +70,8 @@
 .disconnect:hover {
     background-color: #cc7171;
 }
+
+.commands-table {
+    position: relative;
+    top: 100px;
+}

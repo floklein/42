@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost:8080/cart.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LEAFY - Mon panier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./LEAFY - Mon panier_files/products.css">
+    <link rel="icon" type="image/x-icon" href="http://localhost:8080/favicon.ico?v=1">
+</head>
+
+<body>
+    <div class="top-div">
+        <p class="top-txt">- LEAFY -</p>
+        <p class="top-sub">Fashion. Greener.</p><p>
+    </p></div>
+    <ul style="top: 150px">
+        <li><a href="http://localhost:8080/index.php">Accueil</a></li>
+                <li class="dropdown">
+            <a href="http://localhost:8080/products.php?cat=homme" class="dropbtn">homme <img src="./LEAFY - Mon panier_files/arrow.png" class="img-arrow"></a>
+            <div class="dropdown-content">
+                            <a href="http://localhost:8080/products.php?cat=homme&amp;subcat=hauts">hauts</a>
+                            <a href="http://localhost:8080/products.php?cat=homme&amp;subcat=pantalons">pantalons</a>
+                            <a href="http://localhost:8080/products.php?cat=homme&amp;subcat=accessoires">accessoires</a>
+                        </div>
+        </li>
+                <li class="dropdown">
+            <a href="http://localhost:8080/products.php?cat=femme" class="dropbtn">femme <img src="./LEAFY - Mon panier_files/arrow.png" class="img-arrow"></a>
+            <div class="dropdown-content">
+                            <a href="http://localhost:8080/products.php?cat=femme&amp;subcat=robes">robes</a>
+                            <a href="http://localhost:8080/products.php?cat=femme&amp;subcat=hauts">hauts</a>
+                            <a href="http://localhost:8080/products.php?cat=femme&amp;subcat=pantalons">pantalons</a>
+                            <a href="http://localhost:8080/products.php?cat=femme&amp;subcat=sacs">sacs</a>
+                        </div>
+        </li>
+                <li class="dropdown">
+            <a href="http://localhost:8080/products.php?cat=enfants" class="dropbtn">enfants <img src="./LEAFY - Mon panier_files/arrow.png" class="img-arrow"></a>
+            <div class="dropdown-content">
+                            <a href="http://localhost:8080/products.php?cat=enfants&amp;subcat=t-shirts">t-shirts</a>
+                            <a href="http://localhost:8080/products.php?cat=enfants&amp;subcat=jeans">jeans</a>
+                        </div>
+        </li>
+                <li class="dropdown" style="float:right">
+            <a href="http://localhost:8080/cart.php" class="dropbtn"><img src="./LEAFY - Mon panier_files/bag.png" class="img-bag"></a>
+        </li>
+        <li class="dropdown" style="float:right">
+            <a href="http://localhost:8080/cart.php#" class="dropbtn">Mon compte <img src="./LEAFY - Mon panier_files/arrow.png" class="img-arrow"></a>
+            <div class="dropdown-content">
+                                <a href="http://localhost:8080/account.php">Mes preferences</a>
+                <a href="http://localhost:8080/logout.php">Se deconnecter</a>
+                            </div>
+        </li>
+        <li class="dropdown" style="float:right">
+		    <form method="GET" action="http://localhost:8080/search.php" class="dropbtn">
+			    <input class="search-bar" type="text" name="search" placeholder="Rechercher...">
+                <button class="search-button" type="submit"><img class="img-loupe" src="./LEAFY - Mon panier_files/loupe.png"></button>
+		    </form>
+	    </li>
+    </ul>
+    <div class="main">
+        <div class="title">
+            <p class="title-txt">• Mon panier •</p>
+        </div>
+                        <div class="product">
+                <div class="prod-img">
+                    <img class="prod-pic" src="./LEAFY - Mon panier_files/h_hauts1.jpg" alt="pic">
+                </div>
+                <div class="prod-vbar"></div>
+                <div class="prod-title">
+                    <p class="prod-title-txt">-haut imprime fleurs-</p>
+                </div>
+                <p class="prod-desc-txt"></p>
+                <div class="prod-price">
+                    <p class="prod-price-txt">XS - 9,99 EUR</p>
+                </div>
+                <div class="prod-hbar"></div>
+                <div class="prod-size">
+                    <form class="prod-size-form" action="http://localhost:8080/manage_cart.php?action=del&amp;name=haut%20imprime%20fleurs&amp;cat=homme&amp;subcat=hauts&amp;price=9,99&amp;img=h_hauts1.jpg&amp;size=XS" method="POST">
+                        <select class="prod-size-form-select" name="quantity">
+                            <option value="S">1</option>
+                            <option value="M">2</option>
+                            <option value="L">3</option>
+                            <option value="XL">4</option>
+                            <option value="XXL">5</option>
+                        </select>
+                        <button class="prod-size-form-button" type="submit">Supprimer</button>
+                    </form>
+                </div>
+            </div>
+                    <div class="bottom-pay">
+            <h1 class="total">Total : 9,99 EUR</h1>
+        </div>
+    </div>
+
+
+
+</body></html>
