@@ -1,8 +1,8 @@
 <?php
-$csv_file = fopen("database/products.csv", "r");
-$file_content = fgets($csv_file);
-$header_keys = explode(";", trim($file_content));
-while ($line = fgets($csv_file)) {
+$prod_file = fopen("database/products.csv", "r");
+$prod_content = fgets($prod_file);
+$header_keys = explode(";", trim($prod_content));
+while ($line = fgets($prod_file)) {
     $csv_line = explode(";", trim($line));
     $j = 0;
     foreach ($header_keys as $key) {
@@ -13,5 +13,13 @@ while ($line = fgets($csv_file)) {
 }
 $out = serialize($products);
 file_put_contents("database/products.db", $out);
+$cat_file = fopen("database/categories.csv", "r");
+fgets($cat_file);
+while ($line = fgets($cat_file)) {
+    $cat_line = explode(";", trim($line));
+    $categories[$cat_line[0]] = explode(",", $cat_line[1]);
+}
+$out2 = serialize($categories);
+file_put_contents("database/categories.db", $out2);
 header("Location: index.php?database=installed");
 ?>
