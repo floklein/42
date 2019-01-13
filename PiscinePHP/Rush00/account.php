@@ -1,5 +1,7 @@
 <?php
 session_start();
+$categories_file = file_get_contents("database/categories.db");
+$categories = unserialize($categories_file);
 ?>
 
 <!DOCTYPE html>
@@ -19,30 +21,16 @@ session_start();
     </div>
     <ul style="top: 150px">
         <li><a href="index.php">Accueil</a></li>
+        <?php foreach ($categories as $key => $subcats) {?>
         <li class="dropdown">
-            <a href="products.php?cat=homme" class="dropbtn">Homme <img src="img/arrow.png" class="img-arrow"></a>
+            <a href="products.php?cat=<?= $key?>" class="dropbtn"><?= $key?> <img src="img/arrow.png" class="img-arrow"></a>
             <div class="dropdown-content">
-                <a href="products.php?cat=homme&subcat=hauts">Hauts</a>
-                <a href="products.php?cat=homme&subcat=pantalons">Pantalons</a>
-                <a href="products.php?cat=homme&subcat=accessoires">Accessoires</a>
+            <?php foreach($subcats as $subcat) {?>
+                <a href="products.php?cat=<?= $key?>&subcat=<?= $subcat?>"><?= $subcat?></a>
+            <?php }?>
             </div>
         </li>
-        <li class="dropdown">
-            <a href="products.php?cat=femme" class="dropbtn">Femme <img src="img/arrow.png" class="img-arrow"></a>
-            <div class="dropdown-content">
-                <a href="products.php?cat=femme&subcat=robes">Robes</a>
-                <a href="products.php?cat=femme&subcat=hauts">Hauts</a>
-                <a href="products.php?cat=femme&subcat=pantalons">Pantalons</a>
-                <a href="products.php?cat=femme&subcat=sacs">Sacs</a>
-            </div>
-        </li>
-        <li class="dropdown">
-            <a href="products.php?cat=enfants" class="dropbtn">Enfants <img src="img/arrow.png" class="img-arrow"></a>
-            <div class="dropdown-content">
-                <a href="products.php?cat=enfants&subcat=t-shirts">T-shirts</a>
-                <a href="products.php?cat=enfants&subcat=jeans">Jeans</a>
-            </div>
-        </li>
+        <?php }?>
         <li class="dropdown" style="float:right">
             <a href="cart.php" class="dropbtn"><img src="img/bag.png" class="img-bag"></a>
         </li>
