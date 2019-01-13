@@ -68,7 +68,7 @@
         </li>
     </ul>
     <div class="main">
-        <img class="home-img" src="../img/home<?php echo (time() % 3);?>.png" alt="Leafy home background image">
+        <img class="home-img" src="../img/home<?php echo (time() % 3);?>.jpg" alt="Leafy home background image">
         <div class="home-txt">
             <h1>Bienvenue.</h1>
             <div class="home-txt-par">
