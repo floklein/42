@@ -15,34 +15,38 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>Admin</title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" type="text/css" media="screen" href="css/signin.css" />
+            <link rel="stylesheet" type="text/css" media="screen" href="css/admin.css" />
         </head>
         <body>
-        <form action="manage_database.php" method="POST">Manage product:<br>
-            <input type="text" name="name" placeholder="name">
-            <input type="text" name="cat" placeholder="cat">
-            <input type="text" name="subcat" placeholder="subcat">
-            <input type="text" name="price" placeholder="price">
-            <input type="text" name="img" placeholder="img">
-            <input type="text" name="desc" placeholder="desc">
-            <button type="submit" name="action" value="add_prod">+</button>
-            <button type="submit" name="action" value="del_prod">-</button>
+        <h1 class="txt admin">Admin</h1>
+        <form action="manage_database.php" method="POST"><p class="txt">product:</p><br>
+            <input class="form" type="text" name="name" placeholder="name">
+            <input class="form" type="text" name="cat" placeholder="cat">
+            <input class="form" type="text" name="subcat" placeholder="subcat">
+            <input class="form" type="text" name="price" placeholder="price">
+            <input class="form" type="text" name="img" placeholder="img">
+            <input class="form" style="width: 250px" type="text" name="desc" placeholder="desc">
+            <button class="form-button" type="submit" name="action" value="add_prod">+</button>
+            <button class="form-button" type="submit" name="action" value="del_prod">-</button>
         </form><br>
-        <form action="manage_database.php" method="POST">Manage categories:<br>
-            <input type="text" name="cat" placeholder="cat">
-            <button type="submit" name="action" value="add_cat">+</button>
-            <button type="submit" name="action" value="del_cat">-</button>
+        <form action="manage_database.php" method="POST"><p class="txt">categories:</p><br>
+            <input class="form" type="text" name="cat" placeholder="cat">
+            <button class="form-button" type="submit" name="action" value="add_cat">+</button>
+            <button class="form-button" type="submit" name="action" value="del_cat">-</button>
         </form><br>
-        <form action="manage_database.php" method="POST">Manage subcategories:<br>
-            <input type="text" name="cat" placeholder="cat">
-            <input type="text" name="subcat" placeholder="subcat">
-            <button type="submit" name="action" value="add_subcat">+</button>
-            <button type="submit" name="action" value="del_subcat">-</button>
+        <form action="manage_database.php" method="POST"><p class="txt">subcategories:</p><br>
+            <input class="form" type="text" name="cat" placeholder="cat">
+            <input class="form" type="text" name="subcat" placeholder="subcat">
+            <button class="form-button" type="submit" name="action" value="add_subcat">+</button>
+            <button class="form-button" type="submit" name="action" value="del_subcat">-</button>
         </form><br>
-        <form action="manage_database.php" method="POST">Manage users:<br>
-            <input type="text" name="cat" placeholder="user">
-            <button type="submit" name="action" value="del_user">-</button>
+        <form action="manage_database.php" method="POST"><p class="txt">users:</p><br>
+            <input class="form" type="text" name="login" placeholder="login">
+            <button class="form-button" type="submit" name="action" value="del_user">-</button>
         </form><br>
-        <a href="admin_logout.php">Déconnexion</a>    
+        <a href="admin_logout.php"><button class="form-button disconnect">Déconnexion</button></a><br>
+        <iframe src="index.php" style="position: relative; top: 30px; width: 90%; height: 1200px; left: 50%; transform: translate(-50%);"></iframe>
         </body>
         </html>
         <?php
