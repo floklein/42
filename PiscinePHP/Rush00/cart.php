@@ -109,7 +109,7 @@ if ($_SESSION['logged_on_user'] != null) {
         if ($total !== "0,00") {?>
         <div class=bottom-pay>
             <h1 class="total"><?=$i ?> article<?php if ($i > 1) {echo "s";} ?> - Total : <?= str_replace('.', ',', $total)?> EUR</h1>
-            <a href="pay.php"><button class="pay">Commander</button></a>
+            <a href="<?php if ($_SESSION['logged_on_user'] != null) { echo "pay.php"; } else { echo "signin.php"; }?>"><button class="pay">Commander</button></a>
         </div>
         <?php }?>
     </div>

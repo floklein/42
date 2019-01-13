@@ -27,5 +27,8 @@ if (file_exists("private/passwd")) {
 if (file_exists("private/carts")) {
     unlink("private/carts");
 }
+session_start();
+session_unset();
+session_destroy();
 header("Location: index.php?database=installed");
 ?>

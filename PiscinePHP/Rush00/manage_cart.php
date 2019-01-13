@@ -16,8 +16,15 @@ if (!isset($_COOKIE['cart'])) {
 } else {
     $tab = unserialize($_COOKIE['cart']);
 }
-$carts_file = file_get_contents("private/carts");
-$carts = unserialize($carts_file);
+if (file_exists("private/carts")) {
+    $carts_file = file_get_contents("private/carts");
+    $carts = unserialize($carts_file);
+} else {
+    if (!file_exists("private")) {
+        mkdir("private");
+    }
+    $carts = array();
+}
 switch ($action) {
     case "add":
         if ($_SESSION['logged_on_user'] == null) {
