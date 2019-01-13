@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if (!file_exists("database/products.db")) {
+        header("Location: install.php");
+    }
 ?>
 
 <!DOCTYPE html>
