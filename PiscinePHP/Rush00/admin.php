@@ -1,6 +1,6 @@
 <?php
 $auth_usr = "admin";
-$auth_pwd = "abf547e84ab54b0017a10847e3c18e267e088f1d466486945f18d3c8815b2579";
+$auth_pwd = "1a017e55583d1a14ca48fefc9fcf7b6489d584b2d0bcc917bbaa1ddc70a1dcf3";
 if (!isset($_SERVER['PHP_AUTH_USER'])) {
     header('WWW-Authenticate: Basic realm="Admin"');
     header('HTTP/1.0 401 Unauthorized');
