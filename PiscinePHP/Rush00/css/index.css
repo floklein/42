@@ -91,7 +91,7 @@ li.dropdown {
     position: fixed;
     top: 0;
     left: 0;
-    height: 194px;
+    height: 197px;
     width: 100%;
     background-color: white;
     border-bottom-style: solid;
@@ -176,4 +176,35 @@ li.dropdown {
     font-family: myTN;
     line-height: 30px;
     color: black;
+}
+
+.search-bar {
+    width: 130px;
+    height: 16px;
+    font-size: 16px;
+    border: none;
+    border-bottom: solid 1px #9CC2AF;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 1px 7px 2px 7px;
+    font-size: 11px;
+    background: white;
+}
+
+.search-button {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: white;
+}
+
+.search-button:hover {
+}
+
+.img-loupe {
+    position: relative;
+    height: 10px;
+    left: -2.5px;
+    top: 1px;
 }

@@ -1,15 +1,9 @@
 <?php
 session_start();
+$products_file = file_get_contents("database/products.db");
+$products = unserialize($products_file);
 $categories_file = file_get_contents("database/categories.db");
 $categories = unserialize($categories_file);
-if (isset($_COOKIE['cart'])) {
-    $cart = unserialize($_COOKIE['cart']);
-}
-if ($_SESSION['logged_on_user'] != null) {
-    $carts_file = file_get_contents("private/carts");
-    $carts = unserialize($carts_file);
-    $cart = $carts[$_SESSION['logged_on_user']['login']];
-}
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +12,7 @@ if ($_SESSION['logged_on_user'] != null) {
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LEAFY - Mon panier</title>
+    <title>LEAFY - Recherche</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/products.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
@@ -68,15 +62,15 @@ if ($_SESSION['logged_on_user'] != null) {
     </ul>
     <div class="main">
         <div class="title">
-            <p class="title-txt">• Mon panier •</p>
+            <p class="title-txt">• Resultats pour "<?=$_GET['search']?>" •</p>
         </div>
         <?php
-        if (isset($_COOKIE['cart'])) {
-            foreach($cart as $product) {
-            ?>
+        foreach($products as $product) {
+            if ($_GET['search'] != null && (strpos($product['name'], $_GET['search']) !== false || strpos($product['cat'], $_GET['search']) !== false || strpos($product['subcat'], $_GET['search']) !== false)) {
+        ?>
                 <div class="product">
                 <div class="prod-img">
-                    <img class="prod-pic" src="../resources/<? echo $product['img'];?>" alt="pic">
+                    <img class="prod-pic" src="../resources/<? echo $product['img'];?>" alt="product preview pic">
                 </div>
                 <div class="prod-vbar"></div>
                 <div class="prod-title">
@@ -84,23 +78,24 @@ if ($_SESSION['logged_on_user'] != null) {
                 </div>
                 <p class="prod-desc-txt"><?php echo $product['desc'];?></p>
                 <div class="prod-price">
-                    <p class="prod-price-txt"><?php echo $product['size'] . " - " . $product['price'];?> EUR</p>
+                    <p class="prod-price-txt"><?php echo $product['price'];?> EUR</p>
                 </div>
                 <div class="prod-hbar"></div>
                 <div class="prod-size">
-                    <form class="prod-size-form" action="manage_cart.php?<?= "action=del&name=" . $product['name'] . "&cat=" . $product['cat'] . "&subcat=" . $product['subcat'] . "&price=" . $product['price'] . "&img=" . $product['img'] . "&size=" . $product['size'];?>" method="POST">
-                        <select class="prod-size-form-select" name="quantity">
-                            <option value="S">1</option>
-                            <option value="M">2</option>
-                            <option value="L">3</option>
-                            <option value="XL">4</option>
-                            <option value="XXL">5</option>
+                    <form class="prod-size-form" action="manage_cart.php?<?= "action=add&name=" . $product['name'] . "&cat=" . $product['cat'] . "&subcat=" . $product['subcat'] . "&price=" . $product['price'] . "&img=" . $product['img'];?>" method="POST">
+                        <select class="prod-size-form-select" name="size">
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
                         </select>
-                        <button class="prod-size-form-button" type="submit">Supprimer</button>
+                        <button class="prod-size-form-button" type="submit">Ajouter</button>
                     </form>
                 </div>
             </div>
-            <?php
+        <?php
             }
         }
         ?>
