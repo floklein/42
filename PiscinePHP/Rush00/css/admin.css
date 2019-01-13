@@ -71,7 +71,28 @@
     background-color: #cc7171;
 }
 
+
+.table, th, td{
+    width: 1000px;
+    border: solid 1px black;
+}
+
+.table td {
+    background-color: white;
+}
+
+.table th {
+    background-color: #5f9285;
+    color: whitesmoke;
+}
+
+.subtable th {
+    background-color: #a1b4b0;
+    color: black;
+}
+
 .commands-table {
     position: relative;
+    width: 100%;
     top: 100px;
 }
