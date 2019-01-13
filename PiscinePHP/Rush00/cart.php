@@ -1,6 +1,12 @@
 <?php
+session_start();
 if (isset($_COOKIE['cart'])) {
     $cart = unserialize($_COOKIE['cart']);
+}
+if ($_SESSION['logged_on_user'] != null) {
+    $carts_file = file_get_contents("private/carts");
+    $carts = unserialize($carts_file);
+    $cart = $carts[$_SESSION['logged_on_user']['login']];
 }
 ?>
 

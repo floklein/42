@@ -16,6 +16,15 @@ if (file_exists("private/passwd")) {
     }
     $tab = array();
 }
+if (file_exists("private/carts")) {
+    $carts_file = file_get_contents("private/carts");
+    $carts = unserialize($carts_file);
+} else {
+    if (!file_exists("private")) {
+        mkdir("private");
+    }
+    $carts = array();
+}
 foreach ($tab as $key=>$user) {
     if ($user['login'] == $login) {
         header("Location: register.php?request=error");
@@ -24,8 +33,11 @@ foreach ($tab as $key=>$user) {
 }
 $tab[$key + 1]['login'] = $login;
 $tab[$key + 1]['passwd'] = hash("sha256",$passwd);
+$carts[$login] = array();
 $out = serialize($tab);
+$out2 = serialize($carts);
 file_put_contents("private/passwd", $out);
+file_put_contents("private/carts", $out2);
 header("Location: signin.php");
 ?>
 
