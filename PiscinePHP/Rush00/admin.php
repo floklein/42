@@ -17,6 +17,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" type="text/css" media="screen" href="css/signin.css" />
             <link rel="stylesheet" type="text/css" media="screen" href="css/admin.css" />
+            <link rel="icon" type="image/x-icon" href="favicon.ico?v=1" />
         </head>
         <body>
         <h1 class="txt admin">Admin</h1>

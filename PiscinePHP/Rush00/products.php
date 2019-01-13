@@ -53,6 +53,12 @@ $categories = unserialize($categories_file);
                 ?>
             </div>
         </li>
+        <li class="dropdown" style="float:right">
+		    <form method="GET" action="search.php" class="dropbtn">
+			    <input class="search-bar" type="text" name="search" placeholder="Rechercher...">
+                <button class="search-button" type="submit"><img class="img-loupe" src="img/loupe.png"></button>
+		    </form>
+	    </li>
     </ul>
     <div class="main">
         <div class="title">
