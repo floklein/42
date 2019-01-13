@@ -7,6 +7,8 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     exit();
 } else {
     if ($_SERVER['PHP_AUTH_USER'] == $auth_usr && hash("sha256", $_SERVER['PHP_AUTH_PW']) == $auth_pwd) {
+        $commands_file = file_get_contents("database/commands.db");
+        $commands = unserialize($commands_file);
         ?>
         <!DOCTYPE html>
         <html>
@@ -48,6 +50,51 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
         </form><br>
         <a href="admin_logout.php"><button class="form-button disconnect">Déconnexion</button></a><br>
         <iframe src="index.php" style="position: relative; top: 30px; width: 90%; height: 1200px; left: 50%; transform: translate(-50%);"></iframe>
+        <table class="commands-table">
+            <tr>
+                <th>Date</th>
+                <th>Utilisateur</th>
+                <th>Commande</th>
+                <th>Total</th>
+            </tr>
+        <?php
+        if ($commands) {
+            foreach ($commands as $command) {
+                $total = 0;
+                ?>
+                <tr>
+                    <td><?= $command['time']?></td>
+                    <td><?= $command['user']?></td>
+                    <td>
+                        <table>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Catégorie</th>
+                                <th>Sous-catégorie</th>
+                                <th>Taille</th>
+                                <th>Prix</th>
+                            </tr>
+                        <?php foreach ($command['command'] as $product) {
+                        $total += floatval(str_replace(',','.', $product['price']));
+                        ?>
+                        <tr>
+                            <td><?= $product['name']?></td>    
+                            <td><?= $product['cat']?></td>    
+                            <td><?= $product['subcat']?></td>    
+                            <td><?= $product['size']?></td>    
+                            <td><?= $product['price'] . " EUR"?></td>    
+                        </tr>
+                        <?php    
+                        }?>
+                        </table>
+                    </td>
+                    <td><?= $total . " EUR"?></td>
+                </tr>
+                <?php
+            }
+        }
+        ?>
+        </table>
         </body>
         </html>
         <?php

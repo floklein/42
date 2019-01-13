@@ -57,7 +57,7 @@ $categories = unserialize($categories_file);
 	    </li>
     </ul>
     <div class="main">
-        <div class="window">
+        <div class="window bigger">
             <div class="title"><p class="title-txt">Mes preferences</p></div>
             <form action="modif.php" method="POST">
                 <?php if ($_GET['request'] == "error") {?>
@@ -71,6 +71,7 @@ $categories = unserialize($categories_file);
                 <?php }?>
                 <button class="form-button" type="submit" name="submit" value="OK">Modifier</button>
             </form>
+            <a href="delete.php"><button class="form-button">Supprimer mon compte</button></a>
         </div>
     </div>
 </body>

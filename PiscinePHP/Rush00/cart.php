@@ -71,8 +71,11 @@ if ($_SESSION['logged_on_user'] != null) {
             <p class="title-txt">• Mon panier •</p>
         </div>
         <?php
-        if (isset($_COOKIE['cart'])) {
+        $total = "0,00";
+        if ($cart) {
             foreach($cart as $product) {
+                $i++;
+                $total += floatval(str_replace(',','.', $product['price']));
             ?>
                 <div class="product">
                 <div class="prod-img">
@@ -89,13 +92,13 @@ if ($_SESSION['logged_on_user'] != null) {
                 <div class="prod-hbar"></div>
                 <div class="prod-size">
                     <form class="prod-size-form" action="manage_cart.php?<?= "action=del&name=" . $product['name'] . "&cat=" . $product['cat'] . "&subcat=" . $product['subcat'] . "&price=" . $product['price'] . "&img=" . $product['img'] . "&size=" . $product['size'];?>" method="POST">
-                        <select class="prod-size-form-select" name="quantity">
+                        <!-- <select class="prod-size-form-select" name="quantity">
                             <option value="S">1</option>
                             <option value="M">2</option>
                             <option value="L">3</option>
                             <option value="XL">4</option>
                             <option value="XXL">5</option>
-                        </select>
+                        </select> -->
                         <button class="prod-size-form-button" type="submit">Supprimer</button>
                     </form>
                 </div>
@@ -103,9 +106,13 @@ if ($_SESSION['logged_on_user'] != null) {
             <?php
             }
         }
-        ?>
+        if ($total !== "0,00") {?>
+        <div class=bottom-pay>
+            <h1 class="total"><?=$i ?> article<?php if ($i > 1) {echo "s";} ?> - Total : <?= str_replace('.', ',', $total)?> EUR</h1>
+            <a href="pay.php"><button class="pay">Commander</button></a>
+        </div>
+        <?php }?>
     </div>
-
 </body>
 
 </html>
