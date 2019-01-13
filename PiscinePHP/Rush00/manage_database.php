@@ -12,7 +12,7 @@ $subcat = $_POST['subcat'];
 $price = $_POST['price'];
 $img = $_POST['img'];
 $desc = $_POST['desc'];
-$user = $_POST['user'];
+$login = $_POST['login'];
 switch ($action) {
     case "add_prod":
         if (!$name || !$cat || !$subcat || !$price || !$img || !$desc) {
@@ -81,6 +81,15 @@ switch ($action) {
         }
         break;
     case "del_user":
+        if (!$login) {
+            break;
+        }
+        foreach ($users as $key => $user) {
+            if ($user['login'] == $login) {
+                unset($users[$key]);
+                break;
+            }
+        }
         break;
 }
 $out = serialize($products);

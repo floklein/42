@@ -1,0 +1,72 @@
+@font-face {
+    font-family: myBebasNeue;
+    src: url(../fonts/BebasNeue.woff);
+}
+
+@font-face {
+    font-family: myLeafy;
+    src: url(../fonts/Leafy.woff);
+}
+
+@font-face {
+    font-family: myChlakh;
+    src: url(../fonts/Chlakh.ttf);
+}
+
+@font-face {
+    font-family: myTN;
+    src: url(../fonts/TuesdayNight.otf) format('truetype');
+}
+
+.form {
+    top: -15px;
+    height: 30px;
+    width: 100px;
+    background-color: white;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, .15);
+}
+
+.form:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, .2);
+}
+
+.form-button {
+    top: -15px;
+    height: 30px;
+    width: 30px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, .15);
+}
+
+.form-button:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, .2);
+}
+
+.txt {
+    font-family: myBebasNeue;
+    margin: 0;
+    font-size: 25px;
+    padding: 0px 0px 0px 30px;
+}
+
+.admin {
+    text-align: center;
+    font-size: 60px;
+    margin: 100px 0px;
+    color: #5f9285;
+    padding: 0px 0px 0px 0px;
+}
+
+.disconnect {
+    left: 50%;
+    transform: translate(-50%);
+    height: 50px;
+    width: 150px;
+    font-size: 14px;
+    background-color: #CD5C5C;
+    color: white;
+    border: solid 1px white;
+}
+
+.disconnect:hover {
+    background-color: #cc7171;
+}
