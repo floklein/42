@@ -36,7 +36,7 @@ class Render
     }
     public function renderVertex($screenVertex)
     {
-        $color = imagecolorallocate($this->_img, $screenVertex->red, $screenVertex->green, $screenVertex->blue);
+        $color = imagecolorallocate($this->_img, $screenVertex->get_color()->red, $screenVertex->get_color()->green, $screenVertex->get_color()->blue);
         imagesetpixel($this->_img, $screenVertex->get_x() + $this->_width / 2, $screenVertex->get_y() + $this->_height / 2, $color);
     }
     public function renderTriangle($triangle, $mode)

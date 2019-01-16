@@ -81,10 +81,6 @@ class Camera
     {
         $modelVtx = $this->_tRmulttT->transformVertex($worldVertex);
         $screenVtx = $this->_Proj->transformVertex($modelVtx);
-        // if (isset($this->_width) && !empty($this->_width) && isset($this->_height) && !empty($this->_height)) {
-        //     $screenVtx->set_x((1 - $screenVtx->get_x() / ($screenVtx->get_z() / 11.3)) * ($this->_width / 2));
-        //     $screenVtx->set_y((1 - $screenVtx->get_y() / ($screenVtx->get_z() / 11.3)) * ($this->_height / 2));
-        // }
         if (isset($this->_ratio)) {
             $screenVtx->set_x($screenVtx->get_x() * $this->_ratio);
         } else {
@@ -97,7 +93,6 @@ class Camera
     public function watchMesh($mesh)
     {
         foreach ($mesh as $k => $triangle) {
-            var_dump($triangle);
             $a = $this->watchVertex($triangle[0]);
             $b = $this->watchVertex($triangle[1]);
             $c = $this->watchVertex($triangle[2]);
