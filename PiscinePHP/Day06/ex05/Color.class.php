@@ -4,8 +4,8 @@ class Color
     public $red;
     public $green;
     public $blue;
-    static $verbose = False;
-    function __construct($tab)
+    static $verbose = false;
+    public function __construct($tab)
     {
         if (isset($tab['rgb'])) {
             $this->red = intval($tab['rgb']) >> 16 & 0xFF;
@@ -20,25 +20,42 @@ class Color
             echo $this->__toString() . " constructed.\n";
         }
     }
-    function __toString() {
+    public function __toString()
+    {
         return (vsprintf("Color( red: %3d, green: %3d, blue: %3d )", array($this->red, $this->green, $this->blue)));
     }
-    function __destruct () {
+    public static function doc()
+    {
+        echo file_get_contents("Color.doc.txt");
+    }
+    public function add($color)
+    {
+        return (new Color(array('red' => $this->red + $color->red, 'green' => $this->green + $color->green, 'blue' => $this->blue + $color->blue)));
+    }
+    public function sub($color)
+    {
+        return (new Color(array('red' => $this->red - $color->red, 'green' => $this->green - $color->green, 'blue' => $this->blue - $color->blue)));
+    }
+    public function mult($factor)
+    {
+        return (new Color(array('red' => $this->red * $factor, 'green' => $this->green * $factor, 'blue' => $this->blue * $factor)));
+    }
+    // public function toPngColor($img)
+    // {
+    //     $color = getColorAlreadyAllocatedInPNGImage(img, r, g, b);
+    //     if ($color == -1) {
+    //         if (numberOfColorsInPNGImage(img) >= 255) {
+    //             $color = getPNGImageClosestColor(img, r, g, b);
+    //         } else {
+    //             $color = allocateNewColorInPNGImage(img, r, g, b);
+    //         }
+    //     }
+    //     return ($color);
+    // }
+    public function __destruct()
+    {
         if (self::$verbose) {
             echo $this->__toString() . " destructed.\n";
         }
     }
-    static function doc() {
-        echo file_get_contents("Color.doc.txt");
-    }
-    public function add ($color) {
-        return (new Color(array('red' => $this->red + $color->red, 'green' => $this->green + $color->green, 'blue' => $this->blue + $color->blue)));
-    }
-    public function sub ($color) {
-        return (new Color(array('red' => $this->red - $color->red, 'green' => $this->green - $color->green, 'blue' => $this->blue - $color->blue)));
-    }
-    public function mult ($factor) {
-        return (new Color(array('red' => $this->red * $factor, 'green' => $this->green * $factor, 'blue' => $this->blue * $factor)));
-    }
 }
-?>

@@ -14,6 +14,11 @@ require_once 'Matrix.class.php';
 require_once 'Camera.class.php';
 require_once 'Render.class.php';
 
+Camera::$verbose = True;
+Vertex::$verbose = True;
+Vector::$verbose = True;
+Matrix::$verbose = True;
+Color::$verbose = True;
 
 function makeRepere() {
 	$red   = new Color( array( 'red' => 0xff, 'green' => 0   , 'blue' => 0    ) );
@@ -26,9 +31,9 @@ function makeRepere() {
 	$Oz = new Vertex( array( 'x' => 0.0, 'y' => 0.0, 'z' => 0.0, 'color' => $blue  ) );
 	$Z  = new Vertex( array( 'x' => 0.0, 'y' => 0.0, 'z' => 1.0, 'color' => $blue  ) );
 	return array(
-		new Triangle( $Ox, $Ox, $X ),
-		new Triangle( $Oy, $Oy, $Y ),
-		new Triangle( $Oz, $Oz, $Z )
+		new Triangle(array( 'A' => $Ox, 'B' => $Ox, 'C' => $X )),
+		new Triangle(array( 'A' => $Oy, 'B' => $Oy, 'C' => $Y )),
+		new Triangle(array( 'A' => $Oz, 'B' => $Oz, 'C' => $Z ))
 		);
 }
 
@@ -50,12 +55,18 @@ function makeColoredCube( $x, $y, $z, $l ) {
 	$f = new Vertex( array( 'x' => $x+$hl, 'y' => $y-$hl, 'z' => $z+$hl, 'color' => $cyan ) );
 	$g = new Vertex( array( 'x' => $x+$hl, 'y' => $y-$hl, 'z' => $z-$hl, 'color' => $grey ) );
 	$h = new Vertex( array( 'x' => $x-$hl, 'y' => $y-$hl, 'z' => $z-$hl, 'color' => $white ) );
-	return array( new Triangle( $a, $c, $b ), new Triangle( $a, $d, $c ),
-				  new Triangle( $e, $g, $h ), new Triangle( $e, $f, $g ),
-				  new Triangle( $e, $b, $f ), new Triangle( $a, $b, $e ),
-				  new Triangle( $d, $g, $c ), new Triangle( $d, $h, $g ),
-				  new Triangle( $a, $e, $h ), new Triangle( $a, $h, $d ),
-				  new Triangle( $f, $c, $g ), new Triangle( $f, $b, $c )
+	return array( new Triangle(array( 'A' => $a, 'B' => $c, 'C' => $b )),
+				  new Triangle(array( 'A' => $a, 'B' => $d, 'C' => $c )),
+				  new Triangle(array( 'A' => $e, 'B' => $g, 'C' => $h )),
+				  new Triangle(array( 'A' => $e, 'B' => $f, 'C' => $g )),
+				  new Triangle(array( 'A' => $e, 'B' => $b, 'C' => $f )),
+				  new Triangle(array( 'A' => $a, 'B' => $b, 'C' => $e )),
+				  new Triangle(array( 'A' => $d, 'B' => $g, 'C' => $c )),
+				  new Triangle(array( 'A' => $d, 'B' => $h, 'C' => $g )),
+				  new Triangle(array( 'A' => $a, 'B' => $e, 'C' => $h )),
+				  new Triangle(array( 'A' => $a, 'B' => $h, 'C' => $d )),
+				  new Triangle(array( 'A' => $f, 'B' => $c, 'C' => $g )),
+				  new Triangle(array( 'A' => $f, 'B' => $b, 'C' => $c ))
 		);
 }
 
@@ -73,8 +84,7 @@ $cam = new Camera( array( 'origin' => new Vertex( array( 'x' => 15.0, 'y' => 15.
 						  'near' => 1.0,
 						  'far' => 100.0) );
 
-$renderer = new Render( 640, 480, 'pic.png' );
-
+$renderer = new Render( array('width' => 640, 'height' => 480, 'filename' => 'pic.png' ));
 
 $origin = New Vertex( array( 'x' => 0.0, 'y' => 0.0, 'z' => 0.0 ) );
 $origin = $cam->watchVertex( $origin );

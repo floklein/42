@@ -8,8 +8,9 @@ class Vertex
     private $_z;
     private $_w = 1.0;
     private $_color;
-    static $verbose = False;
-    function __construct($tab) {
+    static $verbose = false;
+    public function __construct($tab)
+    {
         if (isset($tab['x']) && isset($tab['y']) && isset($tab['z'])) {
             $this->_x = $tab['x'];
             $this->_y = $tab['y'];
@@ -27,50 +28,66 @@ class Vertex
             }
         }
     }
-    function set_x($x) {
+    public function opposite()
+    {
+        return new Vector(array('dest' => new Vertex(array('x' => $this->_x * -1, 'y' => $this->_y * -1, 'z' => $this->_z * -1))));
+    }
+    public function set_x($x)
+    {
         $this->_x = $x;
     }
-    function get_x() {
+    public function get_x()
+    {
         return $this->_x;
     }
-    function set_y($y) {
+    public function set_y($y)
+    {
         $this->_y = $y;
     }
-    function get_y() {
+    public function get_y()
+    {
         return $this->_y;
     }
-    function set_z($z) {
+    public function set_z($z)
+    {
         $this->_z = $z;
     }
-    function get_z() {
+    public function get_z()
+    {
         return $this->_z;
     }
-    function set_w($w) {
+    public function set_w($w)
+    {
         $this->_w = $w;
     }
-    function get_w() {
+    public function get_w()
+    {
         return $this->_w;
     }
-    function set_color($color) {
+    public function set_color($color)
+    {
         $this->_color = $color;
     }
-    function get_color() {
+    public function get_color()
+    {
         return $this->_color;
     }
-    function __toString() {
+    public function __toString()
+    {
         if (self::$verbose) {
             return (vsprintf("Vertex( x: %0.2f, y: %0.2f, z: %0.2f, w: %0.2f, Color( red: %3d, green: %3d, blue: %3d ))", array($this->_x, $this->_y, $this->_z, $this->_w, $this->_color->red, $this->_color->green, $this->_color->blue)));
         } else {
             return (vsprintf("Vertex( x: %0.2f, y: %0.2f, z: %0.2f, w: %0.2f )", array($this->_x, $this->_y, $this->_z, $this->_w)));
         }
     }
-    static function doc() {
+    public static function doc()
+    {
         echo file_get_contents("Vertex.doc.txt");
     }
-    function __destruct () {
+    public function __destruct()
+    {
         if (self::$verbose) {
             echo $this->__toString() . " desctructed.\n";
         }
     }
 }
-?>
