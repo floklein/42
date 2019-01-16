@@ -149,6 +149,16 @@ class Matrix
         }
         return ($wachowski);
     }
+    public function transformMesh($mesh)
+    {
+        $result = array();
+        foreach ($mesh as $k => $triangle) {
+            $result[$k][0] = $this->transformVertex($triangle->get_A());
+            $result[$k][1] = $this->transformVertex($triangle->get_B());
+            $result[$k][2] = $this->transformVertex($triangle->get_C());
+        }
+        return $result;
+    }
     public function __toString()
     {
         $str = "M | vtcX | vtcY | vtcZ | vtxO\n";
