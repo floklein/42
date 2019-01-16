@@ -84,9 +84,9 @@ class Camera
         if (isset($this->_ratio)) {
             $screenVtx->set_x($screenVtx->get_x() * $this->_ratio);
         } else {
-            $screenVtx->set_x($screenVtx->get_x() * ($this->_width / $this->_height));
+            $screenVtx->set_x(5 * $screenVtx->get_x() * ($this->_width / $this->_height));
         }
-        $screenVtx->set_y($screenVtx->get_y());
+        $screenVtx->set_y(5 * $screenVtx->get_y());
         $screenVtx->set_color($worldVertex->get_color());
         return ($screenVtx);
     }
