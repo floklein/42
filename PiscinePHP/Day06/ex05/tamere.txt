@@ -1,0 +1,639 @@
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 20.00, y: 20.00, z: 0.00, w: 1.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Vector( x: 20.00, y: 20.00, z: 0.00, w: 0.00  constructed
+Vertex( x: 20.00, y: 20.00, z: 0.00, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Matrice TRANSLATION instance constructed
+Matrice SCALE instance constructed
+Matrice RY instance constructed
+Matrice RX instance constructed
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 15.00, y: 15.00, z: 80.00, w: 1.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Matrice RY instance constructed
+Camera instance constructed
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Vector( x: -15.00, y: -15.00, z: -80.00, w: 0.00  constructed
+Matrice TRANSLATION instance constructed
+Matrice PROJECTION instance constructed
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 15.00, y: -15.00, z: 80.00, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green:   0, blue:   0 ) constructed.
+Color( red:   0, green: 255, blue:   0 ) constructed.
+Color( red:   0, green:   0, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) constructed.
+Vertex( x: 1.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) constructed.
+Vertex( x: 0.00, y: 1.00, z: 0.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) constructed.
+Vertex( x: 0.00, y: 0.00, z: 1.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 1.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 0.00, y: 1.00, z: 0.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 1.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 15.00, y: -15.00, z: 80.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 15.00, y: -15.00, z: 80.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 5.00, y: -15.00, z: 80.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 15.00, y: -15.00, z: 80.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 15.00, y: -15.00, z: 80.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 15.00, y: -5.00, z: 80.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 15.00, y: -15.00, z: 80.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 15.00, y: -15.00, z: 80.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 15.00, y: -15.00, z: 70.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 10.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 0.00, y: 10.00, z: 0.00, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 0.00, y: 0.00, z: 10.00, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green:   0, blue:   0 ) constructed.
+Color( red:   0, green: 255, blue:   0 ) constructed.
+Color( red:   0, green:   0, blue: 255 ) constructed.
+Color( red: 255, green: 255, blue:   0 ) constructed.
+Color( red:   0, green: 255, blue: 255 ) constructed.
+Color( red: 255, green:   0, blue: 255 ) constructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Color( red:  70, green:  70, blue:  70 ) constructed.
+Vertex( x: -0.50, y: 0.50, z: 0.50, w: 1.00, Color( red: 255, green:   0, blue:   0 )) constructed.
+Vertex( x: 0.50, y: 0.50, z: 0.50, w: 1.00, Color( red:   0, green: 255, blue:   0 )) constructed.
+Vertex( x: 0.50, y: 0.50, z: -0.50, w: 1.00, Color( red:   0, green:   0, blue: 255 )) constructed.
+Vertex( x: -0.50, y: 0.50, z: -0.50, w: 1.00, Color( red: 255, green: 255, blue:   0 )) constructed.
+Vertex( x: -0.50, y: -0.50, z: 0.50, w: 1.00, Color( red: 255, green:   0, blue: 255 )) constructed.
+Vertex( x: 0.50, y: -0.50, z: 0.50, w: 1.00, Color( red:   0, green: 255, blue: 255 )) constructed.
+Vertex( x: 0.50, y: -0.50, z: -0.50, w: 1.00, Color( red:  70, green:  70, blue:  70 )) constructed.
+Vertex( x: -0.50, y: -0.50, z: -0.50, w: 1.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Matrix instance destructed
+Matrix instance destructed
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -0.50, y: -0.50, z: 0.50, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: -0.50, y: 0.50, z: 0.50, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: -0.50, y: -0.50, z: -0.50, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Vertex( x: -0.50, y: 0.50, z: -0.50, w: 1.00, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Vertex( x: 0.50, y: -0.50, z: -0.50, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: 0.50, y: -0.50, z: 0.50, w: 1.00, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Vertex( x: 0.50, y: 0.50, z: 0.50, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 0.50, y: 0.50, z: -0.50, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 3.54, z: 71.46, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 13.54, z: 81.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -12.07, y: 8.54, z: 76.46, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 3.54, z: 71.46, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 2.07, y: 8.54, z: 76.46, w: 1.00, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 13.54, z: 81.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: -3.54, z: 78.54, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 6.46, z: 88.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 2.07, y: 1.46, z: 83.54, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: -3.54, z: 78.54, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -12.07, y: 1.46, z: 83.54, w: 1.00, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 6.46, z: 88.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: -3.54, z: 78.54, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -12.07, y: 8.54, z: 76.46, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -12.07, y: 1.46, z: 83.54, w: 1.00, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 3.54, z: 71.46, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -12.07, y: 8.54, z: 76.46, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: -3.54, z: 78.54, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 2.07, y: 8.54, z: 76.46, w: 1.00, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 6.46, z: 88.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 13.54, z: 81.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 2.07, y: 8.54, z: 76.46, w: 1.00, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 2.07, y: 1.46, z: 83.54, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 6.46, z: 88.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 3.54, z: 71.46, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: -3.54, z: 78.54, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 2.07, y: 1.46, z: 83.54, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 3.54, z: 71.46, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 2.07, y: 1.46, z: 83.54, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: 2.07, y: 8.54, z: 76.46, w: 1.00, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -12.07, y: 1.46, z: 83.54, w: 1.00, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 13.54, z: 81.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 6.46, z: 88.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -12.07, y: 1.46, z: 83.54, w: 1.00, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -12.07, y: 8.54, z: 76.46, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) constructed.
+Vertex( x: 0.00, y: 0.00, z: 0.00, w: 0.00, Color( red: 255, green: 255, blue: 255 )) constructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Vertex( x: -5.00, y: 13.54, z: 81.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 18.54, z: 8.54, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 20.00, y: 28.54, z: -1.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 27.07, y: 23.54, z: 3.54, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 20.00, y: 18.54, z: 8.54, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 12.93, y: 23.54, z: 3.54, w: 1.00, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Vertex( x: 20.00, y: 28.54, z: -1.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 11.46, z: 1.46, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 21.46, z: -8.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: 12.93, y: 16.46, z: -3.54, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 11.46, z: 1.46, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: 27.07, y: 16.46, z: -3.54, w: 1.00, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 21.46, z: -8.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: 20.00, y: 11.46, z: 1.46, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: 27.07, y: 23.54, z: 3.54, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 27.07, y: 16.46, z: -3.54, w: 1.00, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 18.54, z: 8.54, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 27.07, y: 23.54, z: 3.54, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 20.00, y: 11.46, z: 1.46, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: 12.93, y: 23.54, z: 3.54, w: 1.00, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Vertex( x: 20.00, y: 21.46, z: -8.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: 20.00, y: 28.54, z: -1.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 12.93, y: 23.54, z: 3.54, w: 1.00, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Vertex( x: 12.93, y: 16.46, z: -3.54, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 21.46, z: -8.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: 20.00, y: 18.54, z: 8.54, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 20.00, y: 11.46, z: 1.46, w: 1.00, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: 12.93, y: 16.46, z: -3.54, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 18.54, z: 8.54, w: 1.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 12.93, y: 16.46, z: -3.54, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Vertex( x: 12.93, y: 23.54, z: 3.54, w: 1.00, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Vertex( x: 27.07, y: 16.46, z: -3.54, w: 1.00, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 28.54, z: -1.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 20.00, y: 21.46, z: -8.54, w: 1.00, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: 27.07, y: 16.46, z: -3.54, w: 1.00, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Vertex( x: 27.07, y: 23.54, z: 3.54, w: 1.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 20.00, y: 28.54, z: -1.46, w: 1.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Matrix instance destructed
+Vertex( x: 25.98, y: -25.98, z: -83.64, w: -80.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Camera instance destructed
+Vertex( x: 15.00, y: 15.00, z: 80.00, w: 1.00, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Matrix instance destructed
+Matrix instance destructed
+Vector( x: -15.00, y: -15.00, z: -80.00, w: 0.00  desctructed.
+Matrix instance destructed
+Matrix instance destructed
+Matrix instance destructed
+Matrix instance destructed
+Matrix instance destructed
+Matrix instance destructed
+Matrix instance destructed
+Vector( x: 20.00, y: 20.00, z: 0.00, w: 0.00  desctructed.
+Color( red: 255, green:   0, blue:   0 ) destructed.
+Color( red:   0, green: 255, blue:   0 ) destructed.
+Color( red:   0, green:   0, blue: 255 ) destructed.
+Vertex( x: 25.98, y: -25.98, z: -83.64, w: -80.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 25.98, y: -25.98, z: -83.64, w: -80.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 25.98, y: -25.98, z: -83.64, w: -80.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 25.98, y: -25.98, z: -83.64, w: -80.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 25.98, y: -25.98, z: -83.64, w: -80.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 25.98, y: -25.98, z: -83.64, w: -80.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 25.98, y: -8.66, z: -83.64, w: -80.00, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 8.66, y: -25.98, z: -83.64, w: -80.00, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: -8.66, y: 23.44, z: -85.13, w: -81.46, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 3.59, y: 2.54, z: -87.24, w: -83.54, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Color( red:  70, green:  70, blue:  70 ) destructed.
+Color( red: 255, green: 255, blue: 255 ) destructed.
+Color( red: 255, green:   0, blue: 255 ) destructed.
+Color( red:   0, green: 255, blue: 255 ) destructed.
+Color( red: 255, green: 255, blue:   0 ) destructed.
+Color( red:   0, green:   0, blue: 255 ) destructed.
+Color( red:   0, green: 255, blue:   0 ) destructed.
+Color( red: 255, green:   0, blue:   0 ) destructed.
+Vertex( x: 25.98, y: -25.98, z: -73.43, w: -70.00, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: -8.66, y: 6.12, z: -74.93, w: -71.46, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: -8.66, y: -6.12, z: -82.14, w: -78.54, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: -20.91, y: 2.54, z: -87.24, w: -83.54, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Vertex( x: -20.91, y: 14.78, z: -80.03, w: -76.46, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: 3.59, y: 14.78, z: -80.03, w: -76.46, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Vertex( x: -8.66, y: 11.20, z: -92.34, w: -88.54, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: 3.59, y: 14.78, z: -80.03, w: -76.46, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Vertex( x: -8.66, y: -6.12, z: -82.14, w: -78.54, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: -20.91, y: 14.78, z: -80.03, w: -76.46, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: -8.66, y: 6.12, z: -74.93, w: -71.46, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: -20.91, y: 2.54, z: -87.24, w: -83.54, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Vertex( x: -20.91, y: 14.78, z: -80.03, w: -76.46, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: -8.66, y: -6.12, z: -82.14, w: -78.54, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: -8.66, y: 11.20, z: -92.34, w: -88.54, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: -8.66, y: -6.12, z: -82.14, w: -78.54, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: -8.66, y: 23.44, z: -85.13, w: -81.46, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: -8.66, y: 6.12, z: -74.93, w: -71.46, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: -8.66, y: 11.20, z: -92.34, w: -88.54, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: -8.66, y: 23.44, z: -85.13, w: -81.46, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: 3.59, y: 14.78, z: -80.03, w: -76.46, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Vertex( x: 3.59, y: 2.54, z: -87.24, w: -83.54, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Vertex( x: -8.66, y: 11.20, z: -92.34, w: -88.54, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: -8.66, y: 6.12, z: -74.93, w: -71.46, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: -8.66, y: -6.12, z: -82.14, w: -78.54, Color( red: 255, green:   0, blue: 255 )) desctructed.
+Vertex( x: 3.59, y: 2.54, z: -87.24, w: -83.54, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Vertex( x: -8.66, y: 6.12, z: -74.93, w: -71.46, Color( red: 255, green:   0, blue:   0 )) desctructed.
+Vertex( x: 3.59, y: 2.54, z: -87.24, w: -83.54, Color( red: 255, green: 255, blue: 255 )) desctructed.
+Vertex( x: 3.59, y: 14.78, z: -80.03, w: -76.46, Color( red: 255, green: 255, blue:   0 )) desctructed.
+Vertex( x: -20.91, y: 2.54, z: -87.24, w: -83.54, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Vertex( x: -8.66, y: 23.44, z: -85.13, w: -81.46, Color( red:   0, green:   0, blue: 255 )) desctructed.
+Vertex( x: -8.66, y: 11.20, z: -92.34, w: -88.54, Color( red:  70, green:  70, blue:  70 )) desctructed.
+Vertex( x: -20.91, y: 2.54, z: -87.24, w: -83.54, Color( red:   0, green: 255, blue: 255 )) desctructed.
+Vertex( x: -20.91, y: 14.78, z: -80.03, w: -76.46, Color( red:   0, green: 255, blue:   0 )) desctructed.
+Vertex( x: -8.66, y: 23.44, z: -85.13, w: -81.46, Color( red:   0, green:   0, blue: 255 )) desctructed.

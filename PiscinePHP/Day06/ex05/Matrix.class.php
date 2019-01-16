@@ -137,6 +137,7 @@ class Matrix
         $revolutions->set_y(($vtx->get_x() * $this->matrix[1][0]) + ($vtx->get_y() * $this->matrix[1][1]) + ($vtx->get_z() * $this->matrix[1][2]) + ($vtx->get_w() * $this->matrix[1][3]));
         $revolutions->set_z(($vtx->get_x() * $this->matrix[2][0]) + ($vtx->get_y() * $this->matrix[2][1]) + ($vtx->get_z() * $this->matrix[2][2]) + ($vtx->get_w() * $this->matrix[2][3]));
         $revolutions->set_w(($vtx->get_x() * $this->matrix[3][0]) + ($vtx->get_y() * $this->matrix[3][1]) + ($vtx->get_z() * $this->matrix[3][2]) + ($vtx->get_w() * $this->matrix[3][3]));
+        $revolutions->set_color($vtx->get_color());
         return ($revolutions);
     }
     public function oppositeMatrix()
