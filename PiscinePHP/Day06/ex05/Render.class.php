@@ -28,7 +28,7 @@ class Render
             $this->_height = $tab['height'];
             $this->_filename = $tab['filename'];
             $this->_img = imagecreate((integer) $this->_width, (integer) $this->_height);
-            imagecolorallocate($this->_img, 125, 125, 125);
+            imagecolorallocate($this->_img, 0, 0, 0);
         }
         if (self::$verbose) {
             echo "Render( " . $this->_width . ", " . $this->_height . ", " . $this->_filename . " ) constructed\n";
