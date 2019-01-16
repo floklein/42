@@ -139,6 +139,16 @@ class Matrix
         $revolutions->set_w(($vtx->get_x() * $this->matrix[3][0]) + ($vtx->get_y() * $this->matrix[3][1]) + ($vtx->get_z() * $this->matrix[3][2]) + ($vtx->get_w() * $this->matrix[3][3]));
         return ($revolutions);
     }
+    public function oppositeMatrix()
+    {
+        $wachowski = new Matrix(array('preset' => ""));
+        for ($i = 0; $i < 4; $i++) {
+            for ($j = 0; $j < 4; $j++) {
+                $wachowski->matrix[$i][$j] = $this->matrix[$j][$i];
+            }
+        }
+        return ($wachowski);
+    }
     public function __toString()
     {
         $str = "M | vtcX | vtcY | vtcZ | vtxO\n";
@@ -164,4 +174,3 @@ class Matrix
         }
     }
 }
-?>
