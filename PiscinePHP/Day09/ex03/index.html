@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo or not todo</title>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="todo.js"></script>
+    <style>
+        html {
+            background-image: url('http://jonas.roussel.free.fr/img.jpeg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+        
+        .body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 200px;
+        }
+        .list {
+            width: 500px;
+            text-align: center;
+        }
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #d5be93;
+            font-family: 'Indie Flower';
+            font-size: 1.5em;
+            height: 80px;
+        }
+        .bot {
+            text-align: left;
+            background-color: wheat;
+            padding: 0.1px;
+            font-family: 'Lato';
+        }
+    
+        #todo {
+            list-style: none;
+        }
+        #todo li {
+            margin-bottom: -10px;
+            font-size: 1.1em;
+        }
+        #todo li p {
+            display: inline-block;
+            width: auto;
+        }
+        #todo li p::before {
+            content: '→';
+            margin-right: 10px;
+        }
+        #todo li p:hover {
+            cursor: pointer;
+        }
+
+        #new {
+            width: 150px;
+            height: 25px;
+            margin-top: 20px;
+            border-radius: 6px;
+            font-size: 0.8em;
+        }
+        #new:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+    <body>
+        <div class="body">
+            <div class="list">
+                <div class="top">
+                    <h1>Todo or not todo</h1>
+                </div>
+                <div class="bot">
+                    <ul id="todo">
+                    </ul>
+                </div>
+                <button id="new">Nouveau</button>
+            </div>
+        </div>
+    </body>
+</html>

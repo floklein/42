@@ -1,0 +1,65 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Balloon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #balloon {
+            position: absolute;
+            top: 400px;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background-color: lightcoral;
+            border: solid 1px white;
+            box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.15);
+        }
+        #balloon:hover {
+            box-shadow: 0px 24px 48px 0px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloon"></div>
+    <script>
+        var colors = ['lightcoral', 'lightgreen', 'lightblue']
+        var ballon = document.getElementById('balloon');
+
+        function getNextColor(color) {
+            var index = colors.indexOf(color)
+            return colors[(index + 1) % colors.length]
+        }
+
+        function getPrevColor(color) {
+            var index = colors.indexOf(color)
+            return index - 1 < 0 ? colors[colors.length - 1] : colors[index - 1]
+        }
+
+        ballon.addEventListener('click', function () {
+            var size = ballon.clientHeight + 10
+            if (size > 420) {
+                size = 200;
+            }
+            ballon.style['background-color'] = getNextColor(ballon.style['background-color'] || "lightcoral")
+            ballon.style['height'] = size + 'px'
+            ballon.style['width'] = size + 'px'
+        });
+
+        ballon.addEventListener('mouseleave', function () {
+            var size = ballon.clientHeight - 5
+            if (size < 200) {
+                return;
+            }
+            ballon.style['background-color'] = getPrevColor(ballon.style['background-color'] || "lightcoral")
+            ballon.style['height'] = size + 'px'
+            ballon.style['width'] = size + 'px'
+        });
+    </script>
+</body>
+
+</html>

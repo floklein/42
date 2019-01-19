@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ballon.html</title>
+    <style>
+        #balloon {
+				margin: auto;
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border-radius: 100%;
+			}
+		</style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+        var actual = 0;
+        var colors = ["red", "green", "blue"];
+
+        function up_balloon() {
+            var bal = $("#balloon");
+
+            bal.width(bal.width() + 10);
+            bal.height(bal.height() + 10);
+
+            if (bal.width() > 420 || bal.height() > 420) {
+                bal.width(200);
+                bal.height(200);
+            }
+            actual += 1;
+            if (actual > 2)
+                actual = 0;
+            bal.css('background-color', colors[actual]);
+        }
+
+        function down_balloon() {
+            var bal = $("#balloon");
+
+            bal.width(bal.width() - 5);
+            bal.height(bal.height() - 5);
+            if (bal.width() < 200 || bal.height() < 200) {
+                bal.width(200);
+                bal.height(200);
+            }
+            actual -= 1;
+            if (actual < 0)
+                actual = 2;
+            bal.css('background-color', colors[actual]);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="balloon" onclick="up_balloon()" onmouseout="down_balloon()">
+    </div>
+</body>
+
+</html>
