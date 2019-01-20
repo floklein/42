@@ -24,4 +24,4 @@
 |---------|-------|
 | Rush00  | 111   |
 
-I named my website LEAFY, we "sell" green clothing, and you can find it here: [LEAFY](http://42-leafy.lolyangccool.ovh/)!
+*I named my website LEAFY, we "sell" green clothing, and you can find it here: [LEAFY](http://42-leafy.lolyangccool.ovh/)!*
