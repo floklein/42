@@ -4,6 +4,7 @@
 ## Projects
 ### Days
 10 days to learn previously mentioned notions.
+
 | Project | Grade |
 |---------|-------|
 | Day00   | 125   |
@@ -18,6 +19,7 @@
 
 ### Rush00
 2 days to create an e-commerce website (front & back), with client accounts, shopping carts and a checkout system.
+
 | Project | Grade |
 |---------|-------|
 | Rush00  | 111   |
