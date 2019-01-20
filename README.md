@@ -8,7 +8,7 @@ I am a student at 42. This is a repository dedicated to my projects.
 * 3 solo projects
 ### PiscinePHP
 * 9 days
-* 1 rush: [e-commerce website](http://42-leafy.lolyangccool.ovh/)
+* 1 rush
 ### Main projects
 You can find the first projects of the school under *Global*.
 More advanced projects are divided by branch (e.g. *Graphics*).
