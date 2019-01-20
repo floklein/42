@@ -40,7 +40,7 @@ Weekend harder projects to go further on the week notions.
 | Match-N-Match | 100   |
 | EvalExpr      | 100   |
 
-### Exams
+## Exams
 Weekly 4-hours C exams.
 
 | Project    | Grade |
