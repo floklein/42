@@ -23,7 +23,7 @@
 | Day13   | 60    |
 
 ### Rushes
-2 days to create an e-commerce website (front & back), with client accounts, shopping carts and a checkout system.
+2-days weekly group projects.
 
 | Project | Grade |
 |---------|-------|
@@ -32,7 +32,7 @@
 | Rush02  | 104   |
 
 ### Solo projects
-2 days to create an e-commerce website (front & back), with client accounts, shopping carts and a checkout system.
+Weekend harder projects to go further on the week notions.
 
 | Project       | Grade |
 |---------------|-------|
@@ -41,7 +41,7 @@
 | EvalExpr      | 100   |
 
 ### Exams
-2 days to create an e-commerce website (front & back), with client accounts, shopping carts and a checkout system.
+Weekly 4-hours C exams.
 
 | Project    | Grade |
 |------------|-------|
