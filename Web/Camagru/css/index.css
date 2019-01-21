@@ -3,13 +3,22 @@
     src: url(../fonts/Billabong.woff);
 }
 
+@font-face {
+    font-family: myProximaNovaReg;
+    src: url(../fonts/ProximaNovaRegular.woff);
+}
+
+@font-face {
+    font-family: myProximaNovaBold;
+    src: url(../fonts/ProximaNovaBold.woff);
+}
+
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
     background-color: #FAFAFA;
     color: #231F20;
 }
@@ -43,12 +52,17 @@ body {
     font-family: myBillabong;
     font-size: 60px;
     transition: 0.4s;
-    padding: 16px 12px 10px 15%;
+    padding: 16px 12px 10px 12px;
+    margin-left: 15%;
 }
 
-#navbar a:hover {
+/* #navbar a:hover {
     background-color: #ddd;
     color: #231F20;
+} */
+
+#navbar a:active{
+    opacity: .5;
 }
 
 #navbar a.active {
@@ -58,7 +72,7 @@ body {
 
 #navbar-right {
     float: right;
-    padding: 0px 15% 0px 0px;
+    margin-right: 15%;
 }
 
 @media screen and (max-width: 580px) {
@@ -77,3 +91,65 @@ body {
         font-size: 30px;
     }
 }
+
+#feed {
+    position: absolute;
+    top: 125px;
+    width: 100%;
+    font-family: myProximaNovaReg;
+}
+
+#feed-box {
+    position: relative;
+    margin-top: 75px;
+    margin-bottom: 75px;
+    left: 50%;
+    transform: translate(-50%);
+    height: 950px;
+    width: 700px;
+    background-color: white;
+    border: solid 1px #E6E6E6;
+    border-radius: 3px; 
+}
+
+#feed-box:hover {
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1);
+}
+
+#feed-header {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 80px;
+}
+
+#feed-user-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 15px 15px 15px 15px;
+    background: center;
+    background-size: cover;
+}
+
+#feed-user-login {
+    width: 250px;
+    height: 50px;
+    margin: 15px 15px 15px 0px;
+}
+
+#feed-user-login a {
+    font-family: myProximaNovaBold;
+    text-decoration: none;
+    color: #231F20;
+}
+
+#feed-pic {
+    position: relative;
+    width: 100%;
+    height: 698px;
+    background-color: lightcoral;
+    background: center;
+    background-size: cover;
+}
+
