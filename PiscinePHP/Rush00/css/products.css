@@ -89,7 +89,7 @@ li.dropdown {
     height: 197px;
     width: 100%;
     background-color: white;
-    border-bottom-style: solid;
+    border-bottom: solid 1px;
     border-bottom-color: #C5DFC5;
 }
 
@@ -300,6 +300,10 @@ li.dropdown {
     box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.15);
     background-color: #5f9285;
     color: white;
+}
+
+.search-menu {
+    padding-bottom: 0px;
 }
 
 .search-bar {

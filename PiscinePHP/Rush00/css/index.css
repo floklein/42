@@ -94,7 +94,7 @@ li.dropdown {
     height: 197px;
     width: 100%;
     background-color: white;
-    border-bottom-style: solid;
+    border-bottom: solid 1px;
     border-bottom-color: #C5DFC5;
 }
 
@@ -176,6 +176,10 @@ li.dropdown {
     font-family: myTN;
     line-height: 30px;
     color: black;
+}
+
+.search-menu {
+    padding-bottom: 0px;
 }
 
 .search-bar {

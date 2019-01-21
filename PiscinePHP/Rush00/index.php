@@ -55,7 +55,7 @@
             </div>
         </li>
         <li class="dropdown" style="float:right">
-		    <form method="GET" action="search.php" class="dropbtn">
+		    <form method="GET" action="search.php" class="dropbtn search-menu">
 			    <input class="search-bar" type="text" name="search" placeholder="Rechercher...">
                 <button class="search-button" type="submit"><img class="img-loupe" src="img/loupe.png"></button>
 		    </form>
