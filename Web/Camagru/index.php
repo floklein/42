@@ -33,6 +33,7 @@
     </div>
   </div>
   <div id="feed">
+    <?php for ($i = 0; $i < 5; $i++) {?>
     <div id="feed-box">
       <div id="feed-header">
         <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/0.jpg');">
@@ -43,13 +44,12 @@
       </div>
       <div id="feed-pic" style="background-image: url('/resources/feed-pics/0.jpg');">
       </div>
+      <div id="feed-buttons">
+        <button href="#" id="feed-like-button"><img src="/img/like.png" id="feed-buttons-img"><span id="feed-buttons-txt">J'aime</span></button>
+        <button href="#" id="feed-like-button"><img src="/img/comment.png" id="feed-buttons-img"><span id="feed-buttons-txt">Commenter</span></button>
+      </div>
     </div>
-    <div id="feed-box">
-    </div>
-    <div id="feed-box">
-    </div>
-    <div id="feed-box">
-    </div>
+    <? }?>
   </div>
 </body>
 
