@@ -1,11 +1,14 @@
 # 42
-I am a student at 42. This is my repository dedicated to my projects.
+I am a student at 42. This is a repository dedicated to my projects.
 
 ## Projects
 ### PiscineC
-* 13 days: graded 100/100 each (except Day12 and Day13).
-* 3 weekend rushes: graded 100/100 or more each.
-* 3 weekend projects: graded 100/100 each.
+* 13 days
+* 3 rushes
+* 3 solo projects
+### PiscinePHP
+* 9 days
+* 1 rush
 ### Main projects
 You can find the first projects of the school under *Global*.
 More advanced projects are divided by branch (e.g. *Graphics*).
