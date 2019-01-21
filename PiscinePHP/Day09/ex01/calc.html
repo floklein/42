@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Calculatrice</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		body {
+			background: #4b4b55;
+		}
+		form {
+			position: absolute;
+			top: 200px;
+			left: 50%;
+			transform: translate(-50%);
+		}
+		input {
+			position: relative;
+			left: 50%;
+			transform: translate(-50%);
+			background: #91919c;
+			border: solid 2px rgb(61, 57, 57);
+			border-radius: 5px;
+			height: 35px;
+			width: 200px;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			text-align: center;
+		}
+		input:hover {
+			border: solid 2px rgb(255, 126, 74);
+			box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.25);
+		}
+		select {
+			position: relative;
+			left: 50%;
+			transform: translate(-50%);
+			background: #75757e;
+			border: solid 2px rgb(37, 37, 37);
+			border-radius: 5px;
+			height: 40px;
+			width: 40px;
+			color: whitesmoke;
+			box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		}
+		select:hover {
+			border: solid 2px rgb(255, 126, 74);
+			box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.25);
+		}
+		.button {
+			background: #75757e;
+			border: solid 2px rgb(37, 37, 37);
+			border-radius: 5px;
+			height: 40px;
+			width: 100px;
+			color: whitesmoke;
+		}
+		.button:hover {
+			border: solid 2px rgb(255, 72, 0);
+			box-shadow: 0px 16px 24px 0px rgba(0, 0, 0, 0.25);
+		}
+	</style>
+</head>
+
+<body>
+	<form id="calc">
+		<input type="text" name="left"><br><br>
+		<select name="op">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+			<option value="%">%</option>
+		</select><br><br>
+		<input type="text" name="right"><br><br>
+		<input class="button" type="submit" value="Try me !">
+	</form>
+	<script>
+		setInterval(() => alert("Please, use me..."), 30 * 1000);
+		function log(message) {
+			alert(message);
+			console.log(message);
+		}
+		var calc = document.getElementById('calc');
+		calc.addEventListener('submit', function (evt) {
+			evt.preventDefault()
+			var left = parseInt(evt.target.querySelector('input[name=left]').value)
+			var op = evt.target.querySelector('select[name=op]').value
+			var right = parseInt(evt.target.querySelector('input[name=right]').value);
+
+			if (isNaN(left) || isNaN(right)) {
+				return log('Error :(')
+			}
+			if (left < 0 || right < 0) {
+				return log('Error :(')
+			}
+			switch (op) {
+				case '+':
+					log(left + right);
+					break;
+				case '-':
+					log(left - right);
+					break;
+				case '*':
+					log(left * right);
+					break;
+				case '/':
+					if (right === 0)
+						return log("It's over 9000!")
+					log(left / right);
+					break;
+				case '%':
+					if (right === 0)
+						return log("It's over 9000!")
+					log(left % right);
+					break;
+			}
+		})
+	</script>
+</body>
+
+</html>

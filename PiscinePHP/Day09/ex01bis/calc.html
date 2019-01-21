@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>calc.html</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <input type="text" id="nb1" />
+    <select id="ope">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input type="text" id="nb2" />
+    <input type="submit" onclick="try_me()" value="Try me!" id="ok">
+
+    <script>
+        setInterval(function () {
+            alert("Please, use me...");
+        }, 30000); // = 30 seconds in milliseconds
+
+        function try_me() {
+            var nb1 = $('#nb1');
+            var ope = $('#ope');
+            var nb2 = $('#nb2');
+
+            var nbr1 = parseInt(nb1.val());
+            var nbr2 = parseInt(nb2.val());
+
+            console.log(nb1.val());
+
+            if (isNaN(nbr1) || isNaN(nbr2) || nbr1 < 0 || nbr2 < 0) {
+                alert("Error :(");
+            } else {
+                var calc;
+                switch (ope.val()) {
+                    case "+": {
+                        calc = nbr1 + nbr2;
+                        break;
+                    }
+                    case "-": {
+                        calc = nbr1 - nbr2;
+                        break;
+                    }
+                    case "*": {
+                        calc = nbr1 * nbr2;
+                        break;
+                    }
+                    case "/": {
+                        if (nbr2 === 0) {
+                            alert("It's over 9000!");
+                            return;
+                        }
+                        calc = nbr1 / nbr2;
+                        break;
+                    }
+                    case "%": {
+                        if (nbr2 === 0) {
+                            alert("It's over 9000!");
+                            return;
+                        }
+                        calc = nbr1 % nbr2;
+                        break;
+                    }
+                }
+                alert(calc);
+                console.log(calc);
+            }
+        }
+    </script>
+</body>
+
+</html>
