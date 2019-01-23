@@ -34,16 +34,20 @@
     </div>
   </div>
   <div id="feed">
-    <?php for ($i = 0; $i < 5; $i++) {?>
+    <?php for ($i = 0; $i < 1; $i++) {?>
     <div id="feed-box">
       <div id="feed-header">
         <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/0.jpg');">
         </div>
         <div id="feed-user-login">
-          <a href="#user"><p>florentklein</p></a>
+          <a href="#user">
+            <p>florentklein</p>
+          </a>
         </div>
         <div id="feed-date">
-          <p><?= date("D j, H:i");?></p>
+          <p>
+            <?=date("D j, H:i");?>
+          </p>
         </div>
       </div>
       <div id="feed-pic" style="background-image: url('/resources/feed-pics/0.jpg');">
@@ -65,14 +69,21 @@
       </div>
       <div id="feed-comments">
         <p><span>shanacohen </span>Hey, c'est ma photo.</p>
-        <p><span>yannisdoublet </span>Bonjour. Puis-je vous parler de notre Seigneur à tous, le Day06 ?</p>
-        <p><span>tanguyboissel </span>Mdr, je vais tester les limites de cet espace commentaire : xdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxd</p>
-        <p><span>etmoijaiuntreslongpseudooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo </span>#relou</p>
+        <p><span>yannisdoublet </span>Bonjour. Puis-je vous parler de notre Seigneur à tous, le Day06 de la PiscinePHP?</p>
+        <p><span>tanguyboissel </span>Mdr, je vais tester les limites de cet espace commentaire :
+          xdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxd</p>
+        <p><span>etmoijaiuntreslongpseudooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+          </span>#relou</p>
         <p><span>florentklein </span>Merci...</p>
       </div>
     </div>
-    <? }?>
+    <?php }?>
   </div>
+  <div id="previous-next">
+    <a href="#previous"><img src="/img/previous.png"></a>
+    <a href="#next"><img src="/img/next.png"></a>
+  </div>
+
 </body>
 
 </html>

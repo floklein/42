@@ -101,7 +101,7 @@ body {
 }
 
 #feed {
-    position: absolute;
+    position: relative;
     top: 125px;
     width: 100%;
     font-family: myProximaNovaReg;
@@ -317,4 +317,38 @@ body {
 
 #feed-comments span {
     font-family: myProximaNovaBold;
+}
+
+#previous-next {
+    position: relative;
+    top: 125px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 140px;
+    text-align: center;
+}
+
+#previous-next a {
+    position: relative;
+    float: left;
+    height: 48px;
+    padding: 12px;
+    margin: 0px 10px 20px 10px;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: white;
+    border: solid 1px #E6E6E6;
+}
+
+#previous-next a:hover {
+    /* box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1); */
+    background-color: #f3f3f3;
+}
+
+#previous-next a:active {
+    opacity: .5;
+}
+
+#previous-next img {
+    width: 24px;
 }
