@@ -1,5 +1,6 @@
-# PiscineC   `1st/800+`
+# PiscineC `level 11 - 60%`
 4 weeks of initiation to code via the C programming language.
+> *I placed **1st** out of more than 800 students!*
 
 ## Projects
 ### Days
