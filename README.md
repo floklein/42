@@ -11,7 +11,11 @@ I am a student at 42. This is a repository dedicated to my projects.
 * 1 rush
 ### Main projects
 You can find the first projects of the school under *Global*.
-More advanced projects are divided by branch (e.g. *Graphics*).
+More advanced projects are divided by branch:
+* Graphics
+* Network
+* Web
+
 ### Random
 Various programs I wrote for fun, for personal use mainly.
 
