@@ -26,10 +26,10 @@
 <body>
 
   <div id="navbar">
-    <a href="#feed" id="logo" class="left-buttons">Instacam</a>
+    <a href="/index.php" id="logo" class="left-buttons">Instacam</a>
     <div id="navbar-right">
-      <a href="#camera"><img src="/img/camera.png"></a>
-      <a href="#feed"><img src="/img/feed.png"></a>
+      <a href="/camera.php"><img src="/img/camera.png"></a>
+      <a href="/index.php"><img src="/img/feed.png"></a>
       <a href="#account"><img src="/img/account.png"></a>
     </div>
   </div>

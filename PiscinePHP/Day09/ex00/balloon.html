@@ -1,70 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Balloon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        .balloon {
-            position: relative;
-            top: 350px;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            border: solid white 1px;
-            border-radius: 50%;
-            background: lightcoral;
-            background: light;
-            box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.20);
-        }
-        .balloon:hover {
-            box-shadow: 0px 24px 48px 0px rgba(0, 0, 0, 0.25);
-        }
-    </style>
-    <script>
-        var size = 200;
-        color = "lightcoral";
-        function makeBigger() {
-            size += 10;
-            if (size > 420) {
-                size = 200;
-            }
-            if (color == "lightcoral") {
-                color = "lightgreen";
-            } else if (color == "lightgreen") {
-                color = "lightblue";
-            } else {
-                color = "lightcoral";
-            }
-            document.getElementById('balloon').style.width = size + 'px';
-            document.getElementById('balloon').style.height = size + 'px';
-            document.getElementById('balloon').style.background = color;
-        }
-        function makeSmaller() {
-            if (size > 200) {
-                size -= 5;
-            }
-            if (color == "lightcoral") {
-                color = "lightblue";
-            } else if (color == "lightgreen") {
-                color = "lightcoral";
-            } else {
-                color = "lightgreen";
-            }
-            document.getElementById('balloon').style.width = size + 'px';
-            document.getElementById('balloon').style.height = size + 'px';
-            document.getElementById('balloon').style.background = color;
-        }
-    </script>
-</head>
-<body>
-    <div id="balloon" class="balloon" onclick="makeBigger();" onmouseout="makeSmaller();">
-    </div>
-</body>
-=======
 <!DOCTYPE <!DOCTYPE html>
 <html>
 
@@ -129,5 +62,4 @@
     </script>
 </body>
 
->>>>>>> 2f6c9082a5c06ce9fc2ffe8b41ac90c79dcdffce
 </html>
