@@ -1,5 +1,5 @@
 # 42
-I am a student at 42. This is a repository dedicated to my projects.
+> Hi! I am *flklein*. I am a student at 42. This is a repository dedicated to my projects.
 
 ## Projects
 ### PiscineC
