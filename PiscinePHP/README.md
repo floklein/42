@@ -1,7 +1,5 @@
-# PiscinePHP `124/100`
+# PiscinePHP  `124/100`
 2 weeks of initiation to web technologies: HTML, CSS, PHP, SQL, OOP, JS, jQuery, AJAX...
-
-**Final grade**: `124/100`
 
 ## Projects
 ### Days

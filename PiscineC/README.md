@@ -1,4 +1,4 @@
-# PiscineC
+# PiscineC   `1st/800+`
 4 weeks of initiation to code via the C programming language.
 
 ## Projects
