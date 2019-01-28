@@ -2,13 +2,16 @@
 > *Hi! I am **flklein**. I am a student at 42. This is a repository dedicated to my projects.*
 
 ## Projects
-### PiscineC
+
+### PiscineC `level 11 - 60%`
 * 13 days
 * 3 rushes
 * 3 solo projects
-### PiscinePHP
+
+### PiscinePHP `124/100`
 * 9 days
 * 1 rush
+
 ### Main projects
 You can find the first projects of the school under *Global*.
 More advanced projects are divided by branch:
