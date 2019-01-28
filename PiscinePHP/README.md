@@ -1,6 +1,10 @@
 # PiscinePHP
 2 weeks of initiation to web technologies: HTML, CSS, PHP, SQL, OOP, JS, jQuery, AJAX...
 
+| Final grade |
+|-------------|
+| 124/125     |
+
 ## Projects
 ### Days
 10 days to learn previously mentioned notions.
