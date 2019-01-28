@@ -14,8 +14,8 @@
 | Day04   | 100   |
 | Day05   | 80    |
 | Day06   | 100   |
-| Day07   |       |
-| Day09   |       |
+| Day07   | 100   |
+| Day09   | 100   |
 
 ### Rush00
 2 days to create an e-commerce website (front & back), with client accounts, shopping carts and a checkout system.
