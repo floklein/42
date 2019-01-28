@@ -3,12 +3,12 @@
 
 ## Projects
 
-### PiscineC `level 11 - 60%`
+### PiscineC
 * 13 days
 * 3 rushes
 * 3 solo projects
 
-### PiscinePHP `124/100`
+### PiscinePHP
 * 9 days
 * 1 rush
 
