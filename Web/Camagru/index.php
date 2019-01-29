@@ -1,3 +1,8 @@
+<?php
+// Must be removed:
+date_default_timezone_set("Europe/Paris");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -28,13 +33,13 @@
   <div id="navbar">
     <a href="/index.php" id="logo" class="left-buttons">Instacam</a>
     <div id="navbar-right">
-      <a href="/camera.php"><img src="/img/camera.png"></a>
-      <a href="/index.php"><img src="/img/feed.png"></a>
-      <a href="#account"><img src="/img/account.png"></a>
+      <a href="/camera.php"><img src="/assets/camera.png"></a>
+      <a href="/index.php"><img src="/assets/feed.png"></a>
+      <a href="/account.php"><img src="/assets/account.png"></a>
     </div>
   </div>
   <div id="feed">
-    <?php for ($i = 0; $i < 1; $i++) {?>
+    <?php for ($i = 0; $i < 4; $i++) {?>
     <div id="feed-box">
       <div id="feed-header">
         <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/0.jpg');">
@@ -53,9 +58,9 @@
       <div id="feed-pic" style="background-image: url('/resources/feed-pics/0.jpg');">
       </div>
       <div id="feed-buttons">
-        <button href="#" id="feed-like-button"><img src="/img/like.png" id="feed-buttons-img"><span id="feed-buttons-txt">J'aime</span></button>
-        <button href="#" id="feed-like-button"><img src="/img/comment.png" id="feed-buttons-img"><span id="feed-buttons-txt">Commenter</span></button>
-        <button href="#" id="feed-like-button"><img src="/img/share.png" id="feed-buttons-img"><span id="feed-buttons-txt">Partager</span></button>
+        <button href="#" id="feed-like-button"><img src="/assets/like.png" id="feed-buttons-img"><span id="feed-buttons-txt">J'aime</span></button>
+        <button href="#" id="feed-like-button"><img src="/assets/comment.png" id="feed-buttons-img"><span id="feed-buttons-txt">Commenter</span></button>
+        <button href="#" id="feed-like-button"><img src="/assets/share.png" id="feed-buttons-img"><span id="feed-buttons-txt">Partager</span></button>
       </div>
       <hr id="feed-bar">
       <div id="feed-likedby">
@@ -80,8 +85,8 @@
     <?php }?>
   </div>
   <div id="previous-next">
-    <a href="#previous"><img src="/img/previous.png"></a>
-    <a href="#next"><img src="/img/next.png"></a>
+    <a href="#previous"><img src="/assets/previous.png"></a>
+    <a href="#next"><img src="/assets/next.png"></a>
   </div>
 
 </body>
