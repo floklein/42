@@ -1,0 +1,88 @@
+#signin-box {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    top: 125px;
+    margin: 40px 0px 40px 0px;
+    max-width: 400px;
+    width: 95%;
+    background: white;
+    border: solid 1px #E6E6E6;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#signin-box:hover {
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1);
+}
+
+#signin-box p {
+    margin: 30px 0px 22px 0px;
+    font-family: myProximaNovaReg;
+    font-size: 20px;
+}
+
+#signin-box span {
+    font-family: myProximaNovaBold;
+}
+
+#signin-box input {
+    position: relative;
+    margin: 8px 0px 8px 0px;
+    width: 220px;
+    height: 40px;
+    padding-left: 12px;
+    background-color: #FAFAFA;
+    border: solid 1px #E6E6E6;
+    border-radius: 3px;
+    outline: none;
+    font-family: myProximaNovaReg;
+    letter-spacing: 0.5px;
+}
+
+#signin-box input:focus {
+    border-color: #bebebe;
+}
+
+#signin-box button {
+    position: relative;
+    margin: 22px 0px 35px 0px;
+    width: 220px;
+    height: 40px;
+    background-color: #3E99ED;
+    border: none;
+    border-radius: 20px;
+    font-family: myProximaNovaReg;
+    font-size: 18px;
+    color: white;
+    outline: none;
+}
+
+#signin-box button:hover {
+    background-color: #44a5ff;
+}
+
+#signin-box button:active {
+    background-color: #2e73b4;
+}
+
+#signin-button a {
+    margin: 0;
+    font-size: 12px;
+    font-family: myProximaNovaReg;
+    color: #999999;
+}
+
+#signin-button button {
+    color: #231F20;
+    background-color: #f3f3f3;
+}
+
+#signin-button button:hover {
+    background-color: #ececec;
+}
+
+#signin-button button:active {
+    background-color: #ececec;
+    opacity: .5;
+}
