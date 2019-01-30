@@ -13,9 +13,9 @@
 <div id="navbar">
     <a href="/index.php" id="logo" class="left-buttons">Instacam</a>
     <div id="navbar-right">
-        <a href="/camera.php"><img src="/assets/camera.png"></a>
-        <a href="/index.php"><img src="/assets/feed.png"></a>
-        <a href="/account.php"><img src="/assets/account.png"></a>
+        <a href="/camera.php"><img src="/assets/camera.png" alt="camera"></a>
+        <a href="/index.php"><img src="/assets/feed.png" alt="feed"></a>
+        <a href="/account.php"><img src="/assets/account.png" alt="account"></a>
     </div>
 </div>
 
@@ -23,22 +23,22 @@
     <p>Nouveau ? <span>Inscrivez-vous !</span></p>
     <form action="/back/register.php" method="post">
         <input type="email" name="email" placeholder="Votre email"><br>
-        <input type="text" name="user_name" placeholder="Choisissez un nom d'utilisateur"><br>
+        <input type="text" name="username" placeholder="Choisissez un nom d'utilisateur"><br>
         <input type="password" name="pwd" placeholder="Choisissez un mot de passe"><br>
-        <input type="password" name="pwd_confirm" placeholder="Confirmez le mot de passe"><br>
-        <button type="submit">S'inscrire</button>
+        <input type="password" name="pwd-confirm" placeholder="Confirmez le mot de passe"><br>
+        <button type="submit" name="signup-submit" value="ok">S'inscrire</button>
     </form>
 </div>
 
 <div id="signin-box">
     <p>Déjà inscrit ? <span>Connectez-vous !</span></p>
     <form action="/back/login.php" method="post">
-        <input type="email" placeholder="Votre nom d'utilisateur"><br>
-        <input type="password" placeholder="Votre mot de passe"><br>
+        <input type="email" name="username" placeholder="Votre nom d'utilisateur"><br>
+        <input type="password" name="pwd" placeholder="Votre mot de passe"><br>
         <div id="signin-button">
             <!-- Change href to "/back/forgot-pwd.php" -->
             <a href="reset-pwd.php">Mot de passe oublié ?</a><br>
-            <button type="submit" class="signin-button">Se connecter</button>
+            <button type="submit" name="signin-submit" value="ok">Se connecter</button>
         </div>
     </form>
 </div>

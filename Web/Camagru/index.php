@@ -33,9 +33,9 @@ date_default_timezone_set("Europe/Paris");
   <div id="navbar">
     <a href="/index.php" id="logo" class="left-buttons">Instacam</a>
     <div id="navbar-right">
-      <a href="/camera.php"><img src="/assets/camera.png"></a>
-      <a href="/index.php"><img src="/assets/feed.png"></a>
-      <a href="/account.php"><img src="/assets/account.png"></a>
+      <a href="/camera.php"><img src="/assets/camera.png" alt="camera"></a>
+      <a href="/index.php"><img src="/assets/feed.png" alt="feed"></a>
+      <a href="/account.php"><img src="/assets/account.png" alt="account"></a>
     </div>
   </div>
   
@@ -86,8 +86,8 @@ date_default_timezone_set("Europe/Paris");
     <?php }?>
   </div>
   <div id="previous-next">
-    <a href="#previous"><img src="/assets/previous.png"></a>
-    <a href="#next"><img src="/assets/next.png"></a>
+    <a href="#previous"><img src="/assets/previous.png" alt="prev"></a>
+    <a href="#next"><img src="/assets/next.png" alt="next"></a>
   </div>
 
 </body>
