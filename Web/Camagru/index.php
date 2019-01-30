@@ -38,6 +38,7 @@ date_default_timezone_set("Europe/Paris");
       <a href="/account.php"><img src="/assets/account.png"></a>
     </div>
   </div>
+  
   <div id="feed">
     <?php for ($i = 0; $i < 4; $i++) {?>
     <div id="feed-box">
