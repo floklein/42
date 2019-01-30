@@ -13,6 +13,7 @@
         <button class="capture-button">Lancer video</button>
         <button id="screenshot-button">Photo !</button>
         <button id="cssfilters-apply">Filtre suivant</button><br>
+        <input type="file" accept="image/*">
         <video class="videostream" autoplay></video>
         <img id="screenshot-img" src="">
         <canvas style="display:none;"></canvas>
