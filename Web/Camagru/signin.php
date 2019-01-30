@@ -23,7 +23,7 @@
     <p>Nouveau ? <span>Inscrivez-vous !</span></p>
     <form action="/back/register.php" method="post">
         <input type="email" name="email" placeholder="Votre email"><br>
-        <input type="text" name="username" placeholder="Choisissez un nom d'utilisateur"><br>
+        <input type="text" name="name" placeholder="Choisissez un nom d'utilisateur"><br>
         <input type="password" name="pwd" placeholder="Choisissez un mot de passe"><br>
         <input type="password" name="pwd-confirm" placeholder="Confirmez le mot de passe"><br>
         <button type="submit" name="signup-submit" value="ok">S'inscrire</button>
@@ -31,9 +31,9 @@
 </div>
 
 <div id="signin-box">
-    <p>Déjà inscrit ? <span>Connectez-vous !</span></p>
+    <p>Déjà inscrit ? <span>Connectez-vous.</span></p>
     <form action="/back/login.php" method="post">
-        <input type="email" name="username" placeholder="Votre nom d'utilisateur"><br>
+        <input type="email" name="name" placeholder="Votre nom d'utilisateur"><br>
         <input type="password" name="pwd" placeholder="Votre mot de passe"><br>
         <div id="signin-button">
             <!-- Change href to "/back/forgot-pwd.php" -->
