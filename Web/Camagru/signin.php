@@ -21,24 +21,24 @@
 
 <div id="signin-box">
     <p>Nouveau ? <span>Inscrivez-vous !</span></p>
-    <form>
-        <input type="email" placeholder="Votre email"><br>
-        <input type="text" placeholder="Choisissez un nom d'utilisateur"><br>
-        <input type="password" placeholder="Choisissez un mot de passe"><br>
-        <input type="password" placeholder="Confirmez le mot de passe"><br>
+    <form action="/back/register.php" method="post">
+        <input type="email" name="email" placeholder="Votre email"><br>
+        <input type="text" name="user_name" placeholder="Choisissez un nom d'utilisateur"><br>
+        <input type="password" name="pwd" placeholder="Choisissez un mot de passe"><br>
+        <input type="password" name="pwd_confirm" placeholder="Confirmez le mot de passe"><br>
         <button type="submit">S'inscrire</button>
     </form>
 </div>
 
 <div id="signin-box">
     <p>Déjà inscrit ? <span>Connectez-vous !</span></p>
-    <form>
+    <form action="/back/login.php" method="post">
         <input type="email" placeholder="Votre nom d'utilisateur"><br>
         <input type="password" placeholder="Votre mot de passe"><br>
         <div id="signin-button">
-            <!-- Change href to real "password reset" back page -->
-            <a href="/reset-pwd.php">Mot de passe oublié ?</a><br>
-            <button class="signin-button" type="submit">Se connecter</button>
+            <!-- Change href to "/back/forgot-pwd.php" -->
+            <a href="reset-pwd.php">Mot de passe oublié ?</a><br>
+            <button type="submit" class="signin-button">Se connecter</button>
         </div>
     </form>
 </div>
