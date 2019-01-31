@@ -6,6 +6,7 @@ $email = $_POST['email'];
 $pwd = $_POST['pwd'];
 $pwd_confirm = $_POST['pwd-confirm'];
 
+// Form verifications
 if (!isset($email) || strlen($email) == 0 || strlen($email) >= 64 || !preg_match("/^[a-zA-Z0-9\.\-\_]+\@[a-zA-Z0-9\.\-\_]+\.[a-z]+$/", $email)) {
     header("Location: /../signin.php?error=invalid_email&username=" . $name);
     exit();
@@ -29,9 +30,27 @@ try {
     $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ERRMODE_EXCEPTION);
-    echo "Connected to database.<br>";
+    /*echo "Connected to database.<br>";*/
 } catch (PDOEXCEPTION $e) {
     exit($e);
+}
+
+// Searching if user already exists
+try {
+    $sql = "SELECT `name` FROM `users` WHERE `name`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$name]);
+    $existing_user = $stmt->fetch();
+    /*echo "Searching for user...<br>";*/
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+if ($existing_user !== false) {
+    header("Location: /../signin.php?error=user_exists");
+    exit();
+} else {
+    echo "New username.<br>";
 }
 
 // Inserting into 'users' table
@@ -43,3 +62,35 @@ try {
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
+
+// Retrieving the ID of the new user
+try {
+    $sql = "SELECT `id` FROM `users` WHERE `name`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$name]);
+    $res = $stmt->fetch();
+    $new_id = $res['id'];
+    echo "Searching for ID...<br>";
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+// Inserting into 'verify' table
+try {
+    $sql = "INSERT INTO `verify` (`user_id`, `phrase`)
+                VALUES (?, ?);";
+    $phrase = substr(str_replace(['+', '/', '='], '', base64_encode(random_bytes(64))), 0, 64);
+    $pdo->prepare($sql)->execute([$new_id, $phrase]);
+    echo "Entry inserted.<br>";
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+// TODO: Send mail
+// if (mail("flo-klein@hotmail.fr", "Vérifiez votre email", "Salut")) {
+//     echo "Mail sent.<br>";
+// } else {
+//     echo "Cannot send mail!<br>";
+// }
+
+echo "http://localhost:8080/verify.php?id=" . $new_id . "&phrase=" . $phrase;
