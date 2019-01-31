@@ -40,8 +40,25 @@
     letter-spacing: 0.5px;
 }
 
+#signin-box input:hover {
+    border-color: #d4d4d4;
+}
+
 #signin-box input:focus {
     border-color: #bebebe;
+}
+
+#signin-box input.invalid {
+    border: solid 1px #dfabab;
+    background-color: #ffe2e2;
+}
+
+#signin-box input.invalid:hover {
+    border: solid 1px #da9a9a;
+}
+
+#signin-box input.invalid:focus {
+    border: solid 1px #c27878;
 }
 
 #signin-box button {

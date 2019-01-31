@@ -1,3 +1,7 @@
+<?php
+$error = $_GET['error'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,10 +26,10 @@
 <div id="signin-box">
     <p>Nouveau ? <span>Inscrivez-vous !</span></p>
     <form action="/back/register.php" method="post">
-        <input type="email" name="email" placeholder="Votre email"><br>
-        <input type="text" name="name" placeholder="Choisissez un nom d'utilisateur"><br>
-        <input type="password" name="pwd" placeholder="Choisissez un mot de passe"><br>
-        <input type="password" name="pwd-confirm" placeholder="Confirmez le mot de passe"><br>
+<input type="email" name="email" <?php if ($error === "invalid_email") { ?> class="invalid" placeholder="Email invalide" <?php } else { ?> placeholder="Votre email" value=<?= $_GET['email'] ?> <?php } ?>><br>
+        <input type="text" name="name" <?php if ($error === "invalid_username") { ?> class="invalid" placeholder="Nom d'utilisateur invalide" <?php } else { ?> placeholder="Choisissez un nom d'utilisateur" value=<?= $_GET['username'] ?> <?php } ?>><br>
+        <input type="password" name="pwd" <?php if ($error === "invalid_pwd") { ?> class="invalid" placeholder="Mot de passe invalide" <?php } else if ($error === "weak_pwd") { ?> class="invalid" placeholder="Mot de passe trop faible" <?php } else if ($error === "pwds_no_match") { ?> class="invalid" placeholder="Mots de passe différents" <?php } else { ?> placeholder="Choisissez un mot de passe" <?php } ?>><br>
+        <input type="password" name="pwd-confirm" <?php if ($error === "pwds_no_match") { ?> class="invalid" placeholder="Mots de passe différents" <?php } else { ?> placeholder="Confirmez le mot de passe" <?php } ?>><br>
         <button type="submit" name="signup-submit" value="ok">S'inscrire</button>
     </form>
 </div>
