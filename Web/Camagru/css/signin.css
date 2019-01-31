@@ -1,10 +1,16 @@
-#signin-box {
+#flex-signin {
     position: relative;
-    left: 50%;
-    transform: translate(-50%);
     top: 125px;
-    margin: 40px 0px 40px 0px;
-    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#signin-box {
+    margin: 40px 20px 40px 20px;
+    max-width: 370px;
     width: 95%;
     background: white;
     border: solid 1px #E6E6E6;
