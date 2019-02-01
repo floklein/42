@@ -6,7 +6,7 @@ $phrase = $_GET['phrase'];
 
 if (!isset($user_id) || !isset($phrase)) {
     header("Location: /../verification.php?req=empty");
-    exit(); 
+    exit();
 }
 
 $DB_DSN .= ";dbname=" . $DB_NAME;

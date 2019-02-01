@@ -15,7 +15,7 @@ try {
 try {
     $sql = "CREATE DATABASE IF NOT EXISTS " . $DB_NAME . ";";
     $pdo->prepare($sql)->execute();
-    echo "'". $DB_NAME . "' database created.<br>";
+    echo "'" . $DB_NAME . "' database created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -28,7 +28,7 @@ $DB_DSN .= ";dbname=" . $DB_NAME;
 try {
     $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    $pdo->setAttribute(PDO::ERRMODE_EXCEPTION);    
+    $pdo->setAttribute(PDO::ERRMODE_EXCEPTION);
     echo "Connected to database.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
