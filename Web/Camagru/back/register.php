@@ -99,4 +99,4 @@ try {
 $link = "http://localhost:8080/back/verify.php?id=" . $new_id . "&phrase=" . $phrase;
 echo $link;
 
-/*header("Location: /mail.php?id=" . $new_id);*/
+/*header("Location: /mail_verify.php?id=" . $new_id);*/

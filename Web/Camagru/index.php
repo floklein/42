@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Must be removed:
 date_default_timezone_set("Europe/Paris");
 ?>
@@ -13,19 +14,7 @@ date_default_timezone_set("Europe/Paris");
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="css/index.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=1">
-  <script>
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        document.getElementById("navbar").style.padding = "10px 10px";
-        document.getElementById("logo").style.fontSize = "30px";
-      } else {
-        document.getElementById("navbar").style.padding = "40px 10px";
-        document.getElementById("logo").style.fontSize = "60px";
-      }
-    }
-  </script>
+  <script src="/js/navbar.js"></script>
 </head>
 
 <body>
@@ -33,14 +22,17 @@ date_default_timezone_set("Europe/Paris");
   <div id="navbar">
     <a href="/index.php" id="logo" class="left-buttons">Instacam</a>
     <div id="navbar-right">
-      <a href="/camera.php"><img src="/assets/camera.png" alt="camera"></a>
-      <a href="/index.php"><img src="/assets/feed.png" alt="feed"></a>
-      <a href="/account.php"><img src="/assets/account.png" alt="account"></a>
+      <a href="/camera.php"><img src="/assets/camera.png" title="Publier une photo" alt="camera"></a>
+      <a href="/index.php"><img src="/assets/feed.png" title="Fil d'actualité" alt="feed"></a>
+      <a href="/account.php"><img src="/assets/account.png" title="Mon compte" alt="account"></a>
+      <?php if ($_SESSION['logged_on_user'] != "") {?>
+            <a href="/back/logout.php"><img src="/assets/logout.png" title="Se déconnecter" alt="logout"></a>
+        <?php }?>
     </div>
   </div>
-  
+
   <div id="feed">
-    <?php for ($i = 0; $i < 1; $i++) {?>
+    <?php for ($i = 0; $i < 5; $i++) {?>
     <div id="feed-box">
       <div id="feed-header">
         <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/0.jpg');">
