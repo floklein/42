@@ -81,16 +81,22 @@ try {
                 VALUES (?, ?);";
     $phrase = substr(str_replace(['+', '/', '='], '', base64_encode(random_bytes(64))), 0, 64);
     $pdo->prepare($sql)->execute([$new_id, $phrase]);
-    echo "Entry inserted.<br>";
+    echo "Verified set to false.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
 
-// TODO: Send mail
-// if (mail("flo-klein@hotmail.fr", "Vérifiez votre email", "Salut")) {
-//     echo "Mail sent.<br>";
-// } else {
-//     echo "Cannot send mail!<br>";
-// }
+try {
+    $sql = "INSERT INTO `notifications` (`user_id`)
+                VALUES (?);";
+    $pdo->prepare($sql)->execute([$new_id]);
+    echo "Notifications set to default.<br>";
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
 
-echo "http://localhost:8080/verify.php?id=" . $new_id . "&phrase=" . $phrase;
+// Link mail.php will send
+$link = "http://localhost:8080/back/verify.php?id=" . $new_id . "&phrase=" . $phrase;
+echo $link;
+
+/*header("Location: /mail.php?id=" . $new_id);*/
