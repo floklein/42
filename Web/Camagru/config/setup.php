@@ -88,12 +88,22 @@ try {
 // Creating 'verify' table
 try {
     $sql = "CREATE TABLE IF NOT EXISTS `verify` (
-        `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
         `user_id` int,
         `verified` boolean DEFAULT false,
         `phrase` varchar(256));";
     $pdo->prepare($sql)->execute();
     echo "'verify' table created.<br>";
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+// Creating 'notifications' table
+try {
+    $sql = "CREATE TABLE IF NOT EXISTS `notifications` (
+        `user_id` int,
+        `comments` boolean DEFAULT true);";
+    $pdo->prepare($sql)->execute();
+    echo "'notifications' table created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }

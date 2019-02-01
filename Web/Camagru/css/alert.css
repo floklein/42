@@ -1,0 +1,71 @@
+#flex-alert {
+    position: relative;
+    top: 125px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#alert-box {
+    margin: 40px 20px 40px 20px;
+    max-width: 370px;
+    width: 95%;
+    background: white;
+    border: solid 1px #E6E6E6;
+    border-radius: 3px;
+    text-align: center;
+}
+
+#alert-box:hover {
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1);
+}
+
+#alert-box img {
+    width: 60px;
+    margin: 35px 0px 0px 0px;
+}
+
+#alert-box p {
+    margin: 20px 0px 22px 0px;
+    font-family: myProximaNovaReg;
+    font-size: 20px;
+}
+
+#alert-box span {
+    font-family: myProximaNovaBold;
+}
+
+#alert-box p.comment {
+    margin: 0px 20px 5px 20px;
+    font-size: 15px;
+    color: #999999;
+    line-height: 25px;
+}
+
+#alert-box span.comment {
+    font-family: myProximaNovaBold;
+}
+
+#alert-box button {
+    position: relative;
+    margin: 22px 0px 35px 0px;
+    width: 220px;
+    height: 40px;
+    background-color: #3E99ED;
+    border: none;
+    border-radius: 20px;
+    font-family: myProximaNovaReg;
+    font-size: 18px;
+    color: white;
+    outline: none;
+}
+
+#alert-box button:hover {
+    background-color: #44a5ff;
+}
+
+#alert-box button:active {
+    background-color: #2e73b4;
+}
