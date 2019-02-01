@@ -16,17 +16,7 @@ $status = $_GET['req'];
 </head>
 <body>
 
-<div id="navbar">
-    <a href="/index.php" id="logo" class="left-buttons">Instacam</a>
-    <div id="navbar-right">
-        <a href="/camera.php"><img src="/assets/camera.png" title="Publier une photo" alt="camera"></a>
-        <a href="/index.php"><img src="/assets/feed.png" title="Fil d'actualité" alt="feed"></a>
-        <a href="/account.php"><img src="/assets/account.png" title="Mon compte" alt="account"></a>
-        <?php if ($_SESSION['logged_on_user'] != "") { ?>
-            <a href="/back/logout.php"><img src="/assets/logout.png" title="Se déconnecter" alt="logout"></a>
-        <?php } ?>
-    </div>
-</div>
+<?php require 'navbar.php'; ?>
 
 <div id="flex-alert">
     <div id="alert-box">
@@ -36,11 +26,17 @@ $status = $_GET['req'];
             <p class="comment">Vous pouvez maintenant vous connecter à<br>votre compte et commencer à utiliser <span class="comment">Instacam</span>.</p>
             <a href="/signin.php"><button>Se connecter</button></a>
 
+        <?php } else if ($status === "please_verify") { ?>
+            <img src="/assets/error.svg" alt="error">
+            <p><span>Aïe !</span> Votre email n'est pas vérifié.</p>
+            <p class="comment">Avant de pouvoir vous connecter,<br>vous devez vérifier votre adresse email<br>avec le lien qui vous a été envoyé par mail.</p>
+            <a href="/back/mail_verify.php?id=<?= $user_id ?>"><button>Renvoyer un lien</button></a>
+
         <?php } else { ?>
             <img src="/assets/error.svg" alt="error">
             <p><span>Oups !</span> Ce lien est invalide...</p>
             <p class="comment">Veuillez vérifier que le lien correspond<br>bien à celui qui vous a été envoyé par mail.</p>
-            <a href="/back/mail.php?id=<?= $user_id ?>"><button>Renvoyer un lien</button></a>
+            <a href="/back/mail_verify.php?id=<?= $user_id ?>"><button>Renvoyer un lien</button></a>
         <?php } ?>
     </div>
 </div>

@@ -17,6 +17,6 @@ if ($_SESSION['logged_on_user'] == "")
     <script src="/js/navbar.js"></script>
 </head>
 <body>
-    <a href="/back/logout.php">Logout</a>
+    <?php require 'navbar.php'; ?>
 </body>
 </html>
