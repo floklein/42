@@ -10,7 +10,7 @@ $error = $_GET['error'];
     <title>Instacam - Connexion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/signin.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/form.css" />
 </head>
 <body>
 
@@ -23,27 +23,27 @@ $error = $_GET['error'];
     </div>
 </div>
 
-<div id="flex-signin">
-    <div id="signin-box">
+<div id="flex-form">
+    <div id="form-box">
         <p>Nouveau ? <span>Inscrivez-vous !</span></p>
         <form action="/back/register.php" method="post">
-            <input type="email" name="email" <?php if ($error === "invalid_email") { ?> class="invalid" placeholder="Email invalide" <?php } else { ?> placeholder="Votre email" value=<?= $_GET['email'] ?> <?php } ?>><br>
-            <input type="text" name="name" <?php if ($error === "invalid_username") { ?> class="invalid" placeholder="Nom d'utilisateur invalide" <?php } else if ($error === "user_exists") { ?> class="invalid" placeholder="Nom d'utilisateur déjà existant" <?php } else { ?> placeholder="Choisissez un nom d'utilisateur" value=<?= $_GET['username'] ?> <?php } ?>><br>
-            <input type="password" name="pwd" <?php if ($error === "invalid_pwd") { ?> class="invalid" placeholder="Mot de passe invalide" <?php } else if ($error === "weak_pwd") { ?> class="invalid" placeholder="Mot de passe trop faible" <?php } else if ($error === "pwds_no_match") { ?> class="invalid" placeholder="Mots de passe différents" <?php } else { ?> placeholder="Choisissez un mot de passe" <?php } ?>><br>
-            <input type="password" name="pwd-confirm" <?php if ($error === "pwds_no_match") { ?> class="invalid" placeholder="Mots de passe différents" <?php } else { ?> placeholder="Confirmez le mot de passe" <?php } ?>><br>
+            <input required type="email" name="email" <?php if ($error === "invalid_email") { ?> class="invalid" placeholder="Email invalide" <?php } else { ?> placeholder="Votre email" value=<?= $_GET['email'] ?> <?php } ?>><br>
+            <input required type="text" name="name" <?php if ($error === "invalid_username") { ?> class="invalid" placeholder="Nom d'utilisateur invalide" <?php } else if ($error === "user_exists") { ?> class="invalid" placeholder="Nom d'utilisateur déjà existant" <?php } else { ?> placeholder="Choisissez un nom d'utilisateur" value=<?= $_GET['username'] ?> <?php } ?>><br>
+            <input required type="password" name="pwd" <?php if ($error === "invalid_pwd") { ?> class="invalid" placeholder="Mot de passe invalide" <?php } else if ($error === "weak_pwd") { ?> class="invalid" placeholder="Mot de passe trop faible" <?php } else if ($error === "pwds_no_match") { ?> class="invalid" placeholder="Mots de passe différents" <?php } else { ?> placeholder="Choisissez un mot de passe" <?php } ?>><br>
+            <input required type="password" name="pwd-confirm" <?php if ($error === "pwds_no_match") { ?> class="invalid" placeholder="Mots de passe différents" <?php } else { ?> placeholder="Confirmez le mot de passe" <?php } ?>><br>
             <button type="submit" name="signup-submit" value="ok">S'inscrire</button>
         </form>
     </div>
 
-    <div id="signin-box">
+    <div id="form-box">
         <p>Déjà inscrit ? <span>Connectez-vous.</span></p>
         <form action="/back/login.php" method="post">
-            <input type="email" name="name" placeholder="Votre nom d'utilisateur"><br>
-            <input type="password" name="pwd" placeholder="Votre mot de passe"><br>
-            <div id="signin-button">
+            <input required type="email" name="name" placeholder="Votre nom d'utilisateur"><br>
+            <input required type="password" name="pwd" placeholder="Votre mot de passe"><br>
+            <div id="form-button">
                 <!-- Change href to "/back/forgot-pwd.php" -->
                 <a href="reset-pwd.php">Mot de passe oublié ?</a><br>
-                <button type="submit" name="signin-submit" value="ok">Se connecter</button>
+                <button type="submit" name="form-submit" value="ok">Se connecter</button>
             </div>
         </form>
     </div>

@@ -40,7 +40,7 @@ date_default_timezone_set("Europe/Paris");
   </div>
   
   <div id="feed">
-    <?php for ($i = 0; $i < 4; $i++) {?>
+    <?php for ($i = 0; $i < 1; $i++) {?>
     <div id="feed-box">
       <div id="feed-header">
         <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/0.jpg');">
@@ -82,6 +82,11 @@ date_default_timezone_set("Europe/Paris");
           </span>#relou</p>
         <p><span>florentklein </span>Merci...</p>
       </div>
+      <hr id="feed-bar-2">
+      <form id="feed-comment-field" action="" method="post">
+        <input required id="field" type="text" name="new-comment" placeholder="Ajouter un commentaire...">
+        <button id="envoyer" type="submit" name="submit" value="ok">Envoyer</button>
+      </form>
     </div>
     <?php }?>
   </div>

@@ -6,7 +6,7 @@
     <title>Instacam - Mot de passe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/signin.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/form.css" />
 </head>
 <body>
 
@@ -19,15 +19,17 @@
     </div>
 </div>
 
-<div id="signin-box">
-    <p>Choisissez un <span>nouveau</span> mot de passe.</p>
-    <form>
-        <input type="password" name="pwd" placeholder="Votre nouveau mot de passe"><br>
-        <input type="password" name="pwd-confirm" placeholder="Confirmez le mot de passe"><br>
-        <div id="signin-button">
-            <button type="submit" name="resetpwd-submit" value="ok">Modifier</button>
-        </div>
-    </form>
+<div id="flex-form">
+    <div id="form-box">
+        <p>Choisissez un <span>nouveau</span> mot de passe.</p>
+        <form>
+            <input type="password" name="pwd" placeholder="Votre nouveau mot de passe"><br>
+            <input type="password" name="pwd-confirm" placeholder="Confirmez le mot de passe"><br>
+            <div id="form-button">
+                <button type="submit" name="resetpwd-submit" value="ok">Modifier</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 </body>

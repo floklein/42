@@ -304,11 +304,11 @@ body {
 
 #feed-comments {
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     width: 95%;
     left: 50%;
     transform: translate(-50%);
-    height: 54px;
+    max-height: 58px;
     overflow: scroll;
     word-wrap: break-word;
 }
@@ -322,6 +322,51 @@ body {
 
 #feed-comments span {
     font-family: myProximaNovaBold;
+}
+
+#feed-bar-2 {
+    width: 90%;
+    margin-top: 8px;
+    border: none;
+    border-top: solid 1px #E6E6E6;
+}
+
+#feed-comment-field {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+#feed-comment-field input {
+    margin: 0px 10px 10px 10px;
+    height: 30px;
+    flex-grow: 2;
+    font-size: 14px;
+    border: solid 1px white;
+    outline: none;
+}
+
+#feed-comment-field button {
+    float: right;
+    margin: 0px 10px 0px 0px;
+    width: 80px;
+    height: 30px;
+    flex-grow: 0;
+    background-color: #3E99ED;
+    border: none;
+    border-radius: 15px;
+    font-family: myProximaNovaReg;
+    font-size: 14px;
+    color: white;
+    outline: none;
+}
+
+#feed-comment-field button:hover {
+    background-color: #44a5ff;
+}
+
+#feed-comment-field button:active {
+    background-color: #2e73b4;
 }
 
 #previous-next {
