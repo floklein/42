@@ -1,4 +1,4 @@
-#flex-signin {
+#flex-form {
     position: relative;
     top: 125px;
     display: flex;
@@ -8,7 +8,7 @@
     width: 100%;
 }
 
-#signin-box {
+#form-box {
     margin: 40px 20px 40px 20px;
     max-width: 370px;
     width: 95%;
@@ -18,21 +18,21 @@
     text-align: center;
 }
 
-#signin-box:hover {
+#form-box:hover {
     box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1);
 }
 
-#signin-box p {
+#form-box p {
     margin: 30px 0px 22px 0px;
     font-family: myProximaNovaReg;
     font-size: 20px;
 }
 
-#signin-box span {
+#form-box span {
     font-family: myProximaNovaBold;
 }
 
-#signin-box input {
+#form-box input {
     position: relative;
     margin: 8px 0px 8px 0px;
     width: 220px;
@@ -46,28 +46,28 @@
     letter-spacing: 0.5px;
 }
 
-#signin-box input:hover {
+#form-box input:hover {
     border-color: #d4d4d4;
 }
 
-#signin-box input:focus {
+#form-box input:focus {
     border-color: #bebebe;
 }
 
-#signin-box input.invalid {
+#form-box input.invalid {
     border: solid 1px #dfabab;
     background-color: #ffe2e2;
 }
 
-#signin-box input.invalid:hover {
+#form-box input.invalid:hover {
     border: solid 1px #da9a9a;
 }
 
-#signin-box input.invalid:focus {
+#form-box input.invalid:focus {
     border: solid 1px #c27878;
 }
 
-#signin-box button {
+#form-box button {
     position: relative;
     margin: 22px 0px 35px 0px;
     width: 220px;
@@ -81,31 +81,31 @@
     outline: none;
 }
 
-#signin-box button:hover {
+#form-box button:hover {
     background-color: #44a5ff;
 }
 
-#signin-box button:active {
+#form-box button:active {
     background-color: #2e73b4;
 }
 
-#signin-button a {
+#form-button a {
     margin: 0;
     font-size: 12px;
     font-family: myProximaNovaReg;
     color: #999999;
 }
 
-#signin-button button {
+#form-button button {
     color: #231F20;
     background-color: #f3f3f3;
 }
 
-#signin-button button:hover {
+#form-button button:hover {
     background-color: #ececec;
 }
 
-#signin-button button:active {
+#form-button button:active {
     background-color: #ececec;
     opacity: .5;
 }
