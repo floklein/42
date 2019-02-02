@@ -32,6 +32,17 @@
     font-family: myProximaNovaBold;
 }
 
+#form-box p.comment {
+    margin: 0px 20px 5px 20px;
+    font-size: 15px;
+    color: #999999;
+    line-height: 25px;
+}
+
+#form-box span.comment {
+    font-family: myProximaNovaBold;
+}
+
 #form-box input {
     position: relative;
     margin: 8px 0px 8px 0px;

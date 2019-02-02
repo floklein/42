@@ -40,8 +40,7 @@ $error = $_GET['error'];
             <input required type="text" name="login" <?php if ($error === "wrong_credentials") { ?> class="invalid" placeholder="Nom d'utilisateur invalide" <?php } else { ?> placeholder="Votre nom d'utilisateur"> <?php } ?><br>
             <input required type="password" name="passwd" <?php if ($error === "wrong_credentials") { ?> class="invalid" placeholder="Et/ou mot de passe invalide" <?php } else { ?> placeholder="Votre mot de passe"> <?php } ?><br>
             <div id="form-button">
-                <!-- Change href to "/back/forgot-pwd.php" -->
-                <a href="reset-pwd.php">Mot de passe oublié ?</a><br>
+                <a href="forgot-pwd.php">Mot de passe oublié ?</a><br>
                 <button type="submit" name="form-submit" value="ok">Se connecter</button>
             </div>
         </form>
