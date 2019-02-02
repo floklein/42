@@ -1,0 +1,55 @@
+#account {
+    position: relative;
+    top: 125px;
+    width: 100%;
+}
+
+#account-pic {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 40px;
+    width: 125px;
+    height: 125px;
+    background: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+#account-user {
+    position: relative;
+    margin: 20px 0px 40px 0px;
+    text-align: center;
+    font-family: myProximaNovaBold;
+    font-size: 30px;
+}
+
+#flex-form {
+    top: -20px;
+}
+
+#form-box {
+    margin: 20px 20px;
+}
+
+#form-box input.checkbox {
+    width: 25px;
+    height: 15px;
+    margin: 0px;
+}
+
+#form-box span.checktext {
+    font-family: myProximaNovaReg;
+}
+
+#form-box button.delete {
+    background-color: #dd6353;
+}
+
+#form-box button.delete:hover {
+    background-color: #e77768;
+}
+
+#form-box button.delete:active {
+    background-color: #bb5345;
+}

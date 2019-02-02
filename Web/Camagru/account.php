@@ -14,9 +14,55 @@ if ($_SESSION['logged_on_user'] == "")
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/form.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/account.css" />
     <script src="/js/navbar.js"></script>
 </head>
 <body>
-    <?php require 'navbar.php'; ?>
+    
+<?php require 'navbar.php'; ?>
+
+<div id="account">
+    <div id="account-pic" style="background-image: url('/resources/profile-pics/<?= $_SESSION['logged_on_user']['pic'] ?>');"></div>
+    <p id="account-user"><?php echo $_SESSION['logged_on_user']['login']; ?></p>
+
+    <div id="flex-form">
+        <div id="form-box">
+            <p><span>Vos informations.</span></p>
+            <form action="/back/update.php" method="post">
+                <input required type="email" name="email" value="<?= $_SESSION['logged_on_user']['email'] ?>" placeholder="Changez votre adresse email"><br>
+                <input required type="text" name="name" value="<?= $_SESSION['logged_on_user']['login'] ?>" placeholder="Changez votre nom d'utilisateur"><br>
+                <p><span>Vos notifications.</span></p>                
+                <input checked type="checkbox" class="checkbox" name="notification" value="true"><span class="checktext">Commentaires sur vos photos</span><br>
+                <button type="submit" name="update-submit" value="ok">Mettre à jour</button>
+            </form>
+        </div>
+
+        <div id="form-box">
+            <p><span>Votre mot de passe.</span></p>
+            <form action="/back/password.php" method="post">
+                <input required type="password" name="old-passwd" placeholder="Votre ancien mot de passe"><br>
+                <input required type="password" name="new-passwd" placeholder="Choisissez un nouveau mot de passe"><br>
+                <input required type="password" name="repeat-passwd" placeholder="Confirmez le mot de passe"><br>
+                <button type="submit" name="password-submit" value="ok" style="margin-bottom: 6px;">Modifier</button>
+            </form>
+            <p><span>Votre compte.</span></p>
+            <a href="/back/delete.php"><button class="delete" style="margin-top: 0px;">Supprimer mon compte</button></a>
+        </div>
+
+        <!-- <div id="form-box">
+            <p><span>Vos notifications.</span></p>
+            <form action="/back/update.php" method="post">
+                <input checked type="checkbox" class="checkbox" name="notification" value="true"><span class="checktext">Commentaires sur vos photos</span><br>
+                <button type="submit" name="notification-submit" value="ok">Mettre à jour</button>
+            </form>
+        </div> -->
+
+        <!-- <div id="form-box">
+            <p><span>Votre compte.</span></p>
+            <a href="/back/delete.php"><button class="delete">Supprimer mon compte</button></a>
+        </div> -->
+    </div>
+</div>
+
 </body>
 </html>
