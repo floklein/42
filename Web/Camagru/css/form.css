@@ -67,6 +67,19 @@
     border: solid 1px #c27878;
 }
 
+#form-box input.validation:valid {
+    border: solid 1px #a9dacc;
+    background-color: #f8fffa;
+}
+
+#form-box input.validation:valid:hover {
+    border: solid 1px #8acfbc;
+}
+
+#form-box input.validation:valid:focus {
+    border: solid 1px #6abda5;
+}
+
 #form-box button {
     position: relative;
     margin: 22px 0px 35px 0px;
