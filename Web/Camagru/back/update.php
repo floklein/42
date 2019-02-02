@@ -29,6 +29,21 @@ try {
     exit($e);
 }
 
+// Searching if username already exists
+try {
+    $sql = "SELECT `id`, `name` FROM `users` WHERE `id`!=? AND `name`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['logged_on_user']['id'], $name]);
+    $existing_user = $stmt->fetch();
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+if ($existing_user !== false) {
+    header("Location: /../account.php?error=user_exists");
+    exit();
+}
+
 // Updating name and email
 try {
     $sql = "UPDATE `users` SET `name`=?, `email`=? WHERE `id`=?";
