@@ -19,7 +19,7 @@ if (auth($login, $passwd)) {
 
     // Checking if user is verified
     try {
-        $sql = "SELECT users.id AS user_id, `name`, `verified` FROM `users` JOIN `verify` ON users.id=verify.user_id WHERE `name`=?";
+        $sql = "SELECT users.id AS user_id, `name`, `email`, `pic`, `verified` FROM `users` JOIN `verify` ON users.id=verify.user_id WHERE `name`=?";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$login]);
         $verified_user = $stmt->fetch();
@@ -28,7 +28,11 @@ if (auth($login, $passwd)) {
     }
 
     if ($verified_user['verified']) {
-        $_SESSION['logged_on_user']['login'] = $login;
+        $_SESSION['logged_on_user']['id'] = $verified_user['user_id'];
+        $_SESSION['logged_on_user']['login'] = $verified_user['name'];
+        $_SESSION['logged_on_user']['email'] = $verified_user['email'];
+        $_SESSION['logged_on_user']['pic'] = $verified_user['pic'];
+        // TODO: Store more user infos is $_SESSION
         header("Location: /../index.php?req=logged_in");
     } else {
         $_SESSION['logged_on_user'] = "";
