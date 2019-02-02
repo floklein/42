@@ -2,7 +2,7 @@
 require '../config/database.php';
 
 session_start();
-if ($_SESSION['logged_on_user'] == "") {
+if (!isset($_SESSION['logged_on_user'])) {
     header("Location: /../signin.php");
     exit();
 }
