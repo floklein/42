@@ -2,6 +2,9 @@
 require '../config/database.php';
 
 session_start();
+if (!isset($_SESSION['logged_on_user'])) {
+    header("Location: /../signin.php");
+}
 
 $DB_DSN .= ";dbname=" . $DB_NAME;
 // Connecting to 'instacam' database

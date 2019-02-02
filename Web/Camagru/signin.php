@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (isset($_SESSION['logged_on_user'])) {
+    header("Location: account.php");
+}
+
 $error = $_GET['error'];
 ?>
 

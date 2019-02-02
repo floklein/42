@@ -39,10 +39,10 @@ if (auth($login, $passwd)) {
         // TODO: Store more user infos is $_SESSION
         header("Location: /../index.php?req=logged_in");
     } else {
-        $_SESSION['logged_on_user'] = "";
+        unset($_SESSION['logged_on_user']);
         header("Location: /../verification.php?req=please_verify&id=" . $verified_user['user_id']);
     }
 } else {
-    $_SESSION['logged_on_user'] = "";
+    unset($_SESSION['logged_on_user']);
     header("Location: /../signin.php?error=wrong_credentials");
 }

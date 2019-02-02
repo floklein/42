@@ -95,7 +95,7 @@ try {
     exit($e);
 }
 
-// Link mail.php will send
+// Link mail_verify.php will send
 $link = "http://localhost:8080/back/verify.php?id=" . $new_id . "&phrase=" . $phrase;
 echo $link;
 
