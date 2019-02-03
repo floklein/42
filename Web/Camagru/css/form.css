@@ -155,6 +155,11 @@
     opacity: .5;
 }
 
+#form-upload button.invalid {
+    background-color: #ffe2e2;
+    color: #c27878;
+}
+
 #form-upload input {
     margin: 0px 0px;
     padding: 10px;

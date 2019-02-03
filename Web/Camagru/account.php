@@ -40,7 +40,7 @@ $error = $_GET['error'];
             <p><span>Votre photo de profil.</span></p>
             <form action="/back/upload_pp.php" method="post" enctype="multipart/form-data">
                 <div id="form-upload">
-                    <button>Choisir</button>
+                    <button <?php if ($error) { ?> class="invalid" <?php } ?>><?= $error === "too_large" ? "Fichier > 1MB" : "" ?><?= $error === "wrong_format" ? "JPG, PNG ou GIF" : "" ?><?= $error === "upload_fail" ? "Échec d'envoi" : "" ?><?= !isset($error) ? "Choisir une image..." : "" ?></button>
                     <input required type="file" accept="image/*" name="pic">
                 </div>
                 <button type="submit" name="submit-upload" value="ok" style="margin-top: 10px;">Envoyer</button>
