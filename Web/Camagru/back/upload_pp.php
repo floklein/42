@@ -13,12 +13,9 @@ $target_file = $target_dir . $_SESSION['logged_on_user']['id'] . "." . $img_type
 $upload_status = 1;
 
 // Checking if file is an actual image or a fake one
-if (isset($_POST["submit-upload"])) {
-    $check = getimagesize($_FILES["pic"]["tmp_name"]);
-    if ($check === false) {
-        header("Location: /../account.php?error=wrong_format");
-        exit();
-    }
+if (getimagesize($_FILES["pic"]["tmp_name"]) === false) {
+    header("Location: /../account.php?error=wrong_format");
+    exit();
 }
 
 // Checking file size
@@ -39,6 +36,11 @@ if (!move_uploaded_file($_FILES["pic"]["tmp_name"], $target_file)) {
     exit();
 }
 
+// Deleting old pic if name was different
+if ($_SESSION['logged_on_user']['pic'] !== "default.png" && $_SESSION['logged_on_user']['pic'] !== $_SESSION['logged_on_user']['id'] . "." . $img_type) {
+    unlink($target_dir . $_SESSION['logged_on_user']['pic']);
+}
+
 $DB_DSN .= ";dbname=" . $DB_NAME;
 // Connecting to 'instacam' database
 try {
@@ -54,7 +56,7 @@ $_SESSION['logged_on_user']['pic'] = $_SESSION['logged_on_user']['id'] . "." . $
 try {
     $sql = "UPDATE `users` SET `pic`=? WHERE `id`=?;";
     $phrase = "";
-    $pdo->prepare($sql)->execute([$_SESSION['logged_on_user']['pic'], $_SESSION['logged_on_user']]);
+    $pdo->prepare($sql)->execute([$_SESSION['logged_on_user']['pic'], $_SESSION['logged_on_user']['id']]);
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
