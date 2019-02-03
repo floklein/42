@@ -1,49 +1,42 @@
 <?php
 require '../config/database.php';
+
 session_start();
+if (!isset($_SESSION['logged_on_user'])) {
+    header("Location: /../signin.php");
+    exit();
+}
 
 $target_dir = "../resources/profile-pics/";
-$imageFileType = strtolower(pathinfo($_FILES["pic"]["name"], PATHINFO_EXTENSION));
-$target_file = $target_dir . $_SESSION['logged_on_user']['id'] . "." . $imageFileType;
-echo $target_file . "<br>";
-$uploadOk = 1;
+$img_type = strtolower(pathinfo($_FILES["pic"]["name"], PATHINFO_EXTENSION));
+$target_file = $target_dir . $_SESSION['logged_on_user']['id'] . "." . $img_type;
+$upload_status = 1;
 
-// Check if image file is a actual image or fake image
+// Checking if file is an actual image or a fake one
 if (isset($_POST["submit-upload"])) {
     $check = getimagesize($_FILES["pic"]["tmp_name"]);
-    if ($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".<br>";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.<br>";
-        $uploadOk = 0;
+    if ($check === false) {
+        header("Location: /../account.php?error=wrong_format");
+        exit();
     }
 }
 
-// Check file size
-if ($_FILES["pic"]["size"] > 500000) {
-    echo "Sorry, your file is too large.<br>";
-    $uploadOk = 0;
+// Checking file size
+if ($_FILES["pic"]["size"] > 1000000) {
+    header("Location: /../account.php?error=too_large");
+    exit();
 }
 
-// Allow certain file formats
-if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif") {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br>";
-    $uploadOk = 0;
+// Checking file formats
+if ($img_type != "jpg" && $img_type != "png" && $img_type != "jpeg" && $img_type != "gif") {
+    header("Location: /../account.php?error=wrong_format");
+    exit();
 }
 
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.<br>";
-
-// If everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["pic"]["tmp_name"], $target_file)) {
-        echo "The file " . basename($_FILES["pic"]["name"]) . " has been uploaded.<br>";
-    } else {
-        echo "Sorry, there was an error uploading your file.<br>";
-    }
+// Trying to upload file
+if (!move_uploaded_file($_FILES["pic"]["tmp_name"], $target_file)) {
+    header("Location: /../account.php?error=upload_fail");
+    exit();
 }
 
 $DB_DSN .= ";dbname=" . $DB_NAME;
@@ -56,7 +49,7 @@ try {
     exit($e);
 }
 
-$_SESSION['logged_on_user']['pic'] = $_SESSION['logged_on_user']['id'] . "." . $imageFileType;
+$_SESSION['logged_on_user']['pic'] = $_SESSION['logged_on_user']['id'] . "." . $img_type;
 // Updating profile pic
 try {
     $sql = "UPDATE `users` SET `pic`=? WHERE `id`=?;";
@@ -65,3 +58,5 @@ try {
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
+
+header("Location: /../account.php?req=success");
