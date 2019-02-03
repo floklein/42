@@ -86,11 +86,22 @@ try {
     exit($e);
 }
 
+// Inserting into 'notifications' table
 try {
     $sql = "INSERT INTO `notifications` (`user_id`)
                 VALUES (?);";
     $pdo->prepare($sql)->execute([$new_id]);
     echo "Notifications set to default.<br>";
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+// Inserting into 'passwords' table
+try {
+    $sql = "INSERT INTO `passwords` (`user_id`, `phrase`)
+                VALUES (?, ?);";
+    $pdo->prepare($sql)->execute([$new_id, ""]);
+    echo "Password reset phrase set to default.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }

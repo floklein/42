@@ -1,5 +1,41 @@
 <?php
+require 'config/database.php';
 session_start();
+
+$id = $_GET['id'];
+$phrase = $_GET['phrase'];
+if (!isset($id) || !isset($phrase)) {
+    header("Location: /password.php?req=invalid_link");
+    exit();
+}
+
+$DB_DSN .= ";dbname=" . $DB_NAME;
+// Connecting to 'instacam' database
+try {
+    $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $pdo->setAttribute(PDO::ERRMODE_EXCEPTION);
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+// Searching if phrase matches user
+try {
+    $sql = "SELECT `user_id`, `phrase` FROM `passwords` WHERE `user_id`=? AND `phrase`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id, $phrase]);
+    $found_user = $stmt->fetch();
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+if ($found_user === false) {
+    header("Location: password.php?req=invalid_link");
+    exit();
+}
+
+$error = $_GET['error'];
+
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +56,10 @@ session_start();
 <div id="flex-form">
     <div id="form-box">
         <p>Choisissez un <span>nouveau</span> mot de passe.</p>
-        <form>
-            <input type="password" name="pwd" placeholder="Votre nouveau mot de passe"><br>
-            <input type="password" name="pwd-confirm" placeholder="Confirmez le mot de passe"><br>
-            <div id="form-button">
-                <button type="submit" name="resetpwd-submit" value="ok">Modifier</button>
-            </div>
+        <form action="/back/reset_pwd.php?id=<?= $id ?>&phrase=<?= $phrase ?>" method="post">
+            <input required pattern=".{8,64}" minlength="8" maxlength="64" type="password" name="pwd" <?php if ($error === "invalid_pwd") { ?> class="invalid validation" placeholder="Mot de passe invalide" <?php } else if ($error === "weak_pwd") { ?> class="invalid validation" placeholder="Mot de passe trop faible" <?php } else if ($error === "pwds_no_match") { ?> class="invalid validation" placeholder="Mots de passe différents" <?php } else { ?> class="validation" placeholder="Choisissez un mot de passe" <?php } ?>><br>
+            <input required pattern=".{8,64}" minlength="8" maxlength="64" type="password" name="pwd-confirm" <?php if ($error === "pwds_no_match") { ?> class="invalid validation" placeholder="Mots de passe différents" <?php } else { ?> class="validation" placeholder="Confirmez le mot de passe" <?php } ?>><br>
+            <button type="submit" name="resetpwd-submit" value="ok">Modifier</button>
         </form>
     </div>
 </div>

@@ -28,9 +28,10 @@
 }
 
 #alert-box p {
-    margin: 20px 0px 22px 0px;
+    margin: 20px 20px 22px 20px;
     font-family: myProximaNovaReg;
     font-size: 20px;
+    line-height: 25px;
 }
 
 #alert-box span {
