@@ -107,3 +107,14 @@ try {
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
+
+// Creating 'passwords' table
+try {
+    $sql = "CREATE TABLE IF NOT EXISTS `passwords` (
+        `user_id` int,
+        `phrase` varchar(256));";
+    $pdo->prepare($sql)->execute();
+    echo "'passwords' table created.<br>";
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}

@@ -21,7 +21,7 @@ session_start();
     <div id="form-box">
         <p style="margin-bottom: 15px;"><span>Mot de passe</span> oublié ?</p>
         <p class="comment" style="margin-bottom: 15px;">Nous allons vous envoyer un <span class="comment">lien de réinitialisation</span> à l'adresse email liée<br>à votre compte.</p>
-        <form action="/back/forgot-pwd.php" method="post">
+        <form action="/back/forgot_pwd.php" method="post">
             <input required type="email" name="email" placeholder="Votre adresse email"><br>
             <div id="form-button">
                 <button type="submit" name="forgotpwd-submit" value="ok">Envoyer un lien</button>

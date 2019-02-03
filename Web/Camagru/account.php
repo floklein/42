@@ -31,7 +31,7 @@ $error = $_GET['error'];
         <div id="form-box">
             <p><span>Vos informations.</span></p>
             <form action="/back/update.php" method="post">
-                <input required pattern="^[a-zA-Z0-9\.\-\_]+\@[a-zA-Z0-9\.\-\_]+\.[a-z]+$" minlength="1" maxlength="64" type="email" name="email" <?php if ($error === "invalid_email") { ?> class="invalid" placeholder="Adresse email invalide" <?php } else { ?> value="<?= $_SESSION['logged_on_user']['email'] ?>" placeholder="Changez votre adresse email" <?php } ?>><br>
+                <input required minlength="1" maxlength="64" type="email" name="email" <?php if ($error === "invalid_email") { ?> class="invalid" placeholder="Adresse email invalide" <?php } else { ?> value="<?= $_SESSION['logged_on_user']['email'] ?>" placeholder="Changez votre adresse email" <?php } ?>><br>
                 <input required pattern="^[a-zA-Z0-9]{1,24}$" minlength="1" maxlength="24" type="text" name="name" <?php if ($error === "user_exists") { ?> class="invalid" placeholder="Nom d'utilisateur non disponible" <?php } else if ($error === "invalid_username") { ?> class="invalid" placeholder="Nom d'utilisateur invalide" <?php } else { ?> value="<?= $_SESSION['logged_on_user']['login'] ?>" placeholder="Changez votre nom d'utilisateur"><?php } ?><br>
                 <p><span>Vos notifications.</span></p>                
                 <input <?php if ($_SESSION['logged_on_user']['notif_comments']) { echo "checked"; } ?> type="checkbox" class="checkbox" name="notif_comments" value="true"><span class="checktext">Commentaires sur vos photos</span><br>
