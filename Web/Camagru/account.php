@@ -35,7 +35,15 @@ $error = $_GET['error'];
                 <input required pattern="^[a-zA-Z0-9]{1,24}$" minlength="1" maxlength="24" type="text" name="name" <?php if ($error === "user_exists") { ?> class="invalid" placeholder="Nom d'utilisateur non disponible" <?php } else if ($error === "invalid_username") { ?> class="invalid" placeholder="Nom d'utilisateur invalide" <?php } else { ?> value="<?= $_SESSION['logged_on_user']['login'] ?>" placeholder="Changez votre nom d'utilisateur"><?php } ?><br>
                 <p><span>Vos notifications.</span></p>                
                 <input <?php if ($_SESSION['logged_on_user']['notif_comments']) { echo "checked"; } ?> type="checkbox" class="checkbox" name="notif_comments" value="true"><span class="checktext">Commentaires sur vos photos</span><br>
-                <button type="submit" name="update-submit" value="ok">Mettre à jour</button>
+                <button type="submit" name="update-submit" value="ok" style="margin-bottom: 6px;">Mettre à jour</button>
+            </form>
+            <p><span>Votre photo de profil.</span></p>
+            <form action="/back/upload_pp.php" method="post" enctype="multipart/form-data">
+                <div id="form-upload">
+                    <button>Choisir</button>
+                    <input required type="file" accept="image/*" name="pic">
+                </div>
+                <button type="submit" name="submit-upload" value="ok" style="margin-top: 10px;">Envoyer</button>
             </form>
         </div>
 

@@ -133,3 +133,39 @@
     background-color: #ececec;
     opacity: .5;
 }
+
+#form-upload {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#form-upload button {
+    margin: 0px 0px;
+    color: #231F20;
+    background-color: #f3f3f3;
+}
+
+#form-upload button:hover {
+    background-color: #ececec;
+}
+
+#form-upload button:active {
+    background-color: #ececec;
+    opacity: .5;
+}
+
+#form-upload input {
+    margin: 0px 0px;
+    padding: 10px;
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#form-upload input:valid {
+    opacity: 1;
+}
