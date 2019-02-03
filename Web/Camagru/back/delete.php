@@ -25,6 +25,11 @@ try {
     exit($e);
 }
 
+// Deleting user profile pic
+if ($_SESSION['logged_on_user']['pic'] !== "default.png") {
+    unlink("../resources/profile-pics/" . $_SESSION['logged_on_user']['pic']);
+}
+
 // Deleting user from 'verify'
 try {
     $sql = "DELETE FROM `verify` WHERE `user_id`=?";
