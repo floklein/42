@@ -53,7 +53,9 @@ try {
     $sql = "CREATE TABLE IF NOT EXISTS `posts` (
         `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
         `user_id` int,
-        `date` varchar(16));";
+        `date` varchar(16),
+        `img` varchar(16),
+        `legend` varchar(256));";
     $pdo->prepare($sql)->execute();
     echo "'posts' table created.<br>";
 } catch (PDOEXCEPTION $e) {
