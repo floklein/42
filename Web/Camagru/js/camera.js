@@ -35,7 +35,6 @@ let filterIndex = 0;
 const filters = [
     'grayscale(1)',
     'sepia(1)',
-    'blur(3px)',
     'brightness(5)',
     'contrast(8)',
     'hue-rotate(90deg)',
