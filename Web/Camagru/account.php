@@ -5,6 +5,7 @@ if ($_SESSION['logged_on_user'] == "")
     header("Location: /signin.php");
 
 $error = $_GET['error'];
+$img_error = $_GET['img_error'];
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +41,7 @@ $error = $_GET['error'];
             <p><span>Votre photo de profil.</span></p>
             <form action="/back/upload_pp.php" method="post" enctype="multipart/form-data">
                 <div id="form-upload">
-                    <button <?php if ($error) { ?> class="invalid" <?php } ?>><?= $error === "too_large" ? "Fichier > 1MB" : "" ?><?= $error === "wrong_format" ? "JPG, PNG ou GIF" : "" ?><?= $error === "upload_fail" ? "Échec d'envoi" : "" ?><?= !isset($error) ? "Choisir une image..." : "" ?></button>
+                    <button <?php if ($img_error) { ?> class="invalid" <?php } ?>><?php if ($img_error === "too_large") { ?>Fichier > 5MB<?php } else if ($img_error === "wrong_format") { ?>JPG, PNG ou GIF<?php } else if ($img_error === "upload_fail") { ?>Échec d'envoi<?php } else { ?>Choisir une image...<?php } ?></button>
                     <input required type="file" accept="image/*" name="pic">
                 </div>
                 <button type="submit" name="submit-upload" value="ok" style="margin-top: 10px;">Envoyer</button>
