@@ -14,25 +14,25 @@ $upload_status = 1;
 
 // Checking if file is an actual image or a fake one
 if (getimagesize($_FILES["pic"]["tmp_name"]) === false) {
-    header("Location: /../account.php?error=wrong_format");
+    header("Location: /../account.php?img_error=wrong_format");
     exit();
 }
 
 // Checking file size
-if ($_FILES["pic"]["size"] > 1000000) {
-    header("Location: /../account.php?error=too_large");
+if ($_FILES["pic"]["size"] > 5000000) {
+    header("Location: /../account.php?img_error=too_large");
     exit();
 }
 
 // Checking file formats
 if ($img_type != "jpg" && $img_type != "png" && $img_type != "jpeg" && $img_type != "gif") {
-    header("Location: /../account.php?error=wrong_format");
+    header("Location: /../account.php?img_error=wrong_format");
     exit();
 }
 
 // Trying to upload file
 if (!move_uploaded_file($_FILES["pic"]["tmp_name"], $target_file)) {
-    header("Location: /../account.php?error=upload_fail");
+    header("Location: /../account.php?img_error=upload_fail");
     exit();
 }
 
