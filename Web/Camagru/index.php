@@ -25,7 +25,7 @@ date_default_timezone_set("Europe/Paris");
     <?php for ($i = 0; $i < 5; $i++) {?>
         <div id="feed-box">
             <div id="feed-header">
-                <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/0.jpg');">
+                <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/1.jpg');">
                 </div>
                 <div id="feed-user-login">
                     <a href="#user">
