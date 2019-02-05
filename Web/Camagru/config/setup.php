@@ -40,9 +40,9 @@ try {
         `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
         `name` varchar(24),
         `email` varchar(64),
+        `pic` varchar(16) DEFAULT 'default.png',
         `pwd` varchar(64),
-        `salt` varchar(64),
-        `pic` varchar(16) DEFAULT 'default.png');";
+        `salt` varchar(64));";
     $pdo->prepare($sql)->execute();
     echo "'users' table created.<br>";
 } catch (PDOEXCEPTION $e) {
