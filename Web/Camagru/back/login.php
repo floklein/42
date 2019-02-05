@@ -4,7 +4,7 @@ require '../config/database.php';
 
 session_start();
 $login = $_POST['login'];
-$passwd = hash("sha256", $_POST['passwd']);
+$passwd = $_POST['passwd'];
 
 if (auth($login, $passwd)) {
     $DB_DSN .= ";dbname=" . $DB_NAME;

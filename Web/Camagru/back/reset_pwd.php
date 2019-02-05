@@ -45,11 +45,29 @@ if ($found_user === false) {
     exit();
 }
 
+// Searching for user salt
+try {
+    $sql = "SELECT `id`, `salt` FROM `users` WHERE `id`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id]);
+    $found_user = $stmt->fetch();
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+if ($found_user === false) {
+    header("Location: password.php?req=invalid_link");
+    exit();
+} else {
+    $salt = $found_user['salt'];
+    $hash = hash_pbkdf2("sha256", $pwd, $salt, 40000);
+}
+
 // Updating to new password
 try {
     $sql = "UPDATE `users` SET `pwd`=? WHERE `id`=?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([hash("sha256", $pwd), $id]);
+    $stmt->execute([$hash, $id]);
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }

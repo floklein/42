@@ -55,9 +55,10 @@ if ($existing_user !== false) {
 
 // Inserting into 'users' table
 try {
-    $sql = "INSERT INTO `users` (`name`, `email`, `pwd`)
-                VALUES (?, ?, ?);";
-    $pdo->prepare($sql)->execute([$name, $email, hash("sha256", $pwd)]);
+    $sql = "INSERT INTO `users` (`name`, `email`, `pwd`, `salt`)
+                VALUES (?, ?, ?, ?);";
+    $salt = substr(str_replace(['+', '/', '='], '', base64_encode(random_bytes(64))), 0, 64);
+    $pdo->prepare($sql)->execute([$name, $email, hash_pbkdf2("sha256", $pwd, $salt, 40000), $salt]);
     echo "User inserted.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
