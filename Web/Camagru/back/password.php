@@ -35,11 +35,30 @@ try {
     exit($e);
 }
 
+// Searching for user salt
+try {
+    $sql = "SELECT `id`, `salt` FROM `users` WHERE `id`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['logged_on_user']['id']]);
+    $found_user = $stmt->fetch();
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+if ($found_user === false) {
+    header("Location: /../account.php?error=user_not_found");
+    exit();
+} else {
+    $salt = $found_user['salt'];
+    $old_hash = hash_pbkdf2("sha256", $old_pwd, $salt, 40000);
+    $new_hash = hash_pbkdf2("sha256", $new_pwd, $salt, 40000);
+}
+
 // Searching if old password matches
 try {
     $sql = "SELECT `id`, `pwd` FROM `users` WHERE `id`=? AND `pwd`=?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$_SESSION['logged_on_user']['id'], hash("sha256", $old_pwd)]);
+    $stmt->execute([$_SESSION['logged_on_user']['id'], $old_hash]);
     $found_user = $stmt->fetch();
 } catch (PDOEXCEPTION $e) {
     exit($e);
@@ -54,7 +73,7 @@ if ($found_user === false) {
 try {
     $sql = "UPDATE `users` SET `pwd`=? WHERE `id`=?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([hash("sha256", $new_pwd), $_SESSION['logged_on_user']['id']]);
+    $stmt->execute([$new_hash, $_SESSION['logged_on_user']['id']]);
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }

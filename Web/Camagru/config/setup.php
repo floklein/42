@@ -41,6 +41,7 @@ try {
         `name` varchar(24),
         `email` varchar(64),
         `pwd` varchar(64),
+        `salt` varchar(64),
         `pic` varchar(16) DEFAULT 'default.png');";
     $pdo->prepare($sql)->execute();
     echo "'users' table created.<br>";
