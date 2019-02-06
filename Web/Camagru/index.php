@@ -61,7 +61,7 @@ date_default_timezone_set("Europe/Paris");
                 <p><span>tanguyboissel </span>Mdr, je vais tester les limites de cet espace commentaire :
                     xdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxd</p>
                 <p><span>etmoijaiuntreslongpseudooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
-                    </span>#relou</p>
+                    </span>#SuperRelou</p>
                 <p><span>florentklein </span>Merci...</p>
             </div>
             <hr id="feed-bar-2">
