@@ -42,7 +42,7 @@ date_default_timezone_set("Europe/Paris");
             </div>
             <div id="feed-buttons">
                 <button href="#" id="feed-like-button"><img src="/assets/like.png" id="feed-buttons-img"><span id="feed-buttons-txt">J'aime</span></button>
-                <button href="#" id="feed-like-button"><img src="/assets/comment.png" id="feed-buttons-img"><span id="feed-buttons-txt">Commenter</span></button>
+                <button onclick="document.getElementById('field').focus();" id="feed-like-button"><img src="/assets/comment.png" id="feed-buttons-img"><span id="feed-buttons-txt">Commenter</span></button>
                 <button href="#" id="feed-like-button"><img src="/assets/share.png" id="feed-buttons-img"><span id="feed-buttons-txt">Partager</span></button>
             </div>
             <hr id="feed-bar">
