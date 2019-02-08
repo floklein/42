@@ -26,11 +26,17 @@ if (!isset($_SESSION['logged_on_user'])) {
         <video class="videostream" autoplay></video>
         <img id="screenshot-img" src="">
         <canvas style="display:none;"></canvas>
-        <br>
         <button id="cssfilters-apply">Filtre suivant</button><br>
-        <button class="capture-button">Lancer video</button>
-        <button id="screenshot-button">Photo !</button><br>
-        <input type="file" accept="image/*">
+        <div id="tri-buttons">
+            <div id="screenshot-upload">
+                <button><img src="/assets/picture.png"></button>
+                <input type="file" accept="image/*">
+            </div>
+            <div class="screenshot-button-back">
+                <button class="screenshot-button"></button>
+            </div>
+            <button class="capture-button"><img src="/assets/retake.png"></button>
+        </div>
     </div>
     <script src="/js/camera.js"></script>
     <script>startVideo();</script>

@@ -9,7 +9,7 @@ if (hasGetUserMedia()) {
 }
 
 const captureVideoButton = document.querySelector('#screenshot .capture-button');
-const screenshotButton = document.querySelector('#screenshot-button');
+const screenshotButton = document.querySelector('#screenshot .screenshot-button');
 const img = document.querySelector('#screenshot img');
 const video = document.querySelector('#screenshot video');
 const canvas = document.createElement('canvas');
