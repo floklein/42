@@ -2,18 +2,6 @@ body {
     background-color: #191919;
 }
 
-button {
-    width: 220px;
-    height: 40px;
-    background-color: #e6e6e6;
-    border: none;
-    border-radius: 20px;
-    font-family: myProximaNovaReg;
-    font-size: 18px;
-    color: black;
-    outline: none;
-}
-
 #main {
     position: relative;
     top: 130px;
@@ -37,15 +25,102 @@ button {
 }
 
 #screenshot {
+    position: relative;
+    max-width: 550px;
     width: 100%;
+    left: 50%;
+    margin: 40px 0px;
+    transform: translate(-50%);
     text-align: center;
+    border: solid 1px black;
+    /* background-color: black; */
+    box-shadow: 0px 0px 128px 0px rgba(255, 255, 255, .05)
 }
 
 #screenshot video {
-    margin: 40px 0px;
-    width: 50%;
-    height: 50%;
-    border: solid 1px white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 128px 0px rgba(255, 255, 255, .05)
+    width: 100%;
+}
+
+#screenshot-img {
+    width: 100%;
+}
+
+#tri-buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.screenshot-button-back {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+}
+
+.screenshot-button {
+    width: 60px;
+    height: 60px;
+    background-color: #f2f2f2;
+    border: solid 3px black;
+    border-radius: 50%;
+    outline: none;
+}
+
+.screenshot-button:hover {
+    background-color: #ffffff;
+}
+
+.screenshot-button:active {
+    background-color: #d0d0d0;
+}
+
+#screenshot-upload {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#screenshot-upload button {
+    margin: 0px 0px;
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+#screenshot-upload img {
+    width: 40px;
+}
+
+#screenshot-upload input {
+    margin: 0px 0px;
+    padding: 10px;
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.capture-button {
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.capture-button img {
+    width: 36px;
 }
