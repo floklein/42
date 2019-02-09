@@ -27,7 +27,7 @@ body {
 #screenshot {
     position: relative;
     max-width: 550px;
-    width: 100%;
+    width: 95%;
     left: 50%;
     margin: 40px 0px;
     transform: translate(-50%);
@@ -47,6 +47,7 @@ body {
 
 #tri-buttons {
     display: flex;
+    margin: 10px 0px 20px 0px;
     flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: center;
@@ -123,4 +124,44 @@ body {
 
 .capture-button img {
     width: 36px;
+}
+
+#stickers-panel {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#stickers-panel .shadow {
+    width: 1px;
+    height: 80px;
+    z-index: 99;
+    box-shadow: 0px 0px 16px 24px rgba(25, 25, 25, 1);
+    background-color: #191919;
+}
+
+#stickers-carousel {
+    display: flex;
+    width: 90%;
+    height: 80px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+#stickers-carousel img {
+    width: 60px;
+    height: 60px;
+    margin: 0px 10px;
+    border-radius: 5px;
+}
+
+#stickers-carousel img:hover {
+    box-shadow: 0px 0px 0px 3px #ffc830;
 }
