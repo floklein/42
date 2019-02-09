@@ -28,12 +28,12 @@ if (!isset($_SESSION['logged_on_user'])) {
         <canvas style="display:none;"></canvas>
         <!-- <button id="cssfilters-apply">Filtre suivant</button><br> -->
         <div id="stickers-panel">
-            <div class="shadow">
+            <div class="shadow left">
             </div>
             <div id="stickers-carousel">
                 <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
-                <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
-                <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
+                <img src="/assets/stickers/luigi.png" alt="sticker" title="Ajouter ce sticker">
+                <img src="/assets/stickers/pizza.png" alt="sticker" title="Ajouter ce sticker">
                 <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
                 <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
                 <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
@@ -43,7 +43,7 @@ if (!isset($_SESSION['logged_on_user'])) {
                 <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
                 <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
             </div>
-            <div class="shadow">
+            <div class="shadow right">
             </div>
         </div>
         <div id="tri-buttons">
