@@ -24,7 +24,8 @@ if (!isset($_SESSION['logged_on_user'])) {
 <div id="main">
     <div id="screenshot">
         <video class="videostream" autoplay></video>
-        <img id="screenshot-img" src="">
+        <img class="captured-img" src="">
+        <img class="sticker-img" src="">
         <canvas style="display:none;"></canvas>
         <!-- <button id="cssfilters-apply">Filtre suivant</button><br> -->        
     </div>
@@ -56,12 +57,12 @@ if (!isset($_SESSION['logged_on_user'])) {
             <div class="screenshot-button-back">
                 <button class="screenshot-button"></button>
             </div>
-            <button class="capture-button"><img src="/assets/retake.png" alt="retake" title="Reprendre la photo"></button>
+            <button class="retake-button"><img src="/assets/retake.png" alt="retake" title="Reprendre la photo"></button>
         </div>
     </div>
 </div>
 
-<script src="/js/camera.js"></script>
+<script async src="/js/camera.js"></script>
 
 </body>
 </html>
