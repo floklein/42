@@ -59,9 +59,9 @@ if (!isset($_SESSION['logged_on_user'])) {
             <button class="capture-button"><img src="/assets/retake.png" alt="retake" title="Reprendre la photo"></button>
         </div>
     </div>
-
-    <script src="/js/camera.js"></script>
 </div>
+
+<script src="/js/camera.js"></script>
 
 </body>
 </html>
