@@ -8,9 +8,11 @@ if (hasGetUserMedia()) {
     alert('getUserMedia() IS NOT supported by your browser');
 }
 
-const captureVideoButton = document.querySelector('#bottom-buttons .capture-button');
+const retakeButton = document.querySelector('#bottom-buttons .retake-button');
 const screenshotButton = document.querySelector('#bottom-buttons .screenshot-button');
-const img = document.querySelector('#screenshot img');
+const img = document.querySelector('#screenshot .captured-img');
+const sticker = document.querySelector('#screenshot .sticker-img');
+const carousel = document.querySelectorAll('#stickers-carousel img');
 const video = document.querySelector('#screenshot video');
 const canvas = document.createElement('canvas');
 const constraints = {
@@ -22,7 +24,7 @@ function startVideo() {
         then(handleSuccess).catch(handleError);
 };
 
-captureVideoButton.onclick = startVideo();
+startVideo();
 
 screenshotButton.onclick = function () {
     canvas.width = video.videoWidth;
@@ -31,6 +33,17 @@ screenshotButton.onclick = function () {
     // Other browsers will fall back to image/png
     img.src = canvas.toDataURL('image/webp');
 };
+
+retakeButton.onclick = function () {
+    img.src = "";
+    sticker.src = "";
+}
+
+carousel.forEach((that) => {
+    that.onclick = () => {
+        sticker.src = that.src;
+    }
+});
 
 const cssFiltersButton = document.querySelector('#cssfilters-apply');
 let filterIndex = 0;
@@ -60,5 +73,3 @@ function handleSuccess(stream) {
 function handleError(error) {
     console.error('Error: ', error);
 }
-
-startVideo();
