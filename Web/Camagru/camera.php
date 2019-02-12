@@ -26,9 +26,11 @@ if (!isset($_SESSION['logged_on_user'])) {
         <video class="videostream" autoplay></video>
         <img id="screenshot-img" src="">
         <canvas style="display:none;"></canvas>
-        <!-- <button id="cssfilters-apply">Filtre suivant</button><br> -->
+        <!-- <button id="cssfilters-apply">Filtre suivant</button><br> -->        
+    </div>
+    <div id="bottom-buttons">
         <div id="stickers-panel">
-            <div class="shadow left">
+           <div class="shadow left">
             </div>
             <div id="stickers-carousel">
                 <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
@@ -57,8 +59,8 @@ if (!isset($_SESSION['logged_on_user'])) {
             <button class="capture-button"><img src="/assets/retake.png" alt="retake" title="Reprendre la photo"></button>
         </div>
     </div>
+
     <script src="/js/camera.js"></script>
-    <script>startVideo();</script>
 </div>
 
 </body>
