@@ -17,10 +17,12 @@ const constraints = {
     video: { width: 720, height: 720, facingMode: "user" }
 };
 
-captureVideoButton.onclick = function () {
+function startVideo() {
     navigator.mediaDevices.getUserMedia(constraints).
         then(handleSuccess).catch(handleError);
 };
+
+captureVideoButton.onclick = startVideo();
 
 screenshotButton.onclick = function () {
     canvas.width = video.videoWidth;
@@ -58,3 +60,5 @@ function handleSuccess(stream) {
 function handleError(error) {
     console.error('Error: ', error);
 }
+
+startVideo();
