@@ -33,8 +33,8 @@ body {
     transform: translate(-50%);
     text-align: center;
     border: solid 1px black;
-    /* background-color: black; */
-    box-shadow: 0px 0px 128px 0px rgba(255, 255, 255, .05)
+    background-color: black;
+    box-shadow: 0px 0px 128px 0px rgba(0, 0, 0, .5)
 }
 
 #screenshot video {
@@ -128,6 +128,7 @@ body {
 
 #stickers-panel {
     display: flex;
+    margin-top: 20px;
     width: 100%;
     height: 80px;
     flex-wrap: nowrap;
@@ -137,17 +138,20 @@ body {
 
 #stickers-panel .shadow {
     width: 1px;
-    height: 50px;
+    height: 35px;
     z-index: 99;
-    background-color: #191919;
+    /* background-color: #191919; */
+    background-color: black;
 }
 
 #stickers-panel .left {
-    box-shadow: 6px 0px 16px 24px #191919;
+    /* box-shadow: 16px 0px 16px 24px #191919; */
+    box-shadow: 16px 0px 16px 24px black;
 }
 
 #stickers-panel .right {
-    box-shadow: -6px 0px 16px 24px #191919;
+    /* box-shadow: -16px 0px 16px 24px #191919; */
+    box-shadow: -16px 0px 16px 24px black;
 }
 
 #stickers-carousel {
@@ -172,4 +176,18 @@ body {
 
 #stickers-carousel img:hover {
     box-shadow: 0px 0px 0px 3px #ffc830;
+}
+
+#bottom-buttons {
+    position: fixed;
+    bottom: 0px;
+    max-width: 550px;
+    width: 95%;
+    left: 50%;
+    margin: 40px 0px;
+    transform: translate(-50%);
+    border: solid 1px black;
+    border-radius: 50px;
+    background-color: black;
+    box-shadow: 0px 0px 128px 0px rgba(0, 0, 0, .5)
 }

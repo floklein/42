@@ -8,8 +8,8 @@ if (hasGetUserMedia()) {
     alert('getUserMedia() IS NOT supported by your browser');
 }
 
-const captureVideoButton = document.querySelector('#screenshot .capture-button');
-const screenshotButton = document.querySelector('#screenshot .screenshot-button');
+const captureVideoButton = document.querySelector('#bottom-buttons .capture-button');
+const screenshotButton = document.querySelector('#bottom-buttons .screenshot-button');
 const img = document.querySelector('#screenshot img');
 const video = document.querySelector('#screenshot video');
 const canvas = document.createElement('canvas');
@@ -45,10 +45,10 @@ const filters = [
     'none'
 ];
 
-cssFiltersButton.onclick = function () {
-    console.log("Filter applied: ", filters[filterIndex % filters.length]);
-    video.style.filter = filters[filterIndex++ % filters.length];
-};
+// cssFiltersButton.onclick = function () {
+//     console.log("Filter applied: ", filters[filterIndex % filters.length]);
+//     video.style.filter = filters[filterIndex++ % filters.length];
+// };
 
 function handleSuccess(stream) {
     screenshotButton.disabled = false;
