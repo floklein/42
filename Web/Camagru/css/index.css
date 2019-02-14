@@ -15,19 +15,15 @@
 
 * {
     box-sizing: border-box;
+    transition: background-color .25s, box-shadow .25s, opacity .25s, border .5s;
 }
 
 * a {
     text-decoration: none;
-    transition: background-color .25s, opacity .25s;
 }
 
 * button {
     cursor: pointer;
-}
-
-*:hover, *:active, *:focus {
-    transition: background-color .25s, box-shadow .25s, opacity .25s, border .5s;
 }
 
 body {
@@ -39,7 +35,7 @@ body {
 #navbar {
     overflow: hidden;
     background-color: rgba(255, 255, 255, .95);
-    /* -webkit-backdrop-filter: blur(10px); */
+    -webkit-backdrop-filter: blur(10px);
     padding: 40px 10px;
     transition: 0.4s;
     position: fixed;
@@ -73,11 +69,6 @@ body {
 #navbar a:active{
     opacity: .5;
 }
-
-/* #navbar a.active {
-    background-color: dodgerblue;
-    color: white;
-} */
 
 #navbar-right {
     float: right;
