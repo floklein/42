@@ -80,66 +80,57 @@ const upArrow = document.querySelector('#arrows button.up');
 const leftArrow = document.querySelector('#arrows button.left');
 const rightArrow = document.querySelector('#arrows button.right');
 const downArrow = document.querySelector('#arrows button.down');
-let xPos = 0;
-let yPos = 0;
+let xPos = 275;
+let yPos = 275;
 let timeout;
 
 upArrow.onmousedown = () => {
     timeout = setInterval(() => {
-        yPos -= 5;
+        yPos--;
         sticker.style.top = yPos.toString() + "px";
-    }, 50);
+    }, 10);
 };
 
-upArrow.onmouseup = () => {
-    clearInterval(timeout);
-}
-
-upArrow.onmouseleave = () => {
+upArrow.onmouseup = upArrow.onmouseleave = () => {
     clearInterval(timeout);
 }
 
 leftArrow.onmousedown = () => {
     timeout = setInterval(() => {
-        xPos -= 5;
+        xPos--;
         sticker.style.left = xPos.toString() + "px";
-    }, 50);
+    }, 10);
 };
 
-leftArrow.onmouseup = () => {
-    clearInterval(timeout);
-}
-
-leftArrow.onmouseleave = () => {
+leftArrow.onmouseup = leftArrow.onmouseleave = () => {
     clearInterval(timeout);
 }
 
 rightArrow.onmousedown = () => {
     timeout = setInterval(() => {
-        xPos += 5;
+        xPos++;
         sticker.style.left = xPos.toString() + "px";
-    }, 50);
+    }, 10);
 };
 
-rightArrow.onmouseup = () => {
-    clearInterval(timeout);
-}
-
-rightArrow.onmouseleave = () => {
+rightArrow.onmouseup = rightArrow.onmouseleave = () => {
     clearInterval(timeout);
 }
 
 downArrow.onmousedown = () => {
     timeout = setInterval(() => {
-        yPos += 5;
+        yPos++;
         sticker.style.top = yPos.toString() + "px";
-    }, 50);
+    }, 10);
 };
 
-downArrow.onmouseup = () => {
+downArrow.onmouseup = downArrow.onmouseleave = () => {
     clearInterval(timeout);
 }
 
-downArrow.onmouseleave = () => {
-    clearInterval(timeout);
+// Changing size of sticker
+const slider = document.querySelector('#arrows input[type=range]');
+
+slider.oninput = () => {
+    sticker.style.width = slider.value + "%";
 }

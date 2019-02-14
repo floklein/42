@@ -16,6 +16,7 @@ if (!isset($_SESSION['logged_on_user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/camera.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/range.css" />
     <script src="/js/navbar.js"></script>
 </head>
 
@@ -38,6 +39,7 @@ if (!isset($_SESSION['logged_on_user'])) {
                         <button class="up"><img src="/assets/arrow.svg" alt="arrow"></button>
                         <div id="arrow-left-right">
                             <button class="left"><img src="/assets/arrow.svg" alt="arrow"></button>
+                            <input type="range" min="1" max="100" step="1">
                             <button class="right"><img src="/assets/arrow.svg" alt="arrow"></button>
                         </div>
                         <button class="down"><img src="/assets/arrow.svg" alt="arrow"></button>
