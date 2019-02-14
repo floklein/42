@@ -19,10 +19,15 @@
 
 * a {
     text-decoration: none;
+    transition: background-color .25s, opacity .25s;
 }
 
 * button {
     cursor: pointer;
+}
+
+*:hover, *:active, *:focus {
+    transition: background-color .25s, box-shadow .25s, opacity .25s, border .5s;
 }
 
 body {
