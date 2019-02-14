@@ -82,6 +82,7 @@ const rightArrow = document.querySelector('#arrows button.right');
 const downArrow = document.querySelector('#arrows button.down');
 let xPos = 0;
 let yPos = 0;
+let timeout;
 
 upArrow.onmousedown = () => {
     timeout = setInterval(() => {
