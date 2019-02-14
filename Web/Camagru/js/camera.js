@@ -10,7 +10,7 @@ if (hasGetUserMedia()) {
     
 }
 
-// Initializing variables
+// Fetching buttons, canvases and setting constraints
 const retakeButton = document.querySelector('#bottom-buttons .retake-button');
 const screenshotButton = document.querySelector('#bottom-buttons .screenshot-button');
 const pictureInput = document.querySelector('#screenshot-upload input');
@@ -60,9 +60,9 @@ pictureInput.onchange = () => {
     }
 }
 
-function isValidImage(pictureInput) {
-    var filePath = pictureInput.value;
-    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+function isValidImage(picInput) {
+    let filePath = picInput.value;
+    let allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
     return (allowedExtensions.exec(filePath));
 }
 
