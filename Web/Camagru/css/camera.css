@@ -50,9 +50,11 @@ body {
 
 #screenshot .sticker-img {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 50%;
+    left: 50%;
+    width: 50%;
     max-width: 100%;
+    transform: translate(-50%, -50%);
 }
 
 #tri-buttons {
