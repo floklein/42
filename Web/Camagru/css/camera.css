@@ -28,11 +28,7 @@ body {
     position: relative;
     max-width: 550px;
     width: 95%;
-    max-height: 550px;
-    height: 95%;
-    left: 50%;
     margin: 40px 0px;
-    transform: translate(-50%);
     text-align: center;
     overflow: hidden;
     border: solid 1px black;
@@ -42,6 +38,7 @@ body {
 
 #screenshot video {
     width: 100%;
+    margin-bottom: -4px;
 }
 
 #screenshot .captured-img {
@@ -60,15 +57,15 @@ body {
 
 #tri-buttons {
     display: flex;
-    margin: 10px 0px 20px 0px;
+    margin: 0px 0px 20px 0px;
     flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: center;
 }
 
 .screenshot-button-back {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -77,8 +74,8 @@ body {
 }
 
 .screenshot-button {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background-color: #f2f2f2;
     border: solid 3px black;
     border-radius: 50%;
@@ -111,7 +108,7 @@ body {
 }
 
 #screenshot-upload img {
-    width: 40px;
+    width: 35px;
 }
 
 #screenshot-upload input {
@@ -136,40 +133,30 @@ body {
 }
 
 .retake-button img {
-    width: 36px;
+    width: 30px;
 }
 
 #stickers-panel {
     display: flex;
-    margin-top: 20px;
     width: 100%;
     height: 80px;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 #stickers-panel .shadow {
     width: 1px;
-    height: 35px;
+    height: 45px;
     z-index: 99;
-    /* background-color: #191919; */
     background-color: black;
-}
-
-#stickers-panel .left {
-    /* box-shadow: 16px 0px 16px 24px #191919; */
-    box-shadow: 16px 0px 16px 24px black;
-}
-
-#stickers-panel .right {
-    /* box-shadow: -16px 0px 16px 24px #191919; */
-    box-shadow: -16px 0px 16px 24px black;
+    box-shadow: 0px 0px 16px 24px black;
 }
 
 #stickers-carousel {
     display: flex;
-    width: 90%;
+    width: 99%;
     height: 80px;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -180,8 +167,8 @@ body {
 }
 
 #stickers-carousel img {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     margin: 0px 5px;
     border-radius: 5px;
     background-color: white;
@@ -192,15 +179,126 @@ body {
 }
 
 #bottom-buttons {
-    position: fixed;
-    bottom: 0px;
-    max-width: 550px;
+    position: relative;
+    max-width: 400px;
     width: 95%;
-    left: 50%;
-    margin: 40px 0px;
-    transform: translate(-50%);
+    margin-bottom: 40px;
     border: solid 1px black;
-    border-radius: 50px;
+    border-radius: 25px;
     background-color: black;
-    box-shadow: 0px 0px 128px 0px rgba(0, 0, 0, .5)
+    overflow: hidden;
+}
+
+#tri-panels {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#left-panel {
+    width: 150px;
+    height: 150px;
+    border: solid 1px black;
+    border-radius: 25px;
+    background-color: black;
+    box-shadow: 0px 0px 128px 0px rgba(0, 0, 0, .5);
+}
+
+#center-panel {
+    display: flex;
+    width: 100%;
+    max-width: 550px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#right-panel {
+    width: 100%;
+    max-width: 250px;
+    height: 500px;
+    border: solid 1px black;
+    border-radius: 25px;
+    background-color: black;
+    box-shadow: 0px 0px 128px 0px rgba(0, 0, 0, .5);
+}
+
+#arrows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#arrow-left-right {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#arrows button {
+    width: 1000px;
+    height: 120px;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: myProximaNovaBold;
+    color: white;
+}
+
+#arrow-left-right button {
+    width: 60px;
+    height: 1000px;
+}
+
+#arrows button.up:hover {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5), rgba(0, 0, 0, .7), rgba(0, 0, 0, .9));
+}
+
+#arrows button.left:hover {
+    background-image: linear-gradient(-90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5), rgba(0, 0, 0, .7), rgba(0, 0, 0, .9));
+}
+
+#arrows button.right:hover {
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5), rgba(0, 0, 0, .7), rgba(0, 0, 0, .9));
+}
+
+#arrows button.down:hover {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, .5), rgba(0, 0, 0, .7), rgba(0, 0, 0, .9));
+}
+
+#arrows button img {
+    width: 20px;
+    filter: invert(1);
+    opacity: .8;
+}
+
+#arrows button.up img {
+    transform: rotate(180deg);
+}
+
+#arrows button.left img {
+    transform: rotate(90deg);
+}
+
+#arrows button.right img {
+    transform: rotate(-90deg);
+}
+
+#arrows button.down img {
+    transform: rotate(0deg);
 }
