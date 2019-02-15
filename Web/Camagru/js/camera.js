@@ -80,14 +80,14 @@ const upArrow = document.querySelector('#arrows button.up');
 const leftArrow = document.querySelector('#arrows button.left');
 const rightArrow = document.querySelector('#arrows button.right');
 const downArrow = document.querySelector('#arrows button.down');
-let xPos = 275;
-let yPos = 275;
+let xPos = 50;
+let yPos = 50;
 let timeout;
 
 upArrow.onmousedown = () => {
     timeout = setInterval(() => {
-        yPos--;
-        sticker.style.top = yPos.toString() + "px";
+        yPos -= .25;
+        sticker.style.top = yPos.toString() + "%";
     }, 10);
 };
 
@@ -97,8 +97,8 @@ upArrow.onmouseup = upArrow.onmouseleave = () => {
 
 leftArrow.onmousedown = () => {
     timeout = setInterval(() => {
-        xPos--;
-        sticker.style.left = xPos.toString() + "px";
+        xPos -= .25;
+        sticker.style.left = xPos.toString() + "%";
     }, 10);
 };
 
@@ -108,8 +108,8 @@ leftArrow.onmouseup = leftArrow.onmouseleave = () => {
 
 rightArrow.onmousedown = () => {
     timeout = setInterval(() => {
-        xPos++;
-        sticker.style.left = xPos.toString() + "px";
+        xPos += .25;
+        sticker.style.left = xPos.toString() + "%";
     }, 10);
 };
 
@@ -119,8 +119,8 @@ rightArrow.onmouseup = rightArrow.onmouseleave = () => {
 
 downArrow.onmousedown = () => {
     timeout = setInterval(() => {
-        yPos++;
-        sticker.style.top = yPos.toString() + "px";
+        yPos += .25;
+        sticker.style.top = yPos.toString() + "%";
     }, 10);
 };
 
