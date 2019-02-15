@@ -134,3 +134,12 @@ const slider = document.querySelector('#arrows input[type=range]');
 slider.oninput = () => {
     sticker.style.width = slider.value + "%";
 }
+
+// Textarea character counter
+const legendArea = document.querySelector('#left-panel textarea');
+const countDiv = document.querySelector('#left-panel .counter');
+
+legendArea.onkeyup = () => {
+    countDiv.textContent = 140 - legendArea.value.length;
+    countDiv.style.color = (legendArea.value.length >= 120 ? "#c27878" : "#999999");
+}
