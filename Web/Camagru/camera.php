@@ -27,7 +27,13 @@ if (!isset($_SESSION['logged_on_user'])) {
     <div id="main">
         <div id="tri-panels">
             <div id="left-panel">
-                
+                <form>
+                    <p>Votre post</p>
+                    <p class="comment">Prenez une photo, choisissez un sticker,<br>puis ajoutez-y une légende.</p>
+                    <textarea required rows="4" cols="40" maxlength="140" name="legend" placeholder="Écrivez une légende..."></textarea><br>
+                    <div class="counter">140</div><br>
+                    <button>Publier</button>
+                </form>
             </div>
             <div id="center-panel">
                 <div id="screenshot">
@@ -80,7 +86,16 @@ if (!isset($_SESSION['logged_on_user'])) {
                 </div>
             </div>
             <div id="right-panel">
-
+                <p>Vos anciennes photos</p>
+                <p class="comment">Tous vos anciens posts. Cliquez sur une photo pour supprimer le post.</p>
+                <div class="post-list">
+                    <?php for ($i = 0; $i < 16; $i++) { ?>
+                    <div class="post-image">
+                        <img class="pic" src="/resources/profile-pics/1.jpg">
+                        <img class="overlay" src="/assets/retake.png">
+                    </div>
+                    <?php } ?>
+                </div>
             </div>
         </div>
     </div>

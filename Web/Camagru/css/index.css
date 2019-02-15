@@ -15,7 +15,7 @@
 
 * {
     box-sizing: border-box;
-    transition: background-color .25s, box-shadow .25s, opacity .25s, border .5s;
+    transition: background-color .25s, box-shadow .25s, opacity .25s, border .5s, filter .25s;
 }
 
 * a {
