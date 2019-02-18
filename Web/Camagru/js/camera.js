@@ -41,6 +41,7 @@ screenshotButton.onclick = () => {
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0);
     img.src = canvas.toDataURL('image/png');
+    pictureInput.value = "";
     enableButton();
 };
 
@@ -58,8 +59,8 @@ pictureInput.onchange = () => {
         alert("JPG ou PNG uniquement.");
     } else {
         img.src = window.URL.createObjectURL(pictureInput.files[0]);
-        enableButton();
     }
+    enableButton();
 }
 
 function isValidImage(picInput) {
@@ -174,7 +175,7 @@ const formWidth = document.querySelector("#left-panel .upload-width");
 
 formButton.onclick = () => {
     let img_string = img.src;
-    
+
     formImg.value = img_string;
     formSticker.value = sticker.src;
     formXpos.value = xPos;
