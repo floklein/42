@@ -375,6 +375,7 @@ body {
     font-size: 18px;
     color: white;
     outline: none;
+    cursor: not-allowed;
 }
 
 #left-panel button:hover {
@@ -383,6 +384,11 @@ body {
 
 #left-panel button:active {
     background-color: #2e73b4;
+}
+
+#left-panel button.disabled {
+    color: black;
+    background-color: #f3f3f3;
 }
 
 #right-panel {

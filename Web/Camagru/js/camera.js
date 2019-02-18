@@ -40,13 +40,15 @@ screenshotButton.onclick = () => {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0);
-    img.src = canvas.toDataURL('image/webp');
+    img.src = canvas.toDataURL('image/png');
+    enableButton();
 };
 
 retakeButton.onclick = () => {
     img.src = "";
     sticker.src = "";
     pictureInput.value = "";
+    enableButton();
 };
 
 // Preview of uploaded pic
@@ -56,6 +58,7 @@ pictureInput.onchange = () => {
         alert("JPG ou PNG uniquement.");
     } else {
         img.src = window.URL.createObjectURL(pictureInput.files[0]);
+        enableButton();
     }
 }
 
@@ -72,6 +75,7 @@ const carousel = document.querySelectorAll('#stickers-carousel img');
 carousel.forEach((that) => {
     that.onclick = () => {
         sticker.src = that.src;
+        enableButton();
     }
 });
 
@@ -142,4 +146,39 @@ const countDiv = document.querySelector('#left-panel .counter');
 legendArea.onkeyup = () => {
     countDiv.textContent = 140 - legendArea.value.length;
     countDiv.style.color = (legendArea.value.length >= 120 ? "#c27878" : "#999999");
+}
+
+// Enableing the publish button
+const formButton = document.querySelector("#left-panel .upload-submit");
+
+function enableButton() {
+    console.log(img.src);
+    if (img.src == window.location.href || sticker.src == window.location.href) {
+        formButton.disabled = true;
+        formButton.style.cursor = "not-allowed";
+        formButton.classList.add("disabled");
+    } else {
+        formButton.disabled = false;
+        formButton.style.cursor = "pointer";
+        formButton.classList.remove("disabled");
+    }
+}
+
+// Uploading the form
+const form = document.querySelector("#left-panel form");
+const formImg = document.querySelector("#left-panel .upload-image");
+const formSticker = document.querySelector("#left-panel .upload-sticker");
+const formXpos = document.querySelector("#left-panel .upload-xpos");
+const formYpos = document.querySelector("#left-panel .upload-ypos");
+const formWidth = document.querySelector("#left-panel .upload-width");
+
+formButton.onclick = () => {
+    let img_string = img.src;
+    
+    formImg.value = img_string;
+    formSticker.value = sticker.src;
+    formXpos.value = xPos;
+    formYpos.value = yPos;
+    formWidth.value = sticker.style.width;
+    form.submit();
 }

@@ -27,13 +27,18 @@ if (!isset($_SESSION['logged_on_user'])) {
     <div id="main">
         <div id="tri-panels">
             <div id="left-panel">
-                <form>
+                <form action="/back/upload_img.php" method="post">
                     <p>Votre post</p>
                     <p class="comment">Prenez une photo, choisissez un sticker,<br>puis ajoutez-y une légende.</p>
                     <textarea required rows="4" cols="40" maxlength="140" name="legend" placeholder="Écrivez une légende..."></textarea><br>
                     <div class="counter">140</div><br>
-                    <button>Publier</button>
+                    <input type="hidden" name="img" class="upload-image">
+                    <input type="hidden" name="sticker" class="upload-sticker">
+                    <input type="hidden" name="xpos" class="upload-xpos">
+                    <input type="hidden" name="ypos" class="upload-ypos">
+                    <input type="hidden" name="width" class="upload-width">
                 </form>
+                <button disabled class="upload-submit disabled">Publier</button>
             </div>
             <div id="center-panel">
                 <div id="screenshot">
