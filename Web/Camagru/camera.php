@@ -81,7 +81,7 @@ if (!isset($_SESSION['logged_on_user'])) {
                     <div id="tri-buttons">
                         <div id="screenshot-upload">
                             <button><img src="/assets/picture.png" alt="picture" title="Choisir une image..."></button>
-                            <input type="file" accept="image/*">
+                            <input type="file" accept="image/*" name="upload-input">
                         </div>
                         <div class="screenshot-button-back">
                             <button class="screenshot-button"></button>
