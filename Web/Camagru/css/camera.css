@@ -475,14 +475,15 @@ body {
 
 #center-panel .error {
     position: absolute;
-    top: 15%;
+    top: 50%;
+    transform: translate(0%, -50%);
     width: 100%;
     z-index: 1;
 }
 
 #center-panel .error p {
     width: 100%;
-    margin: 30px 0px 15px 0px;
+    margin: 0px 0px 22px 0px;
     font-family: myProximaNovaReg;
     font-size: 20px;
     color: white;
@@ -494,7 +495,8 @@ body {
 
 #center-panel .error p.comment {
     width: 100%;
-    padding: 0px 20%;
+    margin: 0 0;
+    padding: 0% 20%;
     font-size: 15px;
     color: #999999;
     line-height: 25px;

@@ -153,7 +153,6 @@ legendArea.onkeyup = () => {
 const formButton = document.querySelector("#left-panel .upload-submit");
 
 function enableButton() {
-    console.log(img.src);
     if (img.src == window.location.href || sticker.src == window.location.href) {
         formButton.disabled = true;
         formButton.style.cursor = "not-allowed";
