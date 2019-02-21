@@ -46,6 +46,10 @@ if (!isset($_SESSION['logged_on_user'])) {
                     <img class="captured-img" src="">
                     <img class="sticker-img" src="">
                     <canvas style="display:none;"></canvas>
+                    <div class="error">
+                        <p><span>Oups !</span> Webcam inacessible...</p>
+                        <p class="comment">Veuillez autoriser l'accès à votre webcam. Si vous êtes sur mobile, vous devez choisir une image de votre photothèque.</p>
+                    </div>
                     <div id="arrows">
                         <button class="up"><img src="/assets/arrow.svg" alt="arrow"></button>
                         <div id="arrow-left-right">

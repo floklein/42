@@ -180,6 +180,6 @@ formButton.onclick = () => {
     formSticker.value = sticker.src;
     formXpos.value = xPos;
     formYpos.value = yPos;
-    formWidth.value = sticker.style.width;
+    formWidth.value = slider.value;
     form.submit();
 }
