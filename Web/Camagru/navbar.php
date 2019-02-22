@@ -1,6 +1,6 @@
 <div id="navbar">
-    <a href="/index.php" id="logo" class="left-buttons">Instacam</a>
-    <div id="navbar-right">
+    <a href="/index.php" id="logo">Instacam</a>
+    <div class="right">
         <a href="/camera.php"><img src="/assets/camera.png" title="Publier une photo" alt="camera"></a>
         <a href="/index.php"><img src="/assets/feed.png" title="Fil d'actualité" alt="feed"></a>
         <a href="/account.php"><img src="/assets/account.png" title="Mon compte" alt="account"></a>

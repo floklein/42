@@ -18,87 +18,89 @@
     transition: background-color .25s, box-shadow .25s, opacity .25s, border .5s, filter .25s, color .25s;
 }
 
-* a {
+a {
     text-decoration: none;
 }
 
-* button {
+button {
     cursor: pointer;
 }
 
 body {
     margin: 0;
-    background-color: #FAFAFA;
     color: #231F20;
+    background-color: #FAFAFA;
 }
 
 #navbar {
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, .95);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 40px 10px;
-    transition: 0.4s;
     position: fixed;
-    width: 100%;
     top: 0;
     z-index: 99;
+    width: 100%;
+    padding: 40px 10px;
+    overflow: hidden;
     border-bottom: solid 1px #E6E6E6;
+    background-color: rgba(255, 255, 255, .95);
+    -webkit-backdrop-filter: blur(10px);
+    transition: 0.4s;
 }
 
 #navbar a {
     position: relative;
     float: left;
-    color: #231F20;
-    text-align: center;
+    height: 48px;
     padding: 12px;
+    color: #231F20;
+    border-radius: 50%;
+    text-align: center;
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
-    border-radius: 50%;
-    height: 48px;
-}
-
-#navbar #logo {
-    font-family: myBillabong;
-    font-size: 60px;
-    transition: 0.4s;
-    padding: 16px 12px 10px 12px;
-    margin-left: 15%;
 }
 
 #navbar a:active{
     opacity: .5;
 }
 
-#navbar-right {
+#navbar img {
+    width: 24px;
+}
+
+#navbar #logo {
+    margin-left: 15%;
+    padding: 16px 12px 10px 12px;
+    font-family: myBillabong;
+    font-size: 60px;
+    transition: 0.4s;
+}
+
+#navbar .right {
     float: right;
     margin-right: 15%;
 }
 
-#navbar-right a:hover {
+#navbar .right a:hover {
     background-color: #f3f3f3;
-    color: #231F20;
 }
 
 @media screen and (max-width: 580px) {
     #navbar {
-        padding: 10px 10px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
-    #navbar a {
-        float: none;
-        display: inline-block;
-        text-align: left;
+    
+    #navbar #logo {
+        margin-left: 5%;
+        font-size: 40px !important;
     }
-    #navbar-right {
-        float: right;
-    }
-    #logo {
-        font-size: 30px;
-    }
-}
 
-#navbar img {
-    width: 24px;
+    #navbar .right {
+        margin-right: 5%;
+    }
+
+    #navbar .right a {
+        padding: 12px 8px !important;
+    }
 }
 
 #feed {
@@ -110,15 +112,15 @@ body {
 
 #feed-box {
     position: relative;
-    margin-top: 40px;
-    margin-bottom: 40px;
     left: 50%;
-    transform: translate(-50%);
     width: 95%;
     max-width: 550px;
-    background-color: white;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    transform: translate(-50%);
     border: solid 1px #E6E6E6;
     border-radius: 3px; 
+    background-color: white;
 }
 
 #feed-box:hover {
@@ -136,8 +138,8 @@ body {
 #feed-user-pic {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     margin: 10px 10px 10px 10px;
+    border-radius: 50%;
     background: center;
     background-size: cover;
 }
@@ -149,8 +151,8 @@ body {
 
 #feed-user-login a {
     font-family: myProximaNovaBold;
-    text-decoration: none;
     color: #231F20;
+    text-decoration: none;
 }
 
 #feed-user-login p {
@@ -159,15 +161,14 @@ body {
 
 #feed-date {
     height: 40px;
-    margin: 10px 10px;
-    margin-left: auto;
+    margin: 10px 10px 10px auto;
 }
 
 #feed-date a {
     font-family: myProximaNovaReg;
-    text-decoration: none;
-    color: #999999;
     font-size: 13px;
+    color: #999999;
+    text-decoration: none;
 }
 
 #feed-date p {
@@ -177,12 +178,12 @@ body {
 #feed-pic {
     position: relative;
     width: 100%;
-    background-color: lightcoral;
     background: center;
     background-size: cover;
+    background-color: lightgrey;
 }
 
-#feed-pic:before {
+#feed-pic::before {
     content: "";
     display: block;
     padding-top: 100%;
@@ -191,9 +192,9 @@ body {
 #feed-buttons {
     position: relative;
     left: 50%;
-    transform: translate(-50%);
     width: 100%;
     height: 30px;
+    transform: translate(-50%);
     text-align: center;
     white-space: nowrap;
 }
@@ -203,17 +204,15 @@ body {
     width: 32%;
     height: 30px;
     margin: 5px 1px;
-    /* border: solid 1px #E6E6E6; */
+    padding: 10px 0px;
     border: none;
     border-radius: 25px;
     background-color: white;
     outline: none;
-    padding: 10px 0px 10px 0px;
 }
 
 #feed-like-button:hover {
     background-color: #f3f3f3;
-    /* border: solid 1px #E6E6E6; */
 }
 
 #feed-like-button:active {
@@ -247,8 +246,8 @@ body {
     margin-bottom: 5px;
     width: 95%;
     left: 50%;
-    transform: translate(-50%);
     height: 18px;
+    transform: translate(-50%);
 }
 
 #feed-likedby p {
@@ -265,10 +264,10 @@ body {
 #feed-legend {
     position: relative;
     margin-bottom: 5px;
-    width: 95%;
     left: 50%;
-    transform: translate(-50%);
+    width: 95%;
     height: 18px;
+    transform: translate(-50%);
     overflow: hidden;
 }
 
@@ -285,11 +284,11 @@ body {
 
 #feed-morecoms {
     position: relative;
-    margin-bottom: 5px;
-    width: 95%;
     left: 50%;
-    transform: translate(-50%);
+    width: 95%;
     height: 18px;
+    transform: translate(-50%);
+    margin-bottom: 5px;
     overflow: hidden;
 }
 
@@ -302,11 +301,11 @@ body {
 
 #feed-comments {
     position: relative;
-    margin-bottom: 8px;
-    width: 95%;
     left: 50%;
-    transform: translate(-50%);
+    width: 95%;
     max-height: 58px;
+    transform: translate(-50%);
+    margin-bottom: 8px;
     overflow: scroll;
     word-wrap: break-word;
 }
@@ -336,8 +335,8 @@ body {
 }
 
 #feed-comment-field input {
-    margin: 0px 10px 10px 10px;
     height: 30px;
+    margin: 0px 10px 10px 10px;
     flex-grow: 2;
     font-size: 14px;
     border: solid 1px white;
@@ -346,13 +345,13 @@ body {
 
 #feed-comment-field button {
     float: right;
-    margin: 0px 10px 0px 0px;
     width: 80px;
     height: 30px;
+    margin: 0px 10px 0px 0px;
     flex-grow: 0;
-    background-color: #3E99ED;
     border: none;
     border-radius: 15px;
+    background-color: #3E99ED;
     font-family: myProximaNovaReg;
     font-size: 14px;
     color: white;
@@ -371,8 +370,8 @@ body {
     position: relative;
     top: 125px;
     left: 50%;
-    transform: translate(-50%);
     width: 140px;
+    transform: translate(-50%);
     text-align: center;
 }
 
@@ -380,16 +379,15 @@ body {
     position: relative;
     float: left;
     height: 48px;
-    padding: 12px;
     margin: 0px 10px 20px 10px;
+    padding: 12px;
     text-decoration: none;
+    border: solid 1px #E6E6E6;
     border-radius: 50%;
     background-color: white;
-    border: solid 1px #E6E6E6;
 }
 
 #previous-next a:hover {
-    /* box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1); */
     background-color: #f3f3f3;
 }
 
