@@ -1,4 +1,6 @@
 <?php
+require '../config/database.php';
+
 session_start();
 if (!isset($_SESSION['logged_on_user'])) {
     header("Location: ../signin.php");
@@ -28,11 +30,9 @@ if (!isset($legend) || $legend == "" || strlen($legend) > 140) {
     exit();
 }
 
-var_dump($legend);
-var_dump($input_sticker);
-var_dump($xpos);
-var_dump($ypos);
-var_dump($width);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////  PROCESSING THE IMAGE  /////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Converting base64 to string
 $img_content = base64_decode(str_replace("data:image/png;base64,", "", $input_img));
@@ -78,6 +78,31 @@ imagecopymerge_alpha($output, $sticker, $new_xpos, $new_ypos, 0, 0, $SIZE, $SIZE
 
 // Saving output to jpeg
 $file = uniqid("fp-", true) . ".jpg";
-$file = "1.jpg";
 $path = "../resources/feed-pics/" . $file;
 imagejpeg($output, $path);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////// SENDING TO THE DATABASE /////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$DB_DSN .= ";dbname=" . $DB_NAME;
+// Connecting to 'instacam' database
+try {
+    $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+date_default_timezone_set("Europe/Paris");
+// Inserting into 'posts' table
+try {
+    $sql = "INSERT INTO `posts` (`user_id`, `date`, `img`, `legend`)
+                VALUES (?, ?, ?, ?);";
+    $pdo->prepare($sql)->execute([$_SESSION['logged_on_user']['id'], date("D j, H:i"), $file, $legend]);
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+header("Location: ../camera.php?req=success");
