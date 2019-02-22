@@ -1,11 +1,38 @@
 <?php
-print_r($_POST);
-$legend = $_POST['legend'];
+session_start();
+if (!isset($_SESSION['logged_on_user'])) {
+    header("Location: ../signin.php");
+    exit();
+}
+
+$legend = trim(preg_replace("/\s+/", " ", $_POST['legend']));
 $input_img = $_POST['img'];
 $input_sticker = $_POST['sticker'];
 $xpos = intval($_POST['xpos']);
 $ypos = intval($_POST['ypos']);
 $width = intval($_POST['width']);
+
+if (!isset($legend) || $legend == "" || strlen($legend) > 140) {
+    header("Location: ../camera.php?error=legend");
+    exit();
+} else if (!isset($input_img) || $input_img == "" || strpos($input_img, "data:image/png;base64,") !== 0) {
+    header("Location: ../camera.php?error=image");
+    exit();
+} else if (!isset($input_sticker) || $input_sticker == "" || !file_exists("../assets/stickers/" . basename($input_sticker))) {
+    header("Location: ../camera.php?error=sticker");
+    exit();
+} else if (!isset($xpos) || !isset($ypos) || !isset($width)
+    || $xpos < -100 || $xpos > 200 || $ypos < -100 || $ypos > 200
+    || $width <= 0 || $width > 100) {
+    header("Location: ../camera.php?error=values");
+    exit();
+}
+
+var_dump($legend);
+var_dump($input_sticker);
+var_dump($xpos);
+var_dump($ypos);
+var_dump($width);
 
 // Converting base64 to string
 $img_content = base64_decode(str_replace("data:image/png;base64,", "", $input_img));
