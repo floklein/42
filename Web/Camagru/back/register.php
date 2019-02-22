@@ -108,7 +108,7 @@ try {
 }
 
 // Link mail_verify.php will send
-$link = "http://localhost:8080/back/verify.php?id=" . $new_id . "&phrase=" . $phrase;
+$link = $_SERVER['HTTP_HOST'] . "/back/verify.php?id=" . $new_id . "&phrase=" . $phrase;
 echo $link;
 
 /*header("Location: /mail_verify.php?id=" . $new_id);*/
