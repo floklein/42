@@ -9,13 +9,7 @@ if (hasGetUserMedia()) {
     alert('getUserMedia() IS NOT supported by your browser');
 }
 
-// Fetching buttons, canvases and setting constraints
-const retakeButton = document.querySelector('#bottom-buttons .retake-button');
-const screenshotButton = document.querySelector('#bottom-buttons .screenshot-button');
-const pictureInput = document.querySelector('#screenshot-upload input');
-const img = document.querySelector('#screenshot .captured-img');
-const video = document.querySelector('#screenshot video');
-const canvas = document.createElement('canvas');
+// Setting constraints
 const constraints = {
     video: { width: 720, height: 720, facingMode: "user" }
 };
@@ -27,172 +21,179 @@ const constraints = {
 })();
 
 function handleSuccess(stream) {
-    screenshotButton.disabled = false;
+    // Fetching DOM elements
+    const retakeButton = document.querySelector('#bottom-buttons .retake-button');
+    const screenshotButton = document.querySelector('#bottom-buttons .screenshot-button');
+    const pictureInput = document.querySelector('#screenshot-upload input');
+    const img = document.querySelector('#screenshot .captured-img');
+    const video = document.querySelector('#screenshot video');
+    const canvas = document.createElement('canvas');
+
     video.srcObject = stream;
+
+    // Taking a picture
+    screenshotButton.onclick = () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0);
+        img.src = canvas.toDataURL('image/png');
+        pictureInput.value = "";
+        enableButton();
+    };
+
+    retakeButton.onclick = () => {
+        img.src = "";
+        sticker.src = "";
+        pictureInput.value = "";
+        enableButton();
+    };
+
+    // Preview of uploaded pic
+    pictureInput.onchange = pictureInput.onload = () => {
+        if (!isValidImage(pictureInput)) {
+            pictureInput.value = "";
+            alert("JPG ou PNG uniquement.");
+        } else {
+            var imageObj = new Image();
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            imageObj.onload = () => {
+                let sSize = Math.min(imageObj.width, imageObj.height);
+                canvas.getContext('2d').drawImage(imageObj, (imageObj.width - sSize) / 2, (imageObj.height - sSize) / 2, sSize, sSize, 0, 0, canvas.width, canvas.height);
+                img.src = canvas.toDataURL('image/png');
+            }
+            imageObj.src = window.URL.createObjectURL(pictureInput.files[0]);
+        }
+        enableButton();
+    }
+
+    function isValidImage(picInput) {
+        let filePath = picInput.value;
+        let allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+        return (allowedExtensions.exec(filePath));
+    }
+
+    // Chosing a sticker
+    const sticker = document.querySelector('#screenshot .sticker-img');
+    const carousel = document.querySelectorAll('#stickers-carousel img');
+    const upArrow = document.querySelector('#arrows button.up');
+    const leftArrow = document.querySelector('#arrows button.left');
+    const rightArrow = document.querySelector('#arrows button.right');
+    const downArrow = document.querySelector('#arrows button.down');
+    const slider = document.querySelector('#arrows input[type=range]');
+
+    carousel.forEach((that) => {
+        that.onclick = () => {
+            sticker.src = that.src;
+            enableButton();
+        }
+    });
+
+    // Moving the sticker
+    let xPos = 50;
+    let yPos = 50;
+    let timeout;
+
+    upArrow.onmousedown = () => {
+        timeout = setInterval(() => {
+            yPos -= .25;
+            sticker.style.top = yPos.toString() + "%";
+        }, 10);
+    };
+
+    upArrow.onmouseup = upArrow.onmouseleave = () => {
+        clearInterval(timeout);
+    }
+
+    leftArrow.onmousedown = () => {
+        timeout = setInterval(() => {
+            xPos -= .25;
+            sticker.style.left = xPos.toString() + "%";
+        }, 10);
+    };
+
+    leftArrow.onmouseup = leftArrow.onmouseleave = () => {
+        clearInterval(timeout);
+    }
+
+    rightArrow.onmousedown = () => {
+        timeout = setInterval(() => {
+            xPos += .25;
+            sticker.style.left = xPos.toString() + "%";
+        }, 10);
+    };
+
+    rightArrow.onmouseup = rightArrow.onmouseleave = () => {
+        clearInterval(timeout);
+    }
+
+    downArrow.onmousedown = () => {
+        timeout = setInterval(() => {
+            yPos += .25;
+            sticker.style.top = yPos.toString() + "%";
+        }, 10);
+    };
+
+    downArrow.onmouseup = downArrow.onmouseleave = () => {
+        clearInterval(timeout);
+    }
+
+    // Changing size of sticker
+    slider.oninput = () => {
+        sticker.style.width = slider.value + "%";
+    }
+
+    // Textarea character counter
+    const legendArea = document.querySelector('#left-panel textarea');
+    const countDiv = document.querySelector('#left-panel .counter');
+
+    legendArea.onkeyup = () => {
+        countDiv.textContent = 140 - legendArea.value.length;
+        countDiv.style.color = (legendArea.value.length >= 120 ? "#c27878" : "#999999");
+    }
+
+    // Enableing the publish button
+    const formButton = document.querySelector("#left-panel .upload-submit");
+
+    function enableButton() {
+        if (img.src == window.location.href || sticker.src == window.location.href) {
+            formButton.disabled = true;
+            formButton.style.cursor = "not-allowed";
+            formButton.classList.add("disabled");
+        } else {
+            formButton.disabled = false;
+            formButton.style.cursor = "pointer";
+            formButton.classList.remove("disabled");
+        }
+        if (sticker.src != window.location.href) {
+            upArrow.style.display = "block";
+            leftArrow.style.display = "block";
+            rightArrow.style.display = "block";
+            downArrow.style.display = "block";
+            slider.style.display = "block";
+        }
+    }
+
+    // Uploading the form
+    const form = document.querySelector("#left-panel form");
+    const formImg = document.querySelector("#left-panel .upload-image");
+    const formSticker = document.querySelector("#left-panel .upload-sticker");
+    const formXpos = document.querySelector("#left-panel .upload-xpos");
+    const formYpos = document.querySelector("#left-panel .upload-ypos");
+    const formWidth = document.querySelector("#left-panel .upload-width");
+
+    formButton.onclick = () => {
+        let img_string = img.src;
+
+        formImg.value = img_string;
+        formSticker.value = sticker.src;
+        formXpos.value = xPos;
+        formYpos.value = yPos;
+        formWidth.value = slider.value;
+        form.submit();
+    }
 }
 
 function handleError(error) {
     console.error('Error: ', error);
-}
-
-// Taking a picture
-screenshotButton.onclick = () => {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0);
-    img.src = canvas.toDataURL('image/png');
-    pictureInput.value = "";
-    enableButton();
-};
-
-retakeButton.onclick = () => {
-    img.src = "";
-    sticker.src = "";
-    pictureInput.value = "";
-    enableButton();
-};
-
-// Preview of uploaded pic
-pictureInput.onchange = pictureInput.onload = () => {
-    if (!isValidImage(pictureInput)) {
-        pictureInput.value = "";
-        alert("JPG ou PNG uniquement.");
-    } else {
-        var imageObj = new Image();
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        imageObj.onload = () => {
-            let sSize = Math.min(imageObj.width, imageObj.height);
-            canvas.getContext('2d').drawImage(imageObj, (imageObj.width - sSize) / 2, (imageObj.height - sSize) / 2, sSize, sSize, 0, 0, canvas.width, canvas.height);
-            img.src = canvas.toDataURL('image/png');
-        }
-        imageObj.src = window.URL.createObjectURL(pictureInput.files[0]);
-    }
-    enableButton();
-}
-
-function isValidImage(picInput) {
-    let filePath = picInput.value;
-    let allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
-    return (allowedExtensions.exec(filePath));
-}
-
-// Chosing a sticker
-const sticker = document.querySelector('#screenshot .sticker-img');
-const carousel = document.querySelectorAll('#stickers-carousel img');
-const upArrow = document.querySelector('#arrows button.up');
-const leftArrow = document.querySelector('#arrows button.left');
-const rightArrow = document.querySelector('#arrows button.right');
-const downArrow = document.querySelector('#arrows button.down');
-const slider = document.querySelector('#arrows input[type=range]');
-
-carousel.forEach((that) => {
-    that.onclick = () => {
-        sticker.src = that.src;
-        enableButton();
-    }
-});
-
-// Moving the sticker
-let xPos = 50;
-let yPos = 50;
-let timeout;
-
-upArrow.onmousedown = () => {
-    timeout = setInterval(() => {
-        yPos -= .25;
-        sticker.style.top = yPos.toString() + "%";
-    }, 10);
-};
-
-upArrow.onmouseup = upArrow.onmouseleave = () => {
-    clearInterval(timeout);
-}
-
-leftArrow.onmousedown = () => {
-    timeout = setInterval(() => {
-        xPos -= .25;
-        sticker.style.left = xPos.toString() + "%";
-    }, 10);
-};
-
-leftArrow.onmouseup = leftArrow.onmouseleave = () => {
-    clearInterval(timeout);
-}
-
-rightArrow.onmousedown = () => {
-    timeout = setInterval(() => {
-        xPos += .25;
-        sticker.style.left = xPos.toString() + "%";
-    }, 10);
-};
-
-rightArrow.onmouseup = rightArrow.onmouseleave = () => {
-    clearInterval(timeout);
-}
-
-downArrow.onmousedown = () => {
-    timeout = setInterval(() => {
-        yPos += .25;
-        sticker.style.top = yPos.toString() + "%";
-    }, 10);
-};
-
-downArrow.onmouseup = downArrow.onmouseleave = () => {
-    clearInterval(timeout);
-}
-
-// Changing size of sticker
-slider.oninput = () => {
-    sticker.style.width = slider.value + "%";
-}
-
-// Textarea character counter
-const legendArea = document.querySelector('#left-panel textarea');
-const countDiv = document.querySelector('#left-panel .counter');
-
-legendArea.onkeyup = () => {
-    countDiv.textContent = 140 - legendArea.value.length;
-    countDiv.style.color = (legendArea.value.length >= 120 ? "#c27878" : "#999999");
-}
-
-// Enableing the publish button
-const formButton = document.querySelector("#left-panel .upload-submit");
-
-function enableButton() {
-    if (img.src == window.location.href || sticker.src == window.location.href) {
-        formButton.disabled = true;
-        formButton.style.cursor = "not-allowed";
-        formButton.classList.add("disabled");
-    } else {
-        formButton.disabled = false;
-        formButton.style.cursor = "pointer";
-        formButton.classList.remove("disabled");
-    }
-    if (sticker.src != window.location.href) {
-        upArrow.style.display = "block";
-        leftArrow.style.display = "block";
-        rightArrow.style.display = "block";
-        downArrow.style.display = "block";
-        slider.style.display = "block";
-    }
-}
-
-// Uploading the form
-const form = document.querySelector("#left-panel form");
-const formImg = document.querySelector("#left-panel .upload-image");
-const formSticker = document.querySelector("#left-panel .upload-sticker");
-const formXpos = document.querySelector("#left-panel .upload-xpos");
-const formYpos = document.querySelector("#left-panel .upload-ypos");
-const formWidth = document.querySelector("#left-panel .upload-width");
-
-formButton.onclick = () => {
-    let img_string = img.src;
-
-    formImg.value = img_string;
-    formSticker.value = sticker.src;
-    formXpos.value = xPos;
-    formYpos.value = yPos;
-    formWidth.value = slider.value;
-    form.submit();
 }

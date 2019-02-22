@@ -66,18 +66,9 @@ if (!isset($_SESSION['logged_on_user'])) {
                         <div class="shadow left">
                         </div>
                         <div id="stickers-carousel">
-                            <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/luigi.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/pizza.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/luigi.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/pizza.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/luigi.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/pizza.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/omg.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/luigi.png" alt="sticker" title="Ajouter ce sticker">
-                            <img src="/assets/stickers/pizza.png" alt="sticker" title="Ajouter ce sticker">
+                        <?php for ($i = 1; $i < 11; $i++) { ?>
+                            <img src="/assets/stickers/<?= "sticker-" . $i ?>.png" alt="sticker" title="Ajouter ce sticker">
+                        <?php } ?>
                         </div>
                         <div class="shadow right">
                         </div>
