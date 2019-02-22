@@ -24,6 +24,12 @@ body {
     background-color: black;
 }
 
+@media screen and (min-width: 580px) {
+    #screenshot {
+        height: 522.5px;
+    }
+}
+
 #screenshot {
     position: relative;
     max-width: 550px;
@@ -257,6 +263,7 @@ body {
 }
 
 #arrows button {
+    display: none;
     width: 1000px;
     height: 120px;
     border: none;

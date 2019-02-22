@@ -53,12 +53,20 @@ retakeButton.onclick = () => {
 };
 
 // Preview of uploaded pic
-pictureInput.onchange = () => {
+pictureInput.onchange = pictureInput.onload = () => {
     if (!isValidImage(pictureInput)) {
         pictureInput.value = "";
         alert("JPG ou PNG uniquement.");
     } else {
-        img.src = window.URL.createObjectURL(pictureInput.files[0]);
+        var imageObj = new Image();
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        imageObj.onload = () => {
+            let sSize = Math.min(imageObj.width, imageObj.height);
+            canvas.getContext('2d').drawImage(imageObj, (imageObj.width - sSize) / 2, (imageObj.height - sSize) / 2, sSize, sSize, 0, 0, canvas.width, canvas.height);
+            img.src = canvas.toDataURL('image/png');
+        }
+        imageObj.src = window.URL.createObjectURL(pictureInput.files[0]);
     }
     enableButton();
 }
@@ -72,6 +80,11 @@ function isValidImage(picInput) {
 // Chosing a sticker
 const sticker = document.querySelector('#screenshot .sticker-img');
 const carousel = document.querySelectorAll('#stickers-carousel img');
+const upArrow = document.querySelector('#arrows button.up');
+const leftArrow = document.querySelector('#arrows button.left');
+const rightArrow = document.querySelector('#arrows button.right');
+const downArrow = document.querySelector('#arrows button.down');
+const slider = document.querySelector('#arrows input[type=range]');
 
 carousel.forEach((that) => {
     that.onclick = () => {
@@ -81,10 +94,6 @@ carousel.forEach((that) => {
 });
 
 // Moving the sticker
-const upArrow = document.querySelector('#arrows button.up');
-const leftArrow = document.querySelector('#arrows button.left');
-const rightArrow = document.querySelector('#arrows button.right');
-const downArrow = document.querySelector('#arrows button.down');
 let xPos = 50;
 let yPos = 50;
 let timeout;
@@ -134,8 +143,6 @@ downArrow.onmouseup = downArrow.onmouseleave = () => {
 }
 
 // Changing size of sticker
-const slider = document.querySelector('#arrows input[type=range]');
-
 slider.oninput = () => {
     sticker.style.width = slider.value + "%";
 }
@@ -161,6 +168,13 @@ function enableButton() {
         formButton.disabled = false;
         formButton.style.cursor = "pointer";
         formButton.classList.remove("disabled");
+    }
+    if (sticker.src != window.location.href) {
+        upArrow.style.display = "block";
+        leftArrow.style.display = "block";
+        rightArrow.style.display = "block";
+        downArrow.style.display = "block";
+        slider.style.display = "block";
     }
 }
 

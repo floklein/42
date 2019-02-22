@@ -100,7 +100,7 @@ if (!isset($_SESSION['logged_on_user'])) {
                 <div class="post-list">
                     <?php for ($i = 0; $i < 16; $i++) { ?>
                     <div class="post-image">
-                        <img class="pic" src="/resources/profile-pics/1.jpg">
+                        <img class="pic" src="/resources/profile-pics/default.png">
                         <img class="overlay" src="/assets/retake.png">
                     </div>
                     <?php } ?>
