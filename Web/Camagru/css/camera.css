@@ -16,7 +16,7 @@ body {
     filter: invert(1);
 }
 
-#navbar .left-buttons {
+#navbar #logo {
     color: #e6e6e6;
 }
 
