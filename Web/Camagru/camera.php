@@ -22,7 +22,7 @@ if (!isset($_SESSION['logged_on_user'])) {
 
 <body>
 
-    <?php require 'navbar.php'; ?>
+    <?php require 'navbar.php';?>
 
     <div id="main">
         <div id="tri-panels">
@@ -48,7 +48,8 @@ if (!isset($_SESSION['logged_on_user'])) {
                     <canvas style="display:none;"></canvas>
                     <div class="error">
                         <p><span>Oups !</span> Webcam inacessible...</p>
-                        <p class="comment">Veuillez autoriser l'accès à votre webcam. Si vous êtes sur mobile, vous devez choisir une image de votre photothèque.</p>
+                        <p class="comment">Veuillez autoriser l'accès à votre webcam. Si vous êtes sur mobile, vous
+                            devez choisir une image de votre photothèque.</p>
                     </div>
                     <div id="arrows">
                         <button class="up"><img src="/assets/arrow.svg" alt="arrow"></button>
@@ -66,9 +67,10 @@ if (!isset($_SESSION['logged_on_user'])) {
                         <div class="shadow left">
                         </div>
                         <div id="stickers-carousel">
-                        <?php for ($i = 1; $i < 11; $i++) { ?>
-                            <img src="/assets/stickers/<?= "sticker-" . $i ?>.png" alt="sticker" title="Ajouter ce sticker">
-                        <?php } ?>
+                            <?php for ($i = 1; $i < 11; $i++) {?>
+                            <img src="/assets/stickers/<?=" sticker-" . $i?>.png" alt="sticker" title="Ajouter ce
+                            sticker">
+                            <?php }?>
                         </div>
                         <div class="shadow right">
                         </div>
@@ -89,16 +91,18 @@ if (!isset($_SESSION['logged_on_user'])) {
                 <p>Vos anciennes photos</p>
                 <p class="comment">Tous vos anciens posts. Cliquez sur une photo pour supprimer le post.</p>
                 <div class="post-list">
-                    <?php for ($i = 0; $i < 16; $i++) { ?>
+                    <?php for ($i = 0; $i < 16; $i++) {?>
                     <div class="post-image">
                         <img class="pic" src="/resources/profile-pics/default.png">
                         <img class="overlay" src="/assets/retake.png">
                     </div>
-                    <?php } ?>
+                    <?php }?>
                 </div>
             </div>
         </div>
     </div>
+
+    <?php require 'footer.php';?>
 
     <script async src="/js/camera.js"></script>
 
