@@ -68,8 +68,7 @@ if (!isset($_SESSION['logged_on_user'])) {
                         </div>
                         <div id="stickers-carousel">
                             <?php for ($i = 1; $i < 11; $i++) {?>
-                            <img src="/assets/stickers/<?=" sticker-" . $i?>.png" alt="sticker" title="Ajouter ce
-                            sticker">
+                            <img src="/assets/stickers/<?="sticker-" . $i?>.png" alt="sticker" title="Ajouter ce sticker">
                             <?php }?>
                         </div>
                         <div class="shadow right">

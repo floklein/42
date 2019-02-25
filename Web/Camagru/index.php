@@ -71,7 +71,7 @@ try {
                     <p>Aimé par <span>4 personnes</span></p>
                 </div>
                 <div id="feed-legend">
-                    <p><span><?=$post['username']?> </span><?=$post['legend']?></p>
+                    <p><span><?=$post['username']?> </span><?=htmlspecialchars($post['legend'])?></p>
                 </div>
                 <div id="feed-morecoms">
                     <p>3 personnes ont commenté</p>

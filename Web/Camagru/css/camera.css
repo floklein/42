@@ -225,6 +225,7 @@ body {
 #left-panel {
     width: 95%;
     max-width: 325px;
+    margin-top: 20px;
     border: solid 1px black;
     border-radius: 25px;
     background-color: black;
@@ -244,6 +245,7 @@ body {
 #right-panel {
     width: 95%;
     max-width: 325px;
+    margin-bottom: 100px;
     border: solid 1px black;
     border-radius: 25px;
     background-color: black;
