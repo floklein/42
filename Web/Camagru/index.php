@@ -53,10 +53,16 @@ try {
                     <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/<?=$post['userpic']?>');">
                     </div>
                     <div id="feed-user-login">
-                        <a href="#user"><p><?=$post['username']?></p></a>
+                        <a href="#user">
+                            <p>
+                                <?=$post['username']?>
+                            </p>
+                        </a>
                     </div>
                     <div id="feed-date">
-                        <p><?=$post['date']?></p>
+                        <p>
+                            <?=$post['date']?>
+                        </p>
                     </div>
                 </div>
                 <div id="feed-pic" style="background-image: url('/resources/feed-pics/<?=$post['img']?>');">
@@ -71,7 +77,10 @@ try {
                     <p>Aimé par <span>4 personnes</span></p>
                 </div>
                 <div id="feed-legend">
-                    <p><span><?=$post['username']?> </span><?=htmlspecialchars($post['legend'])?></p>
+                    <p><span>
+                            <?=$post['username']?> </span>
+                        <?=htmlspecialchars($post['legend'])?>
+                    </p>
                 </div>
                 <div id="feed-morecoms">
                     <p>3 personnes ont commenté</p>
