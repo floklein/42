@@ -20,7 +20,7 @@ body {
     color: #e6e6e6;
 }
 
-#navbar-right a:hover {
+#navbar .right a:hover {
     background-color: black;
 }
 
@@ -28,6 +28,17 @@ body {
     #screenshot {
         height: 522.5px;
     }
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    border-top-color: black;
+    background-color: #191919;
+}
+
+#footer a:hover, #footer a:hover span {
+    color: white;
 }
 
 #screenshot {
