@@ -103,6 +103,48 @@ body {
     }
 }
 
+#footer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    top: 150px;
+    height: 80px;
+    width: 100%;
+    border-top: solid 1px #E6E6E6;
+    background-color: white;
+}
+
+#footer a {
+    margin: 10px;
+    text-align: center;
+    font-family: myProximaNovaReg;
+    color: #999999;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: #231F20;
+}
+
+#footer a span {
+    font-family: myProximaNovaBold;
+}
+
+#footer a:hover span {
+    color: #231F20;
+}
+
+#footer a span.heart {
+    color: #999999;
+}
+
+#footer a:hover span.heart {
+    color: #e65454;
+}
+
 #feed {
     position: relative;
     top: 125px;

@@ -1,7 +1,30 @@
 <?php
 session_start();
-// Must be removed:
-date_default_timezone_set("Europe/Paris");
+
+require 'config/database.php';
+
+$DB_DSN .= ";dbname=" . $DB_NAME;
+// Connecting to 'instacam' database
+try {
+    $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    /*echo "Connected to database.<br>";*/
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+// Loading posts
+try {
+    $sql = "SELECT posts.id, users.name AS username, posts.date, posts.img, posts.legend, users.pic AS userpic
+                FROM posts JOIN users on posts.user_id=users.id ORDER BY posts.id DESC";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $posts = $stmt->fetchAll();
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,26 +42,26 @@ date_default_timezone_set("Europe/Paris");
 
 <body>
 
-<?php require 'navbar.php'; ?>
+<?php require 'navbar.php';?>
 
 <div id="feed">
-    <?php for ($i = 0; $i < 5; $i++) {?>
+    <?php foreach ($posts as $post) {?>
         <div id="feed-box">
             <div id="feed-header">
-                <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/1.jpg');">
+                <div id="feed-user-pic" style="background-image: url('/resources/profile-pics/<?=$post['userpic']?>');">
                 </div>
                 <div id="feed-user-login">
                     <a href="#user">
-                        <p>florentklein</p>
+                        <p><?=$post['username']?></p>
                     </a>
                 </div>
                 <div id="feed-date">
                     <p>
-                       <?=date("D j, H:i");?>
+                       <?=$post['date']?>
                     </p>
                 </div>
             </div>
-            <div id="feed-pic" style="background-image: url('/resources/feed-pics/0.jpg');">
+            <div id="feed-pic" style="background-image: url('/resources/feed-pics/<?=$post['img']?>');">
             </div>
             <div id="feed-buttons">
                 <button href="#" id="feed-like-button"><img src="/assets/like.png" id="feed-buttons-img"><span id="feed-buttons-txt">J'aime</span></button>
@@ -50,7 +73,7 @@ date_default_timezone_set("Europe/Paris");
                 <p>Aimé par <span>4 personnes</span></p>
             </div>
             <div id="feed-legend">
-                <p><span>florentklein </span>À 42 avec @arnaudgissinger ! #errno</p>
+                <p><span><?=$post['username']?> </span><?=$post['legend']?></p>
             </div>
             <div id="feed-morecoms">
                 <p>3 personnes ont commenté</p>
@@ -77,6 +100,8 @@ date_default_timezone_set("Europe/Paris");
     <a href="#previous"><img src="/assets/previous.png" alt="prev"></a>
     <a href="#next"><img src="/assets/next.png" alt="next"></a>
 </div>
+
+<?php require 'footer.php';?>
 
 </body>
 
