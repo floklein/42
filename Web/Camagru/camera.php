@@ -14,10 +14,10 @@ if (!isset($_SESSION['logged_on_user'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Instacam - Appareil photo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/index.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/camera.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/range.css" />
-    <script src="/js/navbar.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/camera.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/range.css" />
+    <script src="js/navbar.js"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@ if (!isset($_SESSION['logged_on_user'])) {
     <div id="main">
         <div id="tri-panels">
             <div id="left-panel">
-                <form action="/back/upload_img.php" method="post">
+                <form action="back/upload_img.php" method="post">
                     <p>Votre post</p>
                     <p class="comment">Prenez une photo, choisissez un sticker,<br>puis ajoutez-y une légende.</p>
                     <textarea required rows="4" cols="40" maxlength="140" name="legend" placeholder="Écrivez une légende..."></textarea><br>
@@ -52,13 +52,13 @@ if (!isset($_SESSION['logged_on_user'])) {
                             devez choisir une image de votre photothèque.</p>
                     </div>
                     <div id="arrows">
-                        <button class="up"><img src="/assets/arrow.svg" alt="arrow"></button>
+                        <button class="up"><img src="assets/arrow.svg" alt="arrow"></button>
                         <div id="arrow-left-right">
-                            <button class="left"><img src="/assets/arrow.svg" alt="arrow"></button>
+                            <button class="left"><img src="assets/arrow.svg" alt="arrow"></button>
                             <input type="range" min="1" max="100" step="1">
-                            <button class="right"><img src="/assets/arrow.svg" alt="arrow"></button>
+                            <button class="right"><img src="assets/arrow.svg" alt="arrow"></button>
                         </div>
-                        <button class="down"><img src="/assets/arrow.svg" alt="arrow"></button>
+                        <button class="down"><img src="assets/arrow.svg" alt="arrow"></button>
                     </div>
                     <!-- <button id="cssfilters-apply">Filtre suivant</button><br> -->
                 </div>
@@ -68,7 +68,7 @@ if (!isset($_SESSION['logged_on_user'])) {
                         </div>
                         <div id="stickers-carousel">
                             <?php for ($i = 1; $i < 11; $i++) {?>
-                            <img src="/assets/stickers/<?="sticker-" . $i?>.png" alt="sticker" title="Ajouter ce sticker">
+                            <img src="assets/stickers/<?="sticker-" . $i?>.png" alt="sticker" title="Ajouter ce sticker">
                             <?php }?>
                         </div>
                         <div class="shadow right">
@@ -76,13 +76,13 @@ if (!isset($_SESSION['logged_on_user'])) {
                     </div>
                     <div id="tri-buttons">
                         <div id="screenshot-upload">
-                            <button><img src="/assets/picture.png" alt="picture" title="Choisir une image..."></button>
+                            <button><img src="assets/picture.png" alt="picture" title="Choisir une image..."></button>
                             <input type="file" accept="image/*" name="upload-input">
                         </div>
                         <div class="screenshot-button-back">
                             <button class="screenshot-button"></button>
                         </div>
-                        <button class="retake-button"><img src="/assets/retake.png" alt="retake" title="Reprendre la photo"></button>
+                        <button class="retake-button"><img src="assets/retake.png" alt="retake" title="Reprendre la photo"></button>
                     </div>
                 </div>
             </div>
@@ -92,8 +92,8 @@ if (!isset($_SESSION['logged_on_user'])) {
                 <div class="post-list">
                     <?php for ($i = 0; $i < 16; $i++) {?>
                     <div class="post-image">
-                        <img class="pic" src="/resources/profile-pics/default.png">
-                        <img class="overlay" src="/assets/retake.png">
+                        <img class="pic" src="resources/profile-pics/default.png">
+                        <img class="overlay" src="assets/retake.png">
                     </div>
                     <?php }?>
                 </div>
@@ -103,7 +103,7 @@ if (!isset($_SESSION['logged_on_user'])) {
 
     <?php require 'footer.php';?>
 
-    <script async src="/js/camera.js"></script>
+    <script async src="js/camera.js"></script>
 
 </body>
 
