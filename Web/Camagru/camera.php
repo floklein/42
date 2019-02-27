@@ -90,12 +90,6 @@ if (!isset($_SESSION['logged_on_user'])) {
                 <p>Vos anciennes photos</p>
                 <p class="comment">Tous vos anciens posts. Cliquez sur une photo pour supprimer le post.</p>
                 <div class="post-list">
-                    <?php for ($i = 0; $i < 16; $i++) {?>
-                    <div class="post-image">
-                        <img class="pic" src="resources/profile-pics/default.png">
-                        <img class="overlay" src="assets/retake.png">
-                    </div>
-                    <?php }?>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 const feedDiv = document.querySelector("#feed");
-let nbPost = 1;
+let nbPost = 2;
 
 window.onscroll = () => {
     // Navbar
@@ -38,5 +38,4 @@ function loadMore() {
     nbPost++;
 }
 
-loadMore();
-loadMore();
+window.onload = loadMore();
