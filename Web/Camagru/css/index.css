@@ -198,6 +198,7 @@ body {
     border-radius: 50%;
     background: center;
     background-size: cover;
+    background-color: lightgrey;
 }
 
 #feed-user-login {

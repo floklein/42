@@ -4,7 +4,7 @@ require '../config/database.php';
 session_start();
 if (!isset($_SESSION['logged_on_user'])) {
     header("Location: ../signin.php");
-    exit();
+    exit("Vous n'êtes pas connecté.");
 }
 
 $legend = trim(preg_replace("/\s+/", " ", $_POST['legend']));
@@ -15,27 +15,21 @@ $ypos = intval($_POST['ypos']);
 $width = intval($_POST['width']);
 
 if (!isset($legend) || $legend == "" || strlen($legend) > 140) {
-    header("Location: ../camera.php?error=legend");
-    exit();
+    exit("La légende est invalide.");
 } else if (!isset($input_img) || $input_img == "" || strpos($input_img, "data:image/png;base64,") !== 0) {
-    header("Location: ../camera.php?error=image");
-    exit();
+    exit("La photo est invalide.");
 } else if (!isset($input_sticker) || $input_sticker == "" || !file_exists("../assets/stickers/" . basename($input_sticker))) {
-    header("Location: ../camera.php?error=sticker");
-    exit();
+    exit("Le sticker est invalide.");
 } else if (!isset($xpos) || !isset($ypos) || !isset($width)
     || $xpos < -100 || $xpos > 200 || $ypos < -100 || $ypos > 200
     || $width <= 0 || $width > 100) {
-    header("Location: ../camera.php?error=values");
-    exit();
+    exit("La position et/ou la taille du sticker sont ivalides.");
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////  PROCESSING THE IMAGE  /////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Converting base64 to string
-$img_content = base64_decode(str_replace("data:image/png;base64,", "", $input_img));
+$img_content = base64_decode(str_replace(" ", "+", str_replace("data:image/png;base64,", "", $input_img)));
 
 // Function: Create a transparent image
 function imagecreate_transparent($w, $h)
@@ -81,9 +75,7 @@ $file = uniqid("fp-", true) . ".jpg";
 $path = "../resources/feed-pics/" . $file;
 imagejpeg($output, $path);
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////// SENDING TO THE DATABASE /////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 $DB_DSN .= ";dbname=" . $DB_NAME;
 // Connecting to 'instacam' database
@@ -104,5 +96,3 @@ try {
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
-
-header("Location: ../camera.php?req=success");

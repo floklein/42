@@ -52,7 +52,7 @@ function handleSuccess(stream) {
     pictureInput.onchange = pictureInput.onload = () => {
         if (!isValidImage(pictureInput)) {
             pictureInput.value = "";
-            alert("JPG ou PNG uniquement.");
+            alert("JPEG ou PNG uniquement.");
         } else {
             var imageObj = new Image();
             canvas.width = video.videoWidth;
@@ -101,20 +101,12 @@ function handleSuccess(stream) {
         }, 10);
     };
 
-    upArrow.onmouseup = upArrow.onmouseleave = () => {
-        clearInterval(timeout);
-    }
-
     leftArrow.onmousedown = () => {
         timeout = setInterval(() => {
             xPos -= .25;
             sticker.style.left = xPos.toString() + "%";
         }, 10);
     };
-
-    leftArrow.onmouseup = leftArrow.onmouseleave = () => {
-        clearInterval(timeout);
-    }
 
     rightArrow.onmousedown = () => {
         timeout = setInterval(() => {
@@ -123,10 +115,6 @@ function handleSuccess(stream) {
         }, 10);
     };
 
-    rightArrow.onmouseup = rightArrow.onmouseleave = () => {
-        clearInterval(timeout);
-    }
-
     downArrow.onmousedown = () => {
         timeout = setInterval(() => {
             yPos += .25;
@@ -134,9 +122,12 @@ function handleSuccess(stream) {
         }, 10);
     };
 
-    downArrow.onmouseup = downArrow.onmouseleave = () => {
-        clearInterval(timeout);
-    }
+    upArrow.onmouseup = upArrow.onmouseleave
+        = leftArrow.onmouseup = leftArrow.onmouseleave
+        = rightArrow.onmouseup = rightArrow.onmouseleave
+        = downArrow.onmouseup = downArrow.onmouseleave = () => {
+            clearInterval(timeout);
+        }
 
     // Changing size of sticker
     slider.oninput = () => {
@@ -150,13 +141,14 @@ function handleSuccess(stream) {
     legendArea.onkeyup = () => {
         countDiv.textContent = 140 - legendArea.value.length;
         countDiv.style.color = (legendArea.value.length >= 120 ? "#c27878" : "#999999");
+        enableButton();
     }
 
     // Enableing the publish button
     const formButton = document.querySelector("#left-panel .upload-submit");
 
     function enableButton() {
-        if (img.src == window.location.href || sticker.src == window.location.href) {
+        if (img.src == window.location.href || sticker.src == window.location.href || legendArea.value.length == 0) {
             formButton.disabled = true;
             formButton.style.cursor = "not-allowed";
             formButton.classList.add("disabled");
@@ -165,7 +157,13 @@ function handleSuccess(stream) {
             formButton.style.cursor = "pointer";
             formButton.classList.remove("disabled");
         }
-        if (sticker.src != window.location.href) {
+        if (sticker.src == window.location.href) {
+            upArrow.style.display = "none";
+            leftArrow.style.display = "none";
+            rightArrow.style.display = "none";
+            downArrow.style.display = "none";
+            slider.style.display = "none";
+        } else {
             upArrow.style.display = "block";
             leftArrow.style.display = "block";
             rightArrow.style.display = "block";
@@ -183,15 +181,63 @@ function handleSuccess(stream) {
     const formWidth = document.querySelector("#left-panel .upload-width");
 
     formButton.onclick = () => {
-        let img_string = img.src;
-
-        formImg.value = img_string;
-        formSticker.value = sticker.src;
-        formXpos.value = xPos;
-        formYpos.value = yPos;
-        formWidth.value = slider.value;
-        form.submit();
+        const formReq = new XMLHttpRequest();
+        formReq.onreadystatechange = function (event) {
+            if (this.readyState === XMLHttpRequest.DONE) {
+                if (this.status === 200) {
+                    if (this.responseText) {
+                        alert("Erreur: " + this.responseText);
+                    }
+                    else {
+                        loadPosts();
+                        img.src = "";
+                        sticker.src = "";
+                        pictureInput.value = "";
+                        legendArea.value = "";
+                        enableButton();
+                    }
+                } else {
+                    console.log("Statut de la réponse: %d (%s)", this.status, this.statusText);
+                }
+            }
+        };
+        formReq.open('POST', 'back/upload_img.php', true);
+        formReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        formReq.send('img=' + img.src + '&sticker=' + sticker.src + '&legend=' + legendArea.value + '&xpos=' + xPos + '&ypos=' + yPos + '&width=' + slider.value);
     }
+
+    // Loading previous posts
+    const postList = document.querySelector(".post-list");
+    let nbPost = 8;
+
+    postList.onscroll = () => {
+        let scrollTop = postList.scrollTop;
+        let scrollHeight = postList.scrollHeight;
+        let offsetHeight = postList.offsetHeight;
+        let contentHeight = scrollHeight - offsetHeight;
+        if (contentHeight <= scrollTop) {
+            loadPosts();
+        }
+    }
+
+    function loadPosts() {
+        const req = new XMLHttpRequest();
+        req.onreadystatechange = function (event) {
+            if (this.readyState === XMLHttpRequest.DONE) {
+                if (this.status === 200) {
+                    postList.innerHTML = this.responseText;
+                } else {
+                    console.log("Statut de la réponse: %d (%s)", this.status, this.statusText);
+                }
+            }
+        };
+        req.open('POST', 'back/user_posts.php', true);
+        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        req.send('nb=' + nbPost);
+        nbPost += 2;
+    }
+
+    window.onload = loadPosts();
 }
 
 function handleError(error) {
