@@ -194,6 +194,7 @@ function handleSuccess(stream) {
                         sticker.src = "";
                         pictureInput.value = "";
                         legendArea.value = "";
+                        countDiv.textContent = 140;
                         enableButton();
                     }
                 } else {
