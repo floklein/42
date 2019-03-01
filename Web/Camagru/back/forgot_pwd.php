@@ -37,6 +37,6 @@ foreach ($found_users as $found_user) {
     }
 
     // Link mail_password.php will send
-    $link = "http://localhost:8080/reset-pwd.php?id=" . $found_user['id'] . "&phrase=" . $phrase;
+    $link = $_SERVER['HTTP_HOST'] . "/reset-pwd.php?id=" . $found_user['id'] . "&phrase=" . $phrase;
     echo $link . "<br>";
 }

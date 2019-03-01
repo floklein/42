@@ -2,7 +2,7 @@
 function auth($login, $passwd)
 {
     require '../config/database.php';
-    
+
     if (!isset($login) || !isset($passwd)) {
         return false;
     }
