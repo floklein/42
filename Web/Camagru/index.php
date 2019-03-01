@@ -25,6 +25,6 @@ session_start();
     </div>
 </body>
 
-    <script src="js/infinite.js"></script>
+<script src="js/infinite.js"></script>
 
 </html>
