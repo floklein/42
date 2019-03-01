@@ -60,7 +60,6 @@ if (!isset($_SESSION['logged_on_user'])) {
                         </div>
                         <button class="down"><img src="assets/arrow.svg" alt="arrow"></button>
                     </div>
-                    <!-- <button id="cssfilters-apply">Filtre suivant</button><br> -->
                 </div>
                 <div id="bottom-buttons">
                     <div id="stickers-panel">
@@ -97,8 +96,8 @@ if (!isset($_SESSION['logged_on_user'])) {
 
     <?php require 'footer.php';?>
 
-    <script async src="js/camera.js"></script>
-
 </body>
+
+    <script async src="js/camera.js"></script>
 
 </html>

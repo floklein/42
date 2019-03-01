@@ -35,7 +35,6 @@ if ($found_user === false) {
 }
 
 $error = $_GET['error'];
-
 ?>
 
 <!DOCTYPE html>
@@ -51,14 +50,14 @@ $error = $_GET['error'];
 </head>
 <body>
 
-<?php require 'navbar.php'; ?>
+<?php require 'navbar.php';?>
 
 <div id="flex-form">
     <div id="form-box">
         <p>Choisissez un <span>nouveau</span> mot de passe.</p>
-        <form action="back/reset_pwd.php?id=<?= $id ?>&phrase=<?= $phrase ?>" method="post">
-            <input required pattern=".{8,64}" minlength="8" maxlength="64" type="password" name="pwd" <?php if ($error === "invalid_pwd") { ?> class="invalid validation" placeholder="Mot de passe invalide" <?php } else if ($error === "weak_pwd") { ?> class="invalid validation" placeholder="Mot de passe trop faible" <?php } else if ($error === "pwds_no_match") { ?> class="invalid validation" placeholder="Mots de passe différents" <?php } else { ?> class="validation" placeholder="Choisissez un mot de passe" <?php } ?>><br>
-            <input required pattern=".{8,64}" minlength="8" maxlength="64" type="password" name="pwd-confirm" <?php if ($error === "pwds_no_match") { ?> class="invalid validation" placeholder="Mots de passe différents" <?php } else { ?> class="validation" placeholder="Confirmez le mot de passe" <?php } ?>><br>
+        <form action="back/reset_pwd.php?id=<?=$id?>&phrase=<?=$phrase?>" method="post">
+            <input required pattern=".{8,64}" minlength="8" maxlength="64" type="password" name="pwd" <?php if ($error === "invalid_pwd") {?> class="invalid validation" placeholder="Mot de passe invalide" <?php } else if ($error === "weak_pwd") {?> class="invalid validation" placeholder="Mot de passe trop faible" <?php } else if ($error === "pwds_no_match") {?> class="invalid validation" placeholder="Mots de passe différents" <?php } else {?> class="validation" placeholder="Choisissez un mot de passe" <?php }?>><br>
+            <input required pattern=".{8,64}" minlength="8" maxlength="64" type="password" name="pwd-confirm" <?php if ($error === "pwds_no_match") {?> class="invalid validation" placeholder="Mots de passe différents" <?php } else {?> class="validation" placeholder="Confirmez le mot de passe" <?php }?>><br>
             <button type="submit" name="resetpwd-submit" value="ok">Modifier</button>
         </form>
     </div>
