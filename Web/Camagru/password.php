@@ -14,6 +14,7 @@ $status = $_GET['req'];
     <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/alert.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/form.css" />
+    <script src="js/navbar.js"></script>
 </head>
 
 <body>

@@ -14,6 +14,7 @@ $status = $_GET['req'];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/index.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="css/alert.css" />
+    <script src="js/navbar.js"></script>
 </head>
 
 <body>

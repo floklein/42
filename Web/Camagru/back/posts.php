@@ -24,7 +24,31 @@ try {
 }
 
 foreach ($posts as $post) {
-    echo '<div id="feed-box">
+    // Loading likes
+    try {
+        $sql = "SELECT users.name AS username FROM likes JOIN users ON likes.user_id=users.id
+                WHERE likes.post_id=? ORDER BY likes.id DESC";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$post['id']]);
+        $likes = $stmt->fetchAll();
+    } catch (PDOEXCEPTION $e) {
+        exit($e);
+    };
+    $likes_count = count($likes);
+
+    // Loading comments
+    try {
+        $sql = "SELECT comments.content, users.name AS username FROM comments JOIN users ON comments.user_id=users.id
+                WHERE comments.post_id=? ORDER BY comments.id ASC";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$post['id']]);
+        $comments = $stmt->fetchAll();
+    } catch (PDOEXCEPTION $e) {
+        exit($e);
+    }
+    $comments_count = count($comments);
+
+    echo '<div id="feed-box" class="id-' . $post['id'] . '">
 <div id="feed-header">
     <div id="feed-user-pic" style="background-image: url(\'/resources/profile-pics/' . $post['userpic'] . '\');">
     </div>
@@ -38,36 +62,50 @@ foreach ($posts as $post) {
 <div id="feed-pic" style="background-image: url(\'/resources/feed-pics/' . $post['img'] . '\');">
 </div>
 <div id="feed-buttons">
-    <button href="#" id="feed-like-button">
+    <button id="feed-like-button">
         <img src="assets/like.png" id="feed-buttons-img"><span id="feed-buttons-txt">J\'aime</span>
     </button>
-    <button onclick="document.getElementById("field").focus();" id="feed-like-button">
+    <button id="feed-like-button">
         <img src="assets/comment.png" id="feed-buttons-img"><span id="feed-buttons-txt">Commenter</span>
     </button>
-    <button href="#" id="feed-like-button">
+    <button id="feed-like-button">
         <img src="assets/share.png" id="feed-buttons-img"><span id="feed-buttons-txt">Partager</span>
     </button>
 </div>
 <hr id="feed-bar">
-<div id="feed-likedby">
-    <p>Aimé par <span>4 personnes</span></p>
-</div>
+<div id="feed-likedby">';
+    if ($likes_count <= 0) {
+        echo '<p>Soyez le premier à <span>aimer ce post</span> !</p>';
+    } else if ($likes_count == 1) {
+        echo '<p>Aimé par <span>' . $likes[0]['username'] . '</span></p>';
+    } else if ($likes_count == 2) {
+        echo '<p>Aimé par <span>' . $likes[0]['username'] . '</span> et <span>' . $likes[1]['username'] . '</span></p>';
+    } else if ($likes_count == 3) {
+        echo '<p>Aimé par <span>' . $likes[0]['username'] . '</span>, <span>' . $likes[1]['username'] . '</span> et <span>1 autre personne</span></p>';
+    } else {
+        echo '<p>Aimé par <span>' . $likes[0]['username'] . '</span>, <span>' . $likes[1]['username'] . '</span> et <span>' . ($likes_count - 2) . ' autres personnes</span></p>';
+    }
+    echo '</div>
 <div id="feed-legend">
     <p><span>' . $post['username'] . ' </span>' . htmlspecialchars($post['legend']) . '</p>
 </div>
-<div id="feed-morecoms">
-    <p>3 personnes ont commenté</p>
-</div>
-<div id="feed-comments">
-    <p><span>shanacohen </span>Hey, c\'est ma photo.</p>
-    <p><span>yannisdoublet </span>Bonjour. Puis-je vous parler de notre Seigneur à tous, le Day06 de la PiscinePHP?</p>
-    <p><span>tanguyboissel </span>Mdr, je vais tester les limites de cet espace commentaire : xdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxdxd</p>
-    <p><span>etmoijaiuntreslongpseudooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo </span>#SuperRelou</p>
-    <p><span>florentklein </span>Merci...</p>
-</div>
+<div id="feed-morecoms">';
+    if ($comments_count <= 0) {
+        echo '<p>Soyez le premier à commenter</p>';
+    } else if ($comments_count == 1) {
+        echo '<p>1 personne a commenté</p>';
+    } else {
+        echo '<p>' . $comments_count . ' personnes ont commenté</p>';
+    }
+    echo '</div>
+<div id="feed-comments">';
+    foreach ($comments as $comment) {
+        echo '<p><span>' . $comment['username'] . ' </span>' . htmlspecialchars($comment['content']) . '</p>';
+    }
+    echo '</div>
 <hr id="feed-bar-2">
 <form id="feed-comment-field" action="" method="post">
-    <input required id="field" type="text" name="new-comment" placeholder="Ajouter un commentaire...">
+    <input required minlength="1" maxlength="140" id="field" type="text" name="new-comment" placeholder="Ajouter un commentaire...">
     <button id="envoyer" type="submit" name="submit" value="ok">Envoyer</button>
 </form>
 </div>';
