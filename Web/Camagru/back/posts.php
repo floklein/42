@@ -76,11 +76,11 @@ foreach ($posts as $post) {
 <div id="feed-likedby">';
     if ($likes_count <= 0) {
         echo '<p>Soyez le premier à <span>aimer ce post</span> !</p>';
-    } else if ($likes_count == 1) {
+    } else if ($likes_count === 1) {
         echo '<p>Aimé par <span>' . $likes[0]['username'] . '</span></p>';
-    } else if ($likes_count == 2) {
+    } else if ($likes_count === 2) {
         echo '<p>Aimé par <span>' . $likes[0]['username'] . '</span> et <span>' . $likes[1]['username'] . '</span></p>';
-    } else if ($likes_count == 3) {
+    } else if ($likes_count === 3) {
         echo '<p>Aimé par <span>' . $likes[0]['username'] . '</span>, <span>' . $likes[1]['username'] . '</span> et <span>1 autre personne</span></p>';
     } else {
         echo '<p>Aimé par <span>' . $likes[0]['username'] . '</span>, <span>' . $likes[1]['username'] . '</span> et <span>' . ($likes_count - 2) . ' autres personnes</span></p>';
@@ -92,7 +92,7 @@ foreach ($posts as $post) {
 <div id="feed-morecoms">';
     if ($comments_count <= 0) {
         echo '<p>Soyez le premier à commenter</p>';
-    } else if ($comments_count == 1) {
+    } else if ($comments_count === 1) {
         echo '<p>1 personne a commenté</p>';
     } else {
         echo '<p>' . $comments_count . ' personnes ont commenté</p>';
