@@ -99,5 +99,6 @@ if (!isset($_SESSION['logged_on_user'])) {
 </body>
 
 <script async src="js/camera.js"></script>
+<script src="js/user_posts.js"></script>
 
 </html>

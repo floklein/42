@@ -48,4 +48,58 @@ try {
     exit($e);
 }
 
+// Deleting user from 'passwords'
+try {
+    $sql = "DELETE FROM `passwords` WHERE `user_id`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['logged_on_user']['id']]);
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+// Searching for all posted pics
+try {
+    $sql = "SELECT img FROM `posts` WHERE `user_id`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['logged_on_user']['id']]);
+    $images = $stmt->fetchAll();
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+if ($images !== false) {
+    foreach ($images as $image) {
+        if (file_exists("../resources/feed-pics/" . $image['img'])) {
+            unlink("../resources/feed-pics/" . $image['img']);
+        }
+    }
+}
+
+// Deleting posts
+try {
+    $sql = "DELETE FROM posts WHERE `user_id`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['logged_on_user']['id']]);
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+// Deleting comments
+try {
+    $sql = "DELETE FROM comments WHERE `user_id`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['logged_on_user']['id']]);
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
+// Deleting likes
+try {
+    $sql = "DELETE FROM likes WHERE `user_id`=?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$_SESSION['logged_on_user']['id']]);
+} catch (PDOEXCEPTION $e) {
+    exit($e);
+}
+
 header("Location: logout.php");

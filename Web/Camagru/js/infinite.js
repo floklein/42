@@ -38,7 +38,6 @@ function loadMore(increment = true) {
     req.open('POST', 'back/posts.php', true);
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     req.send('nb=' + nbPost);
-    
 }
 
 window.onload = loadMore();
