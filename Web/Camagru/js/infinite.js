@@ -1,5 +1,5 @@
 const feedDiv = document.querySelector("#feed");
-let nbPost = 2;
+let nbPost = 1;
 
 window.onscroll = () => {
     // Navbar
@@ -21,7 +21,10 @@ window.onscroll = () => {
     }
 }
 
-function loadMore() {
+function loadMore(increment = true) {
+    if (increment) {
+        nbPost++;
+    }
     const req = new XMLHttpRequest();
     req.onreadystatechange = function (event) {
         if (this.readyState === XMLHttpRequest.DONE) {
@@ -35,7 +38,7 @@ function loadMore() {
     req.open('POST', 'back/posts.php', true);
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     req.send('nb=' + nbPost);
-    nbPost++;
+    
 }
 
 window.onload = loadMore();
