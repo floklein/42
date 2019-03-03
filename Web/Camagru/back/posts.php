@@ -1,6 +1,8 @@
 <?php
 require '../config/database.php';
 
+session_start();
+
 $DB_DSN .= ";dbname=" . $DB_NAME;
 // Connecting to 'instacam' database
 try {
@@ -15,7 +17,7 @@ try {
 // Loading posts
 try {
     $sql = "SELECT posts.id, users.name AS username, posts.date, posts.img, posts.legend, users.pic AS userpic
-                FROM posts JOIN users on posts.user_id=users.id ORDER BY posts.id DESC LIMIT ?";
+            FROM posts JOIN users on posts.user_id=users.id ORDER BY posts.id DESC LIMIT ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$_POST['nb']]);
     $posts = $stmt->fetchAll();
@@ -62,10 +64,21 @@ foreach ($posts as $post) {
 <div id="feed-pic" style="background-image: url(\'/resources/feed-pics/' . $post['img'] . '\');">
 </div>
 <div id="feed-buttons">
-    <button id="feed-like-button">
-        <img src="assets/like.png" id="feed-buttons-img"><span id="feed-buttons-txt">J\'aime</span>
-    </button>
-    <button id="feed-like-button">
+    <button id="feed-like-button" onclick="likePost(\'' . $post['id'] . '\');">';
+    $liked = false;
+    foreach ($likes as $like) {
+        if ($like['username'] === $_SESSION['logged_on_user']['login']) {
+            $liked = true;
+            break;
+        }
+    }
+    if ($liked)
+        echo '<img src="assets/liked.png" id="feed-buttons-img"><span id="feed-buttons-txt">J\'aime</span>';
+    else {
+        echo '<img src="assets/like.png" id="feed-buttons-img"><span id="feed-buttons-txt">J\'aime</span>';
+    }
+    echo '</button>
+    <button id="feed-like-button" onclick="focusCommentInput(\'' . $post['id'] . '\');">
         <img src="assets/comment.png" id="feed-buttons-img"><span id="feed-buttons-txt">Commenter</span>
     </button>
     <button id="feed-like-button">
@@ -93,9 +106,9 @@ foreach ($posts as $post) {
     if ($comments_count <= 0) {
         echo '<p>Soyez le premier à commenter</p>';
     } else if ($comments_count === 1) {
-        echo '<p>1 personne a commenté</p>';
+        echo '<p>1 commentaire</p>';
     } else {
-        echo '<p>' . $comments_count . ' personnes ont commenté</p>';
+        echo '<p>' . $comments_count . ' commentaires</p>';
     }
     echo '</div>
 <div id="feed-comments">';
@@ -104,14 +117,14 @@ foreach ($posts as $post) {
     }
     echo '</div>
 <hr id="feed-bar-2">
-<form id="feed-comment-field" action="" method="post">
+<div id="feed-comment-field">
     <input required minlength="1" maxlength="140" id="field" type="text" name="new-comment" placeholder="Ajouter un commentaire...">
-    <button id="envoyer" type="submit" name="submit" value="ok">Envoyer</button>
-</form>
+    <button id="envoyer" onclick="commentPost(\'' . $post['id'] . '\');">Envoyer</button>
+</div>
 </div>';
 }
 
-// Counting posts for loading svg
+// Counting posts to load svg
 try {
     $sql = "SELECT COUNT(posts.id) as `count` FROM posts JOIN users on posts.user_id=users.id";
     $stmt = $pdo->prepare($sql);

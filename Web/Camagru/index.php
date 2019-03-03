@@ -14,6 +14,7 @@ session_start();
     <link rel="stylesheet" type="text/css" media="screen" href="css/form.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=1">
     <script src="js/navbar.js"></script>
+    <script src="js/index.js"></script>
 </head>
 
 <body>
