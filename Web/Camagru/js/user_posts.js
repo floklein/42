@@ -1,44 +1,53 @@
-function focusCommentInput(postId) {
-    document.querySelector(".id-" + postId + " #field").focus();
+// Loading previous posts
+const postList = document.querySelector(".post-list");
+let nbPost = 6;
+
+postList.onscroll = () => {
+    let scrollTop = postList.scrollTop;
+    let scrollHeight = postList.scrollHeight;
+    let offsetHeight = postList.offsetHeight;
+    let contentHeight = scrollHeight - offsetHeight;
+    if (contentHeight <= scrollTop) {
+        loadPosts();
+    }
 }
 
-function likePost(postId) {
+function loadPosts(increment = 2) {
+    nbPost += increment;
+    const req = new XMLHttpRequest();
+    req.onreadystatechange = function (event) {
+        if (this.readyState === XMLHttpRequest.DONE) {
+            if (this.status === 200) {
+                postList.innerHTML = this.responseText;
+            } else {
+                console.log("Statut de la réponse: %d (%s)", this.status, this.statusText);
+            }
+        }
+    };
+    req.open('POST', 'back/user_posts.php', true);
+    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    req.send('nb=' + nbPost);
+}
+
+window.onload = loadPosts();
+
+function deletePost(postId) {
     const req = new XMLHttpRequest();
     req.onreadystatechange = function (event) {
         if (this.readyState === XMLHttpRequest.DONE) {
             if (this.status === 200) {
                 if (this.responseText) {
-                    window.location.replace("signin.php");
+                    alert(this.responseText)
+                    // window.location.replace('account.php');
                 } else {
-                    loadMore(false);
+                    loadPosts(1);
                 }
             } else {
                 console.log("Statut de la réponse: %d (%s)", this.status, this.statusText);
             }
         }
     };
-    req.open('POST', 'back/like.php', true);
+    req.open('POST', 'back/delete_post.php', true);
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     req.send('postId=' + postId);
-}
-
-function commentPost(postId) {
-    comment = document.querySelector(".id-" + postId + " #field").value;
-    const req = new XMLHttpRequest();
-    req.onreadystatechange = function (event) {
-        if (this.readyState === XMLHttpRequest.DONE) {
-            if (this.status === 200) {
-                if (this.responseText) {
-                    window.location.replace("signin.php");
-                } else {
-                    loadMore(false);
-                }
-            } else {
-                console.log("Statut de la réponse: %d (%s)", this.status, this.statusText);
-            }
-        }
-    };
-    req.open('POST', 'back/comment.php', true);
-    req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    req.send('postId=' + postId + '&comment=' + comment);
 }

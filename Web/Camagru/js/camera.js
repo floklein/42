@@ -173,13 +173,6 @@ function handleSuccess(stream) {
     }
 
     // Uploading the form
-    const form = document.querySelector("#left-panel form");
-    const formImg = document.querySelector("#left-panel .upload-image");
-    const formSticker = document.querySelector("#left-panel .upload-sticker");
-    const formXpos = document.querySelector("#left-panel .upload-xpos");
-    const formYpos = document.querySelector("#left-panel .upload-ypos");
-    const formWidth = document.querySelector("#left-panel .upload-width");
-
     formButton.onclick = () => {
         const formReq = new XMLHttpRequest();
         formReq.onreadystatechange = function (event) {
@@ -206,39 +199,6 @@ function handleSuccess(stream) {
         formReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         formReq.send('img=' + img.src + '&sticker=' + sticker.src + '&legend=' + legendArea.value + '&xpos=' + xPos + '&ypos=' + yPos + '&width=' + slider.value);
     }
-
-    // Loading previous posts
-    const postList = document.querySelector(".post-list");
-    let nbPost = 8;
-
-    postList.onscroll = () => {
-        let scrollTop = postList.scrollTop;
-        let scrollHeight = postList.scrollHeight;
-        let offsetHeight = postList.offsetHeight;
-        let contentHeight = scrollHeight - offsetHeight;
-        if (contentHeight <= scrollTop) {
-            loadPosts();
-        }
-    }
-
-    function loadPosts() {
-        const req = new XMLHttpRequest();
-        req.onreadystatechange = function (event) {
-            if (this.readyState === XMLHttpRequest.DONE) {
-                if (this.status === 200) {
-                    postList.innerHTML = this.responseText;
-                } else {
-                    console.log("Statut de la réponse: %d (%s)", this.status, this.statusText);
-                }
-            }
-        };
-        req.open('POST', 'back/user_posts.php', true);
-        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        req.send('nb=' + nbPost);
-        nbPost += 2;
-    }
-
-    window.onload = loadPosts();
 }
 
 function handleError(error) {

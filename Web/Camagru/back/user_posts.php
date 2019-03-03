@@ -25,7 +25,7 @@ try {
 }
 
 foreach ($posts as $post) {
-    echo '<div class="post-image">
+    echo '<div class="post-image" onclick="deletePost(' . $post['id'] . ')">
     <img class="pic" src="resources/feed-pics/' . $post['img'] . '">
     <img class="overlay" src="assets/retake.png">
     </div>';
