@@ -364,7 +364,6 @@ body {
     transform: translate(-50%);
     margin-bottom: 8px;
     overflow: scroll;
-    word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
