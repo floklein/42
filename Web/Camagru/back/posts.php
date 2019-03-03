@@ -104,7 +104,7 @@ foreach ($posts as $post) {
 </div>
 <div id="feed-morecoms">';
     if ($comments_count <= 0) {
-        echo '<p>Soyez le premier à commenter</p>';
+        echo '<p>Laissez le premier commentaire</p>';
     } else if ($comments_count === 1) {
         echo '<p>1 commentaire</p>';
     } else {
