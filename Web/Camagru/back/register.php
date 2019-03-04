@@ -30,7 +30,6 @@ try {
     $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    /*echo "Connected to database.<br>";*/
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -41,7 +40,6 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$name]);
     $existing_user = $stmt->fetch();
-    /*echo "Searching for user...<br>";*/
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -49,8 +47,6 @@ try {
 if ($existing_user !== false) {
     header("Location: /../signin.php?error=user_exists");
     exit();
-} else {
-    echo "New username.<br>";
 }
 
 // Inserting into 'users' table
@@ -59,7 +55,6 @@ try {
                 VALUES (?, ?, ?, ?);";
     $salt = substr(str_replace(['+', '/', '='], '', base64_encode(random_bytes(64))), 0, 64);
     $pdo->prepare($sql)->execute([$name, $email, hash_pbkdf2("sha256", $pwd, $salt, 40000), $salt]);
-    echo "User inserted.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -71,7 +66,6 @@ try {
     $stmt->execute([$name]);
     $res = $stmt->fetch();
     $new_id = $res['id'];
-    echo "Searching for ID...<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -82,7 +76,6 @@ try {
                 VALUES (?, ?);";
     $phrase = substr(str_replace(['+', '/', '='], '', base64_encode(random_bytes(64))), 0, 64);
     $pdo->prepare($sql)->execute([$new_id, $phrase]);
-    echo "Verified set to false.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -92,7 +85,6 @@ try {
     $sql = "INSERT INTO `notifications` (`user_id`)
                 VALUES (?);";
     $pdo->prepare($sql)->execute([$new_id]);
-    echo "Notifications set to default.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -102,13 +94,8 @@ try {
     $sql = "INSERT INTO `passwords` (`user_id`, `phrase`)
                 VALUES (?, ?);";
     $pdo->prepare($sql)->execute([$new_id, ""]);
-    echo "Password reset phrase set to default.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
 
-// Link mail_verify.php will send
-$link = $_SERVER['HTTP_HOST'] . "/back/verify.php?id=" . $new_id . "&phrase=" . $phrase;
-echo $link;
-
-/*header("Location: /mail_verify.php?id=" . $new_id);*/
+header("Location: mail_verify.php?id=" . $new_id);
