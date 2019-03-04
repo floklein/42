@@ -44,11 +44,12 @@ function commentPost(postId) {
 }
 
 function shareFacebook(postId) {
-    // Does not work with localhost, using Twitter instead
+    // Does not work with localhost...
     // FB.ui({
     //     method: 'share',
     //     display: 'popup',
     //     href: 'fkle.in?search=' + postId,
     // }, function (response) { });
+    // ... Using Twitter instead
     window.location.replace('https://twitter.com/intent/tweet?via=Instacam&text=Mon%20dernier%20post%20sur%20Instacam%20%3A&url=http://localhost:8080/search.php?search=' + postId);
 }
