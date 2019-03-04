@@ -15,6 +15,17 @@ session_start();
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=1">
     <script src="js/navbar.js"></script>
     <script src="js/index.js"></script>
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '1227964420700582',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v3.2'
+        });
+    };
+    </script>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 </head>
 
 <body>
