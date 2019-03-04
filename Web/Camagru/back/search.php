@@ -2,6 +2,8 @@
 require '../config/database.php';
 session_start();
 
+$search = trim($_POST['search']);
+
 $DB_DSN .= ";dbname=" . $DB_NAME;
 // Connecting to 'instacam' database
 try {
@@ -16,9 +18,9 @@ try {
 // Loading posts
 try {
     $sql = "SELECT posts.id, users.name AS username, posts.date, posts.img, posts.legend, users.pic AS userpic
-            FROM posts JOIN users on posts.user_id=users.id ORDER BY posts.id DESC LIMIT ?";
+            FROM posts JOIN users on posts.user_id=users.id WHERE posts.id=? OR users.name=? ORDER BY posts.id DESC LIMIT ?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$_POST['nb']]);
+    $stmt->execute([$search, $search, $_POST['nb']]);
     $posts = $stmt->fetchAll();
 } catch (PDOEXCEPTION $e) {
     exit($e);
@@ -125,9 +127,9 @@ foreach ($posts as $post) {
 
 // Counting posts to load svg
 try {
-    $sql = "SELECT COUNT(posts.id) as `count` FROM posts JOIN users on posts.user_id=users.id";
+    $sql = "SELECT COUNT(posts.id) as `count` FROM posts JOIN users on posts.user_id=users.id WHERE posts.id=? OR users.name=?";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute();
+    $stmt->execute([$search, $search]);
     $count = $stmt->fetch();
 } catch (PDOEXCEPTION $e) {
     exit($e);
