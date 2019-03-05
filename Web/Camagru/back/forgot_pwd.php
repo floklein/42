@@ -35,7 +35,7 @@ foreach ($found_users as $found_user) {
         exit($e);
     }
 
-    $error += send_reset_mail($found_user['id'], $found_user['name'], $email, $phrase);
+    $error += send_reset_email($found_user['id'], $found_user['name'], $email, $phrase);
     if ($error) {
         header("Location: ../email.php?reset=error");
     } else {
