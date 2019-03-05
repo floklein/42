@@ -10,13 +10,13 @@ $pwd_confirm = $_POST['pwd-confirm'];
 if (!isset($email) || strlen($email) == 0 || strlen($email) > 64 || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header("Location: /../signin.php?error=invalid_email&username=" . $name);
     exit();
-} else if (!isset($name) || strlen($name) == 0 || strlen($name) > 24 || !preg_match("/^[a-zA-Z0-9]+$/", $name)) {
+} else if (!isset($name) || strlen($name) == 0 || strlen($name) > 24 || !preg_match("/^[a-zA-Z]+$/", $name)) {
     header("Location: /../signin.php?error=invalid_username&email=" . $email);
     exit();
 } else if (!isset($pwd) || strlen($pwd) == 0 || strlen($pwd) > 64) {
     header("Location: /../signin.php?error=invalid_pwd&username=" . $name . "&email=" . $email);
     exit();
-} else if (strlen($pwd) < 8) {
+} else if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,64}$/", $pwd)) {
     header("Location: /../signin.php?error=weak_pwd&username=" . $name . "&email=" . $email);
     exit();
 } else if (!isset($pwd_confirm) || strlen($pwd_confirm) == 0 || $pwd_confirm !== $pwd) {
