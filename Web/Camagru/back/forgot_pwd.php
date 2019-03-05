@@ -1,5 +1,6 @@
 <?php
 require '../config/database.php';
+require 'mail_password.php';
 
 $email = $_POST['email'];
 
@@ -15,7 +16,7 @@ try {
 
 // Searching for users with this email
 try {
-    $sql = "SELECT `id`, `email` FROM `users` WHERE `email`=?";
+    $sql = "SELECT `id`, `email`, `name` FROM `users` WHERE `email`=?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$email]);
     $found_users = $stmt->fetchAll();
@@ -36,7 +37,10 @@ foreach ($found_users as $found_user) {
         exit($e);
     }
 
-    // Link mail_password.php will send
-    $link = $_SERVER['HTTP_HOST'] . "/reset-pwd.php?id=" . $found_user['id'] . "&phrase=" . $phrase;
-    echo $link . "<br>";
+    $error += send_reset_mail($found_user['id'], $found_user['name'], $email, $phrase);
+    if ($error) {
+        header("Location: ../email.php?reset=error");
+    } else {
+        header("Location: ../email.php?reset=success");
+    }
 }

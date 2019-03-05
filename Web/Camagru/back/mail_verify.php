@@ -32,15 +32,18 @@ if ($user === false) {
 // Link to send
 $link = "http://" . $_SERVER['HTTP_HOST'] . "/back/verify.php?id=" . $id . "&phrase=" . $user['phrase'];
 
-if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $user['email'])) {
+// Compatibility
+if (!preg_match("/^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$/", $user['email'])) {
     $nl = "\r\n";
 } else {
     $nl = "\n";
 }
-//=====Déclaration des messages au format texte et au format HTML.
+
+// Text and HTML content
 $msg_txt = "Votre lien : " . $link;
 $msg_html = '<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 </head>
 
@@ -1049,25 +1052,25 @@ $msg_html = '<head>
 
 </body>';
 
-//=====Création de la boundary
+// Creating boundary
 $boundary = "-----=" . md5(rand());
 
-//=====Définition du sujet.
+// Subject
 $subject = "Verifiez votre adresse email";
 
-//=====Création du header de l'e-mail.
+// Header
 $header = "From: \"Instacam\"<instacam@fkle.in>" . $nl;
 $header .= "MIME-Version: 1.0" . $nl;
 $header .= "Content-Type: multipart/alternative;" . $nl . " boundary=\"$boundary\"" . $nl;
 
-//=====Création du message.
+// Message
 $msg = $nl . "--" . $boundary . $nl;
-//=====Ajout du message au format texte.
+// Text part
 $msg .= "Content-Type: text/plain; charset=\"ISO-8859-1\"" . $nl;
 $msg .= "Content-Transfer-Encoding: 8bit" . $nl;
 $msg .= $nl . $msg_txt . $nl;
 $msg .= $nl . "--" . $boundary . $nl;
-//=====Ajout du message au format HTML
+// HTML part
 $msg .= "Content-Type: text/html; charset=\"ISO-8859-1\"" . $nl;
 $msg .= "Content-Transfer-Encoding: 8bit" . $nl;
 $msg .= $nl . $msg_html . $nl;
@@ -1075,7 +1078,7 @@ $msg .= $nl . "--" . $boundary . "--" . $nl;
 $msg .= $nl . "--" . $boundary . "--" . $nl;
 
 if (mail($user['email'], $subject, $msg, $header)) {
-    header("Location: ../email.php?req=success");
+    header("Location: ../email.php?verify=success");
 } else {
-    header("Location: ../email.php?error=failure");
+    header("Location: ../email.php?verify=failure");
 }

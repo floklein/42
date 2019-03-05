@@ -1,6 +1,7 @@
 <?php
 session_start();
-$status = $_GET['req'];
+$verify = $_GET['verify'];
+$reset = $_GET['reset'];
 ?>
 
 <!DOCTYPE html>
@@ -23,19 +24,42 @@ $status = $_GET['req'];
 
     <div id="flex-alert">
         <div id="alert-box">
-            <?php if ($status === "success") {?>
+            <?php if ($verify === "success") {?>
             <img src="assets/success.svg" alt="success">
             <p>Un <span>email de vérification</span> vous a été envoyé !</p>
             <p class="comment">Merci de cliquer sur le lien fourni dans l'email pour valider votre compte.</p>
             <a href="signin.php"><button>Se connecter</button></a>
 
-            <?php } else {?>
+            <?php } else if ($verify === "error") {?>
             <img src="assets/error.svg" alt="error">
             <p><span>Oups !</span> Quelque chose s'est mal passé...</p>
             <p class="comment">Ce compte semble être déjà validé ou vous avez renseigné une adresse email invalide.</p>
             <div id="form-button">
                 <a href="index.php"><button>Retour</button></a>
             </div>
+
+            <?php } else if ($reset === "success") {?>
+            <img src="assets/success.svg" alt="error">
+            <p>Un <span>email de réinitialisation</span> vous a été envoyé !</p>
+            <p class="comment">Merci de cliquer sur le lien fourni dans l'email pour réinitialiser votre mot de passe.</p>
+            <a href="signin.php"><button>Se connecter</button></a>
+
+            <?php } else if ($reset === "error") {?>
+            <img src="assets/error.svg" alt="error">
+            <p><span>Oups !</span> Quelque chose s'est mal passé...</p>
+            <p class="comment">Ce compte n'existe pas ou vous avez renseigné une adresse email invalide.</p>
+            <div id="form-button">
+                <a href="index.php"><button>Retour</button></a>
+            </div>
+
+            <?php } else {?>
+            <img src="assets/error.svg" alt="error">
+            <p><span>Oups !</span> Quelque chose s'est mal passé...</p>
+            <p class="comment">Erreur 404. La page à laquelle vous tentez d'accéder n'existe pas.</p>
+            <div id="form-button">
+                <a href="index.php"><button>Retour</button></a>
+            </div>
+
             <?php }?>
         </div>
     </div>
