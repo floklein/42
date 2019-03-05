@@ -41,7 +41,7 @@ if (!preg_match("/^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$/", $user['email']
 
 // Text and HTML content
 $msg_txt = "Votre lien : " . $link;
-$msg_html = '<head>
+$msg_html = utf8_decode('<head>
 <meta http-equiv="Content-Type" content="text/html">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -852,7 +852,7 @@ $msg_html = '<head>
                                       <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
                                         <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
                                           <h2 class="welcome-subcontent" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; line-height: 22px; margin: 0; padding: 0; text-align: left; width: 100%; word-wrap: normal" align="left">
-                                            Votre compte a bien ete cree. Il ne vous reste plus qu\'a confirmer votre email pour pouvoir vous connecter.
+                                            Votre compte a bien été créé. Il ne vous reste plus qu\'à confirmer votre email pour pouvoir vous connecter.
                                           </h2>
                                         </th>
                                         <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
@@ -1050,13 +1050,13 @@ $msg_html = '<head>
   </tbody>
 </table>
 
-</body>';
+</body>');
 
 // Creating boundary
 $boundary = "-----=" . md5(rand());
 
 // Subject
-$subject = "Verifiez votre adresse email";
+$subject = utf8_decode("Vérifiez votre adresse email");
 
 // Header
 $header = "From: \"Instacam\"<instacam@fkle.in>" . $nl;
