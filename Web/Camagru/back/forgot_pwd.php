@@ -24,8 +24,6 @@ try {
     exit($e);
 }
 
-var_dump($found_users);
-
 foreach ($found_users as $found_user) {
     // Inserting into 'passwords' table
     try {
