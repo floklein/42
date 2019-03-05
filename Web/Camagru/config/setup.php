@@ -6,7 +6,6 @@ try {
     $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected to SQL server.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -15,7 +14,6 @@ try {
 try {
     $sql = "CREATE DATABASE IF NOT EXISTS " . $DB_NAME . ";";
     $pdo->prepare($sql)->execute();
-    echo "'" . $DB_NAME . "' database created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -29,7 +27,6 @@ try {
     $pdo = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Connected to database.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -44,7 +41,6 @@ try {
         `pwd` varchar(64),
         `salt` varchar(64));";
     $pdo->prepare($sql)->execute();
-    echo "'users' table created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -58,7 +54,6 @@ try {
         `img` varchar(64),
         `legend` varchar(256));";
     $pdo->prepare($sql)->execute();
-    echo "'posts' table created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -70,7 +65,6 @@ try {
         `post_id` int,
         `user_id` int);";
     $pdo->prepare($sql)->execute();
-    echo "'likes' table created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -83,7 +77,6 @@ try {
         `user_id` int,
         `content` varchar(256));";
     $pdo->prepare($sql)->execute();
-    echo "'comments' table created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -95,7 +88,6 @@ try {
         `verified` boolean DEFAULT false,
         `phrase` varchar(256));";
     $pdo->prepare($sql)->execute();
-    echo "'verify' table created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -106,7 +98,6 @@ try {
         `user_id` int,
         `comments` boolean DEFAULT true);";
     $pdo->prepare($sql)->execute();
-    echo "'notifications' table created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }
@@ -117,7 +108,6 @@ try {
         `user_id` int,
         `phrase` varchar(256));";
     $pdo->prepare($sql)->execute();
-    echo "'passwords' table created.<br>";
 } catch (PDOEXCEPTION $e) {
     exit($e);
 }

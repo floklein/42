@@ -13,7 +13,7 @@ function send_reset_email($id, $name, $email, $phrase)
 
     // Text and HTML content
     $msg_txt = "Votre lien : " . $link;
-    $msg_html = '<head>
+    $msg_html = utf8_decode('<head>
 <meta http-equiv="Content-Type" content="text/html">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -784,7 +784,7 @@ function send_reset_email($id, $name, $email, $phrase)
                                       <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
                                         <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
                                           <h1 class="welcome-header" style="color: inherit; font-family: Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 600; hyphens: none; line-height: 30px; margin: 0 0 24px; padding: 0; text-align: left; width: 100%; word-wrap: normal" align="left">
-                                            Reinitialiser votre mot de passe ?
+                                            Réinitialiser votre mot de passe ?
                                           </h1>
                                         </th>
                                         <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
@@ -824,7 +824,7 @@ function send_reset_email($id, $name, $email, $phrase)
                                       <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
                                         <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
                                           <h2 class="welcome-subcontent" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; line-height: 22px; margin: 0; padding: 0; text-align: left; width: 100%; word-wrap: normal" align="left">
-                                            Vous avez demander a reinitialiser votre mot de passe. Pour se faire, veuillez cliquer sur le lien ci-dessous.
+                                            Vous avez demandé à réinitialiser votre mot de passe. Pour se faire, veuillez cliquer sur le lien ci-dessous.
                                           </h2>
                                         </th>
                                         <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
@@ -865,7 +865,7 @@ function send_reset_email($id, $name, $email, $phrase)
                                                           <a href="' . $link . '" style="border: 0 solid #4e78f1; border-radius: 6px; color: #FFFFFF; display: inline-block; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: bold; line-height: 1.3; margin: 0; padding: 13px 0; text-align: center; text-decoration: none; width: 100%"
                                                             target="_blank">
                                                             <p class="text-center" style="color: white; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; letter-spacing: 1px; line-height: 1.3; margin: 0; padding: 0; text-align: center" align="center">
-                                                              Reinitialiser
+                                                              Réinitialiser
                                                             </p>
                                                           </a>
                                                         </td>
@@ -1022,13 +1022,13 @@ function send_reset_email($id, $name, $email, $phrase)
   </tbody>
 </table>
 
-</body>';
+</body>');
 
     // Creating boundary
     $boundary = "-----=" . md5(rand());
 
     // Subject
-    $subject = "Reinitialisez votre mot de passe";
+    $subject = utf8_decode("Réinitialiser votre mot de passe");
 
     // Header
     $header = "From: \"Instacam\"<instacam@fkle.in>" . $nl;

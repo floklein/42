@@ -26,7 +26,7 @@ function send_comment_email($post, $from, $comment)
         exit($e);
     }
 
-    if ($to === false) {
+    if ($to === false || $to['name'] === $from) {
         exit();
     }
 
@@ -42,7 +42,7 @@ function send_comment_email($post, $from, $comment)
 
     // Text and HTML content
     $msg_txt = "Votre post : " . $link;
-    $msg_html = '<head>
+    $msg_html = utf8_decode('<head>
 <meta http-equiv="Content-Type" content="text/html">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -813,7 +813,7 @@ function send_comment_email($post, $from, $comment)
                                       <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
                                         <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
                                           <h1 class="welcome-header" style="color: inherit; font-family: Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 600; hyphens: none; line-height: 30px; margin: 0 0 24px; padding: 0; text-align: left; width: 100%; word-wrap: normal" align="left">
-                                            ' . $from . ' a commente votre post.
+                                            ' . $from . ' a commenté votre post.
                                           </h1>
                                         </th>
                                         <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
@@ -853,7 +853,7 @@ function send_comment_email($post, $from, $comment)
                                       <tr style="padding: 0; text-align: left; vertical-align: top" align="left">
                                         <th style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left" align="left">
                                           <h2 class="welcome-subcontent" style="color: #6F7881; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 300; line-height: 22px; margin: 0; padding: 0; text-align: left; width: 100%; word-wrap: normal" align="left">
-                                            <span style="font-weight: 600">' . $from . '</span> a ecrit : "' . htmlspecialchars($comment) . '". Pour voir le post, cliquez sur le lien ci-dessous.
+                                            <span style="font-weight: 600">' . $from . '</span> a écrit : "' . htmlspecialchars($comment) . '". Pour voir le post, cliquez sur le lien ci-dessous.
                                           </h2>
                                         </th>
                                         <th class="expander" style="color: #1C232B; font-family: Helvetica, Arial, sans-serif; font-size: 16px; font-weight: normal; line-height: 1.3; margin: 0; padding: 0; text-align: left; visibility: hidden; width: 0" align="left"></th>
@@ -1051,13 +1051,13 @@ function send_comment_email($post, $from, $comment)
   </tbody>
 </table>
 
-</body>';
+</body>');
 
     // Creating boundary
     $boundary = "-----=" . md5(rand());
 
     // Subject
-    $subject = $from . " a commente votre post";
+    $subject = $from . utf8_decode(" a commenté votre post");
 
     // Header
     $header = "From: \"Instacam\"<instacam@fkle.in>" . $nl;
