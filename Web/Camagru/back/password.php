@@ -17,7 +17,7 @@ if (!isset($old_pwd)) {
 } else if (!isset($new_pwd) || strlen($new_pwd) == 0 || strlen($new_pwd) >= 64) {
     header("Location: /../account.php?error=invalid_pwd");
     exit();
-} else if (strlen($new_pwd) < 8/*|| (strlen($pwd) < 16 && preg_match("/^[a-zA-Z0-9\.\-\_]+\@[a-zA-Z0-9\.\-\_]+\.[a-z]+$/", $pwd))*/) {
+} else if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,64}$/", $new_pwd)) {
     header("Location: /../account.php?error=weak_pwd");
     exit();
 } else if (!isset($repeat_pwd) || strlen($repeat_pwd) == 0 || $repeat_pwd !== $new_pwd) {

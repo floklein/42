@@ -14,7 +14,7 @@ $notif_comments = ($_POST['notif_comments'] === "true" ? 1 : 0);
 if (!isset($email) || strlen($email) == 0 || strlen($email) >= 64 || !preg_match("/^[a-zA-Z0-9\.\-\_]+\@[a-zA-Z0-9\.\-\_]+\.[a-z]+$/", $email)) {
     header("Location: /../account.php?error=invalid_email");
     exit();
-} else if (!isset($name) || strlen($name) == 0 || strlen($name) >= 24 || !preg_match("/^[a-zA-Z0-9\-\_]+$/", $name)) {
+} else if (!isset($name) || strlen($name) == 0 || strlen($name) >= 24 || !preg_match("/^[a-zA-Z]+$/", $name)) {
     header("Location: /../account.php?error=invalid_username");
     exit();
 }

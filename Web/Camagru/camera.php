@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['logged_on_user'])) {
-    header("Location: /signin.php");
+    header("Location: /signin.php?redirect=camera");
     exit();
 }
 ?>
