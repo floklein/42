@@ -43,13 +43,13 @@ function commentPost(postId) {
     req.send('postId=' + postId + '&comment=' + comment);
 }
 
-function shareFacebook(postId) {
+function shareFacebook(postId, url) {
     // Does not work with localhost...
-    // FB.ui({
-    //     method: 'share',
-    //     display: 'popup',
-    //     href: 'fkle.in?search=' + postId,
-    // }, function (response) { });
+    FB.ui({
+        method: 'share',
+        display: 'popup',
+        href: url,
+    }, function (response) { });
     // ... Using Twitter instead
-    window.location.replace('https://twitter.com/intent/tweet?via=Instacam&text=Mon%20dernier%20post%20sur%20Instacam%20%3A&url=http://localhost:8080/search.php?search=' + postId);
+    window.open('https://twitter.com/intent/tweet?via=InstaCamagru&text=Mon%20dernier%20post%20sur%20Instacam%20%3A&url=https://' + url + '/search.php?search=' + postId);
 }

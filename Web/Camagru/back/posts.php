@@ -80,7 +80,7 @@ foreach ($posts as $post) {
     <button id="feed-like-button" onclick="focusCommentInput(\'' . $post['id'] . '\');">
         <img src="assets/comment.png" id="feed-buttons-img"><span id="feed-buttons-txt">Commenter</span>
     </button>
-    <button id="feed-like-button" onclick="shareFacebook(\'' . $post['id'] . '\')">
+    <button id="feed-like-button" onclick="shareFacebook(\'' . $post['id'] . '\', \'' . $_SERVER['HTTP_HOST'] . '\')">
         <img src="assets/share.png" id="feed-buttons-img"><span id="feed-buttons-txt">Partager</span>
     </button>
 </div>
