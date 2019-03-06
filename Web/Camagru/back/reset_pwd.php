@@ -12,7 +12,7 @@ if (!isset($id) || !isset($phrase)) {
 } else if (!isset($pwd) || strlen($pwd) == 0 || strlen($pwd) > 64) {
     header("Location: /../reset-pwd.php?error=invalid_pwd&id=" . $id . "&phrase=" . $phrase);
     exit();
-} else if (strlen($pwd) < 8/*|| (strlen($pwd) < 16 && preg_match("/^[a-zA-Z0-9\.\-\_]+\@[a-zA-Z0-9\.\-\_]+\.[a-z]+$/", $pwd))*/) {
+} else if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,64}$/", $pwd)) {
     header("Location: /../reset-pwd.php?error=weak_pwd&id=" . $id . "&phrase=" . $phrase);
     exit();
 } else if (!isset($pwd_confirm) || strlen($pwd_confirm) == 0 || $pwd_confirm !== $pwd) {
