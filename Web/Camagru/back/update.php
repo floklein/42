@@ -11,7 +11,7 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $notif_comments = ($_POST['notif_comments'] === "true" ? 1 : 0);
 
-if (!isset($email) || strlen($email) == 0 || strlen($email) >= 64 || !preg_match("/^[a-zA-Z0-9\.\-\_]+\@[a-zA-Z0-9\.\-\_]+\.[a-z]+$/", $email)) {
+if (!isset($email) || strlen($email) == 0 || strlen($email) >= 64 || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     header("Location: /../account.php?error=invalid_email");
     exit();
 } else if (!isset($name) || strlen($name) == 0 || strlen($name) >= 24 || !preg_match("/^[a-zA-Z]+$/", $name)) {
