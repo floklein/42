@@ -41,7 +41,6 @@ class App extends Component {
       .then(res => this.setState({ todos: [...this.state.todos, res.data] }));
   }
   render() {
-    console.log(this.state.todos);
     return (
       <Router>
         <div className="App">
