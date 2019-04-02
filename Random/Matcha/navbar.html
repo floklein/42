@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Navbar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/navbar.css">
+    <script src="js/navbar.js"></script>
+</head>
+<body>
+
+<div id="wrapper">
+    <div id="navbar">
+        <div class="nav-items">
+            <div>
+                <div>
+                    Accueil
+                </div>
+                <div>
+                    Soulmatcher
+                </div>
+                <div>
+                    Recherche
+                </div>
+            </div>
+            <div class="logo">
+                <img src="assets/img/logo.svg" alt="logo">
+            </div>
+            <div>
+                <div>
+                    <img src="assets/img/bell.svg" alt="notifications">
+                </div>
+                <div>
+                    <img src="assets/img/user.svg" alt="account">
+                </div>
+                <div>
+                    <img src="assets/img/logout.svg" alt="logout">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="container">
+
+    </div>
+    <div id="footer">
+        Footer
+    </div>
+</div>
+
+</body>
+
+<script>
+  window.onscroll = () => {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+      document.getElementById("navbar").style.height = "3rem";
+      document.querySelector("#navbar .nav-items .logo img").style.width = "2rem";
+    } else {
+      document.getElementById("navbar").style.height = "5rem";
+      document.querySelector("#navbar .nav-items .logo img").style.width = "3rem";
+    }
+  }
+</script>
+
+</html>

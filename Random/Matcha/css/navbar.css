@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+#wrapper {
+    position: relative;
+    padding: 5rem 0 3rem 0;
+    min-height: 100vh;
+}
+
+/*NAVBAR CSS*/
+
+#navbar {
+    display: grid;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 5rem;
+    z-index: 99;
+    background-color: white;
+    box-shadow: 0 3px 15px -6px rgba(0, 0, 0, 0.2);
+    justify-items: center;
+    transition: 0.4s;
+}
+
+#navbar .nav-items {
+    width: 90%;
+    max-width: 70rem;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 5fr 1fr 5fr;
+    align-items: center;
+}
+
+#navbar .nav-items > div:nth-child(1) {
+    justify-self: start;
+}
+
+#navbar .nav-items > div:nth-child(2) {
+    justify-self: center;
+}
+
+#navbar .nav-items > div:nth-child(3) {
+    justify-self: end;
+}
+
+#navbar .nav-items > div:nth-child(1) > div, #navbar .nav-items > div:nth-child(3) > div {
+    margin: 0.5rem;
+}
+
+#navbar .nav-items > div > div {
+    display: inline-block;
+}
+
+#navbar .nav-items img {
+    width: 1.5rem;
+    margin-top: 2px;
+}
+
+#navbar .nav-items .logo img {
+    width: 3rem;
+    transition: 0.4s;
+}
+
+/*BODY CSS*/
+
+#container {
+    width: 100vw;
+    height: 300vh;
+    background-color: white;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 3rem;
+    background-color: white;
+}
+
+#container div {
+    width: 80vw;
+    height: 15vh;
+    background-color: white;
+}

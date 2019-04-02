@@ -3,7 +3,6 @@
 * {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    transition: color .5s, background-color .5s;
 }
 
 #wrapper {
@@ -46,14 +45,23 @@ button {
     height: 2.5rem;
     border-radius: 1.25rem;
     color: #f48078;
+    font-size: 0.8rem;
     font-weight: bold;
     text-transform: uppercase;
     background-color: white;
-    border: 3px solid #f48078;
+    border: 2px solid #f48078;
     cursor: pointer;
+    outline: none;
+    transition: color .25s, background-color .25s;
 }
 
 button:hover {
     color: white;
     background-color: #f48078;
+}
+
+button:active {
+    color: white;
+    border-color: #da726c;
+    background-color: #da726c;
 }
