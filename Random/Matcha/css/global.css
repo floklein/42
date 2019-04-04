@@ -95,7 +95,7 @@ button.green:active {
     background-color: #39a173;
 }
 
-/*INPUTS*/
+/*FORMS*/
 
 input, select {
     height: 2.5rem;
@@ -104,7 +104,7 @@ input, select {
     border-radius: 0.3rem;
     outline: none;
     background-color: #ededed;
-    transition: border 0.4s;
+    transition: border 0.4s, background-color 0.4s;
     color: #3c3c3c;
 }
 
@@ -120,6 +120,19 @@ input:focus, select:focus {
     border-color: #b5b5b5;
 }
 
+input.validation:valid, select.validation:valid {
+    border-color: #e0f5de;
+    background-color: #e0f5de;
+}
+
+input.validation:valid:hover, select.validation:valid:hover {
+    border-color: #c7e7c2;
+}
+
+input.validation:valid:focus, select.validation:valid:focus {
+    border-color: #b3d9af;
+}
+
 /*BODY CSS*/
 
 #wrapper {
@@ -129,8 +142,9 @@ input:focus, select:focus {
 }
 
 #container {
+    display: grid;
+    grid-template-columns: 1fr;
     width: 100vw;
-    height: 300vh;
     background-color: white;
 }
 
@@ -140,4 +154,5 @@ input:focus, select:focus {
     width: 100vw;
     height: 3rem;
     background-color: white;
+    box-shadow: 0 -3px 15px -6px rgba(0, 0, 0, 0.2);
 }
