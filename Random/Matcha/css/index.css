@@ -1,3 +1,5 @@
+/*CAROUSEL*/
+
 #carousel {
     display: grid;
     grid-template-columns: 3fr 2fr;
@@ -40,6 +42,7 @@
 #carousel .login {
     width: 80%;
     max-width: 20rem;
+    margin: 3rem 0;
     background: white;
     border-radius: 2rem;
     text-align: center;
@@ -65,4 +68,52 @@
     width: 60%;
     max-width: 10rem;
     margin: 0.6rem 0 1.2rem 0;
+}
+
+/*TRIPTYCH*/
+
+#triptych {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    background-color: whitesmoke;
+}
+
+@media screen and (max-width: 800px) {
+    #triptych {
+        grid-template-columns: 1fr;
+    }
+}
+
+#triptych > div {
+    margin: 3rem 0;
+    padding: 0 20%;
+    text-align: center;
+}
+
+#triptych > div > img {
+    width: 5rem;
+}
+
+#triptych > div:nth-child(1) > h2 {
+    background: linear-gradient(to right, #8579e0, #d043ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#triptych > div:nth-child(2) > h2 {
+    background: linear-gradient(to right, #3fd39f, #3fb8af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#triptych > div:nth-child(3) > h2 {
+    background: linear-gradient(to right, #f75799, #fd6687);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#triptych > div > p {
+    line-height: 2rem;
 }

@@ -19,18 +19,18 @@
     <div id="navbar">
         <div class="nav-items">
             <div>
-                <div><a href="#">Accueil</a></div><!--
+                <div><a href="">Accueil</a></div><!--
                 -->
                 <div class="vr"></div><!--
                 -->
-                <div><a href="#">Soulmatcher</a></div><!--
+                <div><a href="#soulmatcher">Soulmatcher</a></div><!--
                 -->
                 <div class="vr"></div><!--
                 -->
-                <div><a href="#">Recherche</a></div>
+                <div><a href="#recherche">Recherche</a></div>
             </div>
             <div class="logo">
-                <a href="#"><img src="assets/img/logo.svg" alt="logo"></a>
+                <a href=""><img src="assets/img/logo.svg" alt="logo"></a>
             </div>
             <div>
                 <div>
@@ -68,27 +68,44 @@
                 <div class="login">
                     <h2>Créer un compte.</h2>
                     <form>
-                        <input type="text" title="username" placeholder="Nom d'utilisateur">
+                        <input class="validation" type="text" name="username" placeholder="Nom d'utilisateur" title="4 à 30 lettres minuscules" required pattern="^[a-z]{4,30}$" minlength="4" maxlength="30">
                         <p>&nbsp;</p>
-                        <input type="email" title="email" placeholder="Email">
+                        <input class="validation" type="email" name="email" placeholder="Email" title="example@soulmatch.com" required minlength="1" maxlength="64">
                         <p>&nbsp;</p>
-                        <input class="smaller-input" type="text" title="lastname" placeholder="Nom">
-                        <input class="smaller-input" type="text" title="firstname" placeholder="Prénom">
+                        <input class="smaller-input validation" type="text" name="lastname" placeholder="Nom" title="1 à 30 lettres" required pattern="^([a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+(( |')[a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+)*)+([-]([a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+(( |')[a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+)*)+)*$" minlength="1" maxlength="30">
+                        <input class="smaller-input validation" type="text" name="firstname" placeholder="Prénom" title="1 à 30 lettres" required pattern="^([a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+(( |')[a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+)*)+([-]([a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+(( |')[a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+)*)+)*$" minlength="1" maxlength="30">
                         <p>&nbsp;</p>
-                        <select title="gender">
+                        <select class="validation" name="gender" title="gender" required>
                             <option value="" selected disabled hidden>Genre</option>
                             <option value="male">Homme</option>
                             <option value="female">Femme</option>
                             <option value="other">Autre</option>
                         </select>
                         <p>&nbsp;</p>
-                        <input type="password" title="password" placeholder="Mot de passe">
+                        <input class="validation" type="password" name="password" placeholder="Mot de passe" title="8 caractères min. dont 1 majuscule et 1 chiffre" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,64}$" minlength="8" maxlength="64">
                         <p>&nbsp;</p>
-                        <input type="password" title="confirm" placeholder="Confirmez le mot de passe">
+                        <input class="validation" type="password" name="confirm" placeholder="Confirmez le mot de passe" title="8 caractères min. dont 1 majuscule et 1 chiffre" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,64}$" minlength="8" maxlength="64">
                         <p>&nbsp;</p>
                         <button class="">S'inscrire</button>
                     </form>
                 </div>
+            </div>
+        </div>
+        <div id="triptych">
+            <div>
+                <img src="assets/img/tri-couple.svg" alt="test">
+                <h2>Trouvez votre soulmate</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, fuga.</p>
+            </div>
+            <div>
+                <img src="assets/img/tri-map.svg" alt="test">
+                <h2>Autour de vous</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, fuga.</p>
+            </div>
+            <div>
+                <img src="assets/img/tri-chat.svg" alt="test">
+                <h2>Matchez et chattez</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, fuga.</p>
             </div>
         </div>
     </div>
