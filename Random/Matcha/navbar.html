@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Navbar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/global.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/navbar.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/index.css">
     <script src="js/navbar.js"></script>
 </head>
 <body>
@@ -45,7 +49,7 @@
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
                          stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9"/>
+                        <path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4M16 17l5-5-5-5M19.8 12H9"></path>
                     </svg>
                 </div>
             </div>
@@ -62,24 +66,27 @@
             </div>
             <div>
                 <div class="login">
-                    <h1>Bienvenue !</h1>
+                    <h2>Créer un compte.</h2>
                     <form>
-                        <input type="email" title="email">
+                        <input type="text" title="username" placeholder="Nom d'utilisateur">
                         <p>&nbsp;</p>
-                        <input type="text" title="lastname">
-                        <input type="text" title="firstname">
+                        <input type="email" title="email" placeholder="Email">
+                        <p>&nbsp;</p>
+                        <input class="smaller-input" type="text" title="lastname" placeholder="Nom">
+                        <input class="smaller-input" type="text" title="firstname" placeholder="Prénom">
                         <p>&nbsp;</p>
                         <select title="gender">
-                            <option>Homme</option>
-                            <option>Femme</option>
-                            <option>Autre</option>
+                            <option value="" selected disabled hidden>Genre</option>
+                            <option value="male">Homme</option>
+                            <option value="female">Femme</option>
+                            <option value="other">Autre</option>
                         </select>
                         <p>&nbsp;</p>
-                        <input type="password" title="password">
+                        <input type="password" title="password" placeholder="Mot de passe">
                         <p>&nbsp;</p>
-                        <input type="password" title="confirm">
+                        <input type="password" title="confirm" placeholder="Confirmez le mot de passe">
                         <p>&nbsp;</p>
-                        <button>S'inscrire</button>
+                        <button class="">S'inscrire</button>
                     </form>
                 </div>
             </div>
