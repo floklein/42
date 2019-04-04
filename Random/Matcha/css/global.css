@@ -1,9 +1,126 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+/*GLOBAL CSS*/
 
 * {
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+::selection {
+    background-color: black;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
 }
+
+/*CLASSES*/
+
+.vr {
+    border-left: 1px solid #d8d8d8;
+    height: 2rem;
+    margin-left: -1px;
+}
+
+/*BUTTONS*/
+
+button {
+    height: 2.5rem;
+    margin: 0.6rem 0 1.2rem 0;
+    padding: 0.4rem 0;
+    border: none;
+    border-radius: 1.75rem;
+    background: #5192e1 linear-gradient(to right, #00bcd4, rgba(0, 0, 0, 0));
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: whitesmoke;
+    outline: none;
+    transition: background-color 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00bcd4;
+}
+
+button:active {
+    background-color: #008ba2;
+}
+
+button.purple {
+    background: #d043ca linear-gradient(to right, #8579e0, rgba(0, 0, 0, 0));
+}
+
+button.purple:hover {
+    background-color: #8579e0;
+}
+
+button.purple:active {
+    background-color: #5858ae;
+}
+
+button.pink {
+    background: #fd6687 linear-gradient(90deg, #f75799, rgba(0, 0, 0, 0));
+}
+
+button.pink:hover {
+    background-color: #f75799;
+}
+
+button.pink:active {
+    background-color: #c5516d;
+}
+
+button.green {
+    background: #3fb8af linear-gradient(90deg, #3fd39f, rgba(0, 0, 0, 0));
+}
+
+button.green:hover {
+    background-color: #3fd39f;
+}
+
+button.green:active {
+    background-color: #39a173;
+}
+
+/*INPUTS*/
+
+input, select {
+    height: 2.5rem;
+    padding: 0.1rem 1rem;
+    border: 2px solid #ededed;
+    border-radius: 0.3rem;
+    outline: none;
+    background-color: #ededed;
+    transition: border 0.4s;
+    color: #3c3c3c;
+}
+
+input::placeholder, select::placeholder {
+    opacity: .5;
+}
+
+input:hover, select:hover {
+    border-color: lightgrey;
+}
+
+input:focus, select:focus {
+    border-color: #b5b5b5;
+}
+
+/*BODY CSS*/
 
 #wrapper {
     position: relative;
@@ -11,19 +128,10 @@
     min-height: 100vh;
 }
 
-#navbar {
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    height: 5rem;
-    z-index: 99;
-    background-color: lightgreen;
-}
-
 #container {
     width: 100vw;
     height: 300vh;
-    background-color: lightblue;
+    background-color: white;
 }
 
 #footer {
@@ -31,37 +139,5 @@
     bottom: 0;
     width: 100vw;
     height: 3rem;
-    background-color: lightcoral;
-}
-
-#container div {
-    width: 80vw;
-    height: 15vh;
     background-color: white;
-}
-
-button {
-    width: 10rem;
-    height: 2.5rem;
-    border-radius: 1.25rem;
-    color: #f48078;
-    font-size: 0.8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    background-color: white;
-    border: 2px solid #f48078;
-    cursor: pointer;
-    outline: none;
-    transition: color .25s, background-color .25s;
-}
-
-button:hover {
-    color: white;
-    background-color: #f48078;
-}
-
-button:active {
-    color: white;
-    border-color: #da726c;
-    background-color: #da726c;
 }
