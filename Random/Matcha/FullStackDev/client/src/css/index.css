@@ -1,0 +1,122 @@
+/*CAROUSEL*/
+
+#carousel {
+    min-height: 40rem;
+    background: url("../assets/pics/home.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#carousel > div {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+
+@media screen and (max-width: 800px) {
+    #carousel > div {
+        grid-template-columns: 1fr;
+    }
+}
+
+#carousel > div > div {
+    display: grid;
+    place-items: center;
+    margin: 5%;
+}
+
+#carousel .intro {
+    width: 100%;
+}
+
+#carousel .intro h1 {
+    font-size: 3rem;
+    background: linear-gradient(to right, #FD6687, #00BCD4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#carousel .intro p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: white;
+}
+
+#carousel .login {
+    width: 100%;
+    max-width: 20rem;
+    margin: 3rem 0;
+    background: white;
+    border-radius: 2rem;
+    text-align: center;
+    color: black;
+}
+
+#carousel .login p {
+    margin: 0.2rem 0 0.4rem 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    color: #8A8DAA;
+}
+
+#carousel .login input, #carousel .login select {
+    width: 80%;
+}
+
+#carousel .login input.smaller-input {
+    width: 40%;
+}
+
+#carousel .login button {
+    width: 60%;
+    max-width: 10rem;
+    margin: 0.6rem 0 1.2rem 0;
+}
+
+/*TRIPTYCH*/
+
+#triptych {
+    background-color: whitesmoke;
+}
+
+#triptych > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+}
+
+@media screen and (max-width: 800px) {
+    #triptych > div {
+        grid-template-columns: 1fr;
+    }
+}
+
+#triptych > div > div {
+    margin: 3rem 0;
+    padding: 0 20%;
+    text-align: center;
+}
+
+#triptych > div > div > img {
+    width: 5rem;
+}
+
+#triptych > div > div:nth-child(1) > h2 {
+    background: linear-gradient(to right, #8579e0, #d043ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#triptych > div > div:nth-child(2) > h2 {
+    background: linear-gradient(to right, #3fd39f, #3fb8af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#triptych > div > div:nth-child(3) > h2 {
+    background: linear-gradient(to right, #f75799, #fd6687);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#triptych > div > div > p {
+    line-height: 2rem;
+}
