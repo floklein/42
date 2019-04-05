@@ -32,6 +32,16 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: -1px;
 }
 
+.centered {
+    display: grid;
+    place-items: center;
+}
+
+.centered > div {
+    width: 90%;
+    max-width: 70rem;
+}
+
 /*BUTTONS*/
 
 button {

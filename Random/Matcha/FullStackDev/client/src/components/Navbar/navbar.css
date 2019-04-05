@@ -1,0 +1,96 @@
+/*NAVBAR CSS*/
+
+#navbar {
+    display: grid;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 5rem;
+    z-index: 99;
+    background-color: white;
+    box-shadow: none;
+    justify-items: center;
+    transition: 0.4s;
+}
+
+#navbar .nav-items {
+    width: 90%;
+    max-width: 70rem;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 5fr 1fr 5fr;
+    align-items: center;
+}
+
+#navbar .nav-items > div:nth-child(1) {
+    justify-self: start;
+}
+
+#navbar .nav-items > div:nth-child(2) {
+    justify-self: center;
+}
+
+#navbar .nav-items > div:nth-child(3) {
+    justify-self: end;
+}
+
+#navbar .nav-items > div:nth-child(1) > div, #navbar .nav-items > div:nth-child(3) > div {
+    margin: 0.5rem;
+}
+
+#navbar .nav-items > div > div {
+    display: inline;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #8A8DAA;
+    letter-spacing: 0.05rem;
+    transition: color 0.4s ease-in-out;
+}
+
+#navbar .nav-items > div > div:hover {
+    color: #585a6d;
+}
+
+#navbar .nav-items svg {
+    width: 1.3rem;
+    margin-top: 3px;
+    stroke: #8A8DAA;
+    transition: stroke 0.4s;
+}
+
+#navbar .nav-items svg:hover {
+    stroke: #585a6d;
+}
+
+#navbar .nav-items .logo img {
+    width: 3rem;
+    margin-top: 2px;
+    transition: 0.4s;
+}
+
+#navbar .nav-items .logo img:hover {
+    animation: shake 1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0.3px, 0.3px) rotate(0deg);
+    }
+    20% {
+        transform: translate(-0.3px, -0.6px) rotate(-1deg);
+    }
+    40% {
+        transform: translate(-0.9px, 0px) rotate(1deg);
+    }
+    60% {
+        transform: translate(0.9px, 0.6px) rotate(0deg);
+    }
+    80% {
+        transform: translate(0.3px, -0.3px) rotate(1deg);
+    }
+    100% {
+        transform: translate(-0.3px, 0.6px) rotate(-1deg);
+    }
+}
