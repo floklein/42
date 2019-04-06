@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import UserDetails from './UserDetails';
 import MoreDetails from './MoreDetails';
+import Success from './Success';
 
 export class RegisterForm extends Component {
   state = {
@@ -63,7 +64,7 @@ export class RegisterForm extends Component {
         );
       case 3:
         return(
-          <h2>Success</h2>
+          <Success/>
         );
     }
   }

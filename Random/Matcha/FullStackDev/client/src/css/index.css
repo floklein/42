@@ -52,6 +52,11 @@
     color: black;
 }
 
+#carousel img {
+    width: 5rem;
+    margin-top: 1.5rem;
+}
+
 #carousel .login p {
     margin: 0.2rem 0 0.4rem 0;
     font-family: 'Poppins', sans-serif;
