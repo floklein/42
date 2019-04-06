@@ -19,17 +19,23 @@
 #footer > div > div {
     margin: 1rem 0;
     padding: 0 0.5rem;
-    color: lightgrey;
 }
 
 #footer h4 {
-    color: whitesmoke;
     margin: 0.5rem 0;
+    color: whitesmoke;
 }
 
 #footer p {
     margin: 0.4rem 0;
     font-size: 0.8rem;
+    color: lightgrey;
+    transition: color 0.25s;
+}
+
+
+#footer p:hover {
+    color: white;
 }
 
 @media screen and (max-width: 800px) {

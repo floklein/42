@@ -128,12 +128,13 @@
 
 #map {
     overflow: hidden;
-    margin-bottom: -10px;
+    margin-bottom: -60px;
 }
 
 #map iframe {
+    top: -50px;
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    filter: grayscale(100%);
+    filter: grayscale(30%);
 }

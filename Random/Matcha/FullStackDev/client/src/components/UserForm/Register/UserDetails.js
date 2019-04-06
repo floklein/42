@@ -1,0 +1,34 @@
+import React, {Component} from 'react';
+
+export class UserDetails extends Component {
+  continue = e => {
+    e.preventDefault();
+    this.props.nextStep();
+  };
+
+  render() {
+    const {values, handleChange} = this.props;
+
+    return (
+      <React.Fragment>
+        <h2>Créer un compte.</h2>
+        <input className="validation" type="email" name="email" placeholder="Votre adresse email"
+               title="example@soulmatch.com" required minLength="1" maxLength="64"
+               onChange={handleChange('email')} defaultValue={values.email}/>
+        <p>&nbsp;</p>
+        <input className="validation" type="password" name="password" placeholder="Choisissez un mot de passe"
+               title="8 caractères min. dont 1 majuscule et 1 chiffre" required
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,64}$" minLength="8" maxLength="64"
+               onChange={handleChange('password')} defaultValue={values.password}/>
+        <p>&nbsp;</p>
+        <input className="validation" type="password" name="confirm" placeholder="Confirmez le mot de passe"
+               title="8 caractères min. dont 1 majuscule et 1 chiffre" required
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,64}$" minLength="8" maxLength="64"
+               onChange={handleChange('confirm')} defaultValue={values.confirm}/>
+        <p>&nbsp;</p>
+        <button className="blue" onClick={this.continue}>Suivant</button>
+      </React.Fragment>);
+  }
+}
+
+export default UserDetails;

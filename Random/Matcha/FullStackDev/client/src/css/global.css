@@ -51,7 +51,7 @@ button {
     padding: 0.4rem 0;
     border: none;
     border-radius: 1.75rem;
-    background: #5192e1 linear-gradient(to right, #00bcd4, rgba(0, 0, 0, 0));
+    background: #a5abb6 linear-gradient(to right, #d6dde7, rgba(0, 0, 0, 0));
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
     font-size: 0.9rem;
@@ -63,10 +63,22 @@ button {
 }
 
 button:hover {
-    background-color: #00bcd4;
+    background-color: #cbd1db;
 }
 
 button:active {
+    background-color: #8e949d;
+}
+
+button.blue {
+    background: #5192e1 linear-gradient(to right, #00bcd4, rgba(0, 0, 0, 0));
+}
+
+button.blue:hover {
+    background-color: #00bcd4;
+}
+
+button.blue:active {
     background-color: #008ba2;
 }
 
@@ -83,11 +95,11 @@ button.purple:active {
 }
 
 button.pink {
-    background: #fd6687 linear-gradient(90deg, #f75799, rgba(0, 0, 0, 0));
+    background: #f75799 linear-gradient(90deg, #fd6687, rgba(0, 0, 0, 0));
 }
 
 button.pink:hover {
-    background-color: #f75799;
+    background-color: #fd6687;
 }
 
 button.pink:active {
@@ -104,6 +116,23 @@ button.green:hover {
 
 button.green:active {
     background-color: #39a173;
+}
+
+button.back-btn {
+    width: 2.5rem !important;
+    margin-right: 0.5rem !important;
+    background: #d6dde7 url("../assets/img/arrow-left.svg") no-repeat center;
+    background-size: 1.2rem;
+}
+
+button.back-btn:hover {
+    background: #e2eaf4 url("../assets/img/arrow-left.svg") no-repeat center;
+    background-size: 1.2rem;
+}
+
+button.back-btn:active {
+    background: #bbc4d0 url("../assets/img/arrow-left.svg") no-repeat center;
+    background-size: 1.2rem;
 }
 
 /*FORMS*/

@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 
 import './footer.css'
-import triCouple from "../../assets/img/tri-couple.svg";
-import triMap from "../../assets/img/tri-map.svg";
-import triChat from "../../assets/img/tri-chat.svg";
 
 class Footer extends Component {
 
