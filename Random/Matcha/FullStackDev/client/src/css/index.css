@@ -1,6 +1,7 @@
 /*CAROUSEL*/
 
 #carousel {
+    width: 100vw;
     min-height: 40rem;
     background: url("../assets/pics/home.jpg") no-repeat center;
     background-size: cover;
@@ -19,7 +20,8 @@
 
 #carousel > div > div {
     display: grid;
-    place-items: center;
+    align-items: center;
+    justify-items: center;
     margin: 5%;
 }
 
@@ -62,7 +64,7 @@
 }
 
 #carousel .login input.smaller-input {
-    width: 40%;
+    width: 38.5%;
 }
 
 #carousel .login button {
@@ -80,7 +82,8 @@
 #triptych > div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    place-items: center;
+    align-items: center;
+    justify-items: center;
 }
 
 @media screen and (max-width: 800px) {
@@ -91,7 +94,7 @@
 
 #triptych > div > div {
     margin: 3rem 0;
-    padding: 0 20%;
+    padding: 0 1.5rem;
     text-align: center;
 }
 
@@ -119,4 +122,18 @@
 
 #triptych > div > div > p {
     line-height: 2rem;
+}
+
+/*MAP*/
+
+#map {
+    overflow: hidden;
+    margin-bottom: -10px;
+}
+
+#map iframe {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    filter: grayscale(100%);
 }

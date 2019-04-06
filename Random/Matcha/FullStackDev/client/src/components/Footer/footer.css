@@ -1,0 +1,43 @@
+/*FOOTER CSS*/
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 9.5rem;
+    background-color: #383945;
+    /*box-shadow: 0 -3px 15px -6px rgba(0, 0, 0, 0.2);*/
+}
+
+#footer > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: start;
+    justify-items: center;
+}
+
+#footer > div > div {
+    margin: 1rem 0;
+    padding: 0 0.5rem;
+    color: lightgrey;
+}
+
+#footer h4 {
+    color: whitesmoke;
+    margin: 0.5rem 0;
+}
+
+#footer p {
+    margin: 0.4rem 0;
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 800px) {
+    #footer h4 {
+        font-size: 0.9rem;
+    }
+
+    #footer p {
+        font-size: 0.7rem;
+    }
+}

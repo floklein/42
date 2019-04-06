@@ -34,11 +34,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .centered {
     display: grid;
-    place-items: center;
+    align-items: center;
+    justify-items: center;
 }
 
 .centered > div {
-    width: 90%;
+    width: 90vw;
     max-width: 70rem;
 }
 
@@ -116,6 +117,13 @@ input, select {
     background-color: #ededed;
     transition: border 0.4s, background-color 0.4s;
     color: #3c3c3c;
+    box-shadow: none;
+}
+
+select {
+    -webkit-appearance: none;
+    background: url("../assets/img/arrow-down.svg") no-repeat 96% #ededed;
+    background-size: 1rem;
 }
 
 input::placeholder, select::placeholder {
@@ -147,7 +155,7 @@ input.validation:valid:focus, select.validation:valid:focus {
 
 #wrapper {
     position: relative;
-    padding: 5rem 0 3rem 0;
+    padding: 5rem 0 9.5rem 0;
     min-height: 100vh;
 }
 
@@ -156,13 +164,4 @@ input.validation:valid:focus, select.validation:valid:focus {
     grid-template-columns: 1fr;
     width: 100vw;
     background-color: white;
-}
-
-#footer {
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-    height: 3rem;
-    background-color: white;
-    box-shadow: 0 -3px 15px -6px rgba(0, 0, 0, 0.2);
 }

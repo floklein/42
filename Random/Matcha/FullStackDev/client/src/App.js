@@ -11,7 +11,7 @@ import triMap from './assets/img/tri-map.svg'
 
 import store from './store'
 import Navbar from "./components/Navbar/navbar";
-// import Customers from './components/Customer/customers'
+import Footer from "./components/Footer/footer";
 
 class App extends Component {
 
@@ -42,13 +42,12 @@ class App extends Component {
                       <input className="validation" type="email" name="email" placeholder="Email"
                              title="example@soulmatch.com" required minLength="1" maxLength="64"/>
                       <p>&nbsp;</p>
-                      <input className="smaller-input validation" type="text" name="lastname" placeholder="Nom"
-                             title="1 à 30 lettres" required
+                      <input className="smaller-input validation" style={{marginRight: 3 + '%'}} type="text"
+                             name="lastname" placeholder="Nom" title="1 à 30 lettres" required
                              pattern="^([a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+(( |')[a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+)*)+([-]([a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+(( |')[a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+)*)+)*$"
                              minLength="1" maxLength="30"/>
                       <input className="smaller-input validation" type="text" name="firstname"
-                             placeholder="Prénom"
-                             title="1 à 30 lettres" required
+                             placeholder="Prénom" title="1 à 30 lettres" required
                              pattern="^([a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+(( |')[a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+)*)+([-]([a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+(( |')[a-zA-Zàáâäçèéêëìíîïñòóôöùúûü]+)*)+)*$"
                              minLength="1" maxLength="30"/>
                       <p>&nbsp;</p>
@@ -94,9 +93,11 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <div id="footer">
-            Footer
+          <div id="map">
+            <iframe width="3000" height="450" frameBorder="0"
+                    src="https://www.google.com/maps/embed/v1/view?zoom=11&center=48.8566,2.3522&key=AIzaSyCS-B9GHmUTQhuflOJsynB2YgOhqK9btCM"/>
           </div>
+          <Footer/>
         </div>
       </Provider>
     )
