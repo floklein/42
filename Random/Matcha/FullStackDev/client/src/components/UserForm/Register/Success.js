@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import imgSuccess from '../../../assets/img/success.svg'
+import imgSuccess from '../../../assets/img/email-sent.svg'
 
 export class Success extends Component {
   render() {
