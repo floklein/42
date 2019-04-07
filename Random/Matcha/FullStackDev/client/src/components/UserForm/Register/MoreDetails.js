@@ -16,7 +16,8 @@ export class MoreDetails extends Component {
 
     return (
       <React.Fragment>
-        <h2>Parlez-nous de vous...</h2>
+        <h2>À propos de vous.</h2>
+        <p className="subtitle">Dites-nous en plus...</p>
         <input className="validation" type="text" name="username" placeholder="Choisissez un pseudo"
                title="4 à 30 lettres minuscules" required pattern="^[a-zA-Z]{4,30}$" minLength="4" maxLength="30"
                onChange={handleChange('username')} defaultValue={values.username}/>

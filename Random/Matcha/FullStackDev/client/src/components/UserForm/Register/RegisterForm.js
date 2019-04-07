@@ -48,6 +48,7 @@ export class RegisterForm extends Component {
       case 1:
         return (
           <UserDetails
+            gotoLogin={this.props.gotoLogin}
             nextStep={this.nextStep}
             handleChange={this.handleChange}
             values={values}

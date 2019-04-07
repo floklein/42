@@ -57,11 +57,25 @@
     margin-top: 1.5rem;
 }
 
+#carousel h2 {
+    margin: 1.5rem 0 0.3rem 0;
+}
+
 #carousel .login p {
     margin: 0.2rem 0 0.4rem 0;
     font-family: 'Poppins', sans-serif;
     font-size: 0.7rem;
     color: #8A8DAA;
+}
+
+#carousel .login p.subtitle {
+    margin: 0 0 0.8rem 0;
+    font-size: 1rem;
+}
+
+#carousel .login p.subtitle span {
+    color: #00bcd4;
+    cursor: pointer;
 }
 
 #carousel .login input, #carousel .login select {
@@ -75,7 +89,7 @@
 #carousel .login button {
     width: 60%;
     max-width: 10rem;
-    margin: 0.6rem 0 1.2rem 0;
+    margin: 0.4rem 0 1.4rem 0;
 }
 
 /*TRIPTYCH*/
