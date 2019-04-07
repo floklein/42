@@ -12,7 +12,7 @@ import triMap from './assets/img/tri-map.svg'
 import store from './store'
 import Navbar from "./components/Navbar/navbar";
 import Footer from "./components/Footer/footer";
-import RegisterForm from "./components/UserForm/Register/RegisterForm";
+import UserForm from "./components/UserForm/UserForm";
 
 class App extends Component {
 
@@ -34,7 +34,7 @@ class App extends Component {
                 </div>
                 <div>
                   <div className="login">
-                    <RegisterForm/>
+                    <UserForm/>
                   </div>
                 </div>
               </div>

@@ -12,6 +12,7 @@ export class UserDetails extends Component {
     return (
       <React.Fragment>
         <h2>Créer un compte.</h2>
+        <p className="subtitle">Déjà inscrit ? <span onClick={this.props.gotoLogin}>Connectez-vous !</span></p>
         <input className="validation" type="email" name="email" placeholder="Votre adresse email"
                title="example@soulmatch.com" required minLength="1" maxLength="64"
                onChange={handleChange('email')} defaultValue={values.email}/>
