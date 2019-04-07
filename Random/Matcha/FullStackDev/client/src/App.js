@@ -60,7 +60,7 @@ class App extends Component {
             </div>
           </div>
           <div id="map">
-            <iframe width="3000" height="500" frameBorder="0"
+            <iframe title="map" width="3000" height="500" frameBorder="0"
                     src="https://www.google.com/maps/d/embed?mid=1-57radknCCRjqVekxyooWmvh-jQdV0_w&z=6&ll=47.048454, 3.105408"/>
           </div>
           <Footer/>
