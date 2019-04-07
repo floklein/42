@@ -64,7 +64,11 @@ export class RegisterForm extends Component {
           />
         );
       case 3:
-        return(
+        return (
+          <Success/>
+        );
+      default:
+        return (
           <Success/>
         );
     }
