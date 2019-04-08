@@ -49,6 +49,22 @@
       document.getElementById("navbar").style.boxShadow = "none";
       document.querySelector("#navbar .nav-items .logo img").style.width = "3rem";
     }
-  }
+  };
+  document.querySelector('.openSidebar').onclick = () => {
+    document.querySelector('#sidebar').style.width = '75vw';
+    document.querySelector('#sidebar').style.boxShadow = '-5px 0 16px 16px rgba(0, 0, 0, 0.4)';
+    document.querySelector('#wrapper').style.filter = 'brightness(20%)';
+    document.querySelector('body').style.overflow = 'hidden';
+    setTimeout(() => {
+      document.querySelector('.closeSidebar').onclick =
+      document.querySelector('#wrapper').onclick = () => {
+        document.querySelector('#sidebar').style.width = '0';
+        document.querySelector('#sidebar').style.boxShadow = 'none';
+        document.querySelector('#wrapper').style.filter = 'brightness(100%)';
+        document.querySelector('body').style.overflow = 'auto';
+        document.querySelector('#wrapper').onclick = '';
+      }
+    }, 1);
+  };
 </script>
 </html>

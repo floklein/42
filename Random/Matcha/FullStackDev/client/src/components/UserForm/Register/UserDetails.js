@@ -15,8 +15,7 @@ export class UserDetails extends Component {
         <Spring
           config={config.molasses}
           from={{opacity: 0}}
-          to={{opacity: 1}}
-          leave={{opacity: 0}}>
+          to={{opacity: 1}}>
           {props => <div style={props}>
             <h2>Créer un compte.</h2>
             <p className="subtitle">Déjà inscrit ? <span onClick={this.props.gotoLogin}>Connectez-vous !</span></p>
@@ -35,7 +34,6 @@ export class UserDetails extends Component {
                    onChange={handleChange('confirm')} defaultValue={values.confirm}/>
             <p>&nbsp;</p>
             <button className="blue" onClick={this.continue}>Suivant</button>
-
           </div>}
         </Spring>
       </React.Fragment>);

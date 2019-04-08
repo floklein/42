@@ -45,6 +45,7 @@ export class RegisterForm extends Component {
     const values = {username, email, password, confirm, firstName, lastName, gender};
 
     switch (step) {
+      default:
       case 1:
         return (
           <UserDetails
@@ -64,10 +65,6 @@ export class RegisterForm extends Component {
           />
         );
       case 3:
-        return (
-          <Success/>
-        );
-      default:
         return (
           <Success/>
         );

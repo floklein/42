@@ -1,0 +1,65 @@
+#sidebar {
+    position: fixed;
+    height: 100vh;
+    max-width: 300px;
+    width: 0;
+    z-index: 9999;
+    background-color: #090909;
+    color: whitesmoke;
+    box-shadow: none;
+    overflow: hidden;
+    transition: width 1s, box-shadow 1s, border 1s;
+}
+
+#sidebar .icon {
+    position: relative;
+    float: right;
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+}
+
+#sidebar .icon svg {
+    stroke: whitesmoke;
+}
+
+#sidebar .icon:hover svg {
+    stroke: white;
+}
+
+#sidebar .links {
+    width: 100%;
+    padding: 3rem 15%;
+}
+
+#sidebar .links > div {
+    margin: 2rem 0;
+    font-size: 1.2rem;
+}
+
+#sidebar .links > div:nth-child(2):hover {
+    background: linear-gradient(to right, #00bcd4, #5192e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#sidebar .links > div:nth-child(3):hover {
+    background: linear-gradient(to right, #8579e0, #d043ca);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#sidebar .links > div:nth-child(4):hover {
+    background: linear-gradient(90deg, #3fd39f, #3fb8af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#sidebar h1 {
+    background: linear-gradient(to right, #FD6687, #00BCD4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
