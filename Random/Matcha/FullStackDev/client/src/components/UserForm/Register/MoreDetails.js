@@ -20,8 +20,7 @@ export class MoreDetails extends Component {
         <Spring
           config={config.molasses}
           from={{opacity: 0}}
-          to={{opacity: 1}}
-          leave={{opacity: 0}}>
+          to={{opacity: 1}}>
           {props => <div style={props}>
             <h2>À propos de vous.</h2>
             <p className="subtitle">Dites-nous en plus...</p>

@@ -26,6 +26,7 @@ export class UserForm extends Component {
     const {step} = this.state;
 
     switch (step) {
+      default:
       case 0:
         return (
           <RegisterForm

@@ -5,23 +5,31 @@ import './navbar.css'
 import logo from '../../assets/img/logo.svg'
 
 class Navbar extends Component {
-
   render() {
-
     return (
       <div id="navbar">
         <div className="nav-items">
-          <div>
-            <div><a href="">Accueil</a></div>
+          <div className="openSidebar">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                   stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            </div>
+          </div>
+          <div className="defaultLinks">
+            <div><a href="#test">Accueil</a></div>
             <div className="vr"/>
-            <div><a href="#">Soulmatcher</a></div>
+            <div><a href="">Soulmatcher</a></div>
             <div className="vr"/>
-            <div><a href="#">Recherche</a></div>
+            <div><a href="">Recherche</a></div>
           </div>
           <div className="logo">
             <a href=""><img src={logo} alt="logo"/></a>
           </div>
-          <div>
+          <div className="rightButtons">
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
                    stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
