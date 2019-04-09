@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar/navbar";
 import Sidebar from './components/Sidebar/sidebar';
 import Footer from "./components/Footer/footer";
 import UserForm from "./components/UserForm/UserForm";
+import ChatPanel from "./components/Chat/ChatPanel";
 
 class App extends Component {
   render() {
@@ -66,6 +67,7 @@ class App extends Component {
                       src="https://www.google.com/maps/d/embed?mid=1-57radknCCRjqVekxyooWmvh-jQdV0_w&z=6&ll=47.048454, 3.105408"/>
             </div>
             <Footer/>
+            <ChatPanel/>
           </div>
         </React.Fragment>
       </Provider>

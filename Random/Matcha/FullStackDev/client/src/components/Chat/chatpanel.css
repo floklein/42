@@ -1,0 +1,39 @@
+#chatpanel {
+    position: fixed;
+    bottom: 0;
+    right: 5rem;
+    width: 15rem;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 0.4rem 0.4rem 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 15px -6px rgba(0, 0, 0, 0.2);
+}
+
+.chat__title-bar {
+    height: 2.5rem;
+    border-bottom: 1px solid lightgrey;
+    cursor: pointer;
+}
+
+.chat__title-bar:hover {
+    background-color: #f5f5f5;
+}
+
+.chat__interface {
+    height: auto;
+}
+
+.chat__users-bar {
+    height: 3.5rem;
+    border-bottom: 1px solid lightgrey;
+}
+
+.chat__messages {
+    height: 13rem;
+    border-bottom: 1px solid lightgrey;
+}
+
+.chat__input-bar {
+    height: 2.5rem;
+}

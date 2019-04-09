@@ -11,6 +11,16 @@
     transition: width 1s, box-shadow 1s, border 1s;
 }
 
+#overlay {
+    position: fixed;
+    width: 0;
+    height: 100vh;
+    z-index: 9998;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
 #sidebar .icon {
     position: relative;
     float: right;
