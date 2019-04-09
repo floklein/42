@@ -51,20 +51,23 @@
     }
   };
   document.querySelector('.openSidebar').onclick = () => {
-    document.querySelector('#sidebar').style.width = '75vw';
-    document.querySelector('#sidebar').style.boxShadow = '-5px 0 16px 16px rgba(0, 0, 0, 0.4)';
-    document.querySelector('#wrapper').style.filter = 'brightness(20%)';
-    document.querySelector('body').style.overflow = 'hidden';
-    setTimeout(() => {
-      document.querySelector('.closeSidebar').onclick =
-      document.querySelector('#wrapper').onclick = () => {
-        document.querySelector('#sidebar').style.width = '0';
-        document.querySelector('#sidebar').style.boxShadow = 'none';
-        document.querySelector('#wrapper').style.filter = 'brightness(100%)';
-        document.querySelector('body').style.overflow = 'auto';
-        document.querySelector('#wrapper').onclick = '';
-      }
-    }, 1);
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const body = document.querySelector('body');
+
+    sidebar.style.width = '75vw';
+    sidebar.style.boxShadow = '-5px 0 16px 16px rgba(0, 0, 0, 0.4)';
+    overlay.style.width = '100vw';
+    overlay.style.opacity = '0.8';
+    body.style.overflow = 'hidden';
+    document.querySelector('.closeSidebar').onclick =
+      overlay.onclick = () => {
+        sidebar.style.width = '0';
+        sidebar.style.boxShadow = 'none';
+        overlay.style.width = '0';
+        overlay.style.opacity = '0';
+        body.style.overflow = 'auto';
+      };
   };
 </script>
 </html>
