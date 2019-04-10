@@ -129,20 +129,23 @@
 }
 
 .chat__message {
-    display: grid;
+    display: flex;
+    align-items: center;
     margin: 0.5rem;
 }
 
 .chat__message.mine {
-    justify-items: end;
+    justify-content: end;
+    flex-direction: row-reverse;
 }
 
 .chat__message.yours {
-    justify-items: start;
+    justify-content: start;
 }
 
 .chat__msg-content {
     max-width: 70%;
+    height: auto;
     padding: 0.5rem 0.8rem;
     border-radius: 1rem;
 }
@@ -162,6 +165,18 @@
     font-size: 0.8rem;
     /*text-align: justify;*/
     line-height: 1.2rem;
+}
+
+.chat__msg-date {
+    visibility: hidden;
+    margin: 0 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    color: grey;
+}
+
+.chat__message:hover .chat__msg-date {
+    visibility: visible;
 }
 
 /*INPUT BAR*/
