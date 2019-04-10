@@ -3,6 +3,7 @@
     bottom: 0;
     right: 5rem;
     width: 15rem;
+    z-index: 5000;
     background-color: white;
     border: 1px solid lightgrey;
     border-radius: 0.4rem 0.4rem 0 0;
@@ -10,7 +11,11 @@
     box-shadow: 0 0 15px -6px rgba(0, 0, 0, 0.2);
 }
 
+/*TITLE BAR*/
+
 .chat__title-bar {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
     height: 2.5rem;
     border-bottom: 1px solid lightgrey;
     cursor: pointer;
@@ -20,19 +25,146 @@
     background-color: #f5f5f5;
 }
 
-.chat__interface {
-    height: auto;
+.chat__title-text {
+    display: grid;
+    align-items: center;
+    justify-items: start;
 }
 
+.chat__title-text h4 {
+    margin: 0 0 0 0.5rem;
+}
+
+.chat__title-notifs,
+.chat__notifs-div {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.chat__notifs-div {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: red;
+}
+
+.chat__notifs-div p {
+    margin: 0;
+    color: white;
+    font-size: 0.8rem;
+}
+
+/*INTERFACE*/
+
+.chat__interface {
+    transition: height 0.5s;
+}
+
+/*USERS BUBBLES*/
+
 .chat__users-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
     height: 3.5rem;
     border-bottom: 1px solid lightgrey;
 }
 
-.chat__messages {
-    height: 13rem;
-    border-bottom: 1px solid lightgrey;
+.chat__user-div {
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 3.5rem;
 }
+
+.chat__user-pic {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0.5rem;
+    border-radius: 1.25rem;
+    background: lightgrey url("../../assets/img/user.svg") center no-repeat;
+    background-size: 1.5rem;
+    /*background-size: cover;*/
+    cursor: pointer;
+}
+
+.chat__user-pic.notif {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px red;
+}
+
+.chat__user-overlay {
+    position: absolute;
+    visibility: hidden;
+    top: 1rem;
+    width: 3.5rem;
+    height: 1.5rem;
+    z-index: 5001;
+    padding: 0.4rem 0.5rem;
+    border-radius: 0.75rem;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    font-size: 0.7rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.chat__user-div:hover .chat__user-overlay {
+    visibility: visible;
+}
+
+/*MESSAGES*/
+
+.chat__messages {
+    height: 15rem;
+    border-bottom: 1px solid lightgrey;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.chat__message {
+    display: grid;
+    margin: 0.5rem;
+}
+
+.chat__message.mine {
+    justify-items: end;
+}
+
+.chat__message.yours {
+    justify-items: start;
+}
+
+.chat__msg-content {
+    max-width: 70%;
+    padding: 0.5rem 0.8rem;
+    border-radius: 1rem;
+}
+
+.chat__message.mine .chat__msg-content {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.chat__message.yours .chat__msg-content {
+    background-color: #e7e7e7;
+}
+
+.chat__msg-content p {
+    margin: 0;
+    word-break: break-word;
+    font-size: 0.8rem;
+    /*text-align: justify;*/
+    line-height: 1.2rem;
+}
+
+/*INPUT BAR*/
 
 .chat__input-bar {
     height: 2.5rem;
