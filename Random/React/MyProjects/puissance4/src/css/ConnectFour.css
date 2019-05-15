@@ -1,5 +1,9 @@
+::selection {
+    background-color: transparent;
+}
+
 .title {
-    margin-top: 5vw;
+    margin: 5vw auto;
     text-align: center;
     font-size: 10vw;
     font-weight: bold;
@@ -13,8 +17,10 @@
     width: 70vw;
     height: 60vw;
     margin: 5vw auto;
+    padding: 1vw;
     background-color: darkblue;
     border-radius: 3vw;
+    border-bottom: 0.75vw solid black;
 }
 
 .piece {
@@ -33,32 +39,77 @@
 }
 
 .message {
+    width: fit-content;
+    margin: auto;
+    padding: 2vw 4vw;
     text-align: center;
     font-size: 5vw;
     font-weight: bold;
+    color: white;
+    border-radius: 3.5vw;
 }
 
 .message.red {
-    color: red;
+    background-color: red;
 }
 
 .message.yellow {
-    color: #ffd500;
+    background-color: #ffd500;
 }
 
 .message.win {
-    color: green;
+    background-color: green;
 }
 
 .restart {
-    display: none;
+    display: block;
     margin: 5vw auto;
     width: 30vw;
     height: 10vw;
     border-radius: 5vw;
     overflow: hidden;
+    border: none;
+    border-bottom: 0.5vw solid lightgrey;
+    background-color: whitesmoke;
+    font-size: 2.5vw;
+    text-transform: uppercase;
+    font-weight: bold;
+    outline: none;
 }
 
-.restart.shown {
-    display: block;
+.restart:active {
+    border-bottom: none;
+}
+
+.ai-label {
+    box-sizing: border-box;
+    display: grid;
+    align-items: center;
+    width: 10vw;
+    height: 10vw;
+    margin: 5vw auto;
+    border-radius: 5vw;
+    text-align: center;
+    background-color: whitesmoke;
+    font-size: 5vw;
+    border-bottom: 0.5vw solid lightgrey;
+}
+
+input[type="checkbox"]:checked + .ai-label {
+    background-color: lightgreen;
+    color: white;
+    animation: pulse 2s infinite;
+    border-bottom: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(144, 238, 144, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 3vw rgba(144, 238, 144, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(144, 238, 144, 0);
+    }
 }

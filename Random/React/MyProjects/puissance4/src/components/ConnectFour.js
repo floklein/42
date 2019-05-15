@@ -5,13 +5,20 @@ class ConnectFour extends Component {
   state = {
     tab: Array(6).fill().map(() => Array(7).fill('W')),
     turn: Math.random() < 0.5 ? 'R' : 'Y',
-    win: ''
+    win: '',
+    ai: false,
+    computer: ''
   };
 
   nextTurn = () => {
-    this.setState({
-      turn: this.state.turn === 'R' ? 'Y' : 'R'
-    });
+    const {ai, turn} = this.state;
+    if (ai) {
+      this.computerPlay();
+    } else {
+      this.setState({
+        turn: turn === 'R' ? 'Y' : 'R'
+      });
+    }
   };
 
   findFirstWhite = (tab, r, c) => {
@@ -39,6 +46,29 @@ class ConnectFour extends Component {
     if (!this.didWin(this.state.turn)) {
       this.nextTurn();
     }
+  };
+
+  computerPlay = () => {
+    if (this.state.win !== '') {
+      return;
+    }
+    let tab = [...this.state.tab];
+    let c = Math.floor(Math.random() * 7);
+    let white = this.findFirstWhite(tab, 0, c);
+    let i = 1000;
+    while (white === -1 && i++ <= 1000) {
+      c = Math.floor(Math.random() * 7);
+      white = this.findFirstWhite(tab, 0, c);
+      if (i === 999) {
+        alert('No winner!');
+        return;
+      }
+    }
+    tab[white][c] = this.state.computer;
+    this.setState({
+      tab: tab
+    });
+    this.didWin(this.state.computer);
   };
 
   didWin = (who) => {
@@ -133,17 +163,36 @@ class ConnectFour extends Component {
     this.setState({
       tab: Array(6).fill().map(() => Array(7).fill('W')),
       turn: Math.random() < 0.5 ? 'R' : 'Y',
-      win: ''
+      win: '',
+      ai: false,
+      computer: ''
+    });
+  };
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.checked,
+      computer: this.state.turn === 'R' ? 'Y' : 'R'
     });
   };
 
   render() {
-    const {tab, turn, win} = this.state;
+    const {tab, turn, win, ai} = this.state;
     return (
       <React.Fragment>
         <div className="title">
-          Connect Four
+          ConnectFour
         </div>
+        <form>
+          <input
+            id="ai"
+            name="ai"
+            type="checkbox"
+            checked={ai}
+            hidden
+            onChange={this.handleChange}/>
+          <label className="ai-label" htmlFor="ai">AI</label>
+        </form>
         <div className="grid">
           {tab.map((row, r) => (
             row.map((piece, c) => (
@@ -165,11 +214,12 @@ class ConnectFour extends Component {
           'yellow': turn === 'Y',
           'win': win !== ''
         })}>
-          {win !== '' ? win + ' won!' : (turn === 'R' ? 'Red' : 'Yellow') + '\'s turn'}
+          {win !== '' ? (win === 'R' ? 'Red' : 'Yellow') + ' won!' : (turn === 'R' ? 'Red' : 'Yellow') + '\'s turn'}
         </div>
         <button className={classnames('restart', {
           'shown': win !== ''
-        })} onClick={this.restartGame}>Restart</button>
+        })} onClick={this.restartGame}>Restart
+        </button>
       </React.Fragment>
     );
   }
