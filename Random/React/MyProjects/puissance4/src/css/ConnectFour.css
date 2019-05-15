@@ -1,0 +1,64 @@
+.title {
+    margin-top: 5vw;
+    text-align: center;
+    font-size: 10vw;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-items: center;
+    justify-items: center;
+    width: 70vw;
+    height: 60vw;
+    margin: 5vw auto;
+    background-color: darkblue;
+    border-radius: 3vw;
+}
+
+.piece {
+    width: 8vw;
+    height: 8vw;
+    background-color: white;
+    border-radius: 4vw;
+}
+
+.piece.red {
+    background-color: red;
+}
+
+.piece.yellow {
+    background-color: yellow;
+}
+
+.message {
+    text-align: center;
+    font-size: 5vw;
+    font-weight: bold;
+}
+
+.message.red {
+    color: red;
+}
+
+.message.yellow {
+    color: #ffd500;
+}
+
+.message.win {
+    color: green;
+}
+
+.restart {
+    display: none;
+    margin: 5vw auto;
+    width: 30vw;
+    height: 10vw;
+    border-radius: 5vw;
+    overflow: hidden;
+}
+
+.restart.shown {
+    display: block;
+}
