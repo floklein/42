@@ -28,6 +28,7 @@
     height: 8vw;
     background-color: white;
     border-radius: 4vw;
+    cursor: copy;
 }
 
 .piece.red {
@@ -75,6 +76,7 @@
     text-transform: uppercase;
     font-weight: bold;
     outline: none;
+    cursor: pointer;
 }
 
 .restart:active {
@@ -93,6 +95,7 @@
     background-color: whitesmoke;
     font-size: 5vw;
     border-bottom: 0.5vw solid lightgrey;
+    cursor: pointer;
 }
 
 input[type="checkbox"]:checked + .ai-label {
