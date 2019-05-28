@@ -1,0 +1,67 @@
+/*VARIABLES*/
+
+html {
+    --bg: #fcfcfc;
+    --bg-container: #ebebeb;
+    --color-headings: #0077ff;
+    --color-text: #333333;
+}
+
+html[data-theme="dark"] {
+    --bg: #333333;
+    --bg-container: #434343;
+    --color-headings: #3694ff;
+    --color-text: #b5b5b5;
+}
+
+/*GLOBAL*/
+
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+/*CSS*/
+
+html.transition,
+html.transition *,
+html.transition *::before,
+html.transition *::after {
+    transition: all 0.5s !important;
+    transition-delay: 0s !important;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-color: var(--bg);
+}
+
+.container {
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "title button" "content content";
+    background-color: var(--bg-container);
+}
+
+.container h1 {
+    margin: 0;
+    color: var(--color-headings);
+}
+
+.container p {
+    grid-area: content;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    color: var(--color-text);
+}
