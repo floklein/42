@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+}
+
+header {
+    width: 100%;
+    height: 5rem;
+    background-color: red;
+}
+
+.container {
+    width: 100%;
+    height: calc(100vh - 5rem);
+    background-color: green;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery > img {
+    padding: 1rem;
+    width: calc(100% - 2rem);
+    /*margin: 1rem;*/
+    animation: carousel 20s infinite linear;
+}
+
+.gallery > img:nth-child(odd) {
+    margin-top: calc(-5rem + 1rem);
+}
+
+@keyframes carousel {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(100vh);
+    }
+}
