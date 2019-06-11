@@ -1,0 +1,8 @@
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+* {
+    font-family: inherit;
+    color: var(--color-text);
+}
