@@ -3,6 +3,7 @@ html {
     --bg-container: #ebebeb;
     --color-headings: #0077ff;
     --color-text: #333333;
+    --color-borders: #dadada;
 }
 
 html[data-theme="dark"] {
@@ -10,6 +11,7 @@ html[data-theme="dark"] {
     --bg-container: #434343;
     --color-headings: #3694ff;
     --color-text: #b5b5b5;
+    --color-borders: #545454;
 }
 
 html.transition,
