@@ -1,0 +1,165 @@
+header {
+    position: fixed;
+    display: grid;
+    grid-template-columns: 5rem auto 5rem;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 5rem;
+    z-index: 10;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--color-borders);
+    box-shadow: 0 -40px 16px 32px black !important;
+}
+
+header div.logo {
+    margin-top: 4px;
+}
+
+header a.logo,
+header a.logo span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    transition: text-shadow 2s, color !important;
+}
+
+html[data-theme="light"] a.logo,
+html[data-theme="light"] a.logo span {
+    color: var(--color-text);
+}
+
+html[data-theme="dark"] a.logo,
+html[data-theme="dark"] a.logo span {
+    color: white;
+    font-weight: bold;
+    animation: neon 2s infinite ease-in-out, rainbow 30s infinite linear;
+}
+
+@keyframes neon {
+    from {
+        filter: brightness(100%);
+    }
+    80% {
+        filter: brightness(100%);
+    }
+    85% {
+        filter: brightness(110%);
+    }
+    90% {
+        filter: brightness(100%);
+    }
+    95% {
+        filter: brightness(120%);
+    }
+    to {
+        filter: brightness(100%);
+    }
+}
+
+@keyframes rainbow {
+    from {
+        text-shadow: 0 0 1px white, 0 0 2px white, 0 0 3px white, 0 0 5px deeppink, 0 0 10px deeppink, 0 0 15px deeppink, 0 0 20px deeppink, 0 0 25px deeppink;
+    }
+    25% {
+        text-shadow: 0 0 1px white, 0 0 2px white, 0 0 3px white, 0 0 5px dodgerblue, 0 0 10px dodgerblue, 0 0 15px dodgerblue, 0 0 20px dodgerblue, 0 0 25px dodgerblue;
+    }
+    50% {
+        text-shadow: 0 0 1px white, 0 0 2px white, 0 0 3px white, 0 0 5px lawngreen, 0 0 10px lawngreen, 0 0 15px lawngreen, 0 0 20px lawngreen, 0 0 25px lawngreen;
+    }
+    75% {
+        text-shadow: 0 0 1px white, 0 0 2px white, 0 0 3px white, 0 0 5px orangered, 0 0 10px orangered, 0 0 15px orangered, 0 0 20px orangered, 0 0 25px orangered;
+    }
+    to {
+        text-shadow: 0 0 1px white, 0 0 2px white, 0 0 3px white, 0 0 5px deeppink, 0 0 10px deeppink, 0 0 15px deeppink, 0 0 20px deeppink, 0 0 25px deeppink;
+    }
+}
+
+html[data-theme="dark"] a.logo span.broken {
+    color: white;
+    animation: broken 4s infinite;
+}
+
+@keyframes broken {
+    from {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    29% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    30% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    32% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    34% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    35% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    45% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    46% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    to {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+}
+
+html[data-theme="dark"] a.logo span.broken2 {
+    color: white;
+    animation: broken2 8s infinite alternate;
+}
+
+@keyframes broken2 {
+    from {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    29% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    30% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    31% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    34% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    35% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    40% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    41% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    to {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+}

@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    height: calc(100vh - 5rem);
+    height: 100vh;
     overflow: hidden;
     background-color: var(--bg);
 }
@@ -20,11 +20,11 @@
     border-radius: 0.5rem;
     filter: blur(10px);
     opacity: 0.5;
-    animation: carousel 20s infinite linear;
+    animation: carousel 40s infinite linear;
 }
 
 .gallery > img:nth-child(2n - 1) {
-    margin-top: calc(-72.5%);
+    margin-top: -72.5%;
 }
 
 @keyframes carousel {
