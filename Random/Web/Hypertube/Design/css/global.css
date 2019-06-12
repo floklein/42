@@ -1,8 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Faster+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+
 html {
     font-family: Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
 }
 
 * {
     font-family: inherit;
     color: var(--color-text);
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 5rem auto 5rem;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 5rem;
+    z-index: 10;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--color-borders);
+    box-shadow: 0 -40px 16px 32px black !important;
+}
+
+header a.logo {
+    font-family: 'Monoton', cursive;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+}
+
+html[data-theme="light"]  a.logo,
+html[data-theme="light"]  a.logo span {
+    color: var(--color-text);
+    text-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+html[data-theme="dark"] a.logo {
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 5px #FF1177, 0 0 10px #FF1177, 0 0 15px #FF1177, 0 0 20px #FF1177, 0 0 25px #FF1177;
+    animation: neon 2s infinite ease-in-out;
+}
+
+@keyframes neon {
+    from {
+        filter: brightness(100%);
+    }
+    80% {
+        filter: brightness(100%);
+    }
+    85% {
+        filter: brightness(110%);
+    }
+    90% {
+        filter: brightness(100%);
+    }
+    95% {
+        filter: brightness(120%);
+    }
+    to {
+        filter: brightness(100%);
+    }
+}
+
+html[data-theme="dark"] header a.logo span.broken {
+    color: white;
+    animation: broken 4s infinite;
+}
+
+@keyframes broken {
+    from {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    29% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    30% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    32% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    34% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    35% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    45% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    46% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    to {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+}
+
+html[data-theme="dark"] header a.logo span.broken2 {
+    color: white;
+    animation: broken2 8s infinite alternate;
+}
+
+@keyframes broken2 {
+    from {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    29% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    30% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    31% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    34% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    35% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    40% {
+        filter: brightness(50%) blur(2px);
+        text-shadow: none;
+    }
+    41% {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
+    to {
+        filter: brightness(100%);
+        text-shadow: inherit;
+    }
 }
