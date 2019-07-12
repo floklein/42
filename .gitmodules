@@ -1,3 +1,6 @@
 [submodule "Web/Matcha"]
 	path = Web/Matcha
 	url = https://github.com/floklein/Matcha.git
+[submodule "Web/Hypertube"]
+	path = Web/Hypertube
+	url = https://github.com/shcohen/Hypertube.git
