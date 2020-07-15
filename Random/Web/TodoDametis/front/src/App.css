@@ -1,0 +1,101 @@
+body {
+    background-color: #EEEEEE;
+}
+
+input[type="text"] {
+    border: none;
+    border-radius: 3rem;
+    outline: none;
+}
+
+input[type="submit"], button {
+    border: none;
+    border-radius: 3rem;
+    background-color: #47D1AE;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, button:hover {
+    opacity: 0.8;
+}
+
+input[type="submit"]:active, button:active {
+    opacity: 1;
+    filter: brightness(0.8);
+}
+
+.app {
+    width: 100%;
+}
+
+.logo {
+    margin: 2rem 0 0 2rem;
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.addItem {
+    display: flex;
+    justify-content: center;
+    margin: 1rem auto 4rem auto;
+}
+
+.addItem__input {
+    width: 20rem;
+    padding: 0 1.5rem;
+    font-size: 18px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.03), 0 4px 4px rgba(0,0,0,0.08);
+    height: 3rem;
+}
+
+.addItem__button {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+    font-size: 24px;
+    color: white;
+    box-shadow: 0 10px 20px rgba(71,209,174,0.25), 0 6px 6px rgba(71,209,174,0.30);
+}
+
+.itemsList {
+    padding: 0;
+}
+
+.itemsList__item {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    max-width: 25rem;
+    padding: 1rem;
+    background-color: white;
+    margin: 0 auto 2rem auto;
+    border-radius: 1rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.itemsList__item__name, .itemsList__item__form, .itemsList__item__input {
+    flex-grow: 1;
+}
+
+.itemsList__item__name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.itemsList__item__form {
+    display: flex;
+
+}
+
+.itemsList__item__input {
+    background-color: #D3D3D3;
+    padding: 0 1rem;
+}
+
+.itemsList__item__button {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+}
