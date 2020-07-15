@@ -16,8 +16,8 @@ header div.logo {
     margin-top: 4px;
 }
 
-header a.logo,
-header a.logo span {
+ a.logo,
+a.logo span {
     font-family: 'Orbitron', sans-serif;
     font-size: 2rem;
     text-transform: uppercase;
